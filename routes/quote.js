@@ -38,5 +38,7 @@ router.get('/api/quotes', midWare.checkToken, (req, res, next) => {
     });
 });
 
-
+router.get('/api/test', (req, res, next) => {
+    res.status(200).jsonp({"test": "allowed"});
+});
 module.exports = router;
