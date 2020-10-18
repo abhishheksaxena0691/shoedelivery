@@ -289,7 +289,7 @@ router.post('/api/bill/uploadGeneratedBills', (req, res, next) => {
             console.log(pdfData);
             
                 
-            pdf2pic.convertBulk("./public/pdfBills/"+pdfData.filePath, -1).then((resolve) => {
+            pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
                 pdfData.billImg = resolve;
                 db.getDB().collection('billing').insertOne(pdfData, (err, doc) => {
                     if(err) {
