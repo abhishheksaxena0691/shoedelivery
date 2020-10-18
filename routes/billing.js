@@ -137,7 +137,7 @@ router.get('/api/bill/:month/:year', midWare.checkToken, (req, res, next) => {
     });
 });
 
-router.post('/api/bill/generateDealerBill', midWare.checkToken,(req, res, next) => {
+router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next) => {
 
     if (req.decoded.userType == 1) {
         req.decoded.userType = 'Dealer';
@@ -188,7 +188,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken,(req, res, next) 
       res.status(200).jsonp({"fileName": fileName+'.pdf'});
 });
 
-router.post('/api/bill/uploadGeneratedBills', (req, res, next) => {
+router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
     console.log(req.body);
     let pdfData = {};
     pdfData.filePath = req.body.fileName;
