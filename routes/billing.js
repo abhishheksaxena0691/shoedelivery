@@ -102,7 +102,7 @@ router.get('/api/bill/upload', (req, res, next) => {
                 size: "900x800"
             });
 
-            console.log(pdfData);
+         //   console.log(pdfData);
             
                 
             pdf2pic.convertBulk("./public/pdfBills/"+pdfData.filePath, -1).then((resolve) => {
@@ -124,8 +124,7 @@ router.get('/api/bill/upload', (req, res, next) => {
 
 
 router.get('/api/bill/:month/:year', midWare.checkToken, (req, res, next) => {
-    console.log("bills");
-    console.log(req.decoded);
+   
    db.getDB().collection('billing').find({user: req.decoded.mobile, date: {$gte: new Date(req.params.year+"-"+req.params.month+"-01"), $lt: new Date()}}).toArray((err, doc) => {
    // db.getDB().collection('billing').find({date: {$gte: new Date(req.params.year+"-"+req.params.month+"-01"), $lt: new Date()}}).toArray((err, doc) => {
         if(err) {
@@ -182,8 +181,6 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken,(req, res, next) 
    
    const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
       pdf.create(ht).toStream(function(err, stream){
-         
-
         stream.pipe(fs.createWriteStream('./public/html/'+fileName+'.pdf'));
       });
 
@@ -197,10 +194,7 @@ router.post('/api/bill/uploadGeneratedBills', (req, res, next) => {
     pdfData.filePath = req.body.fileName;
     fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
         pdfParse(pdfBuffer).then((data) => {
-            
-            
             const splitText = data.text.split(/\r?\n/);
-            
             pdfData.raw = data.text;
             pdfData.reports = [];
             let isParsingComplete = false;
@@ -297,6 +291,25 @@ router.post('/api/bill/uploadGeneratedBills', (req, res, next) => {
                         next(err);
 
                     } else {
+                        let billInfo = {
+                            billDetails: pdfData,
+                            paidBy: req.decoded.usrName,
+                            usrNumber: req.decoded.mobile,
+                           
+                            paymentMode: "",
+                            payStatus: false,
+                            createdOn: new Date().toString(),
+                            updatedOn: new Date().toString()
+                        };
+        
+                        db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
+                            if(err) {
+                                res.status(410).jsonp(err);
+                                next(err);
+                            } else {
+                                res.status(200).jsonp("Delivery request send successfully!");
+                            }
+                        });
                         res.status(201).jsonp('Bill added successfully!');
                     }
                 });
@@ -307,7 +320,7 @@ router.post('/api/bill/uploadGeneratedBills', (req, res, next) => {
 });
 
 function welcomeTemplate (userData, productList) {
-    console.log(userData);
+  //  console.log(userData);
     var verificationEmail;
     verificationEmail =`<!doctype html>
 <html>
