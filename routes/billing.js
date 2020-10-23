@@ -174,7 +174,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     var totalPrice = 0;
     
     for (let i=0; i< req.body.selectedProducts.length; i++) {
-        totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].price);
+        totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
     }
     req.decoded['totalPrice'] = totalPrice;
    const ht =  pdfGeneration(req.decoded, req.body.selectedProducts);
