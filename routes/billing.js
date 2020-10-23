@@ -260,12 +260,12 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
             //console.log(pdfData.total.replace(/[^a-zA-Z0-9]/g, ''));
 
             let pDate = pdfData.customer.split('-');
+            
             //console.log(pDate[2]+"-"+pDate[1]+"-"+pDate[0]);
             
-            pdfData.date = new Date(pDate[2]+"-"+pDate[0]+"-"+pDate[1]);
+            pdfData.date = new Date();
 
-
-
+            console.log(pdfData);
             let fNData = pdfData.filePath.split('_');
             let usrMobile = fNData[2].split('.');
             pdfData.deportment = fNData[0];
