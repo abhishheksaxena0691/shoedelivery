@@ -20,6 +20,7 @@ router.post('/api/delivery', midWare.checkToken, (req, res, next) => {
                     usrNumber: req.decoded.mobile,
                     address: req.body.address,
                     paymentMode: req.body.payMode,
+                    category: "none",
                     payStatus: false,
                     createdOn: new Date().toString(),
                     updatedOn: new Date().toString()
@@ -52,13 +53,28 @@ router.get('/api/delivery/all', midWare.checkToken, (req, res, next) => {
 
 router.post('/api/delivery/updatePaymentMode', midWare.checkToken, (req, res, next) => {
     console.log(req.body);
-    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode}}, {returnOriginal: false}, (err, doc) => {
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode, category: 'delivery'  }}, {returnOriginal: false}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
         } else {
             if(doc.value)
-                res.status(201).jsonp('Your payee approved successfully!');
+                res.status(201).jsonp('payment status updated successfully!');
+            else
+                res.status(410).jsonp("Invalid sponsor. Please check again!");
+        }
+    });
+});
+
+router.post('/api/delivery/updatedeliveryCredit', midWare.checkToken, (req, res, next) => {
+    console.log(req.body);
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: 'credit', payStatus: false, category: 'credit' }}, {returnOriginal: false}, (err, doc) => {
+        if(err) {
+            res.status(410).jsonp(err);
+            next(err);
+        } else {
+            if(doc.value)
+                res.status(201).jsonp('Delivery Satus updated successfully!');
             else
                 res.status(410).jsonp("Invalid sponsor. Please check again!");
         }

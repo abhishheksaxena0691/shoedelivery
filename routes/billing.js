@@ -174,10 +174,10 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     var totalPrice = 0;
     
     for (let i=0; i< req.body.selectedProducts.length; i++) {
-        totalPrice += parseInt(req.body.selectedProducts[i].price);
+        totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].price);
     }
     req.decoded['totalPrice'] = totalPrice;
-   const ht =  welcomeTemplate(req.decoded, req.body.selectedProducts);
+   const ht =  pdfGeneration(req.decoded, req.body.selectedProducts);
    
    const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
       pdf.create(ht).toStream(function(err, stream){
@@ -319,7 +319,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
     });
 });
 
-function welcomeTemplate (userData, productList) {
+function pdfGeneration (userData, productList) {
   //  console.log(userData);
     var verificationEmail;
     verificationEmail =`<!doctype html>
@@ -459,7 +459,7 @@ function welcomeTemplate (userData, productList) {
             for (let i=0; i< productList.length;i ++) {
             verificationEmail += `<tr class="item">
                 <td>
-               ${ productList[i].name}
+                ${productList[i].quantity} X ${productList[i].name}
                 </td>
                 
                 <td>
