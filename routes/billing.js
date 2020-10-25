@@ -295,7 +295,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                             billDetails: pdfData,
                             paidBy: req.decoded.usrName,
                             usrNumber: req.decoded.mobile,
-                           
+                            category: 'dashboard',
                             paymentMode: "",
                             payStatus: false,
                             createdOn: new Date().toString(),
@@ -310,7 +310,6 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                                 res.status(200).jsonp("Delivery request send successfully!");
                             }
                         });
-                        res.status(201).jsonp('Bill added successfully!');
                     }
                 });
             });
