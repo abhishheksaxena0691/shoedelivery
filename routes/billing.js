@@ -270,7 +270,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
             let usrMobile = fNData[2].split('.');
             pdfData.deportment = fNData[0];
             pdfData.user = usrMobile[0];
-            pdfData.genDate = new Date(fNData[1]*1000).toString();
+            pdfData.genDate = new Date().toString();
 
             const pdf2pic = new PDF2Pic({
                 density: 100,
