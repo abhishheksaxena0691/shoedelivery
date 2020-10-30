@@ -32,6 +32,7 @@ router.post('/api/login', (req, res, next) => {
 });
 
 
+
 router.post('/api/register', (req, res, next) => {
     if(!req.body) {
         res.status(400).jsonp('Incomplete information');
