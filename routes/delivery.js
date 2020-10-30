@@ -68,7 +68,7 @@ router.post('/api/delivery/moveToDelivery', midWare.checkToken, (req, res, next)
 
 router.post('/api/delivery/updatePaymentMode', midWare.checkToken, (req, res, next) => {
     console.log(req.body);
-    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode, category: 'delivery', payStatus: true  }}, {returnOriginal: false}, (err, doc) => {
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode, payStatus: true  }}, {returnOriginal: false}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
@@ -92,6 +92,20 @@ router.post('/api/delivery/updatedeliveryCredit', midWare.checkToken, (req, res,
                 res.status(201).jsonp('Delivery Satus updated successfully!');
             else
                 res.status(410).jsonp("Invalid sponsor. Please check again!");
+        }
+    });
+});
+router.post('/api/delivery/updateInvoiceStatus', midWare.checkToken, (req, res, next) => {
+    console.log(req.body);
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {invoiceStatus: parseInt(req.body.status)}}, {returnOriginal: false}, (err, doc) => {
+        if(err) {
+            res.status(410).jsonp(err);
+            next(err);
+        } else {
+            if(doc.value)
+                res.status(201).jsonp('Invoice Satus updated successfully!');
+            else
+                res.status(410).jsonp("Invalid . Please check again!");
         }
     });
 });
