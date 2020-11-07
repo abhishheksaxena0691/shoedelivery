@@ -5,7 +5,7 @@ const midWare = require('../module/middleware');
 
 
 router.post('/api/delivery', midWare.checkToken, (req, res, next) => {
-    db.getDB().collection('billing').findOne({_id: db.getPrimaryKey(req.body.billId)}, (err, doc) => {
+    db.getDB().collection('billing').findOne({_id: db.getPrimaryKey(req.body.billId), userType: req.decode.userType}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);

@@ -12,7 +12,7 @@ router.post('/api/login', (req, res, next) => {
         res.status(400).jsonp('Incomplete information');
     } else {
         console.log(req.body);
-        db.getDB().collection('userInfo').findOne({mobileNo: req.body.usrName, userType: parseInt(req.body.userType)}).then((doc) => {
+        db.getDB().collection('userInfo').findOne({mobileNo: req.body.usrName}).then((doc) => {
             if (doc) {
                 if(bcrypt.compareSync(req.body.yrPass, doc.password)) {
                     let token = jwt.sign({uId: doc._id, mobile: doc.mobileNo, usrName: doc.fstName, userType: doc.userType}, config.secret);

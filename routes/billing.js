@@ -299,7 +299,8 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                             paymentMode: "",
                             payStatus: false,
                             createdOn: new Date().toString(),
-                            updatedOn: new Date().toString()
+                            updatedOn: new Date().toString(),
+                            userType: req.decoded.userType
                         };
         
                         db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
