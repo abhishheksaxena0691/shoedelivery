@@ -53,7 +53,7 @@ router.get('/api/delivery/all', midWare.checkToken, (req, res, next) => {
 
 router.post('/api/delivery/moveToDelivery', midWare.checkToken, (req, res, next) => {
     console.log(req.body);
-    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode, category: 'delivery', payStatus: true, address:req.body.address  }}, {returnOriginal: false}, (err, doc) => {
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {paymentMode: req.body.payMode, category: 'delivery', address:req.body.address  }}, {returnOriginal: false}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
