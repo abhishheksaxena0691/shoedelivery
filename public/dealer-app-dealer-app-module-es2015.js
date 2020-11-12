@@ -5821,10 +5821,10 @@ let DealerDashboadComponent = class DealerDashboadComponent {
         else {
             requestData['payMode'] = this.deliveryFrm.value.payMode;
             if (this.deliveryFrm.value.payMode !== "") {
-                requestData['payStatus'] = false;
+                requestData['payStatus'] = true;
             }
             else {
-                requestData['payStatus'] = true;
+                requestData['payStatus'] = false;
             }
         }
         this.deliveryService.moveToDelivery(requestData).subscribe(res => {

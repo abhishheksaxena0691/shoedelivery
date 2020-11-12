@@ -8336,9 +8336,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             requestData['payMode'] = this.deliveryFrm.value.payMode;
 
             if (this.deliveryFrm.value.payMode !== "") {
-              requestData['payStatus'] = false;
-            } else {
               requestData['payStatus'] = true;
+            } else {
+              requestData['payStatus'] = false;
             }
           }
 
