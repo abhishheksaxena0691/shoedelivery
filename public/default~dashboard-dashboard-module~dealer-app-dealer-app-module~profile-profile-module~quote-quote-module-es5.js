@@ -12,7 +12,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~profile-profile-module~quote-quote-module"], {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"], {
   /***/
   "./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js":
   /*!************************************************************************************************!*\
@@ -5512,4 +5512,4 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   }
 }]);
-//# sourceMappingURL=default~dashboard-dashboard-module~profile-profile-module~quote-quote-module-es5.js.map
+//# sourceMappingURL=default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module-es5.js.map

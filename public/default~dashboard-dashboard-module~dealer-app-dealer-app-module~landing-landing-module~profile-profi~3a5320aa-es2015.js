@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"],{
 
 /***/ "./node_modules/@angular/forms/fesm2015/forms.js":
 /*!*******************************************************!*\
@@ -8122,7 +8122,8 @@ __webpack_require__.r(__webpack_exports__);
 let ApiLinkService = class ApiLinkService {
     constructor() {
         //srvLink: string = "http://localhost:8080/";
-        this.srvLink = "http://retail.mobinyx.com/";
+        //srvLink: string = "http://retail.mobinyx.com/";
+        this.srvLink = "http://35.154.98.22:8080/";
         this.server = this.srvLink + "api/";
     }
 };
@@ -8137,4 +8138,4 @@ ApiLinkService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module-es2015.js.map
+//# sourceMappingURL=default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa-es2015.js.map

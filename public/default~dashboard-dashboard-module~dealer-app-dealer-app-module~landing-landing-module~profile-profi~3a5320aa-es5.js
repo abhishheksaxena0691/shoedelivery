@@ -32,7 +32,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"], {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"], {
   /***/
   "./node_modules/@angular/forms/fesm2015/forms.js":
   /*!*******************************************************!*\
@@ -11632,7 +11632,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _classCallCheck(this, ApiLinkService);
 
       //srvLink: string = "http://localhost:8080/";
-      this.srvLink = "http://retail.mobinyx.com/";
+      //srvLink: string = "http://retail.mobinyx.com/";
+      this.srvLink = "http://35.154.98.22:8080/";
       this.server = this.srvLink + "api/";
     };
 
@@ -11642,4 +11643,4 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /***/
   }
 }]);
-//# sourceMappingURL=default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module-es5.js.map
+//# sourceMappingURL=default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa-es5.js.map

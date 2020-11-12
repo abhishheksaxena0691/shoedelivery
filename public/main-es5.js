@@ -697,7 +697,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | landing-landing-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("landing-landing-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("landing-landing-module")]).then(__webpack_require__.bind(null,
         /*! ./landing/landing.module */
         "./src/app/landing/landing.module.ts")).then(function (m) {
           return m.LandingModule;
@@ -708,7 +708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | dashboard-dashboard-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("dashboard-dashboard-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("common"), __webpack_require__.e("dashboard-dashboard-module")]).then(__webpack_require__.bind(null,
         /*! ./dashboard/dashboard.module */
         "./src/app/dashboard/dashboard.module.ts")).then(function (m) {
           return m.DashboardModule;
@@ -720,7 +720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | report-report-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("report-report-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("report-report-module")]).then(__webpack_require__.bind(null,
         /*! ./report/report.module */
         "./src/app/report/report.module.ts")).then(function (m) {
           return m.ReportModule;
@@ -732,7 +732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | return-return-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("return-return-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("return-return-module")]).then(__webpack_require__.bind(null,
         /*! ./return/return.module */
         "./src/app/return/return.module.ts")).then(function (m) {
           return m.ReturnModule;
@@ -744,7 +744,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | delivery-delivery-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("delivery-delivery-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("common"), __webpack_require__.e("delivery-delivery-module")]).then(__webpack_require__.bind(null,
         /*! ./delivery/delivery.module */
         "./src/app/delivery/delivery.module.ts")).then(function (m) {
           return m.DeliveryModule;
@@ -756,7 +756,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | missing-missing-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("missing-missing-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("missing-missing-module")]).then(__webpack_require__.bind(null,
         /*! ./missing/missing.module */
         "./src/app/missing/missing.module.ts")).then(function (m) {
           return m.MissingModule;
@@ -768,7 +768,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | profile-profile-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
         /*! ./profile/profile.module */
         "./src/app/profile/profile.module.ts")).then(function (m) {
           return m.ProfileModule;
@@ -780,10 +780,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | quote-quote-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~missing-missing-module~profile-profile-m~60971f46"), __webpack_require__.e("default~dashboard-dashboard-module~landing-landing-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("default~dashboard-dashboard-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("quote-quote-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("quote-quote-module")]).then(__webpack_require__.bind(null,
         /*! ./quote/quote.module */
         "./src/app/quote/quote.module.ts")).then(function (m) {
           return m.QuoteModule;
+        });
+      },
+      canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+    }, {
+      path: "",
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | dealer-app-dealer-app-module */
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("common"), __webpack_require__.e("dealer-app-dealer-app-module")]).then(__webpack_require__.bind(null,
+        /*! ./dealer-app/dealer-app.module */
+        "./src/app/dealer-app/dealer-app.module.ts")).then(function (m) {
+          return m.DealerAppModule;
         });
       },
       canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
@@ -794,7 +806,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
+      imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
+        useHash: true
+      })],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })], AppRoutingModule);
     /***/
@@ -1001,7 +1015,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "canActivate",
         value: function canActivate(next, state) {
           if (this.auth.isLoggedIn()) {
-            return true;
+            var usertype = this.auth.getUserType();
+            console.log(usertype);
+
+            if (parseInt(usertype) === 1) {
+              if (state.url.split('/')[1] === 'dealer') {
+                return true;
+              } else {
+                if (state.url === '/profile') {
+                  return true;
+                } else {
+                  return false;
+                }
+              }
+            } else if (parseInt(usertype) === 2) {
+              return true;
+            } else {
+              return false;
+            }
           } else {
             this.router.navigate(["/"]);
             return false;
@@ -1080,10 +1111,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(AuthService, [{
         key: "sendToken",
-        value: function sendToken(token, usrFNm) {
+        value: function sendToken(token, usrFNm, userType) {
+          console.log(this.platformId);
+
           if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
             localStorage.setItem("shoeRetailUsr", token);
             localStorage.setItem("shoeRetailUsrNm", usrFNm);
+            localStorage.setItem("userType", userType);
           }
         }
       }, {
@@ -1108,6 +1142,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             return "";
           }
+        }
+      }, {
+        key: "getUserType",
+        value: function getUserType() {
+          return localStorage.getItem("userType");
         }
       }, {
         key: "logout",
@@ -1251,7 +1290,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! /home/trid/Works/Angular/travevisalguru/Shoe Delivery Service/shoeRetailer/src/main.ts */
+    /*! C:\Users\Abhishek.Saxena1\Desktop\prakash\shoedeliveryFrontEnd\src\main.ts */
     "./src/main.ts");
     /***/
   }

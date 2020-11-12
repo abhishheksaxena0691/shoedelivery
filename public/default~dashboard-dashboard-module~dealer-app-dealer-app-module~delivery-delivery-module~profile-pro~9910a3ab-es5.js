@@ -4,7 +4,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module"], {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"], {
   /***/
   "./node_modules/ngx-owl-carousel/index.js":
   /*!************************************************!*\
@@ -351,10 +351,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, FilterService);
 
         this.today = new Date();
+        this.currentMonth = new Date();
         this.lastTwo = new Date();
         this.lastThree = new Date();
         this.lastSix = new Date();
         this.lastNine = new Date();
+        this.e = this.currentMonth.setMonth(this.today.getMonth() - 1);
         this.a = this.lastTwo.setMonth(this.today.getMonth() - 2);
         this.b = this.lastThree.setMonth(this.today.getMonth() - 3);
         this.c = this.lastSix.setMonth(this.today.getMonth() - 6);
@@ -387,7 +389,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           }
         };
-        this.monthFilter = [this.today.getTime(), this.lastTwo.getTime(), this.lastThree.getTime(), this.lastSix.getTime(), this.lastNine.getTime()];
+        this.monthFilter = [this.currentMonth.getTime(), this.lastTwo.getTime(), this.lastThree.getTime(), this.lastSix.getTime(), this.lastNine.getTime()];
       }
 
       _createClass(FilterService, [{
@@ -420,9 +422,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return weeks;
         }
       }, {
+        key: "getWeeksStartAndEndInMonth",
+        value: function getWeeksStartAndEndInMonth(month, year) {
+          var weeks = [];
+          month = month * 30 / 7;
+
+          for (var i = 0; i < month; i++) {
+            // Days you want to subtract
+            var start = void 0;
+
+            if (weeks.length === 0) {
+              start = new Date();
+            } else {
+              start = new Date(weeks[weeks.length - 1].end);
+            }
+
+            var end = new Date(start.getTime() - 7 * 24 * 60 * 60 * 1000);
+            weeks.push({
+              start: start,
+              end: end
+            });
+          }
+
+          return weeks;
+        }
+      }, {
+        key: "getDaysStartAndEndInMonth",
+        value: function getDaysStartAndEndInMonth(day, year) {
+          var days = [];
+          day = day * 7;
+
+          for (var i = 0; i < day; i++) {
+            // Days you want to subtract
+            var start = void 0;
+
+            if (days.length === 0) {
+              start = new Date();
+            } else {
+              start = new Date(days[days.length - 1].end);
+            }
+
+            var end = new Date(start.getTime() - 1 * 24 * 60 * 60 * 1000);
+            days.push({
+              start: start,
+              end: end
+            });
+          }
+
+          return days;
+        }
+      }, {
         key: "cleanPrice",
         value: function cleanPrice(amount) {
-          return parseInt(amount.replace(/[^a-zA-Z0-9]/g, '')) / 100;
+          return parseInt(amount.replace(/[^a-zA-Z0-9]/g, ''));
         }
       }, {
         key: "filterByDate",
@@ -430,11 +482,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var data = {
             list: [],
             price: 0
-          }; //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
+          };
+          console.log(billData); //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
 
           data.list = billData.filter(function (bill) {
             return new Date(bill.date).getTime() >= endDate && new Date(bill.date).getTime() <= startDate;
-          });
+          }); //  console.log(data.list);
 
           if (data.list) {
             data.list.forEach(function (bill) {
@@ -446,12 +499,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return data;
         }
       }, {
+        key: "filterByDateCash",
+        value: function filterByDateCash(billData, startDate, endDate) {
+          // console.log(billData);
+          var data = {
+            list: [],
+            price: 0
+          }; //console.log(startDate);
+          // console.log(endDate);
+          //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
+
+          console.log(billData);
+          data.list = billData.filter(function (bill) {
+            return new Date(bill.billDetails.date).getTime() >= endDate && new Date(bill.billDetails.date).getTime() <= startDate;
+          }); //console.log(data.list);
+
+          if (data.list) {
+            data.list.forEach(function (bill) {
+              data.price += parseInt(bill.billDetails.total.replace(/[^a-zA-Z0-9]/g, ''));
+            });
+            data.price = data.price;
+          }
+
+          return data;
+        }
+      }, {
         key: "filterByBillDate",
         value: function filterByBillDate(billData, startDate, endDate) {
           var data = {
             list: [],
             price: 0
-          }; //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
+          }; // console.log(billData);
+          //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
 
           data.list = billData.filter(function (bill) {
             return new Date(bill.billDetails.date).getTime() >= endDate && new Date(bill.billDetails.date).getTime() <= startDate;
@@ -459,10 +538,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (data.list) {
             data.list.forEach(function (bill) {
+              console.log(bill.billDetails.total);
               data.price += parseInt(bill.billDetails.total.replace(/[^a-zA-Z0-9]/g, ''));
             });
-            data.price = data.price / 100;
+            data.price = data.price;
           }
+
+          return data;
+        }
+      }, {
+        key: "filterByBillDatecash",
+        value: function filterByBillDatecash(billData, startDate, endDate) {
+          console.log(billData);
+          var data = {
+            list: [],
+            price: 0
+          };
+          data.list = billData.filter(function (bill) {
+            return new Date(bill.billDetails.date).getTime() >= startDate && new Date(bill.billDetails.date).getTime() <= endDate;
+          });
+          console.log(data.list);
+
+          if (data.list) {
+            data.list.forEach(function (bill) {
+              data.price += parseInt(bill.billDetails.total.replace(/[^a-zA-Z0-9]/g, ''));
+            });
+            data.price = data.price;
+          } // console.log(data);
+
 
           return data;
         }
@@ -477,4 +580,4 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /***/
   }
 }]);
-//# sourceMappingURL=default~dashboard-dashboard-module~delivery-delivery-module~profile-profile-module~quote-quote-module-es5.js.map
+//# sourceMappingURL=default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab-es5.js.map
