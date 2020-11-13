@@ -7935,20 +7935,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.col4Data = [];
           this.currentActiveTopTab = area;
           this.monthDataDh = [];
-          console.log(this.filterSrv.monthFilter);
-          this.filterSrv.monthFilter.forEach(function (mth) {
-            _this23.monthDataDh.push(_this23.filterSrv.filterByDateCash(_this23.dataResult[area], new Date().getTime(), mth));
-          });
-          console.log(this.monthDataDh);
+
+          if (this.dataResult[area] !== undefined) {
+            this.filterSrv.monthFilter.forEach(function (mth) {
+              _this23.monthDataDh.push(_this23.filterSrv.filterByDateCash(_this23.dataResult[area], new Date().getTime(), mth));
+            });
+          }
+
           this.monthData = [];
           this.weekData = [];
           this.daysData = [];
+          this.upiPaymmentArray = [];
           this.monthData = this.monthDataDh;
-          this.billDData = this.monthData[0].list; // for (var i = 0; i < this.monthData.length; i++) {
-          //   this.billDData =  this.billDData.concat(this.monthData[i].list);
-          //   }
 
-          console.log(this.billDData);
+          if (this.dataResult[area] !== undefined) {
+            this.billDData = this.monthData[0].list;
+          }
         }
       }, {
         key: "sltMonth",
@@ -8728,18 +8730,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.col4Data = [];
           this.currentActiveTopTab = area;
           this.monthDataDh = [];
-          this.filterSrv.monthFilter.forEach(function (mth) {
-            _this38.monthDataDh.push(_this38.filterSrv.filterByDateCash(_this38.dataResult[area], new Date().getTime(), mth));
-          });
+
+          if (this.dataResult[area] !== undefined) {
+            this.filterSrv.monthFilter.forEach(function (mth) {
+              _this38.monthDataDh.push(_this38.filterSrv.filterByDateCash(_this38.dataResult[area], new Date().getTime(), mth));
+            });
+          }
+
           this.monthData = [];
           this.weekData = [];
           this.daysData = [];
+          this.upiPaymmentArray = [];
           this.monthData = this.monthDataDh;
-          this.billDData = this.monthData[0].list; // for (var i = 0; i < this.monthData.length; i++) {
-          //   this.billDData =  this.billDData.concat(this.monthData[i].list);
-          //   }
 
-          console.log(this.billDData);
+          if (this.dataResult[area] !== undefined) {
+            this.billDData = this.monthData[0].list;
+          }
         }
       }, {
         key: "sltMonth",

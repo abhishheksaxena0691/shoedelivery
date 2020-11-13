@@ -5537,20 +5537,19 @@ let DealerDashboadComponent = class DealerDashboadComponent {
         this.col4Data = [];
         this.currentActiveTopTab = area;
         this.monthDataDh = [];
-        console.log(this.filterSrv.monthFilter);
-        this.filterSrv.monthFilter.forEach(mth => {
-            this.monthDataDh.push(this.filterSrv.filterByDateCash(this.dataResult[area], new Date().getTime(), mth));
-        });
-        console.log(this.monthDataDh);
+        if (this.dataResult[area] !== undefined) {
+            this.filterSrv.monthFilter.forEach(mth => {
+                this.monthDataDh.push(this.filterSrv.filterByDateCash(this.dataResult[area], new Date().getTime(), mth));
+            });
+        }
         this.monthData = [];
         this.weekData = [];
         this.daysData = [];
+        this.upiPaymmentArray = [];
         this.monthData = this.monthDataDh;
-        this.billDData = this.monthData[0].list;
-        // for (var i = 0; i < this.monthData.length; i++) {
-        //   this.billDData =  this.billDData.concat(this.monthData[i].list);
-        //   }
-        console.log(this.billDData);
+        if (this.dataResult[area] !== undefined) {
+            this.billDData = this.monthData[0].list;
+        }
     }
     sltMonth(month) {
         this.selectMonth = month - 1;
@@ -6080,18 +6079,19 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
         this.col4Data = [];
         this.currentActiveTopTab = area;
         this.monthDataDh = [];
-        this.filterSrv.monthFilter.forEach(mth => {
-            this.monthDataDh.push(this.filterSrv.filterByDateCash(this.dataResult[area], new Date().getTime(), mth));
-        });
+        if (this.dataResult[area] !== undefined) {
+            this.filterSrv.monthFilter.forEach(mth => {
+                this.monthDataDh.push(this.filterSrv.filterByDateCash(this.dataResult[area], new Date().getTime(), mth));
+            });
+        }
         this.monthData = [];
         this.weekData = [];
         this.daysData = [];
+        this.upiPaymmentArray = [];
         this.monthData = this.monthDataDh;
-        this.billDData = this.monthData[0].list;
-        // for (var i = 0; i < this.monthData.length; i++) {
-        //   this.billDData =  this.billDData.concat(this.monthData[i].list);
-        //   }
-        console.log(this.billDData);
+        if (this.dataResult[area] !== undefined) {
+            this.billDData = this.monthData[0].list;
+        }
     }
     sltMonth(month) {
         this.selectMonth = month - 1;
