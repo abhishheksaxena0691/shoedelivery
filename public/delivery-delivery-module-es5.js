@@ -453,7 +453,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       //srvLink: string = "http://localhost:8080/";
       //srvLink: string = "http://retail.mobinyx.com/";
-      this.srvLink = "http://35.154.98.22:8080/";
+      // srvLink: string = "http://35.154.98.22:8080/";
+      this.srvLink = "https://dealer.mobinyx.com/";
       this.server = this.srvLink + "api/";
     };
 
