@@ -301,7 +301,8 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                             createdOn: new Date().toString(),
                             updatedOn: new Date().toString(),
                             userType: req.decoded.userType,
-                            retailerMobile: req.body.mobilenumber
+                            retailerMobile: req.body.mobilenumber,
+                            createdTimeStamp: new Date().getTime()
                         };
         
                         db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
