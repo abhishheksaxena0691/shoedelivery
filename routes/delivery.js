@@ -23,7 +23,8 @@ router.post('/api/delivery', midWare.checkToken, (req, res, next) => {
                     category: "delivery",
                     payStatus: false,
                     createdOn: new Date().toString(),
-                    updatedOn: new Date().toString()
+                    updatedOn: new Date().toString(),
+                    createdTimeStamp: new Date().getTime()
                 };
 
                 db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
@@ -41,7 +42,7 @@ router.post('/api/delivery', midWare.checkToken, (req, res, next) => {
 
 router.get('/api/delivery/all', midWare.checkToken, (req, res, next) => {
     console.log(req.decoded);
-    db.getDB().collection('delivery').find({usrNumber: req.decoded.mobile}).toArray((err, doc) => {
+    db.getDB().collection('delivery').find({usrNumber: req.decoded.mobile}).sort({ createdTimeStamp : -1 }).toArray((err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
@@ -109,6 +110,8 @@ router.post('/api/delivery/updateInvoiceStatus', midWare.checkToken, (req, res, 
         }
     });
 });
+
+
 // router.put('/api/sponsor/:spId', midWare.checkToken, (req, res, next) => {
 //     db.getDB().collection('payee').findOneAndUpdate({_id: db.getPrimaryKey(req.params.spId)}, {$set: {status: true}}, {returnOriginal: false}, (err, doc) => {
 //         if(err) {

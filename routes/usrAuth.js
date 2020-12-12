@@ -16,7 +16,7 @@ router.post('/api/login', (req, res, next) => {
             if (doc) {
                 if(bcrypt.compareSync(req.body.yrPass, doc.password)) {
                     let token = jwt.sign({uId: doc._id, mobile: doc.mobileNo, usrName: doc.fstName, userType: doc.userType}, config.secret);
-                    res.status(202).jsonp({uName: doc.fstName, userType: doc.userType,token: token});
+                    res.status(202).jsonp({uName: doc.fstName, userType: doc.userType,token: token, companyName: doc.companyName});
                 } else {
                     res.status(401).jsonp('Authentication failed!');
                 }
@@ -45,6 +45,8 @@ router.post('/api/register', (req, res, next) => {
             mobileNo: req.body.mobileNo,
             email: req.body.email,
             userType: req.body.userType,   //1 for dealer 2 for retailer
+            companyName: req.body.companyName,
+            domain: req.body.domain,
             password: bcrypt.hashSync(req.body.yrPass, BCRYPT_SALT_ROUNDS),
             otp: otp.toString(),
             createdOn: new Date().toString(),
@@ -107,4 +109,18 @@ router.post('/api/verify', (req, res, next) => {
     }
 });
 
+router.post('/api/verifyMobileNumber',(req, res, next) => {
+    if(!req.body) {
+        res.status(400).jsonp('Incomplete information');
+    } else {
+        db.getDB().collection('userInfo').findOne({mobileNo: req.body.regMobile}).then((doc) => {
+            console.log(doc);
+                res.status(200).jsonp(doc);
+                    })
+        .catch(err => {
+            res.status(410).jsonp(err);
+            next(err);
+        });
+    } 
+ })
 module.exports = router;
