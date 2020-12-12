@@ -5925,7 +5925,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-header></app-header>\n\n<section class=\"container py-4\">\n    <nav id=\"toggleMenu\" class=\"d-flex justify-content-between align-items-end\">\n        <a [ngClass]=\"paid ? 'active' : ''\" (click)=\"getMonthData(true)\"> Paid </a>\n        <a [ngClass]=\"!paid ? 'active' : ''\"  (click)=\"unpaid()\">Unpaid</a>\n    </nav>\n    <a (click)=\"toggleFilter()\" class=\"filterNow\"><span class=\"filter\"></span> Filter</a>\n    <div class=\"p-4\" id=\"filterSec\" >\n        <div *ngIf=\"paid\">\n            <owl-carousel [options]=\"menuOptions\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\" *ngIf=\"monthDataDh\">\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'cash'}\" (click)=\"sltArea('cash')\">\n                        <strong>Cash</strong>\n                        <i class=\"payee\"></i>\n                      <span>({{dataResult['cash'] !== undefined ?dataResult['cash']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.cash}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'card'}\" (click)=\"sltArea('card')\">\n                    <strong>Card</strong>\n                    <i class=\"payee\"></i>\n                    <span>({{dataResult['card'] !== undefined ? dataResult['card']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.card}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'Net Banking'}\" (click)=\"sltArea('Net Banking')\">\n                    <strong>Net banking</strong>\n                    <i class=\"sponsor\"></i>\n                    ({{dataResult['Net Banking'] !== undefined ?dataResult['Net Banking']?.length : 0}})  &nbsp; &nbsp;Rs. {{this.netBanking}}/-\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'upi'}\" (click)=\"sltArea('upi')\">\n                    <strong>UPI</strong>\n                    <i class=\"sponsor\"></i>\n                    <span>({{dataResult['upi'] !== undefined ?dataResult['upi']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.upi}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'other'}\" (click)=\"sltArea('other')\">\n                  <strong>Other</strong>\n                  <i class=\"sponsor\"></i>\n\n                  <span>({{dataResult['other'] !== undefined ? dataResult['other']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.other}}/-</span>\n              </div>\n            </owl-carousel>\n        </div>\n        <div  *ngIf=\"filter || !paid\">\n            <owl-carousel [options]=\"menuOptions\" [items]=\"monthData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\" *ngIf=\"monthData\">\n                <div class=\"optionList\" *ngIf=\"monthData[0]\" (click)=\"filterMonthsWeek(1,0, monthData[0].list)\" [ngClass]=\"{'active': selectMonth === 0}\">\n                    <strong>Current Month</strong>\n                    <i class=\"currentMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[0].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[0].price}}/-</span>\n                </div>\n                <div class=\"optionList\" *ngIf=\"monthData[1]\" (click)=\"filterMonthsWeek(2,1, monthData[1].list)\" [ngClass]=\"{'active': selectMonth === 1}\">\n                    <strong>Last 2 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[2].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[2].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[2]\" (click)=\"filterMonthsWeek(3,2, monthData[2].list)\" [ngClass]=\"{'active': selectMonth === 2}\">\n                    <strong>Last 3 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[2].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[2].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[3]\" (click)=\"filterMonthsWeek(6,3, monthData[3].list)\" [ngClass]=\"{'active': selectMonth === 3}\">\n                    <strong>Last 6 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[3].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[3].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[4]\" (click)=\"filterMonthsWeek(9,4, monthData[4].list)\" [ngClass]=\"{'active': selectMonth === 4}\">\n                    <strong>Last 9 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[4].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[4].price}}/-</span>\n                </div>\n            </owl-carousel>\n          </div>\n            <div class=\"\" *ngIf=\"filter\">\n                <div class=\"\">\n                    <owl-carousel [options]=\"menuOptions\" [items]=\"weekData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                        <div class=\"optionList\" *ngFor=\"let wk of weekData; let i = index\" [ngClass]=\"{'active': selectWeek == i}\" (click)='filterDays(i+1, monthData[4].list)'>\n                            <strong>Week {{i+1}}</strong>\n                            <i class=\"week\"></i>\n\n                            <span>({{wk.list?.length}}) &nbsp; &nbsp;  Rs. {{wk.price}}/-</span>\n                        </div>\n                    </owl-carousel>\n                </div>\n            </div>\n            <div class=\"\" *ngIf=\"filter\">\n              <div class=\"\">\n                  <owl-carousel [options]=\"menuOptions\" [items]=\"daysData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                      <div class=\"optionList\" *ngFor=\"let wk of daysData; let i = index\" (click)='upiPaymentData(i, wk)' [ngClass]=\"{'active': selectedDay == i}\">\n                          <strong *ngIf=\"i == 0 && selectWeek == 0\">Today</strong>\n                          <strong *ngIf=\"i == 1 && selectWeek == 0\">Yesterday</strong>\n                          <strong *ngIf=\"i == 0 && selectWeek > 0\">day 1</strong>\n                          <strong *ngIf=\"i == 1 && selectWeek > 0\">day 2</strong>\n                          <strong *ngIf=\"i > 1\">day {{i+1}}</strong>\n                          <i class=\"week\"></i>\n                          <span>({{wk.list?.length}}) &nbsp; &nbsp;  Rs. {{wk.price}}/-</span>\n                      </div>\n                  </owl-carousel>\n              </div>\n          </div>\n          <div class=\"\" *ngIf=\"filter && upiPaymmentArray.length &&  currentActiveTopTab === 'upi'\">\n\n            <owl-carousel [options]=\"menuOptions\" [items]=\"upiPaymmentArray\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                <div class=\"optionList\">\n                    <strong>GPay</strong>\n                    <i class=\"week\"></i>\n                    Rs. {{upiPaymmentArray[0]}}/-\n                </div>\n                <div class=\"optionList\">\n                  <strong>Phone Pay</strong>\n                  <i class=\"week\"></i>\n                  Rs. {{upiPaymmentArray[1]}}/-\n              </div>\n              <div class=\"optionList\">\n                <strong>Paytm</strong>\n                <i class=\"week\"></i>\n                Rs. {{upiPaymmentArray[2]}}/-\n            </div>\n            </owl-carousel>\n      </div>\n\n    </div>\n</section>\n<section class=\"container\">\n    <nav class=\"menuBtn d-flex justify-content-between mb-2\">\n         <a (click)=\"openModal(template)\" class=\"btn\"><i class=\"billing\"></i> New Bill</a>\n    </nav>\n    <div class=\"my-3\">\n\n        <owl-carousel\n            [options]=\"cOptions\" [items]=\"billDData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n            <fieldset *ngFor=\"let bImg of billDData; let i = index\">\n                <legend>{{bImg.billDetails.deportment}} {{bImg.billDetails.genDate | date: 'medium'}} {{bImg.billDetails.user}}</legend>\n                <nav class=\"menuBtn d-flex justify-content-between mb-4\">\n\n                    <a (click)=\"openDelivery(deliveryTemplate, bImg._id, bImg.paymentMode)\" class=\"btn\" *ngIf=\"bImg.category !== 'delivery'\"><i class=\"delivery\"></i> Delivery</a>\n\n                    <a  class=\"btn nonActicebutton\" *ngIf=\"bImg.category == 'delivery'\"><i class=\"delivery\"></i> Delivered</a>\n                    <a class=\"btn nonActicebutton\" *ngIf=\"bImg.paymentMode !== 'credit' && bImg.payStatus\"><i class=\"forward\"></i> Payed</a>\n                    <a (click)=\"openMoveTocredit(moveToCredit, bImg._id)\" class=\"btn\" *ngIf=\"bImg.paymentMode !== 'credit' && !bImg.payStatus\"><i class=\"forward\"></i> Move to credit</a>\n                    <a  class=\"btn\" *ngIf=\"bImg.paymentMode === 'credit'\"><i class=\"forward\"></i> Credited</a>\n                </nav>\n                <img [src]=\"serverPath+'pdfBills/images/'+bImg.billDetails.billImg[0].name\" alt=\"{{bImg.billDetails.billImg[0].name}}\" (click)=\"showBill(i)\" />\n                <nav class=\"menuBtn d-flex flex-wrap align-items-center justify-content-between\" *ngIf=\"!bImg.payStatus\">\n                  <form class=\"d-flex align-items-center justify-content-between ml-auto\">\n                      <input type=\"text\" placeholder=\"Rs.\" [value]=\"cleanPrice(bImg.billDetails.total)\" disabled />\n                      <a class=\"btn\" (click)=\"openUpdatepayment(updatePayment, bImg._id)\">Update Payment</a>\n                  </form>\n              </nav>\n            </fieldset>\n        </owl-carousel>\n\n    </div>\n</section>\n<!-- <section id=\"chartSec\" class=\"container my-4 text-center\">\n    <img src=\"/assets/images/pie-chart.jpg\" alt=\"pie chart\" />\n</section> -->\n<app-side-bar></app-side-bar>\n\n<ng-template #template>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Select product</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dMsg\" class=\"alert-success\">{{dMsg.msg}}</div>\n    <ng-select\n        [items]=\"productList\"\n        bindLabel=\"name\"\n        [multiple]=\"true\"\n        placeholder=\"Select Product\"\n        clearAllText=\"Clear\"\n        [searchable]=\"true\"\n        [(ngModel)]=\"selectedProduct\"\n        loadingText='Loading...'\n        [loading]=loadingProduct\n        (keyup)=\"searchProductName($event)\"\n        (change)=\"setQuantity()\">\n      </ng-select>\n      <div class=\"container mt-2\">\n        <div class=\"row mt-4\" *ngIf=\"selectedProduct.length > 0\">\n          <div class=\"col-4\"><b>Mobile Number</b></div>\n          <div class=\"col-8\"><input type=\"text\" value=\"\" placeholder=\"Enter the mobile number of retailer\" (input)=\"setMobileNumber($event.target.value)\"></div>\n        </div>\n        <div class=\"row setBoarder mt-4\" *ngIf=\"selectedProduct.length > 0\">\n          <div class=\"col-4\"><b>Product Name</b></div>\n          <div class=\"col-4\"><b>Price</b></div>\n          <div class=\"col-4\"><b>Quantity</b></div>\n        </div>\n        <div class=\"row mt-2\" *ngFor=\"let item of selectedProduct; index as i\">\n            <div class=\"col-4\">{{item.name}}</div>\n            <div class=\"col-4\">{{item.price}}</div>\n            <div class=\"col-4\">\n              <input type=\"number\" class=\"setWidth\" (input)=\"setQuantity($event.target.value, i)\" min=\"1\" value=\"1\"/>\n            </div>\n        </div>\n        <div class=\"row  mt-2\" *ngIf=\"selectedProduct.length > 0\">\n          <div class=\"col-4\"><b></b></div>\n          <div class=\"col-4\"><b>Total Price</b></div>\n          <div class=\"col-4\"><b> &#x20B9; {{totalPrice}}</b></div>\n        </div>\n      </div>\n    <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm\" (click)=\"NewDealerBill()\">Send</button>\n\n\n  </div>\n</ng-template>\n\n<ng-template #updatePayment>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Update Payment Status</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dMsg\" class=\"alert-success\">{{msg}}</div>\n    <form [formGroup]=\"paymentForm\" (submit)=\"updatePayment1()\">\n        <h4>Select a payment method</h4>\n        <select formControlName=\"payMode\" class=\"form-control\" >\n            <option value=\"\">Select</option>\n            <option value=\"Net Banking\">Net Banking</option>\n            <option value=\"cash\">Cash</option>\n            <option value=\"card\">Card</option>\n            <option value=\"upi\">UPI</option>\n            <option value=\"other\">Other</option>\n            <option value=\"credit\">Credit</option>\n        </select>\n        <button type=\"submit\" class=\"mt-4 buttonClass\" [disabled]=\"dBtm\">Update</button>\n    </form>\n  </div>\n</ng-template>\n\n<ng-template #deliveryTemplate>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Delivered</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dBtm\" class=\"alert\" [ngClass]=\"dMsg.alert\">{{dMsg.msg}}</div>\n    <form [formGroup]=\"deliveryFrm\" (submit)=\"addDelivery()\">\n        <h4>Enter Address</h4>\n        <textarea formControlName=\"address\" ></textarea>\n        <div class=\"alert alert-danger inputMsg\" role=\"alert\" *ngIf=\"dSubmit && dFrm.address.errors\">\n            <div *ngIf=\"dFrm.address.errors.required\">Please mention your delivery address</div>\n        </div>\n        <hr />\n        <h4>Payment method</h4>\n        <p *ngIf=\"paid\">{{paymentModeForCredit === 'other' ? 'No Payment Found' : paymentModeForCredit}}</p>\n        <select formControlName=\"payMode\" *ngIf=\"!paid\">\n          <option value=\"\" disabled>Select</option>\n          <option value=\"\">Pay on Delivery</option>\n          <option value=\"Net Banking\">Net Banking</option>\n          <option value=\"cash\">Cash</option>\n          <option value=\"card\">Card</option>\n          <option value=\"upi\">UPI</option>\n          <option value=\"other\">Other</option>\n          <option value=\"credit\">Credit</option>\n        </select>\n        <div class=\"alert alert-danger inputMsg\" role=\"alert\" *ngIf=\"dSubmit && dFrm.payMode.errors\">\n            <div *ngIf=\"dFrm.payMode.errors.required\">Please mention your payment mode</div>\n        </div>\n        <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm\">Send</button>\n    </form>\n  </div>\n</ng-template>\n\n<ng-template #moveToCredit>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Move to credit</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dBtm\" class=\"alert\" [ngClass]=\"dMsg.alert\">{{dMsg.msg}}</div>\n    <div class=\"container-fluid\">\n      <div class=\"row\">\n          <div class=\"col-lg-12\">\n              <div class=\"card\">\n                  <div class=\"card-body\">\n                    <div class=\"container\">\n                      <b>Credit Line</b>\n                      <div class=\"top\">\n                        <div class=\"top-element\">12 sep Rs 1000</div>\n                        <div class=\"top-element\">12 sep Rs 500</div>\n                        <div class=\"top-element\">30 sep Rs 2000</div>\n                      </div>\n                        <div class=\"line\"></div>\n                        <div class=\"bottom\">\n                          <!-- <div class=\"bottom-element\">20 september Rs 1000</div>\n                          <div class=\"bottom-element\">20 september Rs 1800</div> -->\n                        </div>\n                    </div>\n                    <div class=\"container\">\n                      <b>Purchase line</b>\n                      <div class=\"top\">\n\n                      </div>\n                        <div class=\"line\"></div>\n                        <div class=\"bottom\">\n                          <div class=\"bottom-element\">20 sep Rs 1000</div>\n                          <div class=\"bottom-element\">20 sep Rs 1800</div>\n                        </div>\n                    </div>\n                  </div>\n              </div>\n\n          </div>\n      </div>\n    </div>\n    <form [formGroup]=\"movetocredit\" (submit)=\"moveToCredit1()\">\n\n\n        <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm\">Send</button>\n    </form>\n  </div>\n</ng-template>\n\n\n<section id=\"billPop\" *ngIf=\"popBill\">\n    <aside>\n        <a (click)=\"showBill(0)\" class=\"close\"></a>\n        <img [src]=\"serverPath+'/pdfBills/images/'+billData[popId].billImg[0].name\" alt=\"{{billData[popId].billImg[0].name}}\" />\n    </aside>\n</section>\n";
+    __webpack_exports__["default"] = "<app-header></app-header>\n\n<section class=\"container py-4\">\n    <nav id=\"toggleMenu\" class=\"d-flex justify-content-between align-items-end\">\n        <a [ngClass]=\"paid ? 'active' : ''\" (click)=\"getMonthData(true)\"> Paid </a>\n        <a [ngClass]=\"!paid ? 'active' : ''\"  (click)=\"unpaid()\">Unpaid</a>\n    </nav>\n    <a (click)=\"toggleFilter()\" class=\"filterNow\"><span class=\"filter\"></span> Filter</a>\n    <div class=\"p-4\" id=\"filterSec\" >\n        <div *ngIf=\"paid\">\n            <owl-carousel [options]=\"menuOptions\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\" *ngIf=\"monthDataDh\">\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'cash'}\" (click)=\"sltArea('cash')\">\n                        <strong>Cash</strong>\n                        <i class=\"payee\"></i>\n                      <span>({{dataResult['cash'] !== undefined ?dataResult['cash']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.cash}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'card'}\" (click)=\"sltArea('card')\">\n                    <strong>Card</strong>\n                    <i class=\"payee\"></i>\n                    <span>({{dataResult['card'] !== undefined ? dataResult['card']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.card}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'Net Banking'}\" (click)=\"sltArea('Net Banking')\">\n                    <strong>Net banking</strong>\n                    <i class=\"sponsor\"></i>\n                    ({{dataResult['Net Banking'] !== undefined ?dataResult['Net Banking']?.length : 0}})  &nbsp; &nbsp;Rs. {{this.netBanking}}/-\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'upi'}\" (click)=\"sltArea('upi')\">\n                    <strong>UPI</strong>\n                    <i class=\"sponsor\"></i>\n                    <span>({{dataResult['upi'] !== undefined ?dataResult['upi']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.upi}}/-</span>\n                </div>\n                <div class=\"optionList\" [ngClass]=\"{'active': currentActiveTopTab === 'other'}\" (click)=\"sltArea('other')\">\n                  <strong>Other</strong>\n                  <i class=\"sponsor\"></i>\n\n                  <span>({{dataResult['other'] !== undefined ? dataResult['other']?.length : 0}}) &nbsp; &nbsp;  Rs. {{this.other}}/-</span>\n              </div>\n            </owl-carousel>\n        </div>\n        <div  *ngIf=\"filter || !paid\">\n            <owl-carousel [options]=\"menuOptions\" [items]=\"monthData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\" *ngIf=\"monthData\">\n                <div class=\"optionList\" *ngIf=\"monthData[0]\" (click)=\"filterMonthsWeek(1,0, monthData[0].list)\" [ngClass]=\"{'active': selectMonth === 0}\">\n                    <strong>Current Month</strong>\n                    <i class=\"currentMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[0].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[0].price}}/-</span>\n                </div>\n                <div class=\"optionList\" *ngIf=\"monthData[1]\" (click)=\"filterMonthsWeek(2,1, monthData[1].list)\" [ngClass]=\"{'active': selectMonth === 1}\">\n                    <strong>Last 2 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[2].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[2].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[2]\" (click)=\"filterMonthsWeek(3,2, monthData[2].list)\" [ngClass]=\"{'active': selectMonth === 2}\">\n                    <strong>Last 3 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[2].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[2].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[3]\" (click)=\"filterMonthsWeek(6,3, monthData[3].list)\" [ngClass]=\"{'active': selectMonth === 3}\">\n                    <strong>Last 6 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[3].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[3].price}}/-</span>\n                </div>\n\n                <div class=\"optionList\" *ngIf=\"monthData[4]\" (click)=\"filterMonthsWeek(9,4, monthData[4].list)\" [ngClass]=\"{'active': selectMonth === 4}\">\n                    <strong>Last 9 Months</strong>\n                    <i class=\"lastMonth\"></i>\n                    <span>({{monthData[0].list !== undefined ? monthData[4].list?.length : 0}}) &nbsp; &nbsp;  Rs. {{monthData[4].price}}/-</span>\n                </div>\n            </owl-carousel>\n          </div>\n            <div class=\"\" *ngIf=\"filter\">\n                <div class=\"\">\n                    <owl-carousel [options]=\"menuOptions\" [items]=\"weekData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                        <div class=\"optionList\" *ngFor=\"let wk of weekData; let i = index\" [ngClass]=\"{'active': selectWeek == i}\" (click)='filterDays(i+1, monthData[4].list)'>\n                            <strong>Week {{i+1}}</strong>\n                            <i class=\"week\"></i>\n\n                            <span>({{wk.list?.length}}) &nbsp; &nbsp;  Rs. {{wk.price}}/-</span>\n                        </div>\n                    </owl-carousel>\n                </div>\n            </div>\n            <div class=\"\" *ngIf=\"filter\">\n              <div class=\"\">\n                  <owl-carousel [options]=\"menuOptions\" [items]=\"daysData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                      <div class=\"optionList\" *ngFor=\"let wk of daysData; let i = index\" (click)='upiPaymentData(i, wk)' [ngClass]=\"{'active': selectedDay == i}\">\n                          <strong *ngIf=\"i == 0 && selectWeek == 0\">Today</strong>\n                          <strong *ngIf=\"i == 1 && selectWeek == 0\">Yesterday</strong>\n                          <strong *ngIf=\"i == 0 && selectWeek > 0\">day 1</strong>\n                          <strong *ngIf=\"i == 1 && selectWeek > 0\">day 2</strong>\n                          <strong *ngIf=\"i > 1\">day {{i+1}}</strong>\n                          <i class=\"week\"></i>\n                          <span>({{wk.list?.length}}) &nbsp; &nbsp;  Rs. {{wk.price}}/-</span>\n                      </div>\n                  </owl-carousel>\n              </div>\n          </div>\n          <div class=\"\" *ngIf=\"filter && upiPaymmentArray.length &&  currentActiveTopTab === 'upi'\">\n\n            <owl-carousel [options]=\"menuOptions\" [items]=\"upiPaymmentArray\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n                <div class=\"optionList\">\n                    <strong>GPay</strong>\n                    <i class=\"week\"></i>\n                    Rs. {{upiPaymmentArray[0]}}/-\n                </div>\n                <div class=\"optionList\">\n                  <strong>Phone Pay</strong>\n                  <i class=\"week\"></i>\n                  Rs. {{upiPaymmentArray[1]}}/-\n              </div>\n              <div class=\"optionList\">\n                <strong>Paytm</strong>\n                <i class=\"week\"></i>\n                Rs. {{upiPaymmentArray[2]}}/-\n            </div>\n            </owl-carousel>\n      </div>\n\n    </div>\n</section>\n<section class=\"container\">\n    <nav class=\"menuBtn d-flex justify-content-between mb-2\">\n         <a (click)=\"openModal(template)\" class=\"btn\"><i class=\"billing\"></i> New Bill</a>\n    </nav>\n    <div class=\"my-3\">\n\n        <owl-carousel\n            [options]=\"cOptions\" [items]=\"billDData\" [carouselClasses]=\"['owl-theme', 'row', 'sliding']\">\n            <fieldset *ngFor=\"let bImg of billDData; let i = index\">\n                <legend>{{bImg.billDetails.deportment}} {{bImg.billDetails.genDate | date: 'medium'}} {{bImg.retailerMobile}}</legend>\n                <nav class=\"menuBtn d-flex justify-content-between mb-4\">\n\n                    <a (click)=\"openDelivery(deliveryTemplate, bImg._id, bImg.paymentMode)\" class=\"btn\" *ngIf=\"bImg.category !== 'delivery'\"><i class=\"delivery\"></i> Delivery</a>\n\n                    <a  class=\"btn nonActicebutton\" *ngIf=\"bImg.category == 'delivery'\"><i class=\"delivery\"></i> Delivered</a>\n                    <a class=\"btn nonActicebutton\" *ngIf=\"bImg.paymentMode !== 'credit' && bImg.payStatus\"><i class=\"forward\"></i> Payed</a>\n                    <a (click)=\"openMoveTocredit(moveToCredit, bImg._id)\" class=\"btn\" *ngIf=\"bImg.paymentMode !== 'credit' && !bImg.payStatus\"><i class=\"forward\"></i> Move to credit</a>\n                    <a  class=\"btn\" *ngIf=\"bImg.paymentMode === 'credit'\"><i class=\"forward\"></i> Credited</a>\n                </nav>\n                <img [src]=\"serverPath+'pdfBills/images/'+bImg.billDetails.billImg[0].name\" alt=\"{{bImg.billDetails.billImg[0].name}}\" (click)=\"showBill(i)\" />\n                <nav class=\"menuBtn d-flex flex-wrap align-items-center justify-content-between\" *ngIf=\"!bImg.payStatus\">\n                  <form class=\"d-flex align-items-center justify-content-between ml-auto\">\n                      <input type=\"text\" placeholder=\"Rs.\" [value]=\"cleanPrice(bImg.billDetails.total)\" disabled />\n                      <a class=\"btn\" (click)=\"openUpdatepayment(updatePayment, bImg._id)\">Update Payment</a>\n                  </form>\n              </nav>\n            </fieldset>\n        </owl-carousel>\n\n    </div>\n</section>\n<!-- <section id=\"chartSec\" class=\"container my-4 text-center\">\n    <img src=\"/assets/images/pie-chart.jpg\" alt=\"pie chart\" />\n</section> -->\n<app-side-bar></app-side-bar>\n\n<ng-template #template>\n  <div class=\"modal-header\" *ngIf=\"screenSecond\">\n    <h4 class=\"modal-title pull-left\">{{companyName}}</h4>\n    <!-- <h5 class=\"modal-title pull-left\">Select product</h5> -->\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\" *ngIf=\"screenFirst\">\n    <div class=\"row mt-4\">\n      <div class=\"col-4\"><b>Mobile Number</b></div>\n      <div class=\"col-8\">\n        <input type=\"text\" value=\"\" placeholder=\"Enter the mobile number of retailer\" (input)=\"setMobileNumber($event.target.value)\"/>\n      </div>\n    </div>\n\n    <div class=\"row mt-4\" *ngIf=\"verificationDone\">\n\n        <div class=\"col-4\"><b>Retailer Name</b></div>\n        <div class=\"col-8\" *ngIf=\"delearDetail !== null\"> {{delearDetail?.fstName}} {{delearDetail?.lstName}}</div>\n        <div class=\"col-8\" *ngIf=\"delearDetail == null\"> No retailer found</div>\n\n        <div class=\"col-4\"><b>Retailer Email</b></div>\n        <div class=\"col-8\" *ngIf=\"delearDetail !== null\"> {{delearDetail?.email}}</div>\n        <div class=\"col-8\" *ngIf=\"delearDetail == null\"> No retailer found</div>\n\n    </div>\n\n    <button type=\"submit\" class=\"mt-4\" [disabled]=\"setMobile?.length != 10\" (click)=\"verifyMobile()\" *ngIf=\"!verificationDone\">Verify Mobile</button>\n    <button type=\"submit\" class=\"mt-4\"  (click)=\"moveToSecondScreen()\" *ngIf=\"verificationDone\">Continue</button>\n  </div>\n  <div class=\"modal-body\" *ngIf=\"screenSecond\">\n    <div *ngIf=\"dMsg\" class=\"alert-success\">{{dMsg.msg}}</div>\n    <ng-select\n        [items]=\"productList\"\n        bindLabel=\"name\"\n        [multiple]=\"true\"\n        placeholder=\"Select Product\"\n        clearAllText=\"Clear\"\n        [searchable]=\"true\"\n        [(ngModel)]=\"selectedProduct\"\n        loadingText='Loading...'\n        [loading]=loadingProduct\n        (keyup)=\"searchProductName($event)\"\n        (change)=\"setQuantity()\">\n      </ng-select>\n      <div class=\"container mt-2\">\n\n\n        <div class=\"row setBoarder mt-4\" *ngIf=\"selectedProduct.length > 0\">\n          <div class=\"col-4\"><b>Product Name</b></div>\n          <div class=\"col-4\"><b>Price</b></div>\n          <div class=\"col-4\"><b>Quantity</b></div>\n        </div>\n        <div class=\"row mt-2\" *ngFor=\"let item of selectedProduct; index as i\">\n            <div class=\"col-4\">{{item.name}}</div>\n            <div class=\"col-4\">{{item.price}}</div>\n            <div class=\"col-4\">\n              <input type=\"number\" class=\"setWidth\" (input)=\"setQuantity($event.target.value, i)\" min=\"1\" value=\"1\"/>\n            </div>\n        </div>\n        <div class=\"row  mt-2\" *ngIf=\"selectedProduct.length > 0\">\n          <div class=\"col-4\"><b></b></div>\n          <div class=\"col-4\"><b>Total Price</b></div>\n          <div class=\"col-4\"><b> &#x20B9; {{totalPrice}}</b></div>\n        </div>\n      </div>\n    <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm && totalPrice != 0\" (click)=\"NewDealerBill()\">Send</button>\n\n\n  </div>\n</ng-template>\n\n<ng-template #updatePayment>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Update Payment Status</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dMsg\" class=\"alert-success\">{{msg}}</div>\n    <form [formGroup]=\"paymentForm\" (submit)=\"updatePayment1()\">\n        <h4>Select a payment method</h4>\n        <select formControlName=\"payMode\" class=\"form-control\" >\n            <option value=\"\">Select</option>\n            <option value=\"Net Banking\">Net Banking</option>\n            <option value=\"cash\">Cash</option>\n            <option value=\"card\">Card</option>\n            <option value=\"upi\">UPI</option>\n            <option value=\"other\">Other</option>\n            <option value=\"credit\">Credit</option>\n        </select>\n        <button type=\"submit\" class=\"mt-4 buttonClass\" [disabled]=\"dBtm\">Update</button>\n    </form>\n  </div>\n</ng-template>\n\n<ng-template #deliveryTemplate>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Delivered</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dBtm\" class=\"alert\" [ngClass]=\"dMsg.alert\">{{dMsg.msg}}</div>\n    <form [formGroup]=\"deliveryFrm\" (submit)=\"addDelivery()\">\n        <h4>Enter Address</h4>\n        <textarea formControlName=\"address\" ></textarea>\n        <div class=\"alert alert-danger inputMsg\" role=\"alert\" *ngIf=\"dSubmit && dFrm.address.errors\">\n            <div *ngIf=\"dFrm.address.errors.required\">Please mention your delivery address</div>\n        </div>\n        <hr />\n        <h4>Payment method</h4>\n        <p *ngIf=\"paid\">{{paymentModeForCredit === 'other' ? 'No Payment Found' : paymentModeForCredit}}</p>\n        <select formControlName=\"payMode\" *ngIf=\"!paid\">\n          <option value=\"\" disabled>Select</option>\n          <option value=\"\">Pay on Delivery</option>\n          <option value=\"Net Banking\">Net Banking</option>\n          <option value=\"cash\">Cash</option>\n          <option value=\"card\">Card</option>\n          <option value=\"upi\">UPI</option>\n          <option value=\"other\">Other</option>\n          <option value=\"credit\">Credit</option>\n        </select>\n        <div class=\"alert alert-danger inputMsg\" role=\"alert\" *ngIf=\"dSubmit && dFrm.payMode.errors\">\n            <div *ngIf=\"dFrm.payMode.errors.required\">Please mention your payment mode</div>\n        </div>\n        <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm\">Send</button>\n    </form>\n  </div>\n</ng-template>\n\n<ng-template #moveToCredit>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Move to credit</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"dBtm\" class=\"alert\" [ngClass]=\"dMsg.alert\">{{dMsg.msg}}</div>\n    <div class=\"container-fluid\">\n      <div class=\"row\">\n          <div class=\"col-lg-12\">\n              <div class=\"card\">\n                  <div class=\"card-body\">\n                    <div class=\"container\">\n                      <b>Credit Line</b>\n                      <div class=\"top\">\n                        <div class=\"top-element\">12 sep Rs 1000</div>\n                        <div class=\"top-element\">12 sep Rs 500</div>\n                        <div class=\"top-element\">30 sep Rs 2000</div>\n                      </div>\n                        <div class=\"line\"></div>\n                        <div class=\"bottom\">\n                          <!-- <div class=\"bottom-element\">20 september Rs 1000</div>\n                          <div class=\"bottom-element\">20 september Rs 1800</div> -->\n                        </div>\n                    </div>\n                    <div class=\"container\">\n                      <b>Purchase line</b>\n                      <div class=\"top\">\n\n                      </div>\n                        <div class=\"line\"></div>\n                        <div class=\"bottom\">\n                          <div class=\"bottom-element\">20 sep Rs 1000</div>\n                          <div class=\"bottom-element\">20 sep Rs 1800</div>\n                        </div>\n                    </div>\n                  </div>\n              </div>\n\n          </div>\n      </div>\n    </div>\n    <form [formGroup]=\"movetocredit\" (submit)=\"moveToCredit1()\">\n\n\n        <button type=\"submit\" class=\"mt-4\" [disabled]=\"dBtm\">Send</button>\n    </form>\n  </div>\n</ng-template>\n\n\n<section id=\"billPop\" *ngIf=\"popBill\">\n    <aside>\n        <a (click)=\"showBill(0)\" class=\"close\"></a>\n        <img [src]=\"serverPath+'/pdfBills/images/'+billData[popId].billImg[0].name\" alt=\"{{billData[popId].billImg[0].name}}\" />\n    </aside>\n</section>\n";
     /***/
   },
 
@@ -7744,53 +7744,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./../../guard/auth.service */
+    "./src/app/guard/auth.service.ts");
+    /* harmony import */
+
+
+    var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./../../delivery/delivery.service */
     "./src/app/delivery/delivery.service.ts");
     /* harmony import */
 
 
-    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ngx-bootstrap/modal */
     "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
     /* harmony import */
 
 
-    var _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../shared/filter.service */
     "./src/app/shared/filter.service.ts");
     /* harmony import */
 
 
-    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../dashboard/dashboard.service */
     "./src/app/dashboard/dashboard.service.ts");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! rxjs/internal/Subject */
     "./node_modules/rxjs/internal/Subject.js");
     /* harmony import */
 
 
-    var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__);
+    var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__);
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
@@ -7798,7 +7804,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     ;
 
     var DealerDashboadComponent = /*#__PURE__*/function () {
-      function DealerDashboadComponent(formBuilder, fetch, modalService, filterSrv, deliveryService) {
+      function DealerDashboadComponent(formBuilder, fetch, modalService, filterSrv, deliveryService, authService) {
         var _this22 = this;
 
         _classCallCheck(this, DealerDashboadComponent);
@@ -7808,6 +7814,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.modalService = modalService;
         this.filterSrv = filterSrv;
         this.deliveryService = deliveryService;
+        this.authService = authService;
         this.paid = true;
         this.dSubmit = false;
         this.dBtm = false;
@@ -7834,7 +7841,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.col4Data = [];
         this.col3Data = [];
         this.productList = [];
-        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
+        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         this.loadingProduct = false;
         this.selectedProduct = [];
         this.cash = 0;
@@ -7847,11 +7854,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.upiPaymmentArray = [];
         this.selectedDay = '';
         this.totalPrice = 0;
+        this.screenFirst = true;
+        this.screenSecond = false;
+        this.verificationDone = false;
         this.serverPath = this.fetch.serverPath;
         this.menuOptions = this.filterSrv.menuOptions;
         this.cOptions = this.filterSrv.cOptions;
         this.groupedData = [];
-        this.productChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])()).subscribe(function (value) {
+        this.productChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["distinctUntilChanged"])()).subscribe(function (value) {
           console.log(value);
           _this22.productList = [];
           _this22.loadingProduct = true;
@@ -7870,16 +7880,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngOnInit",
         value: function ngOnInit() {
           this.paymentForm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
           });
           this.deliveryFrm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
           });
           this.movetocredit = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
           });
           this.getMonthData(true);
           this.getProfileInfo();
@@ -7888,6 +7898,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "openModal",
         value: function openModal(template) {
           this.modalRef = this.modalService.show(template);
+          this.companyName = this.authService.getCompanyName();
+          this.screenFirst = true;
+          this.screenSecond = false;
+          this.verificationDone = false;
         }
       }, {
         key: "openDelivery",
@@ -8261,41 +8275,71 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.setMobile = val;
         }
       }, {
+        key: "verifyMobile",
+        value: function verifyMobile() {
+          var _this31 = this;
+
+          this.dMsg = {
+            msg: "Please wait verifying mobile number.",
+            alert: 'alert-success'
+          };
+          this.fetch.verifyRetailerMobileNumber({
+            regMobile: this.setMobile
+          }).subscribe(function (data) {
+            if (data == null) {
+              _this31.delearDetail = data;
+            } else {
+              _this31.delearDetail = data; // this.screenFirst = false;
+              // this.screenSecond = true;
+            }
+
+            _this31.verificationDone = true;
+            _this31.dMsg = {};
+            console.log(data);
+          });
+        }
+      }, {
+        key: "moveToSecondScreen",
+        value: function moveToSecondScreen() {
+          this.screenFirst = false;
+          this.screenSecond = true;
+        }
+      }, {
         key: "NewDealerBill",
         value: function NewDealerBill() {
-          var _this31 = this;
+          var _this32 = this;
 
           this.newBill = true;
           this.selectedProduct.forEach(function (data, index) {
-            if (_this31.selectedProduct[index].quantity == undefined) {
-              _this31.selectedProduct[index]["quantity"] = 1;
+            if (_this32.selectedProduct[index].quantity == undefined) {
+              _this32.selectedProduct[index]["quantity"] = 1;
             }
           });
           this.fetch.createNewInvoice({
             "selectedProducts": this.selectedProduct
           }).subscribe(function (res) {
-            _this31.dMsg = {
+            _this32.dMsg = {
               msg: "Bill created successfully.",
               alert: 'alert-success'
             };
-            _this31.selectedProduct = [];
-            _this31.dBtm = false;
-            _this31.paid = false;
-            res["mobilenumber"] = _this31.setMobile;
+            _this32.selectedProduct = [];
+            _this32.dBtm = false;
+            _this32.paid = false;
+            res["mobilenumber"] = _this32.setMobile;
             setTimeout(function () {
-              _this31.dMsg = {};
+              _this32.dMsg = {};
 
-              _this31.deliveryService.generateImageNewInvoice(res).subscribe(function () {
-                _this31.getMonthData(false);
+              _this32.deliveryService.generateImageNewInvoice(res).subscribe(function () {
+                _this32.getMonthData(false);
               });
 
-              _this31.paid = false;
+              _this32.paid = false;
 
-              _this31.modalRef.hide();
+              _this32.modalRef.hide();
             }, 2800);
           }, function (err) {
-            _this31.dBtm = false;
-            _this31.dMsg = {
+            _this32.dBtm = false;
+            _this32.dMsg = {
               msg: err.error,
               alert: 'alert-danger'
             };
@@ -8304,7 +8348,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "setQuantity",
         value: function setQuantity(val, index) {
-          var _this32 = this;
+          var _this33 = this;
 
           this.totalPrice = 0;
 
@@ -8316,13 +8360,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.selectedProduct.map(function (data) {
             console.log(data.price);
             console.log(data.quantity);
-            _this32.totalPrice += parseInt(data.price) * parseInt(data.quantity !== undefined ? data.quantity : 1);
+            _this33.totalPrice += parseInt(data.price) * parseInt(data.quantity !== undefined ? data.quantity : 1);
           });
         }
       }, {
         key: "addDelivery",
         value: function addDelivery() {
-          var _this33 = this;
+          var _this34 = this;
 
           this.dBtm = false;
           var requestData = this.deliveryFrm.value;
@@ -8343,35 +8387,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.deliveryService.moveToDelivery(requestData).subscribe(function (res) {
-            _this33.dMsg = {
-              msg: 'Updated Successfully',
-              alert: 'alert-success'
-            };
-            _this33.dBtm = true;
-            setTimeout(function () {
-              _this33.dBtm = false;
-
-              _this33.modalRef.hide();
-            }, 2800);
-          }, function (err) {
-            _this33.dBtm = true;
-            _this33.dMsg = {
-              msg: err.error,
-              alert: 'alert-danger'
-            };
-          });
-        }
-      }, {
-        key: "moveToCredit1",
-        value: function moveToCredit1() {
-          var _this34 = this;
-
-          this.dBtm = false;
-          var requestData = this.movetocredit.value;
-          requestData['category'] = 'credit';
-          requestData['payStatus'] = false;
-          console.log(requestData);
-          this.fetch.updateCreditInvoice(requestData).subscribe(function (res) {
             _this34.dMsg = {
               msg: 'Updated Successfully',
               alert: 'alert-success'
@@ -8391,6 +8406,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "moveToCredit1",
+        value: function moveToCredit1() {
+          var _this35 = this;
+
+          this.dBtm = false;
+          var requestData = this.movetocredit.value;
+          requestData['category'] = 'credit';
+          requestData['payStatus'] = false;
+          console.log(requestData);
+          this.fetch.updateCreditInvoice(requestData).subscribe(function (res) {
+            _this35.dMsg = {
+              msg: 'Updated Successfully',
+              alert: 'alert-success'
+            };
+            _this35.dBtm = true;
+            setTimeout(function () {
+              _this35.dBtm = false;
+
+              _this35.modalRef.hide();
+            }, 2800);
+          }, function (err) {
+            _this35.dBtm = true;
+            _this35.dMsg = {
+              msg: err.error,
+              alert: 'alert-danger'
+            };
+          });
+        }
+      }, {
         key: "openUpdatepayment",
         value: function openUpdatepayment(template, billId) {
           this.modalRef = this.modalService.show(template);
@@ -8401,22 +8445,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updatePayment1",
         value: function updatePayment1() {
-          var _this35 = this;
+          var _this36 = this;
 
           console.log("hello");
           this.deliveryService.updatepaymentMode(this.paymentForm.value).subscribe(function (data) {
-            _this35.paymentForm.reset();
+            _this36.paymentForm.reset();
 
-            _this35.dMsg = true;
-            _this35.msg = "Payment approved successfully!";
+            _this36.dMsg = true;
+            _this36.msg = "Payment approved successfully!";
             console.log(data);
             setTimeout(function () {
-              _this35.getMonthData(true);
+              _this36.getMonthData(true);
 
-              _this35.dMsg = null;
-              _this35.msg = "";
+              _this36.dMsg = null;
+              _this36.msg = "";
 
-              _this35.modalRef.hide();
+              _this36.modalRef.hide();
             }, 3500);
           }, function (err) {
             console.log("hello");
@@ -8425,7 +8469,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "upiPaymentData",
         value: function upiPaymentData(index, data) {
-          var _this36 = this;
+          var _this37 = this;
 
           this.billDData = this.daysData[index].list;
           this.selectedDay = index;
@@ -8440,19 +8484,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           var gpay = 0;
           gpay = gpayData.reduce(function (accumulator, currentValue) {
-            var v = _this36.cleanPrice(currentValue.billDetails.total);
+            var v = _this37.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
           var ptpay = 0;
           ptpay = payTmData.reduce(function (accumulator, currentValue) {
-            var v = _this36.cleanPrice(currentValue.billDetails.total);
+            var v = _this37.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
           var phpay = 0;
           phpay = phonePay.reduce(function (accumulator, currentValue) {
-            var v = _this36.cleanPrice(currentValue.billDetails.total);
+            var v = _this37.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
@@ -8472,19 +8516,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     DealerDashboadComponent.ctorParameters = function () {
       return [{
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
       }, {
-        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"]
+        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__["DashboardService"]
       }, {
-        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__["BsModalService"]
+        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"]
       }, {
-        type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__["FilterService"]
+        type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__["FilterService"]
       }, {
-        type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"]
+        type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__["DeliveryService"]
+      }, {
+        type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
       }];
     };
 
-    DealerDashboadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+    DealerDashboadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
       selector: 'app-dealer-dashboad',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./dealer-dashboad-component.html */
@@ -8599,7 +8645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var DealerDeliveryPgComponent = /*#__PURE__*/function () {
       function DealerDeliveryPgComponent(formBuilder, fetch, modalService, filterSrv, deliveryService) {
-        var _this37 = this;
+        var _this38 = this;
 
         _classCallCheck(this, DealerDeliveryPgComponent);
 
@@ -8652,15 +8698,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.groupedData = [];
         this.productChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])()).subscribe(function (value) {
           console.log(value);
-          _this37.productList = [];
-          _this37.loadingProduct = true;
+          _this38.productList = [];
+          _this38.loadingProduct = true;
 
-          _this37.fetch.getProductList({
+          _this38.fetch.getProductList({
             "name": value
           }).subscribe(function (data) {
             console.log(data);
-            _this37.loadingProduct = false;
-            _this37.productList = data;
+            _this38.loadingProduct = false;
+            _this38.productList = data;
           }, function (err) {});
         });
       }
@@ -8713,7 +8759,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "sltArea",
         value: function sltArea(area) {
-          var _this38 = this;
+          var _this39 = this;
 
           this.billDData = [];
           this.weekData = [];
@@ -8731,7 +8777,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.dataResult[area] !== undefined) {
             this.filterSrv.monthFilter.forEach(function (mth) {
-              _this38.monthDataDh.push(_this38.filterSrv.filterByDateCash(_this38.dataResult[area], new Date().getTime(), mth));
+              _this39.monthDataDh.push(_this39.filterSrv.filterByDateCash(_this39.dataResult[area], new Date().getTime(), mth));
             });
           }
 
@@ -8767,83 +8813,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getProfileInfo",
         value: function getProfileInfo() {
-          var _this39 = this;
-
-          this.fetch.getProfInfo().subscribe(function (res) {
-            _this39.profInfo = res;
-          }, function (err) {
-            _this39.pgMsg = {
-              msg: err.error,
-              alert: 'alert-danger'
-            };
-          });
-        }
-      }, {
-        key: "getMonthData",
-        value: function getMonthData() {
           var _this40 = this;
 
-          this.monthData = [];
-          this.billDData = [];
-          this.deliveryService.getAllDelivery().subscribe(function (res) {
-            var data = res;
-            _this40.paid = true;
-            _this40.allData = data;
-            _this40.billDData = _this40.allData;
-            console.log(_this40.allData);
-            data = data.filter(function (d) {
-              return d.paymentMode !== "" && d.category == "delivery";
-            });
-            _this40.billDData = data;
-            var result = data.reduce(function (r, a) {
-              r[a.paymentMode] = r[a.paymentMode] || [];
-              r[a.paymentMode].push(a);
-              return r;
-            }, Object.create(null));
-            _this40.dataResult = result;
-            console.log(_this40.dataResult); //this.billDData = this.dataResult.map((data: any))
-
-            if (result !== undefined) {
-              if (result['cash'] !== undefined) {
-                _this40.cash = result['cash'].reduce(function (accumulator, currentValue) {
-                  var v = _this40.cleanPrice(currentValue.billDetails.total);
-
-                  return accumulator + parseInt(v);
-                }, 0);
-              }
-
-              if (result['Net Banking'] !== undefined) {
-                _this40.netBanking = result['Net Banking'].reduce(function (accumulator, currentValue) {
-                  var v = _this40.cleanPrice(currentValue.billDetails.total);
-
-                  return accumulator + parseInt(v);
-                }, 0);
-              }
-
-              if (result['card'] !== undefined) {
-                _this40.card = result['card'].reduce(function (accumulator, currentValue) {
-                  var v = _this40.cleanPrice(currentValue.billDetails.total);
-
-                  return accumulator + parseInt(v);
-                }, 0);
-              }
-
-              if (result['upi'] !== undefined) {
-                _this40.upi = result['upi'].reduce(function (accumulator, currentValue) {
-                  var v = _this40.cleanPrice(currentValue.billDetails.total);
-
-                  return accumulator + parseInt(v);
-                }, 0);
-              }
-
-              if (result['other'] !== undefined) {
-                _this40.other = result['other'].reduce(function (accumulator, currentValue) {
-                  var v = _this40.cleanPrice(currentValue.billDetails.total);
-
-                  return accumulator + parseInt(v);
-                }, 0);
-              }
-            }
+          this.fetch.getProfInfo().subscribe(function (res) {
+            _this40.profInfo = res;
           }, function (err) {
             _this40.pgMsg = {
               msg: err.error,
@@ -8852,9 +8825,82 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "getMonthData",
+        value: function getMonthData() {
+          var _this41 = this;
+
+          this.monthData = [];
+          this.billDData = [];
+          this.deliveryService.getAllDelivery().subscribe(function (res) {
+            var data = res;
+            _this41.paid = true;
+            _this41.allData = data;
+            _this41.billDData = _this41.allData;
+            console.log(_this41.allData);
+            data = data.filter(function (d) {
+              return d.paymentMode !== "" && d.category == "delivery";
+            });
+            _this41.billDData = data;
+            var result = data.reduce(function (r, a) {
+              r[a.paymentMode] = r[a.paymentMode] || [];
+              r[a.paymentMode].push(a);
+              return r;
+            }, Object.create(null));
+            _this41.dataResult = result;
+            console.log(_this41.dataResult); //this.billDData = this.dataResult.map((data: any))
+
+            if (result !== undefined) {
+              if (result['cash'] !== undefined) {
+                _this41.cash = result['cash'].reduce(function (accumulator, currentValue) {
+                  var v = _this41.cleanPrice(currentValue.billDetails.total);
+
+                  return accumulator + parseInt(v);
+                }, 0);
+              }
+
+              if (result['Net Banking'] !== undefined) {
+                _this41.netBanking = result['Net Banking'].reduce(function (accumulator, currentValue) {
+                  var v = _this41.cleanPrice(currentValue.billDetails.total);
+
+                  return accumulator + parseInt(v);
+                }, 0);
+              }
+
+              if (result['card'] !== undefined) {
+                _this41.card = result['card'].reduce(function (accumulator, currentValue) {
+                  var v = _this41.cleanPrice(currentValue.billDetails.total);
+
+                  return accumulator + parseInt(v);
+                }, 0);
+              }
+
+              if (result['upi'] !== undefined) {
+                _this41.upi = result['upi'].reduce(function (accumulator, currentValue) {
+                  var v = _this41.cleanPrice(currentValue.billDetails.total);
+
+                  return accumulator + parseInt(v);
+                }, 0);
+              }
+
+              if (result['other'] !== undefined) {
+                _this41.other = result['other'].reduce(function (accumulator, currentValue) {
+                  var v = _this41.cleanPrice(currentValue.billDetails.total);
+
+                  return accumulator + parseInt(v);
+                }, 0);
+              }
+            }
+          }, function (err) {
+            _this41.pgMsg = {
+              msg: err.error,
+              alert: 'alert-danger'
+            };
+          });
+        }
+      }, {
         key: "unpaid",
         value: function unpaid() {
-          var _this41 = this;
+          var _this42 = this;
 
           this.paid = false;
           this.filter = true;
@@ -8873,7 +8919,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.billDData = this.allData;
           this.monthDataDh = [];
           this.filterSrv.monthFilter.forEach(function (mth) {
-            _this41.monthDataDh.push(_this41.filterSrv.filterByDateCash(_this41.allData, new Date().getTime(), mth));
+            _this42.monthDataDh.push(_this42.filterSrv.filterByDateCash(_this42.allData, new Date().getTime(), mth));
           });
           console.log(this.monthDataDh);
           this.monthData = [];
@@ -8886,7 +8932,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "filterMonthsWeek",
         value: function filterMonthsWeek(month, index, data) {
-          var _this42 = this;
+          var _this43 = this;
 
           this.sltMonth(month);
           this.weekData = [];
@@ -8905,7 +8951,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           weekList.forEach(function (e) {
-            _this42.weekData.push(_this42.filterSrv.filterByBillDatecash(filterData, e.end.getTime(), e.start.getTime()));
+            _this43.weekData.push(_this43.filterSrv.filterByBillDatecash(filterData, e.end.getTime(), e.start.getTime()));
           });
           console.log(this.weekData);
           this.billDData = this.monthData[index].list; // const setRange = [(month -1)*4, (((month -1)*4) + 4) ];
@@ -8928,7 +8974,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "filterDays",
         value: function filterDays(month, data) {
-          var _this43 = this;
+          var _this44 = this;
 
           this.daysData = []; //console.log(data);
           // this.billDData = this.weekData[month].list;
@@ -8937,7 +8983,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(daysList); // console.log(this.selectArea);
 
           daysList.forEach(function (e) {
-            _this43.daysData.push(_this43.filterSrv.filterByBillDatecash(data, e.end.getTime(), e.start.getTime()));
+            _this44.daysData.push(_this44.filterSrv.filterByBillDatecash(data, e.end.getTime(), e.start.getTime()));
           });
           this.billDData = this.weekData[month - 1].list;
           var setRange = [(month - 1) * 7, (month - 1) * 7 + 7];
@@ -8972,7 +9018,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "generateFilter",
         value: function generateFilter(data) {
-          var _this44 = this;
+          var _this45 = this;
 
           this.selectSector = null;
           this.col3Data = [];
@@ -8982,34 +9028,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.selectArea === 'Dashboard' || this.selectArea === 'Uploaded') {
             data.forEach(function (e) {
-              var updateItem = _this44.col3Data.find(function (x) {
+              var updateItem = _this45.col3Data.find(function (x) {
                 return x.department === e.deportment;
               });
 
-              if (!updateItem) _this44.col3Data.push({
+              if (!updateItem) _this45.col3Data.push({
                 department: e.deportment,
-                price: _this44.cleanPrice(e.total),
+                price: _this45.cleanPrice(e.total),
                 userType: "department"
               });else {
-                var index = _this44.col3Data.indexOf(updateItem);
+                var index = _this45.col3Data.indexOf(updateItem);
 
-                _this44.col3Data[index].price = _this44.col3Data[index].price + _this44.cleanPrice(e.total);
+                _this45.col3Data[index].price = _this45.col3Data[index].price + _this45.cleanPrice(e.total);
               }
             });
           } else {
             data.forEach(function (e) {
-              var updateItem = _this44.col3Data.find(function (x) {
+              var updateItem = _this45.col3Data.find(function (x) {
                 return x.department === e.billDetails.deportment;
               });
 
-              if (!updateItem) _this44.col3Data.push({
+              if (!updateItem) _this45.col3Data.push({
                 department: e.billDetails.deportment,
-                price: _this44.cleanPrice(e.billDetails.total),
+                price: _this45.cleanPrice(e.billDetails.total),
                 userType: "department"
               });else {
-                var index = _this44.col3Data.indexOf(updateItem);
+                var index = _this45.col3Data.indexOf(updateItem);
 
-                _this44.col3Data[index].price = _this44.col3Data[index].price + _this44.cleanPrice(e.billDetails.total);
+                _this45.col3Data[index].price = _this45.col3Data[index].price + _this45.cleanPrice(e.billDetails.total);
               }
             });
           }
@@ -9017,7 +9063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "generateBFilter",
         value: function generateBFilter(data) {
-          var _this45 = this;
+          var _this46 = this;
 
           this.selectBrand = null;
           this.col4Data = [];
@@ -9025,34 +9071,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.selectArea === 'Dashboard' || this.selectArea === 'Uploaded') {
             data.forEach(function (e) {
-              var updateItem = _this45.col4Data.find(function (x) {
+              var updateItem = _this46.col4Data.find(function (x) {
                 return x.brand === e.title;
               });
 
-              if (!updateItem) _this45.col4Data.push({
+              if (!updateItem) _this46.col4Data.push({
                 brand: e.title,
-                price: _this45.cleanPrice(e.total),
+                price: _this46.cleanPrice(e.total),
                 userType: "brand"
               });else {
-                var index = _this45.col4Data.indexOf(updateItem);
+                var index = _this46.col4Data.indexOf(updateItem);
 
-                _this45.col4Data[index].price = _this45.col4Data[index].price + _this45.cleanPrice(e.total);
+                _this46.col4Data[index].price = _this46.col4Data[index].price + _this46.cleanPrice(e.total);
               }
             });
           } else {
             data.forEach(function (e) {
-              var updateItem = _this45.col4Data.find(function (x) {
+              var updateItem = _this46.col4Data.find(function (x) {
                 return x.brand === e.billDetails.title;
               });
 
-              if (!updateItem) _this45.col4Data.push({
+              if (!updateItem) _this46.col4Data.push({
                 brand: e.billDetails.title,
-                price: _this45.cleanPrice(e.billDetails.total),
+                price: _this46.cleanPrice(e.billDetails.total),
                 userType: "brand"
               });else {
-                var index = _this45.col4Data.indexOf(updateItem);
+                var index = _this46.col4Data.indexOf(updateItem);
 
-                _this45.col4Data[index].price = _this45.col4Data[index].price + _this45.cleanPrice(e.billDetails.total);
+                _this46.col4Data[index].price = _this46.col4Data[index].price + _this46.cleanPrice(e.billDetails.total);
               }
             });
           }
@@ -9060,32 +9106,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateInvoiceStatus",
         value: function updateInvoiceStatus() {
-          var _this46 = this;
+          var _this47 = this;
 
           this.dBtm = true;
           this.fetch.updateInvoiceStatus(this.invoicStatus.value).subscribe(function (res) {
-            _this46.dMsg1 = true;
-            _this46.dMsg = {
+            _this47.dMsg1 = true;
+            _this47.dMsg = {
               msg: res,
               alert: 'alert-success'
             };
-            _this46.dBtm = false;
+            _this47.dBtm = false;
 
-            for (var i = 0; i < _this46.billDData.length; i++) {
-              if (_this46.billDData[i]._id == _this46.invoicStatus.value.billId) {
-                _this46.billDData[i].invoiceStatus = _this46.invoicStatus.value.status;
+            for (var i = 0; i < _this47.billDData.length; i++) {
+              if (_this47.billDData[i]._id == _this47.invoicStatus.value.billId) {
+                _this47.billDData[i].invoiceStatus = _this47.invoicStatus.value.status;
               }
             }
 
             setTimeout(function () {
-              _this46.dMsg = null;
-              _this46.msg = "";
+              _this47.dMsg = null;
+              _this47.msg = "";
 
-              _this46.modalRef.hide();
+              _this47.modalRef.hide();
             }, 2000);
           }, function (err) {
-            _this46.dBtm = false;
-            _this46.dMsg = {
+            _this47.dBtm = false;
+            _this47.dMsg = {
               msg: err.error,
               alert: 'alert-danger'
             };
@@ -9102,25 +9148,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updatePayment1",
         value: function updatePayment1() {
-          var _this47 = this;
+          var _this48 = this;
 
           console.log("hello");
           this.deliveryService.updatepaymentMode(this.paymentForm.value).subscribe(function (data) {
-            _this47.paymentForm.reset();
+            _this48.paymentForm.reset();
 
-            _this47.dMsg = true;
-            _this47.msg = "Payment approved successfully!";
+            _this48.dMsg = true;
+            _this48.msg = "Payment approved successfully!";
 
-            _this47.getMonthData();
+            _this48.getMonthData();
 
             console.log(data);
             setTimeout(function () {
-              _this47.dMsg = null;
-              _this47.msg = "";
+              _this48.dMsg = null;
+              _this48.msg = "";
 
-              _this47.getMonthData();
+              _this48.getMonthData();
 
-              _this47.modalRef.hide();
+              _this48.modalRef.hide();
             }, 3500);
           }, function (err) {
             console.log("hello");
@@ -9129,7 +9175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "upiPaymentData",
         value: function upiPaymentData(index, data) {
-          var _this48 = this;
+          var _this49 = this;
 
           console.log(data);
           this.billDData = this.daysData[index].list;
@@ -9145,19 +9191,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           var gpay = 0;
           gpay = gpayData.reduce(function (accumulator, currentValue) {
-            var v = _this48.cleanPrice(currentValue.billDetails.total);
+            var v = _this49.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
           var ptpay = 0;
           ptpay = payTmData.reduce(function (accumulator, currentValue) {
-            var v = _this48.cleanPrice(currentValue.billDetails.total);
+            var v = _this49.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
           var phpay = 0;
           phpay = phonePay.reduce(function (accumulator, currentValue) {
-            var v = _this48.cleanPrice(currentValue.billDetails.total);
+            var v = _this49.cleanPrice(currentValue.billDetails.total);
 
             return accumulator + parseInt(v);
           }, 0);
@@ -9299,7 +9345,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var MoveToCreditComponent = /*#__PURE__*/function () {
       function MoveToCreditComponent(formBuilder, fetch, modalService, filterSrv, deliveryService) {
-        var _this49 = this;
+        var _this50 = this;
 
         _classCallCheck(this, MoveToCreditComponent);
 
@@ -9350,15 +9396,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.groupedData = [];
         this.productChange.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])()).subscribe(function (value) {
           console.log(value);
-          _this49.productList = [];
-          _this49.loadingProduct = true;
+          _this50.productList = [];
+          _this50.loadingProduct = true;
 
-          _this49.fetch.getProductList({
+          _this50.fetch.getProductList({
             "name": value
           }).subscribe(function (data) {
             console.log(data);
-            _this49.loadingProduct = false;
-            _this49.productList = data;
+            _this50.loadingProduct = false;
+            _this50.productList = data;
           }, function (err) {});
         });
       }
@@ -9419,7 +9465,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "sltArea",
         value: function sltArea(area) {
-          var _this50 = this;
+          var _this51 = this;
 
           this.billDData = [];
           this.selectArea = area;
@@ -9433,7 +9479,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.monthDataDh = [];
           console.log(this.filterSrv.monthFilter);
           this.filterSrv.monthFilter.forEach(function (mth) {
-            _this50.monthDataDh.push(_this50.filterSrv.filterByDateCash(_this50.dataResult[area], new Date().getTime(), mth));
+            _this51.monthDataDh.push(_this51.filterSrv.filterByDateCash(_this51.dataResult[area], new Date().getTime(), mth));
           });
           console.log(this.monthDataDh);
           this.monthData = [];
@@ -9468,34 +9514,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getProfileInfo",
         value: function getProfileInfo() {
-          var _this51 = this;
-
-          this.fetch.getProfInfo().subscribe(function (res) {
-            _this51.profInfo = res;
-          }, function (err) {
-            _this51.pgMsg = {
-              msg: err.error,
-              alert: 'alert-danger'
-            };
-          });
-        }
-      }, {
-        key: "getMonthData",
-        value: function getMonthData() {
           var _this52 = this;
 
-          this.monthData = [];
-          this.billDData = [];
-          this.deliveryService.getAllDelivery().subscribe(function (res) {
-            var data = res;
-            _this52.paid = true;
-            console.log(data);
-            _this52.allData = data.filter(function (d) {
-              return d.paymentMode !== "" && d.category === 'credit';
-            });
-            _this52.billDData = _this52.allData;
-
-            _this52.unpaid();
+          this.fetch.getProfInfo().subscribe(function (res) {
+            _this52.profInfo = res;
           }, function (err) {
             _this52.pgMsg = {
               msg: err.error,
@@ -9504,9 +9526,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "getMonthData",
+        value: function getMonthData() {
+          var _this53 = this;
+
+          this.monthData = [];
+          this.billDData = [];
+          this.deliveryService.getAllDelivery().subscribe(function (res) {
+            var data = res;
+            _this53.paid = true;
+            console.log(data);
+            _this53.allData = data.filter(function (d) {
+              return d.paymentMode !== "" && d.category === 'credit';
+            });
+            _this53.billDData = _this53.allData;
+
+            _this53.unpaid();
+          }, function (err) {
+            _this53.pgMsg = {
+              msg: err.error,
+              alert: 'alert-danger'
+            };
+          });
+        }
+      }, {
         key: "unpaid",
         value: function unpaid() {
-          var _this53 = this;
+          var _this54 = this;
 
           this.paid = false;
           this.filter = true; //  this.billDData = [];
@@ -9519,7 +9565,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(this.allData);
           this.monthDataDh = [];
           this.filterSrv.monthFilter.forEach(function (mth) {
-            _this53.monthDataDh.push(_this53.filterSrv.filterByDateCash(_this53.allData, new Date().getTime(), mth));
+            _this54.monthDataDh.push(_this54.filterSrv.filterByDateCash(_this54.allData, new Date().getTime(), mth));
           });
           console.log(this.monthDataDh);
           this.monthData = [];
@@ -9530,7 +9576,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "filterMonthsWeek",
         value: function filterMonthsWeek(month, index, data) {
-          var _this54 = this;
+          var _this55 = this;
 
           this.sltMonth(month);
           this.weekData = [];
@@ -9549,7 +9595,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           weekList.forEach(function (e) {
-            _this54.weekData.push(_this54.filterSrv.filterByBillDatecash(filterData, e.end.getTime(), e.start.getTime()));
+            _this55.weekData.push(_this55.filterSrv.filterByBillDatecash(filterData, e.end.getTime(), e.start.getTime()));
           });
           console.log(this.weekData);
           this.billDData = this.monthData[index].list; // const setRange = [(month -1)*4, (((month -1)*4) + 4) ];
@@ -9572,7 +9618,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "filterDays",
         value: function filterDays(month, data) {
-          var _this55 = this;
+          var _this56 = this;
 
           // console.log(month);
           this.sltMonth(month);
@@ -9584,7 +9630,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(daysList); // console.log(this.selectArea);
 
           daysList.forEach(function (e) {
-            _this55.daysData.push(_this55.filterSrv.filterByBillDatecash(data, e.end.getTime(), e.start.getTime()));
+            _this56.daysData.push(_this56.filterSrv.filterByBillDatecash(data, e.end.getTime(), e.start.getTime()));
           });
           this.billDData = this.weekData[month - 1].list;
           var setRange = [(month - 1) * 7, (month - 1) * 7 + 7];
@@ -9620,7 +9666,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "generateFilter",
         value: function generateFilter(data) {
-          var _this56 = this;
+          var _this57 = this;
 
           this.selectSector = null;
           this.col3Data = [];
@@ -9630,34 +9676,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.selectArea === 'Dashboard' || this.selectArea === 'Uploaded') {
             data.forEach(function (e) {
-              var updateItem = _this56.col3Data.find(function (x) {
+              var updateItem = _this57.col3Data.find(function (x) {
                 return x.department === e.deportment;
               });
 
-              if (!updateItem) _this56.col3Data.push({
+              if (!updateItem) _this57.col3Data.push({
                 department: e.deportment,
-                price: _this56.cleanPrice(e.total),
+                price: _this57.cleanPrice(e.total),
                 userType: "department"
               });else {
-                var index = _this56.col3Data.indexOf(updateItem);
+                var index = _this57.col3Data.indexOf(updateItem);
 
-                _this56.col3Data[index].price = _this56.col3Data[index].price + _this56.cleanPrice(e.total);
+                _this57.col3Data[index].price = _this57.col3Data[index].price + _this57.cleanPrice(e.total);
               }
             });
           } else {
             data.forEach(function (e) {
-              var updateItem = _this56.col3Data.find(function (x) {
+              var updateItem = _this57.col3Data.find(function (x) {
                 return x.department === e.billDetails.deportment;
               });
 
-              if (!updateItem) _this56.col3Data.push({
+              if (!updateItem) _this57.col3Data.push({
                 department: e.billDetails.deportment,
-                price: _this56.cleanPrice(e.billDetails.total),
+                price: _this57.cleanPrice(e.billDetails.total),
                 userType: "department"
               });else {
-                var index = _this56.col3Data.indexOf(updateItem);
+                var index = _this57.col3Data.indexOf(updateItem);
 
-                _this56.col3Data[index].price = _this56.col3Data[index].price + _this56.cleanPrice(e.billDetails.total);
+                _this57.col3Data[index].price = _this57.col3Data[index].price + _this57.cleanPrice(e.billDetails.total);
               }
             });
           }
@@ -9665,7 +9711,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "generateBFilter",
         value: function generateBFilter(data) {
-          var _this57 = this;
+          var _this58 = this;
 
           this.selectBrand = null;
           this.col4Data = [];
@@ -9673,34 +9719,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (this.selectArea === 'Dashboard' || this.selectArea === 'Uploaded') {
             data.forEach(function (e) {
-              var updateItem = _this57.col4Data.find(function (x) {
+              var updateItem = _this58.col4Data.find(function (x) {
                 return x.brand === e.title;
               });
 
-              if (!updateItem) _this57.col4Data.push({
+              if (!updateItem) _this58.col4Data.push({
                 brand: e.title,
-                price: _this57.cleanPrice(e.total),
+                price: _this58.cleanPrice(e.total),
                 userType: "brand"
               });else {
-                var index = _this57.col4Data.indexOf(updateItem);
+                var index = _this58.col4Data.indexOf(updateItem);
 
-                _this57.col4Data[index].price = _this57.col4Data[index].price + _this57.cleanPrice(e.total);
+                _this58.col4Data[index].price = _this58.col4Data[index].price + _this58.cleanPrice(e.total);
               }
             });
           } else {
             data.forEach(function (e) {
-              var updateItem = _this57.col4Data.find(function (x) {
+              var updateItem = _this58.col4Data.find(function (x) {
                 return x.brand === e.billDetails.title;
               });
 
-              if (!updateItem) _this57.col4Data.push({
+              if (!updateItem) _this58.col4Data.push({
                 brand: e.billDetails.title,
-                price: _this57.cleanPrice(e.billDetails.total),
+                price: _this58.cleanPrice(e.billDetails.total),
                 userType: "brand"
               });else {
-                var index = _this57.col4Data.indexOf(updateItem);
+                var index = _this58.col4Data.indexOf(updateItem);
 
-                _this57.col4Data[index].price = _this57.col4Data[index].price + _this57.cleanPrice(e.billDetails.total);
+                _this58.col4Data[index].price = _this58.col4Data[index].price + _this58.cleanPrice(e.billDetails.total);
               }
             });
           }
@@ -9716,32 +9762,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "NewDealerBill",
         value: function NewDealerBill() {
-          var _this58 = this;
+          var _this59 = this;
 
           this.selectedProduct.forEach(function (data, index) {
-            if (_this58.selectedProduct[index].quantity == undefined) {
-              _this58.selectedProduct[index]["quantity"] = 1;
+            if (_this59.selectedProduct[index].quantity == undefined) {
+              _this59.selectedProduct[index]["quantity"] = 1;
             }
           });
           this.fetch.createNewInvoice({
             "selectedProducts": this.selectedProduct
           }).subscribe(function (res) {
-            _this58.dMsg = {
+            _this59.dMsg = {
               msg: res,
               alert: 'alert-success'
             };
-            _this58.selectedProduct = [];
-            _this58.dBtm = false;
+            _this59.selectedProduct = [];
+            _this59.dBtm = false;
             setTimeout(function () {
               console.log(res);
 
-              _this58.deliveryService.generateImageNewInvoice(res).subscribe(function () {});
+              _this59.deliveryService.generateImageNewInvoice(res).subscribe(function () {});
 
-              _this58.modalRef.hide();
+              _this59.modalRef.hide();
             }, 2800);
           }, function (err) {
-            _this58.dBtm = false;
-            _this58.dMsg = {
+            _this59.dBtm = false;
+            _this59.dMsg = {
               msg: err.error,
               alert: 'alert-danger'
             };
@@ -9756,42 +9802,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addDelivery",
         value: function addDelivery() {
-          var _this59 = this;
+          var _this60 = this;
 
           this.dBtm = false;
           var requestData = this.deliveryFrm.value;
           requestData['category'] = 'delivery';
           console.log(requestData);
           this.deliveryService.moveToDelivery(requestData).subscribe(function (res) {
-            _this59.dMsg = {
-              msg: 'Updated Successfully',
-              alert: 'alert-success'
-            };
-            _this59.dBtm = true;
-            setTimeout(function () {
-              _this59.dBtm = false;
-
-              _this59.modalRef.hide();
-            }, 2800);
-          }, function (err) {
-            _this59.dBtm = true;
-            _this59.dMsg = {
-              msg: err.error,
-              alert: 'alert-danger'
-            };
-          });
-        }
-      }, {
-        key: "moveToCredit1",
-        value: function moveToCredit1() {
-          var _this60 = this;
-
-          this.dBtm = false;
-          var requestData = this.movetocredit.value;
-          requestData['category'] = 'credit';
-          requestData['payStatus'] = false;
-          console.log(requestData);
-          this.fetch.updateCreditInvoice(requestData).subscribe(function (res) {
             _this60.dMsg = {
               msg: 'Updated Successfully',
               alert: 'alert-success'
@@ -9811,6 +9828,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
         }
       }, {
+        key: "moveToCredit1",
+        value: function moveToCredit1() {
+          var _this61 = this;
+
+          this.dBtm = false;
+          var requestData = this.movetocredit.value;
+          requestData['category'] = 'credit';
+          requestData['payStatus'] = false;
+          console.log(requestData);
+          this.fetch.updateCreditInvoice(requestData).subscribe(function (res) {
+            _this61.dMsg = {
+              msg: 'Updated Successfully',
+              alert: 'alert-success'
+            };
+            _this61.dBtm = true;
+            setTimeout(function () {
+              _this61.dBtm = false;
+
+              _this61.modalRef.hide();
+            }, 2800);
+          }, function (err) {
+            _this61.dBtm = true;
+            _this61.dMsg = {
+              msg: err.error,
+              alert: 'alert-danger'
+            };
+          });
+        }
+      }, {
         key: "openUpdatepayment",
         value: function openUpdatepayment(template, billId) {
           this.modalRef = this.modalService.show(template);
@@ -9821,20 +9867,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updatePayment",
         value: function updatePayment() {
-          var _this61 = this;
+          var _this62 = this;
 
           console.log("hello");
           this.deliveryService.updatepaymentMode(this.paymentForm.value).subscribe(function (data) {
-            _this61.paymentForm.reset();
+            _this62.paymentForm.reset();
 
-            _this61.dMsg = true;
-            _this61.msg = "Payment approved successfully!";
+            _this62.dMsg = true;
+            _this62.msg = "Payment approved successfully!";
             console.log(data);
             setTimeout(function () {
-              _this61.dMsg = null;
-              _this61.msg = "";
+              _this62.dMsg = null;
+              _this62.msg = "";
 
-              _this61.modalRef.hide();
+              _this62.modalRef.hide();
             }, 3500);
           }, function (err) {
             console.log("hello");

@@ -1111,13 +1111,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(AuthService, [{
         key: "sendToken",
-        value: function sendToken(token, usrFNm, userType) {
+        value: function sendToken(token, usrFNm, companyName, userType) {
           console.log(this.platformId);
 
           if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
             localStorage.setItem("shoeRetailUsr", token);
             localStorage.setItem("shoeRetailUsrNm", usrFNm);
             localStorage.setItem("userType", userType);
+            localStorage.setItem('companyName', companyName);
           }
         }
       }, {
@@ -1147,6 +1148,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getUserType",
         value: function getUserType() {
           return localStorage.getItem("userType");
+        }
+      }, {
+        key: "getCompanyName",
+        value: function getCompanyName() {
+          return localStorage.getItem("companyName");
         }
       }, {
         key: "logout",

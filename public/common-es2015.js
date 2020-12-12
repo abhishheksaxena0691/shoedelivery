@@ -76,6 +76,9 @@ let DashboardService = class DashboardService {
     updateInvoiceStatus(data) {
         return this.http.post(this.api.server + "delivery/updateInvoiceStatus", data, { headers: this.headers });
     }
+    verifyRetailerMobileNumber(data) {
+        return this.http.post(this.api.server + "verifyMobileNumber", data, { headers: this.headers });
+    }
 };
 DashboardService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },

@@ -174,6 +174,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             headers: this.headers
           });
         }
+      }, {
+        key: "verifyRetailerMobileNumber",
+        value: function verifyRetailerMobileNumber(data) {
+          return this.http.post(this.api.server + "verifyMobileNumber", data, {
+            headers: this.headers
+          });
+        }
       }]);
 
       return DashboardService;
