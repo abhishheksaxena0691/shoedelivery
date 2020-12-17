@@ -28,7 +28,7 @@ router.get('/api/product/:type/:cate', midWare.checkToken, (req, res, next) => {
 });
 
 router.post('/api/product/getProductList',  midWare.checkToken,  (req, res, next) => {
-    
+    console.log(req.body.name);
     db.getDB().collection('product').find({"name": { $regex: req.body.name+'.*', $options: 'i'}}).toArray((err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
