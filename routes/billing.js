@@ -204,7 +204,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                 const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
 
                 if (!pdfData.title && lineData.length > 0) {
-                    pdfData.title = lineData;
+                    pdfData.title = req.body.domain;
                 } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
                     pdfData.customer = lineData
                     .substring(lineData.indexOf("Customer:") + "Customer:".length)
@@ -268,7 +268,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
             console.log(pdfData);
             let fNData = pdfData.filePath.split('_');
             let usrMobile = fNData[2].split('.');
-            pdfData.deportment = fNData[0];
+            pdfData.deportment = req.body.companyName;
             pdfData.user = usrMobile[0];
             pdfData.genDate = new Date().toString();
 
