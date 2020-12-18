@@ -541,13 +541,14 @@ let AuthService = class AuthService {
         this.route = route;
         this.platformId = platformId;
     }
-    sendToken(token, usrFNm, companyName, userType) {
+    sendToken(token, usrFNm, companyName, domain, userType) {
         console.log(this.platformId);
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
             localStorage.setItem("shoeRetailUsr", token);
             localStorage.setItem("shoeRetailUsrNm", usrFNm);
             localStorage.setItem("userType", userType);
             localStorage.setItem('companyName', companyName);
+            localStorage.setItem('domain', domain);
         }
     }
     getLogged() {
@@ -574,6 +575,9 @@ let AuthService = class AuthService {
     }
     getCompanyName() {
         return localStorage.getItem("companyName");
+    }
+    getDomainName() {
+        return localStorage.getItem("domain");
     }
     logout() {
         if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {

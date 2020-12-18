@@ -445,7 +445,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(res);
               var data = res;
 
-              _this.auth.sendToken(data.token, data.usrName, data.companyName, _this.logFrm.value.userType);
+              _this.auth.sendToken(data.token, data.usrName, data.companyName, data.domainNme, _this.logFrm.value.userType);
 
               _this.logMsg = {
                 msg: "Login successfully!",

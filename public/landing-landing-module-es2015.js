@@ -257,7 +257,7 @@ let LoginPgComponent = class LoginPgComponent {
             this.fetch.logUsr(formObj).subscribe(res => {
                 console.log(res);
                 const data = res;
-                this.auth.sendToken(data.token, data.usrName, data.companyName, this.logFrm.value.userType);
+                this.auth.sendToken(data.token, data.usrName, data.companyName, data.domainNme, this.logFrm.value.userType);
                 this.logMsg = { msg: "Login successfully!", alert: 'alert-success' };
                 this.logBtm = false;
                 setTimeout(() => {
