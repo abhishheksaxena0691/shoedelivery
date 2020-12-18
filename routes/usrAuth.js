@@ -16,7 +16,7 @@ router.post('/api/login', (req, res, next) => {
             if (doc) {
                 if(bcrypt.compareSync(req.body.yrPass, doc.password)) {
                     let token = jwt.sign({uId: doc._id, mobile: doc.mobileNo, usrName: doc.fstName, userType: doc.userType}, config.secret);
-                    res.status(202).jsonp({uName: doc.fstName, userType: doc.userType,token: token, companyName: doc.companyName});
+                    res.status(202).jsonp({uName: doc.fstName, userType: doc.userType,token: token, companyName: doc.companyName, domainNme: doc.domain});
                 } else {
                     res.status(401).jsonp('Authentication failed!');
                 }
