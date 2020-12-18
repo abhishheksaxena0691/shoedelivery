@@ -1,8 +1,8 @@
 const mgClient = require("mongodb").MongoClient;
 const objectId = require('mongodb').ObjectID;
-const dbName = "shoeSystem1";
+const dbName = "shoeSystem";
 //const dbURL = "mongodb://shoeAdmin:ZrvtqCDCKWF4829@35.184.211.242:27017/shoeSystem";
-const dbURL = "mongodb://localhost:27017/shoeSystem1";
+const dbURL = "mongodb://localhost:27017/shoeSystem";
 //const dbURL = "mongodb://myUserAdmin:abc123@18.220.168.114:27017/shoeSystem";
 const mongoOption = { useUnifiedTopology: true };
 

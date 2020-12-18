@@ -113,7 +113,7 @@ router.post('/api/verifyMobileNumber',(req, res, next) => {
     if(!req.body) {
         res.status(400).jsonp('Incomplete information');
     } else {
-        db.getDB().collection('userInfo').findOne({mobileNo: req.body.regMobile}).then((doc) => {
+        db.getDB().collection('userInfo').findOne({mobileNo: req.body.regMobile, userType: 2}).then((doc) => {
             console.log(doc);
                 res.status(200).jsonp(doc);
                     })
