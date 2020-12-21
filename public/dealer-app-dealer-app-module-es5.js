@@ -8072,7 +8072,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (!_this25.paid) {
               setTimeout(function () {
                 _this25.unpaid();
-              }, 500);
+              }, 1000);
             }
           }, function (err) {
             _this25.pgMsg = {

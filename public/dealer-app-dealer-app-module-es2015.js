@@ -5636,7 +5636,7 @@ let DealerDashboadComponent = class DealerDashboadComponent {
             if (!this.paid) {
                 setTimeout(() => {
                     this.unpaid();
-                }, 500);
+                }, 1000);
             }
         }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
     }
