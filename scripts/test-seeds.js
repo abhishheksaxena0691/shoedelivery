@@ -30,9 +30,9 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useCreateIndex: true,
-    bufferMaxEntries: 0,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000,
+    // bufferMaxEntries: 0,
+    
+    // reconnectInterval: 1000,
     useUnifiedTopology: true
   },
   function(err, db) {
