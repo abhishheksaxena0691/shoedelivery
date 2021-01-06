@@ -32,7 +32,8 @@ mongoose.connect(
     useCreateIndex: true,
     bufferMaxEntries: 0,
     reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000
+    reconnectInterval: 1000,
+    useUnifiedTopology: true
   },
   function(err, db) {
     var totalExpected = userList.length;
