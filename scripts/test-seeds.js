@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Config = require("../../lib/config/config");
+var Config = require("../lib/config/config");
 var User = require("../../lib/models/user");
 
 let config = new Config.Config();
