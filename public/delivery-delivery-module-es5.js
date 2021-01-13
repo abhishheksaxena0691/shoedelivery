@@ -452,7 +452,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _classCallCheck(this, ApiLinkService);
 
       //srvLink: string = "http://localhost:8080/";
-      this.srvLink = "http://18.220.168.114:8080/"; //srvLink: string = "http://retail.mobinyx.com/";
+      //srvLink: string = "http://18.220.168.114:8080/"
+      this.srvLink = "http://34.219.112.19:8080/"; //srvLink: string = "http://retail.mobinyx.com/";
       // srvLink: string = "http://35.154.98.22:8080/";
       //srvLink: string = "https://dealer.mobinyx.com/"
 
