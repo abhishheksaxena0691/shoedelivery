@@ -177,13 +177,13 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
     }
     req.decoded['totalPrice'] = totalPrice;
-   const ht =  pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company);
+   pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company).then((ht) => {
    
    const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
       pdf.create(ht).toStream(function(err, stream){
         stream.pipe(fs.createWriteStream('./public/html/'+fileName+'.pdf'));
       });
-
+    });
    
       res.status(200).jsonp({"fileName": fileName+'.pdf'});
 });
@@ -322,6 +322,10 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
 });
 
 function pdfGeneration (userData, productList, company) {
+
+    return new Promise((resolve,reject) => {
+
+   
   //  console.log(userData);
     var verificationEmail;
     verificationEmail =`<!doctype html>
@@ -482,7 +486,11 @@ function pdfGeneration (userData, productList, company) {
     </div>
 </body>
 </html>`;
-return verificationEmail;
+resolve(verificationEmail);
+}, 
+(y) => {
+
+})
 }
 
 module.exports = router;
