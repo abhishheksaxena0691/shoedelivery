@@ -177,6 +177,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
     }
     req.decoded['totalPrice'] = totalPrice;
+    setTimeout(function(){
    const ht =  pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company);
    
    const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
@@ -184,7 +185,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         stream.pipe(fs.createWriteStream('./public/html/'+fileName+'.pdf'));
       });
 
-   
+    }, 3000);
       res.status(200).jsonp({"fileName": fileName+'.pdf'});
 });
 
