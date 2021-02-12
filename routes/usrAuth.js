@@ -38,7 +38,8 @@ router.post('/api/register', (req, res, next) => {
         res.status(400).jsonp('Incomplete information');
     } else {
         let BCRYPT_SALT_ROUNDS = 12;
-        const otp = Math.floor((Math.random() * (9999 - 1000)) + 1000);
+        // const otp = Math.floor((Math.random() * (9999 - 1000)) + 1000);
+        const otp = 111;
         let usrData = {
             fstName: req.body.fstName,
             lstName: req.body.lstName,
@@ -68,7 +69,7 @@ router.post('/api/register', (req, res, next) => {
                             res.status(410).jsonp(err);
                             next(err);
                         } else {
-                            sendSMS("Please use the code - "+otp+" to verify your phone for Shoe Retailer", req.body.mobileNo);
+                           // sendSMS("Please use the code - "+otp+" to verify your phone for Shoe Retailer", req.body.mobileNo);
                             res.status(201).jsonp('Your are register successfully!');
                         }
                     })
