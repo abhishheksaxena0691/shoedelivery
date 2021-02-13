@@ -179,7 +179,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
    
-     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company).then((ht) => {
+     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
    
         console.log(ht);
   
@@ -327,10 +327,11 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
     // });
 });
 
-function pdfGeneration (userData, productList, company) {
+function pdfGeneration (userData, productList, company,a) {
     
   //  console.log(userData);
   return new Promise((resolve, reject) => {
+      if(a) {
         var verificationEmail;
                 verificationEmail =`<!doctype html>
             <html>
@@ -491,6 +492,9 @@ function pdfGeneration (userData, productList, company) {
             </body>
             </html>`;
  resolve(verificationEmail);
+                    } else {
+                        reject();
+                    }
 });
 }
 
