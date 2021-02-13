@@ -196,133 +196,133 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
     let pdfData = {};
     pdfData.filePath = req.body.fileName;
     res.status(200).jsonp({"fileName": "fileName"+'.pdf'});
-    // fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
-    //     pdfParse(pdfBuffer).then((data) => {
-    //         const splitText = data.text.split(/\r?\n/);
-    //         pdfData.raw = data.text;
-    //         pdfData.reports = [];
-    //         let isParsingComplete = false;
+    fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
+        pdfParse(pdfBuffer).then((data) => {
+            const splitText = data.text.split(/\r?\n/);
+            pdfData.raw = data.text;
+            pdfData.reports = [];
+            let isParsingComplete = false;
 
-    //         for (let itr = 0; itr < splitText.length; itr++) {
-    //             let lineData = splitText[itr].trim();
-    //             const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
+            for (let itr = 0; itr < splitText.length; itr++) {
+                let lineData = splitText[itr].trim();
+                const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
 
-    //             if (!pdfData.title && lineData.length > 0) {
-    //                 pdfData.title = req.body.domain;
-    //             } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
-    //                 pdfData.customer = lineData
-    //                 .substring(lineData.indexOf("Customer:") + "Customer:".length)
-    //                 .trim();
-    //                 continue;
-    //             } else if (!pdfData.seller && lineData.indexOf("Seller:") >= 0) {
-    //                 pdfData.seller = lineData
-    //                 .substring(lineData.indexOf("Seller:") + "Seller:".length)
-    //                 .trim();
-    //                 itr++;
-    //                 pdfData.subTitle = splitText[itr].trim();
-    //                 continue;
-    //             } else if (!pdfData.transaction && lineData.indexOf("Transaction") >= 0) {
-    //                 pdfData.transaction = lineData
-    //                 .substring(lineData.indexOf("Transaction") + "Transaction".length)
-    //                 .trim();
-    //                 continue;
-    //             } else if (!pdfData.date && lineData.match(dateFormat)) {
-    //                 pdfData.date = lineData;
-    //                 itr++;
-    //                 pdfData.time = splitText[itr].trim();
-    //                 continue;
-    //                 // 8377 is ascii code of rupee symbol
-    //             } else if (
-    //                 lineData.length > 0 &&
-    //                 lineData[0] === String.fromCharCode(8377) &&
-    //                 splitText[itr + 1] &&
-    //                 splitText[itr + 1].indexOf(" X") > 0
-    //             ) {
-    //                 let amount = lineData.substring(1).trim();
-    //                 //amount = amount.replace(/\,/g, "");
-    //                 itr++;
-    //                 lineData = splitText[itr].trim();
-    //                 let description = lineData.substring(lineData.indexOf(" ") + 2).trim();
-    //                 let qty = lineData.substring(0, lineData.indexOf(" ")).trim();
-    //                 pdfData.reports.push({
-    //                     description: description,
-    //                     qty: qty,
-    //                     amount: amount
-    //                 });
-    //                 continue;
-    //             } else if (!pdfData.total && lineData.indexOf("Total:") >= 0) {
-    //                 let total = lineData
-    //                 .substring(lineData.indexOf("Total:") + "Total:".length + 1)
-    //                 .trim();
-    //                 //total = total.replace(/\,/g, "");
-    //                 pdfData.total = total;
-    //                 isParsingComplete = true;
-    //                 continue;
-    //             }
-    //         }
+                if (!pdfData.title && lineData.length > 0) {
+                    pdfData.title = req.body.domain;
+                } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
+                    pdfData.customer = lineData
+                    .substring(lineData.indexOf("Customer:") + "Customer:".length)
+                    .trim();
+                    continue;
+                } else if (!pdfData.seller && lineData.indexOf("Seller:") >= 0) {
+                    pdfData.seller = lineData
+                    .substring(lineData.indexOf("Seller:") + "Seller:".length)
+                    .trim();
+                    itr++;
+                    pdfData.subTitle = splitText[itr].trim();
+                    continue;
+                } else if (!pdfData.transaction && lineData.indexOf("Transaction") >= 0) {
+                    pdfData.transaction = lineData
+                    .substring(lineData.indexOf("Transaction") + "Transaction".length)
+                    .trim();
+                    continue;
+                } else if (!pdfData.date && lineData.match(dateFormat)) {
+                    pdfData.date = lineData;
+                    itr++;
+                    pdfData.time = splitText[itr].trim();
+                    continue;
+                    // 8377 is ascii code of rupee symbol
+                } else if (
+                    lineData.length > 0 &&
+                    lineData[0] === String.fromCharCode(8377) &&
+                    splitText[itr + 1] &&
+                    splitText[itr + 1].indexOf(" X") > 0
+                ) {
+                    let amount = lineData.substring(1).trim();
+                    //amount = amount.replace(/\,/g, "");
+                    itr++;
+                    lineData = splitText[itr].trim();
+                    let description = lineData.substring(lineData.indexOf(" ") + 2).trim();
+                    let qty = lineData.substring(0, lineData.indexOf(" ")).trim();
+                    pdfData.reports.push({
+                        description: description,
+                        qty: qty,
+                        amount: amount
+                    });
+                    continue;
+                } else if (!pdfData.total && lineData.indexOf("Total:") >= 0) {
+                    let total = lineData
+                    .substring(lineData.indexOf("Total:") + "Total:".length + 1)
+                    .trim();
+                    //total = total.replace(/\,/g, "");
+                    pdfData.total = total;
+                    isParsingComplete = true;
+                    continue;
+                }
+            }
 
-    //         //console.log(pdfData.total.replace(/[^a-zA-Z0-9]/g, ''));
+            //console.log(pdfData.total.replace(/[^a-zA-Z0-9]/g, ''));
 
-    //         let pDate = pdfData.customer.split('-');
+            let pDate = pdfData.customer.split('-');
             
-    //         //console.log(pDate[2]+"-"+pDate[1]+"-"+pDate[0]);
+            //console.log(pDate[2]+"-"+pDate[1]+"-"+pDate[0]);
             
-    //         pdfData.date = new Date();
+            pdfData.date = new Date();
 
-    //         console.log(pdfData);
-    //         let fNData = pdfData.filePath.split('_');
-    //         let usrMobile = fNData[2].split('.');
-    //         pdfData.deportment = req.body.companyName;
-    //         pdfData.user = usrMobile[0];
-    //         pdfData.genDate = new Date().toString();
+            console.log(pdfData);
+            let fNData = pdfData.filePath.split('_');
+            let usrMobile = fNData[2].split('.');
+            pdfData.deportment = req.body.companyName;
+            pdfData.user = usrMobile[0];
+            pdfData.genDate = new Date().toString();
 
-    //         const pdf2pic = new PDF2Pic({
-    //             density: 100,
-    //             savename: pdfData.filePath,
-    //             savedir: "./public/pdfBills/images",
-    //             format: "jpg",
-    //             size: "900x800"
-    //         });
+            const pdf2pic = new PDF2Pic({
+                density: 100,
+                savename: pdfData.filePath,
+                savedir: "./public/pdfBills/images",
+                format: "jpg",
+                size: "900x800"
+            });
 
-    //         console.log(pdfData);
+            console.log(pdfData);
             
                 
-    //         pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
-    //             pdfData.billImg = resolve;
-    //             db.getDB().collection('billing').insertOne(pdfData, (err, doc) => {
-    //                 if(err) {
-    //                     res.status(410).jsonp(err);
-    //                     next(err);
+            pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
+                pdfData.billImg = resolve;
+                db.getDB().collection('billing').insertOne(pdfData, (err, doc) => {
+                    if(err) {
+                        res.status(410).jsonp(err);
+                        next(err);
 
-    //                 } else {
-    //                     let billInfo = {
-    //                         billDetails: pdfData,
-    //                         paidBy: req.decoded.usrName,
-    //                         usrNumber: req.decoded.mobile,
-    //                         category: 'dashboard',
-    //                         paymentMode: "",
-    //                         payStatus: false,
-    //                         createdOn: new Date().toString(),
-    //                         updatedOn: new Date().toString(),
-    //                         userType: req.decoded.userType,
-    //                         retailerMobile: req.body.mobilenumber,
-    //                         createdTimeStamp: new Date().getTime()
-    //                     };
+                    } else {
+                        let billInfo = {
+                            billDetails: pdfData,
+                            paidBy: req.decoded.usrName,
+                            usrNumber: req.decoded.mobile,
+                            category: 'dashboard',
+                            paymentMode: "",
+                            payStatus: false,
+                            createdOn: new Date().toString(),
+                            updatedOn: new Date().toString(),
+                            userType: req.decoded.userType,
+                            retailerMobile: req.body.mobilenumber,
+                            createdTimeStamp: new Date().getTime()
+                        };
         
-    //                     db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
-    //                         if(err) {
-    //                             res.status(410).jsonp(err);
-    //                             next(err);
-    //                         } else {
-    //                             res.status(200).jsonp("Delivery request send successfully!");
-    //                         }
-    //                     });
-    //                 }
-    //             });
-    //         });
+                        db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
+                            if(err) {
+                                res.status(410).jsonp(err);
+                                next(err);
+                            } else {
+                                res.status(200).jsonp("Delivery request send successfully!");
+                            }
+                        });
+                    }
+                });
+            });
 
-    //     });
-    // });
+        });
+    });
 });
 
 function pdfGeneration (userData, productList, company,a) {
