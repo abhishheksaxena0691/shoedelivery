@@ -180,12 +180,10 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
    
      pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
-   
-        console.log(ht);
   
       pdf.create(ht).toStream((err, stream) => {
 
-        stream.pipe(fs.createWriteStream('./public/html/'+fileName+'.pdf'));
+        fs.createWriteStream('./public/html/'+fileName+'.pdf');
       });
 
    
