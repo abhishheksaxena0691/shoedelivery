@@ -178,314 +178,320 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     }
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
-    setTimeout(function(){
-   const ht =  pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company);
    
+     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company).then((ht) => {
+   
+        console.log(ht);
   
-      pdf.create(ht).toStream(function(err, stream){
+      pdf.create(ht).toStream((err, stream) => {
+
         stream.pipe(fs.createWriteStream('./public/html/'+fileName+'.pdf'));
       });
 
-    }, 3000);
+   
       res.status(200).jsonp({"fileName": fileName+'.pdf'});
+    });
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
     console.log(req.body);
     let pdfData = {};
     pdfData.filePath = req.body.fileName;
-    fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
-        pdfParse(pdfBuffer).then((data) => {
-            const splitText = data.text.split(/\r?\n/);
-            pdfData.raw = data.text;
-            pdfData.reports = [];
-            let isParsingComplete = false;
+    res.status(200).jsonp({"fileName": "fileName"+'.pdf'});
+    // fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
+    //     pdfParse(pdfBuffer).then((data) => {
+    //         const splitText = data.text.split(/\r?\n/);
+    //         pdfData.raw = data.text;
+    //         pdfData.reports = [];
+    //         let isParsingComplete = false;
 
-            for (let itr = 0; itr < splitText.length; itr++) {
-                let lineData = splitText[itr].trim();
-                const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
+    //         for (let itr = 0; itr < splitText.length; itr++) {
+    //             let lineData = splitText[itr].trim();
+    //             const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
 
-                if (!pdfData.title && lineData.length > 0) {
-                    pdfData.title = req.body.domain;
-                } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
-                    pdfData.customer = lineData
-                    .substring(lineData.indexOf("Customer:") + "Customer:".length)
-                    .trim();
-                    continue;
-                } else if (!pdfData.seller && lineData.indexOf("Seller:") >= 0) {
-                    pdfData.seller = lineData
-                    .substring(lineData.indexOf("Seller:") + "Seller:".length)
-                    .trim();
-                    itr++;
-                    pdfData.subTitle = splitText[itr].trim();
-                    continue;
-                } else if (!pdfData.transaction && lineData.indexOf("Transaction") >= 0) {
-                    pdfData.transaction = lineData
-                    .substring(lineData.indexOf("Transaction") + "Transaction".length)
-                    .trim();
-                    continue;
-                } else if (!pdfData.date && lineData.match(dateFormat)) {
-                    pdfData.date = lineData;
-                    itr++;
-                    pdfData.time = splitText[itr].trim();
-                    continue;
-                    // 8377 is ascii code of rupee symbol
-                } else if (
-                    lineData.length > 0 &&
-                    lineData[0] === String.fromCharCode(8377) &&
-                    splitText[itr + 1] &&
-                    splitText[itr + 1].indexOf(" X") > 0
-                ) {
-                    let amount = lineData.substring(1).trim();
-                    //amount = amount.replace(/\,/g, "");
-                    itr++;
-                    lineData = splitText[itr].trim();
-                    let description = lineData.substring(lineData.indexOf(" ") + 2).trim();
-                    let qty = lineData.substring(0, lineData.indexOf(" ")).trim();
-                    pdfData.reports.push({
-                        description: description,
-                        qty: qty,
-                        amount: amount
-                    });
-                    continue;
-                } else if (!pdfData.total && lineData.indexOf("Total:") >= 0) {
-                    let total = lineData
-                    .substring(lineData.indexOf("Total:") + "Total:".length + 1)
-                    .trim();
-                    //total = total.replace(/\,/g, "");
-                    pdfData.total = total;
-                    isParsingComplete = true;
-                    continue;
-                }
-            }
+    //             if (!pdfData.title && lineData.length > 0) {
+    //                 pdfData.title = req.body.domain;
+    //             } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
+    //                 pdfData.customer = lineData
+    //                 .substring(lineData.indexOf("Customer:") + "Customer:".length)
+    //                 .trim();
+    //                 continue;
+    //             } else if (!pdfData.seller && lineData.indexOf("Seller:") >= 0) {
+    //                 pdfData.seller = lineData
+    //                 .substring(lineData.indexOf("Seller:") + "Seller:".length)
+    //                 .trim();
+    //                 itr++;
+    //                 pdfData.subTitle = splitText[itr].trim();
+    //                 continue;
+    //             } else if (!pdfData.transaction && lineData.indexOf("Transaction") >= 0) {
+    //                 pdfData.transaction = lineData
+    //                 .substring(lineData.indexOf("Transaction") + "Transaction".length)
+    //                 .trim();
+    //                 continue;
+    //             } else if (!pdfData.date && lineData.match(dateFormat)) {
+    //                 pdfData.date = lineData;
+    //                 itr++;
+    //                 pdfData.time = splitText[itr].trim();
+    //                 continue;
+    //                 // 8377 is ascii code of rupee symbol
+    //             } else if (
+    //                 lineData.length > 0 &&
+    //                 lineData[0] === String.fromCharCode(8377) &&
+    //                 splitText[itr + 1] &&
+    //                 splitText[itr + 1].indexOf(" X") > 0
+    //             ) {
+    //                 let amount = lineData.substring(1).trim();
+    //                 //amount = amount.replace(/\,/g, "");
+    //                 itr++;
+    //                 lineData = splitText[itr].trim();
+    //                 let description = lineData.substring(lineData.indexOf(" ") + 2).trim();
+    //                 let qty = lineData.substring(0, lineData.indexOf(" ")).trim();
+    //                 pdfData.reports.push({
+    //                     description: description,
+    //                     qty: qty,
+    //                     amount: amount
+    //                 });
+    //                 continue;
+    //             } else if (!pdfData.total && lineData.indexOf("Total:") >= 0) {
+    //                 let total = lineData
+    //                 .substring(lineData.indexOf("Total:") + "Total:".length + 1)
+    //                 .trim();
+    //                 //total = total.replace(/\,/g, "");
+    //                 pdfData.total = total;
+    //                 isParsingComplete = true;
+    //                 continue;
+    //             }
+    //         }
 
-            //console.log(pdfData.total.replace(/[^a-zA-Z0-9]/g, ''));
+    //         //console.log(pdfData.total.replace(/[^a-zA-Z0-9]/g, ''));
 
-            let pDate = pdfData.customer.split('-');
+    //         let pDate = pdfData.customer.split('-');
             
-            //console.log(pDate[2]+"-"+pDate[1]+"-"+pDate[0]);
+    //         //console.log(pDate[2]+"-"+pDate[1]+"-"+pDate[0]);
             
-            pdfData.date = new Date();
+    //         pdfData.date = new Date();
 
-            console.log(pdfData);
-            let fNData = pdfData.filePath.split('_');
-            let usrMobile = fNData[2].split('.');
-            pdfData.deportment = req.body.companyName;
-            pdfData.user = usrMobile[0];
-            pdfData.genDate = new Date().toString();
+    //         console.log(pdfData);
+    //         let fNData = pdfData.filePath.split('_');
+    //         let usrMobile = fNData[2].split('.');
+    //         pdfData.deportment = req.body.companyName;
+    //         pdfData.user = usrMobile[0];
+    //         pdfData.genDate = new Date().toString();
 
-            const pdf2pic = new PDF2Pic({
-                density: 100,
-                savename: pdfData.filePath,
-                savedir: "./public/pdfBills/images",
-                format: "jpg",
-                size: "900x800"
-            });
+    //         const pdf2pic = new PDF2Pic({
+    //             density: 100,
+    //             savename: pdfData.filePath,
+    //             savedir: "./public/pdfBills/images",
+    //             format: "jpg",
+    //             size: "900x800"
+    //         });
 
-            console.log(pdfData);
+    //         console.log(pdfData);
             
                 
-            pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
-                pdfData.billImg = resolve;
-                db.getDB().collection('billing').insertOne(pdfData, (err, doc) => {
-                    if(err) {
-                        res.status(410).jsonp(err);
-                        next(err);
+    //         pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
+    //             pdfData.billImg = resolve;
+    //             db.getDB().collection('billing').insertOne(pdfData, (err, doc) => {
+    //                 if(err) {
+    //                     res.status(410).jsonp(err);
+    //                     next(err);
 
-                    } else {
-                        let billInfo = {
-                            billDetails: pdfData,
-                            paidBy: req.decoded.usrName,
-                            usrNumber: req.decoded.mobile,
-                            category: 'dashboard',
-                            paymentMode: "",
-                            payStatus: false,
-                            createdOn: new Date().toString(),
-                            updatedOn: new Date().toString(),
-                            userType: req.decoded.userType,
-                            retailerMobile: req.body.mobilenumber,
-                            createdTimeStamp: new Date().getTime()
-                        };
+    //                 } else {
+    //                     let billInfo = {
+    //                         billDetails: pdfData,
+    //                         paidBy: req.decoded.usrName,
+    //                         usrNumber: req.decoded.mobile,
+    //                         category: 'dashboard',
+    //                         paymentMode: "",
+    //                         payStatus: false,
+    //                         createdOn: new Date().toString(),
+    //                         updatedOn: new Date().toString(),
+    //                         userType: req.decoded.userType,
+    //                         retailerMobile: req.body.mobilenumber,
+    //                         createdTimeStamp: new Date().getTime()
+    //                     };
         
-                        db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
-                            if(err) {
-                                res.status(410).jsonp(err);
-                                next(err);
-                            } else {
-                                res.status(200).jsonp("Delivery request send successfully!");
-                            }
-                        });
-                    }
-                });
-            });
+    //                     db.getDB().collection('delivery').insertOne(billInfo, (err, doc) => {
+    //                         if(err) {
+    //                             res.status(410).jsonp(err);
+    //                             next(err);
+    //                         } else {
+    //                             res.status(200).jsonp("Delivery request send successfully!");
+    //                         }
+    //                     });
+    //                 }
+    //             });
+    //         });
 
-        });
-    });
+    //     });
+    // });
 });
 
 function pdfGeneration (userData, productList, company) {
     
   //  console.log(userData);
-    var verificationEmail;
-    verificationEmail =`<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
-    
-    <style>
-    .invoice-box {
-        max-width: 100%;
-        margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color: #000;
-    }
-    
-    .invoice-box table {
-        width: 100%;
-        line-height: inherit;
-        text-align: left;
-    }
-    
-    .invoice-box table td {
-        padding: 5px;
-        vertical-align: top;
-    }
-    
-    .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-    }
-    
-    .invoice-box table tr.top table td {
-        padding-bottom: 20px;
-    }
-    
-    .invoice-box table tr.top table td.title {
-        font-size: 45px;
-        line-height: 45px;
-        color: #333;
-    }
-    
-    .invoice-box table tr.information table td {
-        padding-bottom: 40px;
-    }
-    
-    .invoice-box table tr.heading td {
-        border-bottom: 3px solid #ddd;
-        font-weight: bold;
-    }
-    
-    .invoice-box table tr.details td {
-        padding-bottom: 20px;
-    }
-    
-    .invoice-box table tr.item td{
-        border-bottom: 1px solid #eee;
-    }
-    
-    .invoice-box table tr.item.last td {
-        border-bottom: none;
-    }
-    
-    .invoice-box table tr.total td:nth-child(2) {
-        border-top: 2px solid #eee;
-        font-weight: bold;
-    }
-    
-    
-    
-    /** RTL **/
-    .rtl {
-        direction: rtl;
-        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    }
-    
-    .rtl table {
-        text-align: right;
-    }
-    
-    .rtl table tr td:nth-child(2) {
-        text-align: left;
-    }
-    .setTextCenter {
-        text-align: center;
-    }
-    </style>
-</head>
+  return new Promise((resolve, reject) => {
+        var verificationEmail;
+                verificationEmail =`<!doctype html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <title>A simple, clean, and responsive HTML invoice template</title>
+                
+                <style>
+                .invoice-box {
+                    max-width: 100%;
+                    margin: auto;
+                    padding: 30px;
+                    border: 1px solid #eee;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+                    color: #000;
+                }
+                
+                .invoice-box table {
+                    width: 100%;
+                    line-height: inherit;
+                    text-align: left;
+                }
+                
+                .invoice-box table td {
+                    padding: 5px;
+                    vertical-align: top;
+                }
+                
+                .invoice-box table tr td:nth-child(2) {
+                    text-align: right;
+                }
+                
+                .invoice-box table tr.top table td {
+                    padding-bottom: 20px;
+                }
+                
+                .invoice-box table tr.top table td.title {
+                    font-size: 45px;
+                    line-height: 45px;
+                    color: #333;
+                }
+                
+                .invoice-box table tr.information table td {
+                    padding-bottom: 40px;
+                }
+                
+                .invoice-box table tr.heading td {
+                    border-bottom: 3px solid #ddd;
+                    font-weight: bold;
+                }
+                
+                .invoice-box table tr.details td {
+                    padding-bottom: 20px;
+                }
+                
+                .invoice-box table tr.item td{
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .invoice-box table tr.item.last td {
+                    border-bottom: none;
+                }
+                
+                .invoice-box table tr.total td:nth-child(2) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                }
+                
+                
+                
+                /** RTL **/
+                .rtl {
+                    direction: rtl;
+                    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+                }
+                
+                .rtl table {
+                    text-align: right;
+                }
+                
+                .rtl table tr td:nth-child(2) {
+                    text-align: left;
+                }
+                .setTextCenter {
+                    text-align: center;
+                }
+                </style>
+            </head>
 
-<body>
-    <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top setTextCenter">
-                <td colspan="2">
-                    ${company}
-                </td>
-            </tr>
-            
-            <tr class="information">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td>Customer:<br>
-                                Seller: Administrator<br>
+            <body>
+                <div class="invoice-box">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr class="top setTextCenter">
+                            <td colspan="2">
+                                ${company}
+                            </td>
+                        </tr>
+                        
+                        <tr class="information">
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td>Customer:<br>
+                                            Seller: Administrator<br>
+                                        </td>
+                                        
+                                        <td>
+                                            ${userData.today}<br>
+                                            ${userData.time}<br>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr class="setTextCenter">
+                            <td colspan="2">
+                                RECEIPT
+                            </td>
+                            
+                        </tr>
+                        
+                        <tr class="heading">
+                            <td>
+                                Quantity X Description
                             </td>
                             
                             <td>
-                                ${userData.today}<br>
-                                ${userData.time}<br>
-                                
+                                Total Amount
+                            </td>
+                        </tr>`;
+                        for (let i=0; i< productList.length;i ++) {
+                        verificationEmail += `<tr class="item">
+                            <td>
+                            ${productList[i].quantity} X ${productList[i].name}
+                            </td>
+                            
+                            <td>
+                            ${ productList[i].price}
+                            </td>
+                        </tr>`
+                        }
+                        
+                        
+                        verificationEmail += `<tr class="total">
+                            <td></td>
+                            
+                            <td>
+                            Total: ${userData.totalPrice}
                             </td>
                         </tr>
                     </table>
-                </td>
-            </tr>
-            
-            <tr class="setTextCenter">
-                <td colspan="2">
-                    RECEIPT
-                </td>
-                
-            </tr>
-            
-            <tr class="heading">
-                <td>
-                    Quantity X Description
-                </td>
-                
-                <td>
-                    Total Amount
-                </td>
-            </tr>`;
-            for (let i=0; i< productList.length;i ++) {
-            verificationEmail += `<tr class="item">
-                <td>
-                ${productList[i].quantity} X ${productList[i].name}
-                </td>
-                
-                <td>
-                ${ productList[i].price}
-                </td>
-            </tr>`
-            }
-            
-            
-            verificationEmail += `<tr class="total">
-                <td></td>
-                
-                <td>
-                   Total: ${userData.totalPrice}
-                </td>
-            </tr>
-        </table>
-    </div>
-</body>
-</html>`;
-return verificationEmail;
+                </div>
+            </body>
+            </html>`;
+ resolve(verificationEmail);
+});
 }
 
 module.exports = router;
