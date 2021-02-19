@@ -9,10 +9,9 @@ var pdf = require('html-pdf');
 var html_to_pdf = require('html-pdf-node');
 var htmlToPdf = require('html-to-pdf');
 var pdf = require("pdf-creator-node");
-var fs = require('fs');
 
-// Read HTML Template
-var html = fs.readFileSync('template.html', 'utf8');
+
+
 router.get('/api/bill/upload', (req, res, next) => {
     let pdfData = {};
     pdfData.filePath = "Medical_1573821016472_9845496618.pdf";
