@@ -8,7 +8,7 @@ const PDF2Pic = require("pdf2pic");
 var pdf = require('html-pdf');
 var html_to_pdf = require('html-pdf-node');
 var htmlToPdf = require('html-to-pdf');
-var pdf = require("pdf-creator-node");
+//var pdf = require("pdf-creator-node");
 
 
 
