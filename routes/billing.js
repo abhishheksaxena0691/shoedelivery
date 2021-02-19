@@ -182,7 +182,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     }
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
-    var options = {
+    const options = {
         format: "A4",
         orientation: "portrait",
         border: "10mm",
@@ -198,7 +198,9 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
             default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
             last: 'Last Page'
         }
-    };
+    }
+};
+    
     var document = {
         html: html,
         data: { },
