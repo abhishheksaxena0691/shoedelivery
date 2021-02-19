@@ -182,23 +182,23 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     }
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
-    const options = {
-        format: "A4",
-        orientation: "portrait"
-};
+//     const options = {
+//         format: "A4",
+//         orientation: "portrait"
+// };
     
-    var document = {
-        html: html,
-        data: { },
-        path: './public/html/'+fileName+'test'+'.pdf'
-    };
-    pdf.create(document, options)
-    .then((res1) => {
-        res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
-    })
-    .catch(error => {
-        console.error(error)
-    });
+//     var document = {
+//         html: html,
+//         data: { },
+//         path: './public/html/'+fileName+'test'+'.pdf'
+//     };
+//     pdf.create(document, options)
+//     .then((res1) => {
+//         res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
+//     })
+//     .catch(error => {
+//         console.error(error)
+//     });
    
 //     let options = { format: 'A4' };
 //    
@@ -233,14 +233,14 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 //     }).catch((err) => {
 //         console.log(err);
 //    });
-    // const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    // console.log(ht);
-    // pdf.create(ht).toStream((err, stream) => {
+    const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
+    console.log(ht);
+    pdf.create(ht).toStream((err, stream) => {
       
-    //             fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
-    //           })
+                fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
+              })
     
-        
+              res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'}); 
            
             
 });
