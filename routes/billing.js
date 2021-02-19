@@ -6,8 +6,7 @@ const db = require('../module/dbConnect');
 const midWare = require('../module/middleware');
 const PDF2Pic = require("pdf2pic");
 var pdf = require('html-pdf');
-var html_to_pdf = require('html-pdf-node');
-var htmlToPdf = require('html-to-pdf');
+
 //var pdf = require("pdf-creator-node");
 
 
@@ -234,7 +233,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 //         console.log(err);
 //    });
     const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    console.log(ht);
+    
     pdf.create(ht).toStream((err, stream) => {
       
                 fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
