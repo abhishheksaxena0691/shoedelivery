@@ -180,6 +180,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
     }
     req.decoded['totalPrice'] = totalPrice;
+
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
     const options = {
@@ -246,10 +247,10 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
-    console.log(req.body);
+  
     let pdfData = {};
     pdfData.filePath = req.body.fileName;
-    res.status(200).jsonp({"fileName": "fileName"+'.pdf'});
+   
     fs.readFile("./public/html/"+pdfData.filePath, (err, pdfBuffer) => {
         pdfParse(pdfBuffer).then((data) => {
             const splitText = data.text.split(/\r?\n/);
