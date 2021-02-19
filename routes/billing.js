@@ -179,18 +179,26 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
    
-     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
+//      pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
   
-      pdf.create(ht).toStream((err, stream) => {
+//       pdf.create(ht).toStream((err, stream) => {
 
-        fs.createWriteStream('./public/html/'+fileName+'.pdf');
-      });
+//         fs.createWriteStream('./public/html/'+fileName+'.pdf');
+//       });
 
    
-      res.status(200).jsonp({"fileName": fileName+'.pdf'});
-    }).catch((err) => {
-        console.log(err);
-   });
+//       res.status(200).jsonp({"fileName": fileName+'.pdf'});
+//     }).catch((err) => {
+//         console.log(err);
+//    });
+    const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
+    pdf.create(ht).toStream((err, stream) => {
+
+                fs.createWriteStream('./public/html/'+fileName+'.pdf');
+              });
+        
+           
+              res.status(200).jsonp({"fileName": fileName+'.pdf'});
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
@@ -330,8 +338,8 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
 function pdfGeneration (userData, productList, company,a) {
     
   //  console.log(userData);
-  return new Promise((resolve, reject) => {
-      if(a) {
+//   return new Promise((resolve, reject) => {
+//       if(a) {
         var verificationEmail;
                 verificationEmail =`<!doctype html>
             <html>
@@ -491,11 +499,12 @@ function pdfGeneration (userData, productList, company,a) {
                 </div>
             </body>
             </html>`;
- resolve(verificationEmail);
-                    } else {
-                        reject();
-                    }
-});
+            return verificationEmail;
+//  resolve(verificationEmail);
+//                     } else {
+//                         reject();
+//                     }
+// });
 }
 
 module.exports = router;
