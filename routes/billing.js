@@ -188,7 +188,9 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 
    
       res.status(200).jsonp({"fileName": fileName+'.pdf'});
-    });
+    }).catch((err) => {
+        console.log(err);
+   });
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
@@ -284,7 +286,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                 size: "900x800"
             });
 
-            console.log(pdfData);
+         
             
                 
             pdf2pic.convertBulk("./public/html/"+pdfData.filePath, -1).then((resolve) => {
