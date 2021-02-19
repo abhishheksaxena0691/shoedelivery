@@ -217,6 +217,8 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     pdf.create(ht).toStream((err, stream) => {
       
                 fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
+              }).catch((error) => {
+                    console.log(error);
               });
 
     
