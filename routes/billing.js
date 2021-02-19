@@ -246,12 +246,12 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 //     }).catch((err) => {
 //         console.log(err);
 //    });
-    const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    console.log(ht);
-    pdf.create(ht).toStream((err, stream) => {
+    // const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
+    // console.log(ht);
+    // pdf.create(ht).toStream((err, stream) => {
       
-                fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
-              })
+    //             fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
+    //           })
     
         
            
