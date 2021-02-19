@@ -190,11 +190,11 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     var document = {
         html: html,
         data: { },
-        path: './public/html/'+fileName+'test'+'.pdf'
+        path: './public/html/'+fileName+'newtest'+'.pdf'
     };
     pdf.create(document, options)
     .then((res1) => {
-        res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
+        res.status(200).jsonp({"fileName": fileName+'newtest'+'.pdf'});
     })
     .catch(error => {
         console.error(error)
