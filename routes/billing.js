@@ -183,10 +183,10 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
 
-let file = [{ content: "<h1>Welcome to html-pdf-node</h1>", name: fileName+'.pdf' }];
-html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
-  console.log("PDF Buffer:-", pdfBuffer);
-});
+// let file = [{ content: "<h1>Welcome to html-pdf-node</h1>", name: fileName+'.pdf' }];
+// html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
+//   console.log("PDF Buffer:-", pdfBuffer);
+// });
 //      pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
   
 //       pdf.create(ht).toStream((err, stream) => {
@@ -199,12 +199,12 @@ html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
 //     }).catch((err) => {
 //         console.log(err);
 //    });
-    // const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    // console.log(ht);
-    // pdf.create(ht).toStream((err, stream) => {
-    //     console.log(stream);
-    //             fs.createWriteStream('./public/html/'+fileName+'.pdf');
-    //           });
+    const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
+    console.log(ht);
+    pdf.create(ht).toStream((err, stream) => {
+      
+                fs.createWriteStream('./public/html/'+fileName+'.pdf');
+              });
         
            
               res.status(200).jsonp({"fileName": fileName+'.pdf'});
