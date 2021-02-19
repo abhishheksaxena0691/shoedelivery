@@ -142,7 +142,7 @@ router.get('/api/bill/:month/:year', midWare.checkToken, (req, res, next) => {
 });
 
 router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next) => {
-    const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
+   
     if (req.decoded.userType == 1) {
         req.decoded.userType = 'Dealer';
     } else if(req.decoded == 2) {
