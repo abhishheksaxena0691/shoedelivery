@@ -7,6 +7,7 @@ const midWare = require('../module/middleware');
 const PDF2Pic = require("pdf2pic");
 var pdf = require('html-pdf');
 var html_to_pdf = require('html-pdf-node');
+var htmlToPdf = require('html-to-pdf');
 
 router.get('/api/bill/upload', (req, res, next) => {
     let pdfData = {};
@@ -179,6 +180,18 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     let options = { format: 'A4' };
+    const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
+    htmlToPdf.convertHTMLString(html, 'path/to/destination.pdf',
+    function (error, success) {
+        if (error) {
+            console.log('Oh noes! Errorz!');
+            console.log(error);
+        } else {
+            console.log('Woot! Success!');
+            console.log(success);
+        }
+    }
+);
 // Example of options with args //
 // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
@@ -199,12 +212,14 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 //     }).catch((err) => {
 //         console.log(err);
 //    });
-    const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    console.log(ht);
-    pdf.create(ht).toStream((err, stream) => {
+    // const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
+    // console.log(ht);
+    // pdf.create(ht).toStream((err, stream) => {
       
-                fs.createWriteStream('./public/html/'+fileName+'.pdf');
-              });
+    //             fs.createWriteStream('./public/html/'+fileName+'.pdf');
+    //           });
+
+    
         
            
               res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
