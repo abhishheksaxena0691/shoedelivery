@@ -207,7 +207,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
               });
         
            
-              res.status(200).jsonp({"fileName": fileName+'.pdf'});
+              res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
