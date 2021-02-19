@@ -5,9 +5,9 @@ const pdfParse = require("pdf-parse");
 const db = require('../module/dbConnect');
 const midWare = require('../module/middleware');
 const PDF2Pic = require("pdf2pic");
-var pdf = require('html-pdf');
+//var pdf = require('html-pdf');
 
-//var pdf = require("pdf-creator-node");
+var pdf = require("pdf-creator-node");
 
 
 
