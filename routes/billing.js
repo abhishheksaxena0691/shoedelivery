@@ -184,21 +184,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     const options = {
         format: "A4",
-        orientation: "portrait",
-        border: "10mm",
-        header: {
-            height: "45mm",
-            contents: '<div style="text-align: center;">Author: Shyam Hajare</div>'
-        },
-        "footer": {
-            "height": "28mm",
-            "contents": {
-            first: 'Cover page',
-            2: 'Second page', // Any page number is working. 1-based index
-            default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
-            last: 'Last Page'
-        }
-    }
+        orientation: "portrait"
 };
     
     var document = {
@@ -207,12 +193,13 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         path: './public/html/'+fileName+'test'+'.pdf'
     };
     pdf.create(document, options)
-    .then(res => {
-        console.log(res)
+    .then((res1) => {
+        res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
     })
     .catch(error => {
         console.error(error)
     });
+   
 //     let options = { format: 'A4' };
 //    
 //     htmlToPdf.convertHTMLString("<h1>Welcome to html-pdf-node</h1>", './public/html/'+fileName+'test'+'.pdf',
@@ -255,7 +242,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     
         
            
-              res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'});
+            
 });
 
 router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, next) => {
