@@ -181,7 +181,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     let options = { format: 'A4' };
     const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
-    htmlToPdf.convertHTMLString(html, './public/html/'+fileName+'test'+'.pdf',
+    htmlToPdf.convertHTMLString("<h1>Welcome to html-pdf-node</h1>", './public/html/'+fileName+'test'+'.pdf',
     function (error, success) {
         if (error) {
             console.log('Oh noes! Errorz!');
