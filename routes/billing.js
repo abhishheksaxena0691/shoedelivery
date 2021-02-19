@@ -8,7 +8,11 @@ const PDF2Pic = require("pdf2pic");
 var pdf = require('html-pdf');
 var html_to_pdf = require('html-pdf-node');
 var htmlToPdf = require('html-to-pdf');
+var pdf = require("pdf-creator-node");
+var fs = require('fs');
 
+// Read HTML Template
+var html = fs.readFileSync('template.html', 'utf8');
 router.get('/api/bill/upload', (req, res, next) => {
     let pdfData = {};
     pdfData.filePath = "Medical_1573821016472_9845496618.pdf";
@@ -139,7 +143,7 @@ router.get('/api/bill/:month/:year', midWare.checkToken, (req, res, next) => {
 });
 
 router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next) => {
-
+    const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
     if (req.decoded.userType == 1) {
         req.decoded.userType = 'Dealer';
     } else if(req.decoded == 2) {
@@ -179,19 +183,31 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     }
     req.decoded['totalPrice'] = totalPrice;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
-    let options = { format: 'A4' };
-    const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true)
-    htmlToPdf.convertHTMLString("<h1>Welcome to html-pdf-node</h1>", './public/html/'+fileName+'test'+'.pdf',
-    function (error, success) {
-        if (error) {
-            console.log('Oh noes! Errorz!');
-            console.log(error);
-        } else {
-            console.log('Woot! Success!');
-            console.log(success);
-        }
-    }
-);
+    var document = {
+        html: html,
+        data: { },
+        path: './public/html/'+fileName+'test'+'.pdf'
+    };
+    pdf.create(document, options)
+    .then(res => {
+        console.log(res)
+    })
+    .catch(error => {
+        console.error(error)
+    });
+//     let options = { format: 'A4' };
+//    
+//     htmlToPdf.convertHTMLString("<h1>Welcome to html-pdf-node</h1>", './public/html/'+fileName+'test'+'.pdf',
+//     function (error, success) {
+//         if (error) {
+//             console.log('Oh noes! Errorz!');
+//             console.log(error);
+//         } else {
+//             console.log('Woot! Success!');
+//             console.log(success);
+//         }
+//     }
+// );
 // Example of options with args //
 // let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
@@ -217,10 +233,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     pdf.create(ht).toStream((err, stream) => {
       
                 fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
-              }).catch((error) => {
-                    console.log(error);
-              });
-
+              })
     
         
            
