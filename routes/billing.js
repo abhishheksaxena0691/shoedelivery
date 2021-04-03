@@ -5,10 +5,18 @@ const pdfParse = require("pdf-parse");
 const db = require('../module/dbConnect');
 const midWare = require('../module/middleware');
 const PDF2Pic = require("pdf2pic");
-//var pdf = require('html-pdf');
+var pdf = require('html-pdf');
+var multer  = require('multer');
 
-var pdf = require("pdf-creator-node");
-
+var storageBill = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './public/pdfBills/');
+     },
+    filename: function (req, file, cb) {
+        var file= {"originalname":  new Date().getTime()+ '.jpg'}
+        cb(null , file.originalname);
+    }
+});
 
 
 router.get('/api/bill/upload', (req, res, next) => {
@@ -201,47 +209,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         console.error(error)
     });
    
-//     let options = { format: 'A4' };
-//    
-//     htmlToPdf.convertHTMLString("<h1>Welcome to html-pdf-node</h1>", './public/html/'+fileName+'test'+'.pdf',
-//     function (error, success) {
-//         if (error) {
-//             console.log('Oh noes! Errorz!');
-//             console.log(error);
-//         } else {
-//             console.log('Woot! Success!');
-//             console.log(success);
-//         }
-//     }
-// );
-// Example of options with args //
-// let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
 
-
-// let file = [{ content: "<h1>Welcome to html-pdf-node</h1>", name: fileName+'.pdf' }];
-// html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
-//   console.log("PDF Buffer:-", pdfBuffer);
-// });
-//      pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((ht) => {
-  
-//       pdf.create(ht).toStream((err, stream) => {
-
-//         fs.createWriteStream('./public/html/'+fileName+'.pdf');
-//       });
-
-   
-//       res.status(200).jsonp({"fileName": fileName+'.pdf'});
-//     }).catch((err) => {
-//         console.log(err);
-//    });
-    // const ht = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
-    
-    // pdf.create(ht).toStream((err, stream) => {
-      
-    //             fs.createWriteStream('./public/html/'+fileName+'test'+'.pdf');
-    //           })
-    
-    //           res.status(200).jsonp({"fileName": fileName+'test'+'.pdf'}); 
            
             
 });
@@ -377,6 +345,19 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
             });
 
         });
+    });
+});
+
+const storeBill = multer({storage: storageBill}).single('bill');
+
+router.post('/api/bill/uploadbill', midWare.checkToken, (req, res, next) => {
+    storeBill(req, res, function (error) {
+        if (error) {
+            res.status(410).jsonp(error);
+            next(error);
+        } else {
+            res.status(201).jsonp(req.file.originalname);
+        }
     });
 });
 
