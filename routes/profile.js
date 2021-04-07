@@ -4,12 +4,13 @@ const bcrypt = require('bcryptjs');
 const db = require('../module/dbConnect');
 const midWare = require('../module/middleware');
 var multer  = require('multer');
-
+const PDF2Pic = require("pdf2pic");
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './public/pdfBills/');
      },
     filename: function (req, file, cb) {
+        console.log(file);
         cb(null , file.originalname);
     }
 });
@@ -22,7 +23,29 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
             res.status(410).jsonp(error);
             next(error);
         } else {
-            res.status(201).jsonp(req.file.originalname);
+
+            let extension = req.file.originalname.split('.').pop();
+            let originalName = req.file.originalname.split('.').slice(0, -1).join('.');
+            if (extension == 'pdf') {
+               
+                extension = 'jpg';
+                const fileName = originalName+'.'+extension;
+                    console.log(fileName);
+                const pdf2pic = new PDF2Pic({
+                    density: 100,
+                    savename: fileName,
+                    savedir: "./public/pdfBills/images",
+                    format: "jpg",
+                    size: "900x800"
+                });
+                pdf2pic.convertBulk("./public/pdfBills/"+req.file.originalname, -1).then((resolve) => {
+                  
+                    res.status(201).jsonp(fileName);
+                })
+            } else {
+                const fileName = originalName+'.'+extension;
+                res.status(201).jsonp(fileName);
+            };
         }
     });
 });
