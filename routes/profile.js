@@ -39,7 +39,7 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
                     size: "900x800"
                 });
                 pdf2pic.convertBulk("./public/pdfBills/"+req.file.originalname, -1).then((resolve) => {
-                  
+                    console.log("hellllllllllllllllllllo");
                     res.status(201).jsonp(fileName);
                 })
             } else {
