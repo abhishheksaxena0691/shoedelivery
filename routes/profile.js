@@ -34,14 +34,14 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
                     console.log(fileName);
                 const pdf2pic = new PDF2Pic({
                     density: 100,
-                    savename: req.file.originalname,
+                    savename: originalName,
                     savedir: "./public/pdfBills/",
                     format: "jpg",
                     size: "900x800"
                 });
                 pdf2pic.convert("./public/pdfBills/"+req.file.originalname).then((resolve) => {
                     console.log("hellllllllllllllllllllo");
-                    res.status(201).jsonp(req.file.originalname);
+                    res.status(201).jsonp(fileName+'_1'+'.jpg');
                 })
             } else {
                 const fileName = originalName+'.'+extension;
