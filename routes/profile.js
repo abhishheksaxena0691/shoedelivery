@@ -26,6 +26,7 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
 
             let extension = req.file.originalname.split('.').pop();
             let originalName = req.file.originalname.split('.').slice(0, -1).join('.');
+            console.log("originalName", originalName);
             if (extension == 'pdf') {
                
                 extension = 'jpg';
@@ -40,7 +41,7 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
                 });
                 pdf2pic.convert("./public/pdfBills/"+req.file.originalname).then((resolve) => {
                     console.log("hellllllllllllllllllllo");
-                    res.status(201).jsonp(fileName);
+                    res.status(201).jsonp(req.file.originalname);
                 })
             } else {
                 const fileName = originalName+'.'+extension;
