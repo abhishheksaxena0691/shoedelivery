@@ -34,7 +34,7 @@ router.post('/api/profile/bill', midWare.checkToken, (req, res, next) => {
                 const pdf2pic = new PDF2Pic({
                     density: 100,
                     savename: fileName,
-                    savedir: "./public/pdfBills",
+                    savedir: "./public/pdfBills/",
                     format: "jpg",
                     size: "900x800"
                 });
