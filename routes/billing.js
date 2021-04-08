@@ -190,15 +190,14 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     req.decoded['totalPrice'] = totalPrice;
 
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
-    pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((html) => {
-        console.log(html);
+    pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((html1) => {
+        console.log(html1);
         const options = {
             format: "A4",
             orientation: "portrait"
     };
     var document = {
-        html: html.toString(),
-        data: { },
+        html: html1,
         path: './public/html/'+fileName+'newtest'+'.pdf'
     };
     pdf.create(document, options)
@@ -209,6 +208,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         console.error(error)
     });
     
+
         
     })
          
