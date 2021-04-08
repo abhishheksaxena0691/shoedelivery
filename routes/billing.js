@@ -200,13 +200,21 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         html: html1,
         path: './public/html/'+fileName+'newtest'+'.pdf'
     };
-    pdf.create(document, options)
-    .then((res1) => {
-        res.status(200).jsonp({"fileName": fileName+'newtest'+'.pdf'});
-    })
-    .catch(error => {
-        console.error(error)
-    });
+
+    pdf.create(html1, options).toFile('./public/html/'+fileName+'newtest'+'.pdf', function(err, res) {
+        if (err) {return console.log(err);}
+        else {
+            res.status(200).jsonp({"fileName": fileName+'newtest'+'.pdf'});
+        }
+       // console.log(res); // { filename: '/genrateddoc.pdf' } 
+      });
+    // pdf.create(document, options)
+    // .then((res1) => {
+    //     res.status(200).jsonp({"fileName": fileName+'newtest'+'.pdf'});
+    // })
+    // .catch(error => {
+    //     console.error(error)
+    // });
     
 
         
