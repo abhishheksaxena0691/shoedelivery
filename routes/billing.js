@@ -198,7 +198,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 };
     
     var document = {
-        html: html,
+        html: html.toString(),
         data: { },
         path: './public/html/'+fileName+'newtest'+'.pdf'
     };
