@@ -191,6 +191,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
 
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     const html = pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true);
+    console.log(html);
     const options = {
         format: "A4",
         orientation: "portrait"
