@@ -201,7 +201,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
         path: './public/html/'+fileName+'newtest'+'.pdf'
     };
 
-    pdf.create(html1, options).toFile('./public/html/'+fileName+'newtest'+'.pdf', function(err, res) {
+    pdf.create(html1, options).toFile('./public/html/'+fileName+'newtest'+'.pdf', function(err, res1) {
         if (err) {return console.log(err);}
         else {
             res.status(200).jsonp({"fileName": fileName+'newtest'+'.pdf'});
