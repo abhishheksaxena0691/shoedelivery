@@ -57,7 +57,8 @@ mongoose.connect(
               if (!r) {
                 User.createUser(user, function(err, r) {
                   if (err) {
-                    console.log("failed " + element.email);
+                    console.log(err);
+                    console.log("failed 2" + element.email);
                   } else {
                     console.log("added " + element.email);
                   }
