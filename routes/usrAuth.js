@@ -192,33 +192,19 @@ router.post("/bot/upload-file", function(req, res) {
         //   err,
         //   brochureObjFromDB
         // ) {
-          db.getDB().collection('brochures').findOne({name: req.file.originalname}).then((err, brochureObjFromDB) => {
+          console.log(req.file.originalname);
+          db.getDB().collection('brochures').findOne({"name": req.file.originalname}).then((brochureObjFromDB) => {
          
-          if (err) {
-          
-          }
+      
+          console.log("brochureObjFromDB");
+          console.log(brochureObjFromDB);
 
-          if (brochureObjFromDB) {
+          if (brochureObjFromDB != null) {
            
-
-            parsePDFForReports(brochureObjFromDB, function(
-              errBr,
-              updatedBrochureObj
-            ) {
-              if (errBr || !updatedBrochureObj) {
-              
-
-                let responseObj = new ResponseObj(
-                  500,
-                  "parsePDFForReports failed: " + errBr,
-                  null
-                );
-                res.status(responseObj.status).json(responseObj);
-                return;
-              }
+            res.status(400).json("File already present");
+            return;
 
            
-            });
           } else {
 
             db.getDB().collection('brochures').insertOne(brochureObj, function(
@@ -283,12 +269,8 @@ router.post("/bot/upload-file", function(req, res) {
         });
       });
     } else {
-      let responseObj = new ResponseObj(
-        403,
-        "You are not authorized to perform this action!!",
-        null
-      );
-      res.status(responseObj.status).json(responseObj);
+     
+      res.status(403).jsonp("You are not authorized to perform this action!!");
       return;
     }
   });
@@ -402,9 +384,9 @@ function parsePDFForReports(brochure, cb) {
 }
 
 function localAuthenticate(req, res, cb) {
-  
-  
-  if (typeof req.query.token === "undefined") {
+  console.log("req.query");
+  console.log(req.query);
+  if (req.query.token !== undefined) {
    // return cb(false, "Unauthorized!", null);
    return cb(true, "Shoe Factory", {
                                     "image": "images/user.png",
@@ -416,7 +398,7 @@ function localAuthenticate(req, res, cb) {
                                     "mobile": "1111111111",
                                     "fullname": "Bot 1"})
   } else {
-  return cb(false, "Shoe Factory", user);
+  return cb(false, "Unauthorized", null);
   }
   // const token = req.query.token;
 
