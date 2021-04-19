@@ -296,13 +296,15 @@ router.post("/bot/upload-file", function(req, res) {
 
 
 function parsePDFForReports(brochure, cb) {
- 
+ console.log("brochure");
+ console.log(brochure);
 
-  fs.readFile("./public/uploads/"+brochure, (err, dataBuffer) => {
+
+  fs.readFile("./public/uploads/"+brochure.originalFilename, (err, dataBuffer) => {
     console.log(dataBuffer);
             pdfParse(dataBuffer).then(function(data) {
-              
-
+              console.log("data");
+              console.log(data);
               const splitText = data.text.split(/\r?\n/);
               let pdfData = {};
               pdfData.reports = [];
@@ -380,7 +382,7 @@ function parsePDFForReports(brochure, cb) {
                       "subTitle": "03-13-2021",
                       "total":parseInt(pdfData.total.replace(/[^a-zA-Z0-9]/g, '')),
                       "date": new Date(),
-                      "deportment": "Node red",
+                      "deportment": pdfData.title,
                       "user": "8130676870newtest",
                       "genDate": ""
                   },
