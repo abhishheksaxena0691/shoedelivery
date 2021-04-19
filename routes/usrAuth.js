@@ -380,7 +380,7 @@ function parsePDFForReports(brochure, cb) {
                       "customer": "",
                       "seller": "Administrator",
                       "subTitle": "03-13-2021",
-                      "total":parseInt(pdfData.total.replace(/[^a-zA-Z0-9]/g, '')),
+                      "total":pdfData.total,
                       "date": new Date(),
                       "deportment": pdfData.title,
                       "user": "8130676870newtest",
