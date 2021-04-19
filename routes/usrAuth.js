@@ -15,7 +15,7 @@ router.post('/api/login', (req, res, next) => {
     if(!req.body.usrName || !req.body.yrPass) {
         res.status(400).jsonp('Incomplete information');
     } else {
-        console.log(req.body);
+        
         db.getDB().collection('userInfo').findOne({mobileNo: req.body.usrName}).then((doc) => {
             if (doc) {
                 if(bcrypt.compareSync(req.body.yrPass, doc.password)) {
@@ -119,7 +119,7 @@ router.post('/api/verifyMobileNumber',(req, res, next) => {
         res.status(400).jsonp('Incomplete information');
     } else {
         db.getDB().collection('userInfo').findOne({mobileNo: req.body.regMobile, userType: 2}).then((doc) => {
-            console.log(doc);
+            
                 res.status(200).jsonp(doc);
                     })
         .catch(err => {
@@ -134,7 +134,7 @@ router.post('/api/verifyMobileNumber',(req, res, next) => {
   },
   filename: function(req, file, callback) {
     const filename = file.originalname;
-  console.log(filename);
+  
     callback(null, filename);
   }
 });
@@ -262,7 +262,7 @@ router.post("/bot/upload-file", function(req, res) {
                                             result
                                           ) {
                                             if (err) {
-                                              console.log(err);
+                                              
                                             
                                               res.status(500).jsonp(responseObj);
                                               return;
@@ -296,15 +296,13 @@ router.post("/bot/upload-file", function(req, res) {
 
 
 function parsePDFForReports(brochure, cb) {
- console.log("brochure");
- console.log(brochure);
+ 
 
 
   fs.readFile("./public/uploads/"+brochure.originalFilename, (err, dataBuffer) => {
-    console.log(dataBuffer);
+    
             pdfParse(dataBuffer).then(function(data) {
-              console.log("data");
-              console.log(data);
+              
               const splitText = data.text.split(/\r?\n/);
               let pdfData = {};
               pdfData.reports = [];
