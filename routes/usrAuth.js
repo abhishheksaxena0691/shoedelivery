@@ -5,8 +5,12 @@ const router = express.Router();
 const db = require('../module/dbConnect');
 const config = require('../module/secret');
 const sendSMS = require('../module/smsSend');
+var multer  = require('multer');
+var brochureToUserIdMap = {};
+var fs = require('fs');
+const PDF2Pic = require("pdf2pic");
 
-
+const pdfParse = require("pdf-parse");
 router.post('/api/login', (req, res, next) => {
     if(!req.body.usrName || !req.body.yrPass) {
         res.status(400).jsonp('Incomplete information');
@@ -124,280 +128,317 @@ router.post('/api/verifyMobileNumber',(req, res, next) => {
         });
     } 
  });
+ let brochureStorage = multer.diskStorage({
+  destination: function(req, file, callback) {
+    callback(null, "./public/uploads");
+  },
+  filename: function(req, file, callback) {
+    const filename = file.originalname;
+  console.log(filename);
+    callback(null, filename);
+  }
+});
+let brochureUpload = multer({
+  storage: brochureStorage
+}).single("file");
 
- router.post("/bot/upload-file", function(req, res) {
-    localAuthenticate(req, res, function(
-      isValid,
-      message,
-      user
-    ) {
-      if (isValid) {
-        brochureUpload(req, res, function(err) {
-          if (err) {
-            logger.error(err);
-            let responseObj = new ResponseObj(
-              400,
-              "Failed to upload brochure!",
-              null
-            );
-  
-            res.status(responseObj.status).json(responseObj);
-            return;
-          }
-  
-          var brochure = req.file.path;
-  
-          if (brochure.length > 7 && brochure.indexOf("public") === 0) {
-            brochure = brochure.substring(7);
-          }
-  
-          const truncatedFileName = req.file.originalname.substring(
-            0,
-            req.file.originalname.length - 4
-          );
-  
-          if (!brochureToUserIdMap[truncatedFileName]) {
-            logger.error(
-              "Brochure mapping not found for file: " + req.file.originalname
-            );
-  
-            let responseObj = new ResponseObj(200, "Success", {
-              data: "Brochure mapping not found!"
-            });
-            res.status(responseObj.status).json(responseObj);
-            return;
-          }
-          let userId = brochureToUserIdMap[truncatedFileName];
-  
-          delete brochureToUserIdMap[truncatedFileName];
-  
-          const brochureObj = new Brochure.BrochureModel({
-            name: req.file.originalname,
-            originalFilename: req.file.originalname,
-            originalFilePath: brochure,
-            path: brochure,
-            userId: userId,
-            username: user.fullname,
-            coupon: generateCouponCode(),
-            amount: 0
-          });
-  
-          Brochure.findByBrochureName(brochureObj.name, function(
-            err,
-            brochureObjFromDB
-          ) {
-            if (err) {
-              logger.error(err);
-              logger.error("Error finding brochure in DB");
-            }
-  
-            if (brochureObjFromDB) {
-              logger.debug(
-                "Brochure already exists in DB: " + brochureObjFromDB.name
-              );
-  
-              parsePDFForReports(brochureObjFromDB, function(
-                errBr,
-                updatedBrochureObj
-              ) {
-                if (errBr || !updatedBrochureObj) {
-                  logger.error("parsePDFForReports failed: " + errBr);
-  
-                  let responseObj = new ResponseObj(
-                    500,
-                    "parsePDFForReports failed: " + errBr,
-                    null
-                  );
-                  res.status(responseObj.status).json(responseObj);
-                  return;
-                }
-  
-                createPaymentLinkAndMerge(req, user, updatedBrochureObj, function(
-                  errPdf,
-                  mergedBrochure
-                ) {
-                  if (errPdf || !mergedBrochure) {
-                    let responseObj = new ResponseObj(
-                      500,
-                      "createPaymentLinkAndMerge failed: " + errBr,
-                      null
-                    );
-                    res.status(responseObj.status).json(responseObj);
-                    return;
-                  }
-  
-                  socket.brochureReady(
-                    userId,
-                    mergedBrochure.name,
-                    mergedBrochure.path
-                  );
-                  let responseObj = new ResponseObj(200, "Success", null);
-                  res.status(responseObj.status).json(responseObj);
-                });
-              });
-            } else {
-              Brochure.createBrochure(brochureObj, function(
-                err,
-                result
-              ) {
-                if (err) {
-                  logger.error(err);
-                  logger.error("Failed to create new Brochure!");
-  
-                  let responseObj = new ResponseObj(
-                    500,
-                    "Failed to create new Brochure!",
-                    null
-                  );
-                  res.status(responseObj.status).json(responseObj);
-                  return;
-                }
-  
-                parsePDFForReports(brochureObj, function(
-                  errBr,
-                  updatedBrochureObj
-                ) {
-                  if (errBr || !updatedBrochureObj) {
-                    logger.error("parsePDFForReports failed: " + errBr);
-  
-                    let responseObj = new ResponseObj(
-                      500,
-                      "parsePDFForReports failed: " + errBr,
-                      null
-                    );
-                    res.status(responseObj.status).json(responseObj);
-                    return;
-                  }
-  
-                  createPaymentLinkAndMerge(
-                    req,
-                    user,
-                    updatedBrochureObj,
-                    function(errPdf, mergedBrochure) {
-                      if (errPdf || !mergedBrochure) {
-                        let responseObj = new ResponseObj(
-                          500,
-                          "createPaymentLinkAndMerge failed: " + errBr,
-                          null
-                        );
-                        res.status(responseObj.status).json(responseObj);
-                        return;
-                      }
-  
-                      socket.brochureReady(
-                        userId,
-                        mergedBrochure.name,
-                        mergedBrochure.path
-                      );
-                      let responseObj = new ResponseObj(200, "Success", null);
-                      res.status(responseObj.status).json(responseObj);
-                    }
-                  );
-                });
-              });
-            }
-          });
-        });
-      } else {
-        let responseObj = new ResponseObj(
-          403,
-          "You are not authorized to perform this action!!",
-          null
-        );
-        res.status(responseObj.status).json(responseObj);
-        return;
-      }
-    });
-  });
- function createPaymentLinkAndMerge(
-    req,
-    user,
-    brochure,
-    cb
+router.post("/bot/upload-file", function(req, res) {
+  localAuthenticate(req, res, function(
+    isValid,
+    message,
+    user
   ) {
-    let rootPath = path.resolve(".") + "/public/";
-  
-    let html = config.paymentHtml2;
-    let url = fullUrl(req);
-    url = new URL.URL(url).origin;
-    url += "/payment?id=" + brochure.id;
-  
-    const reports = brochure.reports;
-    let reportsHtml = "";
-  
-    for (let itr = 0; itr < reports.length; itr++) {
-      const desc = reports[itr].description;
-      const qty = reports[itr].qty;
-      const amount = reports[itr].amount;
-      reportsHtml += "<tr>";
-      reportsHtml +=
-        '<td colspan="2">' +
-        qty +
-        ' <span class="weight-600 pad-b">X</span> ' +
-        desc +
-        "</td>";
-      reportsHtml += '<td class="pad-b"></td>';
-      reportsHtml += '<td class="txt-right pad-b">₹ ' + amount + "</td>";
-      reportsHtml += "</tr>";
-    }
-  
-    html = html.replace("replaceMeTitle", brochure.brochureParsedTitle);
-    html = html.replace("replaceMeSubTitle", brochure.brochureParsedSubTitle);
-    html = html.replace("replaceMeCustomer", brochure.brochureParsedCustomer);
-    html = html.replace("replaceMeSeller", brochure.brochureParsedSeller);
-    html = html.replace(
-      "replaceMeTransaction",
-      brochure.brochureParsedTransaction
-    );
-    html = html.replace("replaceMeDate", brochure.brochureParsedDate);
-    html = html.replace("replaceMeTime", brochure.brochureParsedTime);
-    html = html.replace("replaceMeRows", reportsHtml);
-    html = html.replace("replaceMeTotal", brochure.brochureParsedTotal);
-    html = html.replace("replaceMeTotal", brochure.brochureParsedTotal);
-    html = html.replace(
-      "replaceMePaymentLink",
-      '<a href="' + url + '" class="btn" target="_blank">Pay Now</a>'
-    );
-    html = html.replace("replaceMeReceipt", "");
-    //html = html.replace("amount", "Rs. " + brochure.amount + "/-");
-  
-    //logger.debug(html);
-    let brochureName = brochure.name;
-    if (brochureName.indexOf(".") > 0) {
-      brochureName = brochureName.substring(0, brochureName.lastIndexOf("."));
-    }
-  
-    //const paymentLinkFilePath = "uploads/" + brochureName + "_paymentlink.pdf";
-    const finalMergedFilename = brochureName + "_P.pdf";
-    const finalMergedFilePath = "uploads/" + finalMergedFilename;
-    let options = {format:"Letter"}
-  
-    try {
-  
-    html2pdf
-      .create(html, options)
-      .toFile(rootPath + finalMergedFilePath, function(err, result) {
+    
+    if (isValid) {
+      brochureUpload(req, res, function(err) {
         if (err) {
-          logger.error("PDF Generation Error:" + err);
-          cb(err, null);
+          
+          let responseObj = new ResponseObj(
+            400,
+            "Failed to upload brochure!", 
+            null
+          );
+
+          res.status(responseObj.status).json(responseObj);
           return;
         }
-  
-        logger.silly("Brochure Payment Link Filename: " + result.filename);
-  
-        brochure.path = finalMergedFilePath;
-        brochure.name = finalMergedFilename;
-  
-        Brochure.updateBrochureById(brochure._id, brochure, function(
-          err,
-          result
-        ) {
-          cb(err, brochure);
+
+        var brochure = req.file.path;
+        
+        if (brochure.length > 7 && brochure.indexOf("public") === 0) {
+          brochure = brochure.substring(7);
+        }
+
+        
+        const truncatedFileName = req.file.originalname.substring(
+          0,
+          req.file.originalname.length - 4
+        );
+       
+        let userId = truncatedFileName.split('_')[1];
+
+        const brochureObj ={
+          name: req.file.originalname,
+          originalFilename: req.file.originalname,
+          originalFilePath: brochure,
+          path: brochure,
+          userId: userId,
+          username: user.fullname,
+          coupon: '1234',
+          amount: 0
+        };
+
+        // Brochure.findByBrochureName(brochureObj.name, function(
+        //   err,
+        //   brochureObjFromDB
+        // ) {
+          db.getDB().collection('brochures').findOne({name: req.file.originalname}).then((err, brochureObjFromDB) => {
+         
+          if (err) {
+          
+          }
+
+          if (brochureObjFromDB) {
+           
+
+            parsePDFForReports(brochureObjFromDB, function(
+              errBr,
+              updatedBrochureObj
+            ) {
+              if (errBr || !updatedBrochureObj) {
+              
+
+                let responseObj = new ResponseObj(
+                  500,
+                  "parsePDFForReports failed: " + errBr,
+                  null
+                );
+                res.status(responseObj.status).json(responseObj);
+                return;
+              }
+
+           
+            });
+          } else {
+
+            db.getDB().collection('brochures').insertOne(brochureObj, function(
+              err,
+              result
+            ) {
+              if (err) {
+          
+               
+                res.status(500).jsonp("responseObj");
+                return;
+              }
+
+                      parsePDFForReports(brochureObj, function(
+                        errBr,
+                        updatedBrochureObj
+                      ) {
+                        if (errBr) {
+                        
+
+                        
+                          res.status(500).jsonp("responseObj");
+                          return;
+                        }   else {
+                          const pdf2pic = new PDF2Pic({
+                            density: 100,
+                            savename: req.file.originalname,
+                            savedir: "./public/pdfBills/images",
+                            format: "jpg",
+                            size: "900x800"
+                        });
+            
+                     
+                        
+                            
+                        pdf2pic.convertBulk("./public/uploads/"+req.file.originalname, -1).then((resolve) => {
+                          updatedBrochureObj.billDetails['billImg'] = [];
+                          updatedBrochureObj.billDetails.billImg = resolve;
+                                          db.getDB().collection('delivery').insertOne(updatedBrochureObj,function(
+                                            err,
+                                            result
+                                          ) {
+                                            if (err) {
+                                              console.log(err);
+                                            
+                                              res.status(500).jsonp(responseObj);
+                                              return;
+                                            }
+                                          else {
+                                          
+                                            res.status(200).json(updatedBrochureObj);
+                                            return;
+                                                  
+                                          }
+                                          });
+                                });
+                          
+                        }
+                      });
+            });
+          }
         });
       });
-          
-    } catch(e) {
-      cb(e, null);
+    } else {
+      let responseObj = new ResponseObj(
+        403,
+        "You are not authorized to perform this action!!",
+        null
+      );
+      res.status(responseObj.status).json(responseObj);
+      return;
     }
+  });
+});
+
+
+function parsePDFForReports(brochure, cb) {
+ 
+
+  fs.readFile("./public/uploads/"+brochure, (err, dataBuffer) => {
+    console.log(dataBuffer);
+            pdfParse(dataBuffer).then(function(data) {
+              
+
+              const splitText = data.text.split(/\r?\n/);
+              let pdfData = {};
+              pdfData.reports = [];
+              let isParsingComplete = false;
+
+              for (let itr = 0; itr < splitText.length; itr++) {
+                let lineData = splitText[itr].trim();
+                const dateFormat = /^(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])(\-)\d{4}$/;
+
+                if (!pdfData.title && lineData.length > 0) {
+                  pdfData.title = lineData;
+                } else if (!pdfData.customer && lineData.indexOf("Customer:") >= 0) {
+                  pdfData.customer = lineData
+                    .substring(lineData.indexOf("Customer:") + "Customer:".length)
+                    .trim();
+                  continue;
+                } else if (!pdfData.seller && lineData.indexOf("Seller:") >= 0) {
+                  pdfData.seller = lineData
+                    .substring(lineData.indexOf("Seller:") + "Seller:".length)
+                    .trim();
+                  itr++;
+                  pdfData.subTitle = splitText[itr].trim();
+                  continue;
+                } else if (!pdfData.transaction && lineData.indexOf("Transaction") >= 0) {
+                  pdfData.transaction = lineData
+                    .substring(lineData.indexOf("Transaction") + "Transaction".length)
+                    .trim();
+                  continue;
+                } else if (!pdfData.date && lineData.match(dateFormat)) {
+                  pdfData.date = lineData;
+                  itr++;
+                  pdfData.time = splitText[itr].trim();
+                  continue;
+                  // 8377 is ascii code of rupee symbol
+                } else if (
+                  lineData.length > 0 &&
+                  lineData[0] === String.fromCharCode(8377) &&
+                  splitText[itr + 1] &&
+                  splitText[itr + 1].indexOf(" X") > 0
+                ) {
+                  let amount = lineData.substring(1).trim();
+                  //amount = amount.replace(/\,/g, "");
+                  itr++;
+                  lineData = splitText[itr].trim();
+                  let description = lineData.substring(lineData.indexOf(" ") + 2).trim();
+                  let qty = lineData.substring(0, lineData.indexOf(" ")).trim();
+                  pdfData.reports.push({
+                    description: description,
+                    qty: qty,
+                    amount: amount
+                  });
+                  continue;
+                } else if (!pdfData.total && lineData.indexOf("Total:") >= 0) {
+                  let total = lineData
+                    .substring(lineData.indexOf("Total:") + "Total:".length + 1)
+                    .trim();
+                  //total = total.replace(/\,/g, "");
+                  pdfData.total = total;
+                  isParsingComplete = true;
+                  continue;
+                }
+              }
+              
+              
+              if (isParsingComplete) {
+              
+          const billImage  =  {
+
+                  "billDetails": {
+                      "filePath": brochure.originalFilename,
+                      "reports": [],
+                      "title": pdfData.title,
+                      "customer": "",
+                      "seller": "Administrator",
+                      "subTitle": "03-13-2021",
+                      "total":parseInt(pdfData.total.replace(/[^a-zA-Z0-9]/g, '')),
+                      "date": new Date(),
+                      "deportment": "Node red",
+                      "user": "8130676870newtest",
+                      "genDate": ""
+                  },
+                  "paidBy": "",
+                  "usrNumber": brochure.userId,
+                  "category": "dashboard",
+                  "payStatus": false,
+                  "userType": 2,
+                  "retailerMobile": brochure.userId,
+                  "createdTimeStamp": 1615648936219,
+                  "responseStatus": 0
+              }
+              cb(null, billImage)
+              
+              
+              }
+            });
+});
+}
+
+function localAuthenticate(req, res, cb) {
+  
+  
+  if (typeof req.query.token === "undefined") {
+   // return cb(false, "Unauthorized!", null);
+   return cb(true, "Shoe Factory", {
+                                    "image": "images/user.png",
+                                    "role": "BOT",
+                                    "isMobileVerified": true,
+                                    "isEnabled": true,
+                                    "isDeleted": false,
+                                    "email": "bot@gmail.com",
+                                    "mobile": "1111111111",
+                                    "fullname": "Bot 1"})
+  } else {
+  return cb(false, "Shoe Factory", user);
   }
+  // const token = req.query.token;
+
+  // Token.findByToken(token, function(err, tokenFromDb) {
+  //   if (err) {
+  //     return cb(false, "Unauthorized", null);
+  //   }
+  //   if (!tokenFromDb) {
+  //     return cb(false, "Unauthorized", null);
+  //   }
+  //   User.findByUserId(tokenFromDb.userId, false, function(
+  //     err,
+  //     user
+  //   ) {
+  //     if (err) {
+  //       return cb(false, "Unauthorized", null);
+  //     }
+  //     if (!user) {
+  //       return cb(false, "Unauthorized", null);
+  //     }
+  //     return cb(true, "Shoe Factory", user);
+  //   });
+  // });
+}
 module.exports = router;
