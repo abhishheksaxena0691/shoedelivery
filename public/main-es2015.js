@@ -305,48 +305,52 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | landing-landing-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("landing-landing-module")]).then(__webpack_require__.bind(null, /*! ./landing/landing.module */ "./src/app/landing/landing.module.ts")).then(m => m.LandingModule)
+        loadChildren: () => Promise.all(/*! import() | landing-landing-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("landing-landing-module")]).then(__webpack_require__.bind(null, /*! ./landing/landing.module */ "./src/app/landing/landing.module.ts")).then(m => m.LandingModule)
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | dashboard-dashboard-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("common"), __webpack_require__.e("dashboard-dashboard-module")]).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/dashboard/dashboard.module.ts")).then(m => m.DashboardModule),
+        loadChildren: () => Promise.all(/*! import() | dashboard-dashboard-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("common"), __webpack_require__.e("dashboard-dashboard-module")]).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/dashboard/dashboard.module.ts")).then(m => m.DashboardModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | report-report-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("report-report-module")]).then(__webpack_require__.bind(null, /*! ./report/report.module */ "./src/app/report/report.module.ts")).then(m => m.ReportModule),
+        loadChildren: () => Promise.all(/*! import() | report-report-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("report-report-module")]).then(__webpack_require__.bind(null, /*! ./report/report.module */ "./src/app/report/report.module.ts")).then(m => m.ReportModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | return-return-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("return-return-module")]).then(__webpack_require__.bind(null, /*! ./return/return.module */ "./src/app/return/return.module.ts")).then(m => m.ReturnModule),
+        loadChildren: () => Promise.all(/*! import() | return-return-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("return-return-module")]).then(__webpack_require__.bind(null, /*! ./return/return.module */ "./src/app/return/return.module.ts")).then(m => m.ReturnModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | delivery-delivery-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("common"), __webpack_require__.e("delivery-delivery-module")]).then(__webpack_require__.bind(null, /*! ./delivery/delivery.module */ "./src/app/delivery/delivery.module.ts")).then(m => m.DeliveryModule),
+        loadChildren: () => Promise.all(/*! import() | delivery-delivery-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("common"), __webpack_require__.e("delivery-delivery-module")]).then(__webpack_require__.bind(null, /*! ./delivery/delivery.module */ "./src/app/delivery/delivery.module.ts")).then(m => m.DeliveryModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | missing-missing-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("missing-missing-module")]).then(__webpack_require__.bind(null, /*! ./missing/missing.module */ "./src/app/missing/missing.module.ts")).then(m => m.MissingModule),
+        loadChildren: () => Promise.all(/*! import() | missing-missing-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("missing-missing-module")]).then(__webpack_require__.bind(null, /*! ./missing/missing.module */ "./src/app/missing/missing.module.ts")).then(m => m.MissingModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/profile/profile.module.ts")).then(m => m.ProfileModule),
+        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("common"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/profile/profile.module.ts")).then(m => m.ProfileModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | quote-quote-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("quote-quote-module")]).then(__webpack_require__.bind(null, /*! ./quote/quote.module */ "./src/app/quote/quote.module.ts")).then(m => m.QuoteModule),
+        loadChildren: () => Promise.all(/*! import() | quote-quote-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("common"), __webpack_require__.e("quote-quote-module")]).then(__webpack_require__.bind(null, /*! ./quote/quote.module */ "./src/app/quote/quote.module.ts")).then(m => m.QuoteModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: "",
-        loadChildren: () => Promise.all(/*! import() | dealer-app-dealer-app-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~7042ca7c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~3a5320aa"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-module"), __webpack_require__.e("common"), __webpack_require__.e("dealer-app-dealer-app-module")]).then(__webpack_require__.bind(null, /*! ./dealer-app/dealer-app.module */ "./src/app/dealer-app/dealer-app.module.ts")).then(m => m.DealerAppModule),
+        loadChildren: () => Promise.all(/*! import() | dealer-app-dealer-app-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("default~dealer-app-dealer-app-module~shoping-shoping-module"), __webpack_require__.e("common"), __webpack_require__.e("dealer-app-dealer-app-module")]).then(__webpack_require__.bind(null, /*! ./dealer-app/dealer-app.module */ "./src/app/dealer-app/dealer-app.module.ts")).then(m => m.DealerAppModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
-    }
+    },
+    {
+        path: "",
+        loadChildren: () => Promise.all(/*! import() | shoping-shoping-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("default~dealer-app-dealer-app-module~shoping-shoping-module"), __webpack_require__.e("shoping-shoping-module")]).then(__webpack_require__.bind(null, /*! ./shoping/shoping.module */ "./src/app/shoping/shoping.module.ts")).then(m => m.ShopingModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
