@@ -4469,7 +4469,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.imageUploadPercent = 0;
           var data = this.classifiedForm.value;
           data["fileName"] = this.fileNames;
-          data["ownerNumber"] = localStorage.getItem('mnumber');
+          data["ownerNumber"] = this.profInfo.mobileNo;
           data["SenderName"] = this.profInfo.fstName + ' ' + this.profInfo.lstName;
           data["companyName"] = this.profInfo.companyName;
           data["status"] = "open";
@@ -4537,7 +4537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var m = localStorage.getItem('mnumber');
           this.fetch.getAllProduct({
-            "number": m
+            "number": this.profInfo.mobileNo
           }).subscribe(function (data) {
             _this13.allProduct = data;
             console.log(data);

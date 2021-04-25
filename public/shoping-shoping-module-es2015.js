@@ -2049,7 +2049,7 @@ let AddproductComponent = class AddproductComponent {
         this.imageUploadPercent = 0;
         const data = this.classifiedForm.value;
         data["fileName"] = this.fileNames;
-        data["ownerNumber"] = localStorage.getItem('mnumber');
+        data["ownerNumber"] = this.profInfo.mobileNo;
         data["SenderName"] = this.profInfo.fstName + ' ' + this.profInfo.lstName;
         data["companyName"] = this.profInfo.companyName;
         data["status"] = "open";
@@ -2101,7 +2101,7 @@ let AddproductComponent = class AddproductComponent {
     }
     getMyProduct() {
         const m = localStorage.getItem('mnumber');
-        this.fetch.getAllProduct({ "number": m }).subscribe((data) => {
+        this.fetch.getAllProduct({ "number": this.profInfo.mobileNo }).subscribe((data) => {
             this.allProduct = data;
             console.log(data);
         });
