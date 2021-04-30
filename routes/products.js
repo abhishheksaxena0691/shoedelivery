@@ -83,4 +83,70 @@ router.post('/api/product/deleteProduct',  midWare.checkToken,  (req, res, next)
         });
 });
 
+router.get('/api/product/myOrder',  midWare.checkToken,  (req, res, next) => {
+    db.getDB().collection('order').find({$or:[{ownerNumber: req.decoded.mobile} , {senderNumber: req.decoded.mobile}]}).toArray((err, doc) => {
+             if(err) {
+                 res.status(410).jsonp(err);
+                 next(err);
+             } else {
+                 //console.log(doc);
+                 res.status(200).jsonp(doc);
+             }
+         });
+});
+
+
+router.post('/api/product/updateStatus',  midWare.checkToken,  (req, res, next) => {
+    
+    if (req.body.value.status == 'invoicerequestByretailer') {
+        db.getDB().collection('order').updateMany({"orderId": req.body.orderId}, {$set: {status: 'rejectByRetailer'}}, {returnOriginal: false}, (err, doc) => {
+            if(err) {
+                res.status(410).jsonp(err);
+                next(err);
+            } else {
+                db.getDB().collection('order').findOneAndUpdate({"_id": ObjectId(req.body.id)}, {$set: req.body.value}, {returnOriginal: false}, (err, doc) => {
+                    if(err) {
+                        res.status(410).jsonp(err);
+                        next(err);
+                    } else {
+                       
+                        res.status(201).jsonp('Your account verified successfully!');
+                    }
+                    
+                });
+            }
+        });
+
+    } else {
+        db.getDB().collection('order').findOneAndUpdate({"_id": ObjectId(req.body.id)}, {$set: req.body.value}, {returnOriginal: false}, (err, doc) => {
+            if(err) {
+                res.status(410).jsonp(err);
+                next(err);
+            } else {
+               
+                res.status(201).jsonp('Your account verified successfully!');
+            }
+            
+        });
+    }
+    
+           
+    
+});
+
+router.post('/api/product/InvoiceSend',  midWare.checkToken,  (req, res, next) => {
+    
+    db.getDB().collection('order').findOneAndUpdate({"_id": ObjectId(req.body.id)}, {$set: req.body.value}, {returnOriginal: false}, (err, doc) => {
+        if(err) {
+            res.status(410).jsonp(err);
+            next(err);
+        } else {
+            if(doc.value)
+                res.status(201).jsonp('Your account verified successfully!');
+            else
+                res.status(410).jsonp("Invalid user. Please check again!");
+        }
+        
+    });
+});
 module.exports = router;

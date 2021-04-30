@@ -177,4 +177,17 @@ router.get('/api/user/all', midWare.checkToken, (req, res, next) => {
 });
 
 
+router.post('/api/profileInformation', (req, res, next) => {
+    console.log(req.body.mobile);
+    db.getDB().collection('userInfo').findOne({mobileNo: req.body.mobileNo}).then((doc) => {
+        if(doc)
+            res.status(200).jsonp(doc);
+        else
+            res.status(404).jsonp('Profile not found!');
+    })
+    .catch(err => {
+        res.status(410).jsonp(err);
+        next(err);
+    });
+});
 module.exports = router;

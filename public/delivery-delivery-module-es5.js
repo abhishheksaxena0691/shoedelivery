@@ -6,315 +6,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["delivery-delivery-module"], {
   /***/
-  "./node_modules/ngx-owl-carousel/index.js":
-  /*!************************************************!*\
-    !*** ./node_modules/ngx-owl-carousel/index.js ***!
-    \************************************************/
-
-  /*! no static exports found */
-
-  /***/
-  function node_modulesNgxOwlCarouselIndexJs(module, exports, __webpack_require__) {
-    "use strict";
-
-    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-      var c = arguments.length,
-          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-          d;
-      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-      }
-      return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-
-    var __metadata = this && this.__metadata || function (k, v) {
-      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-
-    function __export(m) {
-      for (var p in m) {
-        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-      }
-    }
-
-    var core_1 = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-
-    var common_1 = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
-
-    var owl_carousel_component_1 = __webpack_require__(
-    /*! ./src/owl-carousel.component */
-    "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js");
-
-    var owl_child_component_1 = __webpack_require__(
-    /*! ./src/owl-child.component */
-    "./node_modules/ngx-owl-carousel/src/owl-child.component.js");
-
-    __export(__webpack_require__(
-    /*! ./src/owl-carousel.component */
-    "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js"));
-
-    var OwlModule = function () {
-      function OwlModule() {}
-
-      OwlModule = __decorate([core_1.NgModule({
-        imports: [common_1.CommonModule],
-        declarations: [owl_carousel_component_1.OwlCarousel, owl_child_component_1.OwlChild],
-        exports: [owl_carousel_component_1.OwlCarousel]
-      }), __metadata('design:paramtypes', [])], OwlModule);
-      return OwlModule;
-    }();
-
-    exports.OwlModule = OwlModule; //# sourceMappingURL=index.js.map
-
-    /***/
-  },
-
-  /***/
-  "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js":
-  /*!*********************************************************************!*\
-    !*** ./node_modules/ngx-owl-carousel/src/owl-carousel.component.js ***!
-    \*********************************************************************/
-
-  /*! no static exports found */
-
-  /***/
-  function node_modulesNgxOwlCarouselSrcOwlCarouselComponentJs(module, exports, __webpack_require__) {
-    "use strict";
-
-    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-      var c = arguments.length,
-          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-          d;
-      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-      }
-      return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-
-    var __metadata = this && this.__metadata || function (k, v) {
-      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-
-    var core_1 = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-
-    var owl_child_component_1 = __webpack_require__(
-    /*! ./owl-child.component */
-    "./node_modules/ngx-owl-carousel/src/owl-child.component.js");
-
-    var OwlCarousel = function () {
-      function OwlCarousel(differs) {
-        this.differs = differs;
-        this.carouselClasses = '';
-        this.options = {};
-      }
-
-      Object.defineProperty(OwlCarousel.prototype, "items", {
-        set: function set(coll) {
-          this._items = coll;
-
-          if (coll && !this.differ) {
-            this.differ = this.differs.find(coll).create(null);
-          }
-        },
-        enumerable: true,
-        configurable: true
-      });
-
-      OwlCarousel.prototype.ngDoCheck = function () {
-        if (this.differ) {
-          var changes = this.differ.diff(this._items);
-
-          if (changes) {
-            var changed_1 = false;
-
-            var changedFn = function changedFn() {
-              changed_1 = true;
-            };
-
-            changes.forEachAddedItem(changedFn);
-            changes.forEachMovedItem(changedFn);
-            changes.forEachRemovedItem(changedFn);
-
-            if (changed_1) {
-              this.reInit();
-            }
-          }
-        }
-      };
-
-      OwlCarousel.prototype.reInit = function () {
-        var _this = this;
-
-        if (this.$owlChild.$owl) {
-          this.$owlChild.$owl.css('display', 'none');
-        }
-
-        setTimeout(function () {
-          _this.$owlChild.destroyOwl();
-
-          if (_this.$owlChild.$owl) {
-            var itemLength = _this._items && _this._items.length;
-
-            if (itemLength && itemLength <= _this.$owlChild.currentSlideIndex) {
-              _this.$owlChild.currentSlideIndex = itemLength;
-            }
-
-            _this.$owlChild.$owl.css('display', 'block');
-          }
-
-          _this.$owlChild.initOwl();
-        }, 0);
-      };
-
-      OwlCarousel.prototype.refresh = function () {
-        this.trigger('refresh.owl.carousel');
-      };
-
-      OwlCarousel.prototype.next = function (options) {
-        this.trigger('next.owl.carousel', options);
-      };
-
-      OwlCarousel.prototype.previous = function (options) {
-        this.trigger('prev.owl.carousel', options);
-      };
-
-      OwlCarousel.prototype.to = function (options) {
-        this.trigger('to.owl.carousel', options);
-      };
-
-      OwlCarousel.prototype.trigger = function (action, options) {
-        this.$owlChild.trigger(action, options);
-      };
-
-      __decorate([core_1.ViewChild('owl'), __metadata('design:type', owl_child_component_1.OwlChild)], OwlCarousel.prototype, "$owlChild", void 0);
-
-      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlCarousel.prototype, "carouselClasses", void 0);
-
-      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlCarousel.prototype, "options", void 0);
-
-      __decorate([core_1.Input(), __metadata('design:type', Array), __metadata('design:paramtypes', [Array])], OwlCarousel.prototype, "items", null);
-
-      OwlCarousel = __decorate([core_1.Component({
-        selector: 'owl-carousel',
-        template: '<owl-carousel-child #owl [ngClass]="carouselClasses" [options]="options" >' + '<ng-content></ng-content></owl-carousel-child>'
-      }), __metadata('design:paramtypes', [core_1.IterableDiffers])], OwlCarousel);
-      return OwlCarousel;
-    }();
-
-    exports.OwlCarousel = OwlCarousel; //# sourceMappingURL=owl-carousel.component.js.map
-
-    /***/
-  },
-
-  /***/
-  "./node_modules/ngx-owl-carousel/src/owl-child.component.js":
-  /*!******************************************************************!*\
-    !*** ./node_modules/ngx-owl-carousel/src/owl-child.component.js ***!
-    \******************************************************************/
-
-  /*! no static exports found */
-
-  /***/
-  function node_modulesNgxOwlCarouselSrcOwlChildComponentJs(module, exports, __webpack_require__) {
-    "use strict";
-
-    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-      var c = arguments.length,
-          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-          d;
-      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-      }
-      return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-
-    var __metadata = this && this.__metadata || function (k, v) {
-      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-
-    var core_1 = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-
-    var OwlChild = function () {
-      function OwlChild(el) {
-        this.el = el;
-        this.owlClass = true;
-        this.options = {};
-
-        if (typeof $ === 'undefined' && typeof jQuery !== 'undefined') {
-          $ = jQuery;
-        }
-      }
-
-      OwlChild.prototype.ngOnInit = function () {
-        if (typeof window !== 'undefined' && $ && typeof $.fn.owlCarousel === 'function') {
-          this.$owl = $(this.el.nativeElement);
-        }
-      };
-
-      OwlChild.prototype.ngAfterViewInit = function () {
-        this.initOwl();
-      };
-
-      OwlChild.prototype.initOwl = function () {
-        var _this = this;
-
-        if (this.$owl) {
-          var options = {};
-          Object.assign(options, this.options);
-
-          if (this.currentSlideIndex) {
-            options.startPosition = this.currentSlideIndex;
-          }
-
-          this.$owl.owlCarousel(options);
-          this.$owl.on('changed.owl.carousel', function (event) {
-            _this.currentSlideIndex = event.item.index;
-          });
-        }
-      };
-
-      OwlChild.prototype.trigger = function (action, options) {
-        if (this.$owl) {
-          this.$owl.trigger(action, options);
-        }
-      };
-
-      OwlChild.prototype.ngOnDestroy = function () {
-        this.destroyOwl();
-        delete this.$owl;
-      };
-
-      OwlChild.prototype.destroyOwl = function () {
-        if (this.$owl) {
-          this.$owl.trigger('destroy.owl.carousel').removeClass('owl-loaded owl-hidden').find('.owl-stage:empty, .owl-item:empty').remove();
-        }
-      };
-
-      __decorate([core_1.HostBinding('class.owl-carousel'), __metadata('design:type', Object)], OwlChild.prototype, "owlClass", void 0);
-
-      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlChild.prototype, "options", void 0);
-
-      OwlChild = __decorate([core_1.Component({
-        selector: 'owl-carousel-child',
-        template: '<ng-content></ng-content>'
-      }), __metadata('design:paramtypes', [core_1.ElementRef])], OwlChild);
-      return OwlChild;
-    }();
-
-    exports.OwlChild = OwlChild; //# sourceMappingURL=owl-child.component.js.map
-
-    /***/
-  },
-
-  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/delivery/delivery-pg/delivery-pg.component.html":
   /*!*******************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/delivery/delivery-pg/delivery-pg.component.html ***!
@@ -427,18 +118,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDelivery",
         value: function getDelivery() {
-          var _this2 = this;
+          var _this = this;
 
           this.fetch.getAllDelivery().subscribe(function (res) {
-            _this2.deliveryList = res;
+            _this.deliveryList = res;
 
-            if (_this2.deliveryList) {
-              _this2.filterSrv.monthFilter.forEach(function (mth) {
-                _this2.monthData.push(_this2.filterSrv.filterByBillDate(_this2.deliveryList, _this2.filterSrv.monthFilter[0], mth));
+            if (_this.deliveryList) {
+              _this.filterSrv.monthFilter.forEach(function (mth) {
+                _this.monthData.push(_this.filterSrv.filterByBillDate(_this.deliveryList, _this.filterSrv.monthFilter[0], mth));
               });
             }
           }, function (err) {
-            _this2.pgMsg = {
+            _this.pgMsg = {
               msg: err.error,
               alert: "alert-danger"
             };
@@ -464,7 +155,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "sltCustomer",
         value: function sltCustomer(customer) {
-          var _this3 = this;
+          var _this2 = this;
 
           this.selectSector = customer; // if(this.selectSector === 'Payee')
           //   this.col4Data = this.listPayee;
@@ -472,78 +163,78 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           //   this.col4Data = this.listSponsor;
 
           this.deliveryList = this.sectorDataList = this.weekDataList.filter(function (e) {
-            return e.billDetails.deportment.toLowerCase().includes(_this3.selectSector.toLowerCase());
+            return e.billDetails.deportment.toLowerCase().includes(_this2.selectSector.toLowerCase());
           });
           this.generateBFilter(this.deliveryList);
         }
       }, {
         key: "sltBrand",
         value: function sltBrand(brand) {
-          var _this4 = this;
+          var _this3 = this;
 
           this.selectBrand = brand;
           this.deliveryList = this.sectorDataList.filter(function (e) {
-            return e.billDetails.title.toLowerCase().includes(_this4.selectBrand.toLowerCase());
+            return e.billDetails.title.toLowerCase().includes(_this3.selectBrand.toLowerCase());
           });
         }
       }, {
         key: "generateFilter",
         value: function generateFilter(data) {
-          var _this5 = this;
+          var _this4 = this;
 
           this.selectSector = null;
           this.col3Data = [];
           this.selectBrand = null;
           this.col4Data = [];
           data.forEach(function (e) {
-            var updateItem = _this5.col3Data.find(function (x) {
+            var updateItem = _this4.col3Data.find(function (x) {
               return x.department === e.billDetails.deportment;
             });
 
-            if (!updateItem) _this5.col3Data.push({
+            if (!updateItem) _this4.col3Data.push({
               department: e.billDetails.deportment,
-              price: _this5.cleanPrice(e.billDetails.total),
+              price: _this4.cleanPrice(e.billDetails.total),
               userType: "department"
             });else {
-              var index = _this5.col3Data.indexOf(updateItem);
+              var index = _this4.col3Data.indexOf(updateItem);
 
-              _this5.col3Data[index].price = _this5.col3Data[index].price + _this5.cleanPrice(e.billDetails.total);
+              _this4.col3Data[index].price = _this4.col3Data[index].price + _this4.cleanPrice(e.billDetails.total);
             }
           });
         }
       }, {
         key: "generateBFilter",
         value: function generateBFilter(data) {
-          var _this6 = this;
+          var _this5 = this;
 
           this.selectBrand = null;
           this.col4Data = [];
           data.forEach(function (e) {
-            var updateItem = _this6.col4Data.find(function (x) {
+            var updateItem = _this5.col4Data.find(function (x) {
               return x.brand === e.billDetails.title;
             });
 
-            if (!updateItem) _this6.col4Data.push({
+            if (!updateItem) _this5.col4Data.push({
               brand: e.billDetails.title,
-              price: _this6.cleanPrice(e.billDetails.total),
+              price: _this5.cleanPrice(e.billDetails.total),
               userType: "brand"
             });else {
-              var index = _this6.col4Data.indexOf(updateItem);
+              var index = _this5.col4Data.indexOf(updateItem);
 
-              _this6.col4Data[index].price = _this6.col4Data[index].price + _this6.cleanPrice(e.billDetails.total);
+              _this5.col4Data[index].price = _this5.col4Data[index].price + _this5.cleanPrice(e.billDetails.total);
             }
           });
         }
       }, {
         key: "filterMonthsWeek",
         value: function filterMonthsWeek(month, data) {
-          var _this7 = this;
+          var _this6 = this;
 
           this.sltMonth(month);
           this.weekData = [];
           var weekList = this.filterSrv.weekCalculator(month, this.filterSrv.today.getMonth());
           weekList.forEach(function (e) {
-            _this7.weekData.push(_this7.filterSrv.filterByBillDate(data, e.end.getTime(), e.start.getTime()));
+            _this6.weekData.push(_this6.filterSrv.filterByBillDate(data, e.end.getTime(), e.start.getTime()));
           });
           this.deliveryList = this.monthData[month].list;
           this.selectWeek = null;
@@ -726,6 +417,119 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/delivery/delivery.service.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/delivery/delivery.service.ts ***!
+    \**********************************************/
+
+  /*! exports provided: DeliveryService */
+
+  /***/
+  function srcAppDeliveryDeliveryServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DeliveryService", function () {
+      return DeliveryService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../shared/api-link.service */
+    "./src/app/shared/api-link.service.ts");
+    /* harmony import */
+
+
+    var _guard_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../guard/auth.service */
+    "./src/app/guard/auth.service.ts");
+
+    var DeliveryService = /*#__PURE__*/function () {
+      function DeliveryService(http, api, auth) {
+        _classCallCheck(this, DeliveryService);
+
+        this.http = http;
+        this.api = api;
+        this.auth = auth;
+        this.serverPath = this.api.srvLink;
+        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+          'Content-Type': "application/json",
+          'Authorization': this.auth.getLogged()
+        });
+      }
+
+      _createClass(DeliveryService, [{
+        key: "getAllDelivery",
+        value: function getAllDelivery() {
+          return this.http.get(this.api.server + "delivery/all", {
+            headers: this.headers
+          });
+        }
+      }, {
+        key: "updatepaymentMode",
+        value: function updatepaymentMode(data) {
+          return this.http.post(this.api.server + "delivery/updatePaymentMode", data, {
+            headers: this.headers
+          });
+        }
+      }, {
+        key: "generateImageNewInvoice",
+        value: function generateImageNewInvoice(data) {
+          return this.http.post(this.api.server + "bill/uploadGeneratedBills", data, {
+            headers: this.headers
+          });
+        }
+      }, {
+        key: "moveToDelivery",
+        value: function moveToDelivery(data) {
+          return this.http.post(this.api.server + "delivery/moveToDelivery", data, {
+            headers: this.headers
+          });
+        }
+      }]);
+
+      return DeliveryService;
+    }();
+
+    DeliveryService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }, {
+        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__["ApiLinkService"]
+      }, {
+        type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]
+      }];
+    };
+
+    DeliveryService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], DeliveryService);
+    /***/
+  },
+
+  /***/
   "./src/app/shared/api-link.service.ts":
   /*!********************************************!*\
     !*** ./src/app/shared/api-link.service.ts ***!
@@ -764,7 +568,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       //srvLink: string = "http://18.220.168.114:8080/"
       //srvLink: string = "https://34.219.112.19:8080/"
       this.srvLink = 'https://merchant.softdocket.com/'; //srvLink: string = "http://retail.mobinyx.com/";
-      // srvLink: string = "http://35.154.98.22:8080/";
       //srvLink: string = "https://dealer.mobinyx.com/"
       //delear: string =  "http://localhost:3001/";
 

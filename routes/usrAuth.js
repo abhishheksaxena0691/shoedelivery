@@ -98,8 +98,12 @@ router.post('/api/verify', (req, res, next) => {
             updatedOn: new Date().toString(),
             status: true
         }
-
-        usrInfo.findOneAndUpdate({mobileNo: req.body.regMobile, otp: req.body.otp}, {$set: usrData}, {returnOriginal: false}, (err, doc) => {
+        let otp = req.body.otp;
+        req.body['otp'] = null;
+        req.body['updatedOn'] = new Date().toString();
+        req.body['status'] = true;
+        console.log(otp);
+        usrInfo.findOneAndUpdate({mobileNo: req.body.regMobile, otp: otp}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
             if(err) {
                 res.status(410).jsonp(err);
                 next(err);

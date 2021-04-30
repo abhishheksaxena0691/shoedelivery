@@ -1,9 +1,3 @@
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -12,2357 +6,310 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["shoping-shoping-module"], {
   /***/
-  "./node_modules/@kolkov/angular-editor/fesm2015/kolkov-angular-editor.js":
-  /*!*******************************************************************************!*\
-    !*** ./node_modules/@kolkov/angular-editor/fesm2015/kolkov-angular-editor.js ***!
-    \*******************************************************************************/
+  "./node_modules/ngx-owl-carousel/index.js":
+  /*!************************************************!*\
+    !*** ./node_modules/ngx-owl-carousel/index.js ***!
+    \************************************************/
 
-  /*! exports provided: AngularEditorComponent, AngularEditorModule, AngularEditorService, AngularEditorToolbarComponent, ɵa */
+  /*! no static exports found */
 
   /***/
-  function node_modulesKolkovAngularEditorFesm2015KolkovAngularEditorJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesNgxOwlCarouselIndexJs(module, exports, __webpack_require__) {
     "use strict";
 
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
+    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+      var c = arguments.length,
+          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+          d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      }
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
 
+    var __metadata = this && this.__metadata || function (k, v) {
+      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
 
-    __webpack_require__.d(__webpack_exports__, "AngularEditorComponent", function () {
-      return AngularEditorComponent;
-    });
-    /* harmony export (binding) */
+    function __export(m) {
+      for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+      }
+    }
 
-
-    __webpack_require__.d(__webpack_exports__, "AngularEditorModule", function () {
-      return AngularEditorModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "AngularEditorService", function () {
-      return AngularEditorService;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "AngularEditorToolbarComponent", function () {
-      return AngularEditorToolbarComponent;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ɵa", function () {
-      return AeSelectComponent;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    var core_1 = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
 
-
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var common_1 = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
-    /* harmony import */
 
+    var owl_carousel_component_1 = __webpack_require__(
+    /*! ./src/owl-carousel.component */
+    "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js");
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
+    var owl_child_component_1 = __webpack_require__(
+    /*! ./src/owl-child.component */
+    "./node_modules/ngx-owl-carousel/src/owl-child.component.js");
 
+    __export(__webpack_require__(
+    /*! ./src/owl-carousel.component */
+    "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js"));
 
-    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/angular-editor.service.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
+    var OwlModule = function () {
+      function OwlModule() {}
 
-    /**
-     * @record
-     */
+      OwlModule = __decorate([core_1.NgModule({
+        imports: [common_1.CommonModule],
+        declarations: [owl_carousel_component_1.OwlCarousel, owl_child_component_1.OwlChild],
+        exports: [owl_carousel_component_1.OwlCarousel]
+      }), __metadata('design:paramtypes', [])], OwlModule);
+      return OwlModule;
+    }();
 
+    exports.OwlModule = OwlModule; //# sourceMappingURL=index.js.map
 
-    function UploadResponse() {}
+    /***/
+  },
 
-    if (false) {}
+  /***/
+  "./node_modules/ngx-owl-carousel/src/owl-carousel.component.js":
+  /*!*********************************************************************!*\
+    !*** ./node_modules/ngx-owl-carousel/src/owl-carousel.component.js ***!
+    \*********************************************************************/
 
-    var AngularEditorService = /*#__PURE__*/function () {
-      /**
-       * @param {?} http
-       * @param {?} doc
-       */
-      function AngularEditorService(http, doc) {
+  /*! no static exports found */
+
+  /***/
+  function node_modulesNgxOwlCarouselSrcOwlCarouselComponentJs(module, exports, __webpack_require__) {
+    "use strict";
+
+    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+      var c = arguments.length,
+          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+          d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      }
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+
+    var __metadata = this && this.__metadata || function (k, v) {
+      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+
+    var core_1 = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var owl_child_component_1 = __webpack_require__(
+    /*! ./owl-child.component */
+    "./node_modules/ngx-owl-carousel/src/owl-child.component.js");
+
+    var OwlCarousel = function () {
+      function OwlCarousel(differs) {
+        this.differs = differs;
+        this.carouselClasses = '';
+        this.options = {};
+      }
+
+      Object.defineProperty(OwlCarousel.prototype, "items", {
+        set: function set(coll) {
+          this._items = coll;
+
+          if (coll && !this.differ) {
+            this.differ = this.differs.find(coll).create(null);
+          }
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      OwlCarousel.prototype.ngDoCheck = function () {
+        if (this.differ) {
+          var changes = this.differ.diff(this._items);
+
+          if (changes) {
+            var changed_1 = false;
+
+            var changedFn = function changedFn() {
+              changed_1 = true;
+            };
+
+            changes.forEachAddedItem(changedFn);
+            changes.forEachMovedItem(changedFn);
+            changes.forEachRemovedItem(changedFn);
+
+            if (changed_1) {
+              this.reInit();
+            }
+          }
+        }
+      };
+
+      OwlCarousel.prototype.reInit = function () {
         var _this = this;
 
-        _classCallCheck(this, AngularEditorService);
-
-        this.http = http;
-        this.doc = doc;
-        /**
-         * save selection when the editor is focussed out
-         */
-
-        this.saveSelection =
-        /**
-        * @return {?}
-        */
-        function () {
-          if (_this.doc.getSelection) {
-            /** @type {?} */
-            var sel = _this.doc.getSelection();
-
-            if (sel.getRangeAt && sel.rangeCount) {
-              _this.savedSelection = sel.getRangeAt(0);
-              _this.selectedText = sel.toString();
-            }
-          } else if (_this.doc.getSelection && _this.doc.createRange) {
-            _this.savedSelection = document.createRange();
-          } else {
-            _this.savedSelection = null;
-          }
-        };
-      }
-      /**
-       * Executed command from editor header buttons exclude toggleEditorMode
-       * @param {?} command string from triggerCommand
-       * @return {?}
-       */
-
-
-      _createClass(AngularEditorService, [{
-        key: "executeCommand",
-        value: function executeCommand(command) {
-          /** @type {?} */
-          var commands = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre'];
-
-          if (commands.includes(command)) {
-            this.doc.execCommand('formatBlock', false, command);
-            return;
-          }
-
-          this.doc.execCommand(command, false, null);
+        if (this.$owlChild.$owl) {
+          this.$owlChild.$owl.css('display', 'none');
         }
-        /**
-         * Create URL link
-         * @param {?} url string from UI prompt
-         * @return {?}
-         */
 
-      }, {
-        key: "createLink",
-        value: function createLink(url) {
-          if (!url.includes('http')) {
-            this.doc.execCommand('createlink', false, url);
-          } else {
-            /** @type {?} */
-            var newUrl = '<a href="' + url + '" target="_blank">' + this.selectedText + '</a>';
-            this.insertHtml(newUrl);
-          }
-        }
-        /**
-         * insert color either font or background
-         *
-         * @param {?} color color to be inserted
-         * @param {?} where where the color has to be inserted either text/background
-         * @return {?}
-         */
+        setTimeout(function () {
+          _this.$owlChild.destroyOwl();
 
-      }, {
-        key: "insertColor",
-        value: function insertColor(color, where) {
-          /** @type {?} */
-          var restored = this.restoreSelection();
+          if (_this.$owlChild.$owl) {
+            var itemLength = _this._items && _this._items.length;
 
-          if (restored) {
-            if (where === 'textColor') {
-              this.doc.execCommand('foreColor', false, color);
-            } else {
-              this.doc.execCommand('hiliteColor', false, color);
-            }
-          }
-        }
-        /**
-         * Set font name
-         * @param {?} fontName string
-         * @return {?}
-         */
-
-      }, {
-        key: "setFontName",
-        value: function setFontName(fontName) {
-          this.doc.execCommand('fontName', false, fontName);
-        }
-        /**
-         * Set font size
-         * @param {?} fontSize string
-         * @return {?}
-         */
-
-      }, {
-        key: "setFontSize",
-        value: function setFontSize(fontSize) {
-          this.doc.execCommand('fontSize', false, fontSize);
-        }
-        /**
-         * Create raw HTML
-         * @param {?} html HTML string
-         * @return {?}
-         */
-
-      }, {
-        key: "insertHtml",
-        value: function insertHtml(html) {
-          /** @type {?} */
-          var isHTMLInserted = this.doc.execCommand('insertHTML', false, html);
-
-          if (!isHTMLInserted) {
-            throw new Error('Unable to perform the operation');
-          }
-        }
-        /**
-         * restore selection when the editor is focused in
-         *
-         * saved selection when the editor is focused out
-         * @return {?}
-         */
-
-      }, {
-        key: "restoreSelection",
-        value: function restoreSelection() {
-          if (this.savedSelection) {
-            if (this.doc.getSelection) {
-              /** @type {?} */
-              var sel = this.doc.getSelection();
-              sel.removeAllRanges();
-              sel.addRange(this.savedSelection);
-              return true;
-            } else if (this.doc.getSelection
-            /*&& this.savedSelection.select*/
-            ) {
-                // this.savedSelection.select();
-                return true;
-              }
-          } else {
-            return false;
-          }
-        }
-        /**
-         * setTimeout used for execute 'saveSelection' method in next event loop iteration
-         * @param {?} callbackFn
-         * @param {?=} timeout
-         * @return {?}
-         */
-
-      }, {
-        key: "executeInNextQueueIteration",
-        value: function executeInNextQueueIteration(callbackFn) {
-          var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1e2;
-          setTimeout(callbackFn, timeout);
-        }
-        /**
-         * check any selection is made or not
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "checkSelection",
-        value: function checkSelection() {
-          /** @type {?} */
-          var selectedText = this.savedSelection.toString();
-
-          if (selectedText.length === 0) {
-            throw new Error('No Selection Made');
-          }
-
-          return true;
-        }
-        /**
-         * Upload file to uploadUrl
-         * @param {?} file The file
-         * @return {?}
-         */
-
-      }, {
-        key: "uploadImage",
-        value: function uploadImage(file) {
-          /** @type {?} */
-          var uploadData = new FormData();
-          uploadData.append('file', file, file.name);
-          return this.http.post(this.uploadUrl, uploadData, {
-            reportProgress: true,
-            observe: 'events',
-            withCredentials: this.uploadWithCredentials
-          });
-        }
-        /**
-         * Insert image with Url
-         * @param {?} imageUrl The imageUrl.
-         * @return {?}
-         */
-
-      }, {
-        key: "insertImage",
-        value: function insertImage(imageUrl) {
-          this.doc.execCommand('insertImage', false, imageUrl);
-        }
-        /**
-         * @param {?} separator
-         * @return {?}
-         */
-
-      }, {
-        key: "setDefaultParagraphSeparator",
-        value: function setDefaultParagraphSeparator(separator) {
-          this.doc.execCommand('defaultParagraphSeparator', false, separator);
-        }
-        /**
-         * @param {?} customClass
-         * @return {?}
-         */
-
-      }, {
-        key: "createCustomClass",
-        value: function createCustomClass(customClass) {
-          /** @type {?} */
-          var newTag = this.selectedText;
-
-          if (customClass) {
-            /** @type {?} */
-            var tagName = customClass.tag ? customClass.tag : 'span';
-            newTag = '<' + tagName + ' class="' + customClass["class"] + '">' + this.selectedText + '</' + tagName + '>';
-          }
-
-          this.insertHtml(newTag);
-        }
-        /**
-         * @param {?} videoUrl
-         * @return {?}
-         */
-
-      }, {
-        key: "insertVideo",
-        value: function insertVideo(videoUrl) {
-          if (videoUrl.match('www.youtube.com')) {
-            this.insertYouTubeVideoTag(videoUrl);
-          }
-
-          if (videoUrl.match('vimeo.com')) {
-            this.insertVimeoVideoTag(videoUrl);
-          }
-        }
-        /**
-         * @private
-         * @param {?} videoUrl
-         * @return {?}
-         */
-
-      }, {
-        key: "insertYouTubeVideoTag",
-        value: function insertYouTubeVideoTag(videoUrl) {
-          /** @type {?} */
-          var id = videoUrl.split('v=')[1];
-          /** @type {?} */
-
-          var imageUrl = "https://img.youtube.com/vi/".concat(id, "/0.jpg");
-          /** @type {?} */
-
-          var thumbnail = "\n      <div style='position: relative'>\n        <img style='position: absolute; left:200px; top:140px'\n             src=\"https://img.icons8.com/color/96/000000/youtube-play.png\"/>\n        <a href='".concat(videoUrl, "' target='_blank'>\n          <img src=\"").concat(imageUrl, "\" alt=\"click to watch\"/>\n        </a>\n      </div>");
-          this.insertHtml(thumbnail);
-        }
-        /**
-         * @private
-         * @param {?} videoUrl
-         * @return {?}
-         */
-
-      }, {
-        key: "insertVimeoVideoTag",
-        value: function insertVimeoVideoTag(videoUrl) {
-          var _this2 = this;
-
-          /** @type {?} */
-          var sub = this.http.get("https://vimeo.com/api/oembed.json?url=".concat(videoUrl)).subscribe(
-          /**
-          * @param {?} data
-          * @return {?}
-          */
-          function (data) {
-            /** @type {?} */
-            var imageUrl = data.thumbnail_url_with_play_button;
-            /** @type {?} */
-
-            var thumbnail = "<div>\n        <a href='".concat(videoUrl, "' target='_blank'>\n          <img src=\"").concat(imageUrl, "\" alt=\"").concat(data.title, "\"/>\n        </a>\n      </div>");
-
-            _this2.insertHtml(thumbnail);
-
-            sub.unsubscribe();
-          });
-        }
-        /**
-         * @param {?} node
-         * @return {?}
-         */
-
-      }, {
-        key: "nextNode",
-        value: function nextNode(node) {
-          if (node.hasChildNodes()) {
-            return node.firstChild;
-          } else {
-            while (node && !node.nextSibling) {
-              node = node.parentNode;
+            if (itemLength && itemLength <= _this.$owlChild.currentSlideIndex) {
+              _this.$owlChild.currentSlideIndex = itemLength;
             }
 
-            if (!node) {
-              return null;
-            }
-
-            return node.nextSibling;
-          }
-        }
-        /**
-         * @param {?} range
-         * @param {?} includePartiallySelectedContainers
-         * @return {?}
-         */
-
-      }, {
-        key: "getRangeSelectedNodes",
-        value: function getRangeSelectedNodes(range, includePartiallySelectedContainers) {
-          /** @type {?} */
-          var node = range.startContainer;
-          /** @type {?} */
-
-          var endNode = range.endContainer;
-          /** @type {?} */
-
-          var rangeNodes = []; // Special case for a range that is contained within a single node
-
-          if (node === endNode) {
-            rangeNodes = [node];
-          } else {
-            // Iterate nodes until we hit the end container
-            while (node && node !== endNode) {
-              rangeNodes.push(node = this.nextNode(node));
-            } // Add partially selected nodes at the start of the range
-
-
-            node = range.startContainer;
-
-            while (node && node !== range.commonAncestorContainer) {
-              rangeNodes.unshift(node);
-              node = node.parentNode;
-            }
-          } // Add ancestors of the range container, if required
-
-
-          if (includePartiallySelectedContainers) {
-            node = range.commonAncestorContainer;
-
-            while (node) {
-              rangeNodes.push(node);
-              node = node.parentNode;
-            }
+            _this.$owlChild.$owl.css('display', 'block');
           }
 
-          return rangeNodes;
-        }
-        /**
-         * @return {?}
-         */
+          _this.$owlChild.initOwl();
+        }, 0);
+      };
 
-      }, {
-        key: "getSelectedNodes",
-        value: function getSelectedNodes() {
-          /** @type {?} */
-          var nodes = [];
+      OwlCarousel.prototype.refresh = function () {
+        this.trigger('refresh.owl.carousel');
+      };
 
-          if (this.doc.getSelection) {
-            /** @type {?} */
-            var sel = this.doc.getSelection();
+      OwlCarousel.prototype.next = function (options) {
+        this.trigger('next.owl.carousel', options);
+      };
 
-            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
-              nodes.push.apply(nodes, this.getRangeSelectedNodes(sel.getRangeAt(i), true));
-            }
-          }
+      OwlCarousel.prototype.previous = function (options) {
+        this.trigger('prev.owl.carousel', options);
+      };
 
-          return nodes;
-        }
-        /**
-         * @param {?} el
-         * @return {?}
-         */
+      OwlCarousel.prototype.to = function (options) {
+        this.trigger('to.owl.carousel', options);
+      };
 
-      }, {
-        key: "replaceWithOwnChildren",
-        value: function replaceWithOwnChildren(el) {
-          /** @type {?} */
-          var parent = el.parentNode;
+      OwlCarousel.prototype.trigger = function (action, options) {
+        this.$owlChild.trigger(action, options);
+      };
 
-          while (el.hasChildNodes()) {
-            parent.insertBefore(el.firstChild, el);
-          }
+      __decorate([core_1.ViewChild('owl'), __metadata('design:type', owl_child_component_1.OwlChild)], OwlCarousel.prototype, "$owlChild", void 0);
 
-          parent.removeChild(el);
-        }
-        /**
-         * @param {?} tagNames
-         * @return {?}
-         */
+      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlCarousel.prototype, "carouselClasses", void 0);
 
-      }, {
-        key: "removeSelectedElements",
-        value: function removeSelectedElements(tagNames) {
-          var _this3 = this;
+      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlCarousel.prototype, "options", void 0);
 
-          /** @type {?} */
-          var tagNamesArray = tagNames.toLowerCase().split(',');
-          this.getSelectedNodes().forEach(
-          /**
-          * @param {?} node
-          * @return {?}
-          */
-          function (node) {
-            if (node.nodeType === 1 && tagNamesArray.indexOf(node.tagName.toLowerCase()) > -1) {
-              // Remove the node and replace it with its children
-              _this3.replaceWithOwnChildren(node);
-            }
-          });
-        }
-      }]);
+      __decorate([core_1.Input(), __metadata('design:type', Array), __metadata('design:paramtypes', [Array])], OwlCarousel.prototype, "items", null);
 
-      return AngularEditorService;
+      OwlCarousel = __decorate([core_1.Component({
+        selector: 'owl-carousel',
+        template: '<owl-carousel-child #owl [ngClass]="carouselClasses" [options]="options" >' + '<ng-content></ng-content></owl-carousel-child>'
+      }), __metadata('design:paramtypes', [core_1.IterableDiffers])], OwlCarousel);
+      return OwlCarousel;
     }();
 
-    AngularEditorService.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
-    }];
-    /** @nocollapse */
+    exports.OwlCarousel = OwlCarousel; //# sourceMappingURL=owl-carousel.component.js.map
 
-    AngularEditorService.ctorParameters = function () {
-      return [{
-        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-          args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-        }]
-      }];
-    };
+    /***/
+  },
 
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/config.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
+  /***/
+  "./node_modules/ngx-owl-carousel/src/owl-child.component.js":
+  /*!******************************************************************!*\
+    !*** ./node_modules/ngx-owl-carousel/src/owl-child.component.js ***!
+    \******************************************************************/
 
-    /**
-     * @record
-     */
+  /*! no static exports found */
 
+  /***/
+  function node_modulesNgxOwlCarouselSrcOwlChildComponentJs(module, exports, __webpack_require__) {
+    "use strict";
 
-    function CustomClass() {}
-
-    if (false) {}
-    /**
-     * @record
-     */
-
-
-    function Font() {}
-
-    if (false) {}
-    /**
-     * @record
-     */
-
-
-    function AngularEditorConfig() {}
-
-    if (false) {}
-    /** @type {?} */
-
-
-    var angularEditorConfig = {
-      editable: true,
-      spellcheck: true,
-      height: 'auto',
-      minHeight: '0',
-      maxHeight: 'auto',
-      width: 'auto',
-      minWidth: '0',
-      translate: 'yes',
-      enableToolbar: true,
-      showToolbar: true,
-      placeholder: 'Enter text here...',
-      defaultParagraphSeparator: '',
-      defaultFontName: '',
-      defaultFontSize: '',
-      fonts: [{
-        "class": 'arial',
-        name: 'Arial'
-      }, {
-        "class": 'times-new-roman',
-        name: 'Times New Roman'
-      }, {
-        "class": 'calibri',
-        name: 'Calibri'
-      }, {
-        "class": 'comic-sans-ms',
-        name: 'Comic Sans MS'
-      }],
-      uploadUrl: 'v1/image',
-      uploadWithCredentials: false,
-      sanitize: true,
-      toolbarPosition: 'top',
-      outline: true
-    };
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/angular-editor-toolbar.component.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    var AngularEditorToolbarComponent = /*#__PURE__*/function () {
-      /**
-       * @param {?} r
-       * @param {?} editorService
-       * @param {?} er
-       * @param {?} doc
-       */
-      function AngularEditorToolbarComponent(r, editorService, er, doc) {
-        _classCallCheck(this, AngularEditorToolbarComponent);
-
-        this.r = r;
-        this.editorService = editorService;
-        this.er = er;
-        this.doc = doc;
-        this.htmlMode = false;
-        this.linkSelected = false;
-        this.block = 'default';
-        this.fontName = 'Times New Roman';
-        this.fontSize = '3';
-        this.headings = [{
-          label: 'Heading 1',
-          value: 'h1'
-        }, {
-          label: 'Heading 2',
-          value: 'h2'
-        }, {
-          label: 'Heading 3',
-          value: 'h3'
-        }, {
-          label: 'Heading 4',
-          value: 'h4'
-        }, {
-          label: 'Heading 5',
-          value: 'h5'
-        }, {
-          label: 'Heading 6',
-          value: 'h6'
-        }, {
-          label: 'Heading 7',
-          value: 'h7'
-        }, {
-          label: 'Paragraph',
-          value: 'p'
-        }, {
-          label: 'Predefined',
-          value: 'pre'
-        }, {
-          label: 'Standard',
-          value: 'div'
-        }, {
-          label: 'default',
-          value: 'default'
-        }];
-        this.fontSizes = [{
-          label: '1',
-          value: '1'
-        }, {
-          label: '2',
-          value: '2'
-        }, {
-          label: '3',
-          value: '3'
-        }, {
-          label: '4',
-          value: '4'
-        }, {
-          label: '5',
-          value: '5'
-        }, {
-          label: '6',
-          value: '6'
-        }, {
-          label: '7',
-          value: '7'
-        }];
-        this.customClassId = '-1';
-        this.customClassList = [{
-          label: '',
-          value: ''
-        }]; // uploadUrl: string;
-
-        this.tagMap = {
-          BLOCKQUOTE: 'indent',
-          A: 'link'
-        };
-        this.select = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'PRE', 'DIV'];
-        this.buttons = ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent', 'insertUnorderedList', 'insertOrderedList', 'link'];
-        this.fonts = [{
-          label: '',
-          value: ''
-        }];
-        this.execute = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+      var c = arguments.length,
+          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+          d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
       }
-      /**
-       * @param {?} classes
-       * @return {?}
-       */
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
 
+    var __metadata = this && this.__metadata || function (k, v) {
+      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
 
-      _createClass(AngularEditorToolbarComponent, [{
-        key: "triggerCommand",
+    var core_1 = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
 
-        /**
-         * Trigger command from editor header buttons
-         * @param {?} command string from toolbar buttons
-         * @return {?}
-         */
-        value: function triggerCommand(command) {
-          this.execute.emit(command);
+    var OwlChild = function () {
+      function OwlChild(el) {
+        this.el = el;
+        this.owlClass = true;
+        this.options = {};
+
+        if (typeof $ === 'undefined' && typeof jQuery !== 'undefined') {
+          $ = jQuery;
         }
-        /**
-         * highlight editor buttons when cursor moved or positioning
-         * @return {?}
-         */
+      }
 
-      }, {
-        key: "triggerButtons",
-        value: function triggerButtons() {
-          var _this4 = this;
+      OwlChild.prototype.ngOnInit = function () {
+        if (typeof window !== 'undefined' && $ && typeof $.fn.owlCarousel === 'function') {
+          this.$owl = $(this.el.nativeElement);
+        }
+      };
 
-          if (!this.showToolbar) {
-            return;
+      OwlChild.prototype.ngAfterViewInit = function () {
+        this.initOwl();
+      };
+
+      OwlChild.prototype.initOwl = function () {
+        var _this = this;
+
+        if (this.$owl) {
+          var options = {};
+          Object.assign(options, this.options);
+
+          if (this.currentSlideIndex) {
+            options.startPosition = this.currentSlideIndex;
           }
 
-          this.buttons.forEach(
-          /**
-          * @param {?} e
-          * @return {?}
-          */
-          function (e) {
-            /** @type {?} */
-            var result = _this4.doc.queryCommandState(e);
-            /** @type {?} */
-
-
-            var elementById = _this4.doc.getElementById(e + '-' + _this4.id);
-
-            if (result) {
-              _this4.r.addClass(elementById, 'active');
-            } else {
-              _this4.r.removeClass(elementById, 'active');
-            }
+          this.$owl.owlCarousel(options);
+          this.$owl.on('changed.owl.carousel', function (event) {
+            _this.currentSlideIndex = event.item.index;
           });
         }
-        /**
-         * trigger highlight editor buttons when cursor moved or positioning in block
-         * @param {?} nodes
-         * @return {?}
-         */
+      };
 
-      }, {
-        key: "triggerBlocks",
-        value: function triggerBlocks(nodes) {
-          var _this5 = this;
-
-          if (!this.showToolbar) {
-            return;
-          }
-
-          this.linkSelected = nodes.findIndex(
-          /**
-          * @param {?} x
-          * @return {?}
-          */
-          function (x) {
-            return x.nodeName === 'A';
-          }) > -1;
-          /** @type {?} */
-
-          var found = false;
-          this.select.forEach(
-          /**
-          * @param {?} y
-          * @return {?}
-          */
-          function (y) {
-            /** @type {?} */
-            var node = nodes.find(
-            /**
-            * @param {?} x
-            * @return {?}
-            */
-            function (x) {
-              return x.nodeName === y;
-            });
-
-            if (node !== undefined && y === node.nodeName) {
-              if (found === false) {
-                _this5.block = node.nodeName.toLowerCase();
-                found = true;
-              }
-            } else if (found === false) {
-              _this5.block = 'default';
-            }
-          });
-          found = false;
-
-          if (this._customClasses) {
-            this._customClasses.forEach(
-            /**
-            * @param {?} y
-            * @param {?} index
-            * @return {?}
-            */
-            function (y, index) {
-              /** @type {?} */
-              var node = nodes.find(
-              /**
-              * @param {?} x
-              * @return {?}
-              */
-              function (x) {
-                if (x instanceof Element) {
-                  return x.className === y["class"];
-                }
-              });
-
-              if (node !== undefined) {
-                if (found === false) {
-                  _this5.customClassId = index.toString();
-                  found = true;
-                }
-              } else if (found === false) {
-                _this5.customClassId = '-1';
-              }
-            });
-          }
-
-          Object.keys(this.tagMap).map(
-          /**
-          * @param {?} e
-          * @return {?}
-          */
-          function (e) {
-            /** @type {?} */
-            var elementById = _this5.doc.getElementById(_this5.tagMap[e] + '-' + _this5.id);
-            /** @type {?} */
-
-
-            var node = nodes.find(
-            /**
-            * @param {?} x
-            * @return {?}
-            */
-            function (x) {
-              return x.nodeName === e;
-            });
-
-            if (node !== undefined && e === node.nodeName) {
-              _this5.r.addClass(elementById, 'active');
-            } else {
-              _this5.r.removeClass(elementById, 'active');
-            }
-          });
-          this.foreColour = this.doc.queryCommandValue('ForeColor');
-          this.fontSize = this.doc.queryCommandValue('FontSize');
-          this.fontName = this.doc.queryCommandValue('FontName').replace(/"/g, '');
-          this.backColor = this.doc.queryCommandValue('backColor');
+      OwlChild.prototype.trigger = function (action, options) {
+        if (this.$owl) {
+          this.$owl.trigger(action, options);
         }
-        /**
-         * insert URL link
-         * @return {?}
-         */
+      };
 
-      }, {
-        key: "insertUrl",
-        value: function insertUrl() {
-          /** @type {?} */
-          var url = 'https:\/\/';
-          /** @type {?} */
+      OwlChild.prototype.ngOnDestroy = function () {
+        this.destroyOwl();
+        delete this.$owl;
+      };
 
-          var selection = this.editorService.savedSelection;
-
-          if (selection && selection.commonAncestorContainer.parentElement.nodeName === 'A') {
-            /** @type {?} */
-            var parent =
-            /** @type {?} */
-            selection.commonAncestorContainer.parentElement;
-
-            if (parent.href !== '') {
-              url = parent.href;
-            }
-          }
-
-          url = prompt('Insert URL link', url);
-
-          if (url && url !== '' && url !== 'https://') {
-            this.editorService.createLink(url);
-          }
+      OwlChild.prototype.destroyOwl = function () {
+        if (this.$owl) {
+          this.$owl.trigger('destroy.owl.carousel').removeClass('owl-loaded owl-hidden').find('.owl-stage:empty, .owl-item:empty').remove();
         }
-        /**
-         * insert Video link
-         * @return {?}
-         */
+      };
 
-      }, {
-        key: "insertVideo",
-        value: function insertVideo() {
-          this.execute.emit('');
-          /** @type {?} */
+      __decorate([core_1.HostBinding('class.owl-carousel'), __metadata('design:type', Object)], OwlChild.prototype, "owlClass", void 0);
 
-          var url = prompt('Insert Video link', "https://");
+      __decorate([core_1.Input(), __metadata('design:type', Object)], OwlChild.prototype, "options", void 0);
 
-          if (url && url !== '' && url !== "https://") {
-            this.editorService.insertVideo(url);
-          }
-        }
-        /**
-         * insert color
-         * @param {?} color
-         * @param {?} where
-         * @return {?}
-         */
-
-      }, {
-        key: "insertColor",
-        value: function insertColor(color, where) {
-          this.editorService.insertColor(color, where);
-          this.execute.emit('');
-        }
-        /**
-         * set font Name/family
-         * @param {?} foreColor string
-         * @return {?}
-         */
-
-      }, {
-        key: "setFontName",
-        value: function setFontName(foreColor) {
-          this.editorService.setFontName(foreColor);
-          this.execute.emit('');
-        }
-        /**
-         * set font Size
-         * @param {?} fontSize string
-         * @return {?}
-         */
-
-      }, {
-        key: "setFontSize",
-        value: function setFontSize(fontSize) {
-          this.editorService.setFontSize(fontSize);
-          this.execute.emit('');
-        }
-        /**
-         * toggle editor mode (WYSIWYG or SOURCE)
-         * @param {?} m boolean
-         * @return {?}
-         */
-
-      }, {
-        key: "setEditorMode",
-        value: function setEditorMode(m) {
-          /** @type {?} */
-          var toggleEditorModeButton = this.doc.getElementById('toggleEditorMode' + '-' + this.id);
-
-          if (m) {
-            this.r.addClass(toggleEditorModeButton, 'active');
-          } else {
-            this.r.removeClass(toggleEditorModeButton, 'active');
-          }
-
-          this.htmlMode = m;
-        }
-        /**
-         * Upload image when file is selected
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onFileChanged",
-        value: function onFileChanged(event) {
-          var _this6 = this;
-
-          /** @type {?} */
-          var file = event.target.files[0];
-
-          if (file.type.includes('image/')) {
-            if (this.uploadUrl) {
-              this.editorService.uploadImage(file).subscribe(
-              /**
-              * @param {?} e
-              * @return {?}
-              */
-              function (e) {
-                if (e instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]) {
-                  _this6.editorService.insertImage(e.body.imageUrl);
-
-                  event.srcElement.value = null;
-                }
-              });
-            } else {
-              /** @type {?} */
-              var reader = new FileReader();
-
-              reader.onload =
-              /**
-              * @param {?} e
-              * @return {?}
-              */
-              function (e) {
-                /** @type {?} */
-                var fr =
-                /** @type {?} */
-                e.currentTarget;
-
-                _this6.editorService.insertImage(fr.result.toString());
-              };
-
-              reader.readAsDataURL(file);
-            }
-          }
-        }
-        /**
-         * Set custom class
-         * @param {?} classId
-         * @return {?}
-         */
-
-      }, {
-        key: "setCustomClass",
-        value: function setCustomClass(classId) {
-          if (classId === '-1') {
-            this.execute.emit('clear');
-          } else {
-            this.editorService.createCustomClass(this._customClasses[+classId]);
-          }
-        }
-        /**
-         * @param {?} name
-         * @return {?}
-         */
-
-      }, {
-        key: "isButtonHidden",
-        value: function isButtonHidden(name) {
-          if (!name) {
-            return false;
-          }
-
-          if (!(this.hiddenButtons instanceof Array)) {
-            return false;
-          }
-          /** @type {?} */
-
-
-          var result;
-
-          var _iterator = _createForOfIteratorHelper(this.hiddenButtons),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var arr = _step.value;
-
-              if (arr instanceof Array) {
-                result = arr.find(
-                /**
-                * @param {?} item
-                * @return {?}
-                */
-                function (item) {
-                  return item === name;
-                });
-              }
-
-              if (result) {
-                break;
-              }
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-
-          return result !== undefined;
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "focus",
-        value: function focus() {
-          this.execute.emit('focus');
-          console.log('focused');
-        }
-      }, {
-        key: "customClasses",
-        set: function set(classes) {
-          if (classes) {
-            this._customClasses = classes;
-            this.customClassList = this._customClasses.map(
-            /**
-            * @param {?} x
-            * @param {?} i
-            * @return {?}
-            */
-            function (x, i) {
-              return {
-                label: x.name,
-                value: i.toString()
-              };
-            });
-            this.customClassList.unshift({
-              label: 'Clear Class',
-              value: '-1'
-            });
-          }
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "defaultFontName",
-        set: function set(value) {
-          if (value) {
-            this.fontName = value;
-          }
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "defaultFontSize",
-        set: function set(value) {
-          if (value) {
-            this.fontSize = value;
-          }
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "isLinkButtonDisabled",
-        get: function get() {
-          return this.htmlMode || !Boolean(this.editorService.selectedText);
-        }
-      }]);
-
-      return AngularEditorToolbarComponent;
+      OwlChild = __decorate([core_1.Component({
+        selector: 'owl-carousel-child',
+        template: '<ng-content></ng-content>'
+      }), __metadata('design:paramtypes', [core_1.ElementRef])], OwlChild);
+      return OwlChild;
     }();
 
-    AngularEditorToolbarComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'angular-editor-toolbar',
-        template: "<div class=\"angular-editor-toolbar\" *ngIf=\"showToolbar\">\n  <div class=\"angular-editor-toolbar-set\">\n    <button type=\"button\" title=\"Undo\" class=\"angular-editor-button\" (click)=\"triggerCommand('undo')\"\n            [hidden]=\"isButtonHidden('undo')\" tabindex=\"-1\"><i\n      class='fa fa-undo'></i></button>\n    <button type=\"button\" title=\"Redo\" class=\"angular-editor-button\" (click)=\"triggerCommand('redo')\"\n            [hidden]=\"isButtonHidden('redo')\" tabindex=\"-1\"><i\n      class='fa fa-repeat'></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'bold-'+id\" type=\"button\" title=\"Bold\" class=\"angular-editor-button\" (click)=\"triggerCommand('bold')\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('bold')\" tabindex=\"-1\"><i class='fa fa-bold'></i></button>\n    <button [id]=\"'italic-'+id\" type=\"button\" title=\"Italic\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('italic')\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('italic')\" tabindex=\"-1\"><i class='fa fa-italic'></i>\n    </button>\n    <button [id]=\"'underline-'+id\" type=\"button\" title=\"Underline\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('underline')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('underline')\"\n            tabindex=\"-1\"><i class='fa fa-underline'></i></button>\n    <button [id]=\"'strikeThrough-'+id\" type=\"button\" title=\"Strikethrough\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('strikeThrough')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('strikeThrough')\"\n            tabindex=\"-1\"><i class='fa fa-strikethrough'></i></button>\n    <button [id]=\"'subscript-'+id\" type=\"button\" title=\"Subscript\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('subscript')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('subscript')\"\n            tabindex=\"-1\"><i class='fa fa-subscript'></i></button>\n    <button [id]=\"'superscript-'+id\" type=\"button\" title=\"Superscript\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('superscript')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('superscript')\"\n            tabindex=\"-1\"><i class='fa fa-superscript'></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'justifyLeft-'+id\" type=\"button\" title=\"Justify Left\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('justifyLeft')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('justifyLeft')\"\n            tabindex=\"-1\"><i\n      class='fa fa-align-left'></i></button>\n    <button [id]=\"'justifyCenter-'+id\" type=\"button\" title=\"Justify Center\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('justifyCenter')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('justifyCenter')\"\n            tabindex=\"-1\"><i\n      class='fa fa-align-center'></i></button>\n    <button [id]=\"'justifyRight-'+id\" type=\"button\" title=\"Justify Right\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('justifyRight')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('justifyRight')\"\n            tabindex=\"-1\">\n      <i class='fa fa-align-right'></i></button>\n    <button [id]=\"'justifyFull-'+id\" type=\"button\" title=\"Justify Full\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('justifyFull')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('justifyFull')\"\n            tabindex=\"-1\"><i\n      class='fa fa-align-justify'></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'indent-'+id\" type=\"button\" title=\"Indent\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('indent')\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('indent')\" tabindex=\"-1\"><i\n      class='fa fa-indent'></i></button>\n    <button [id]=\"'outdent-'+id\" type=\"button\" title=\"Outdent\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('outdent')\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('outdent')\" tabindex=\"-1\"><i\n      class='fa fa-outdent'></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'insertUnorderedList-'+id\" type=\"button\" title=\"Unordered List\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('insertUnorderedList')\" [disabled]=\"htmlMode\"\n            [hidden]=\"isButtonHidden('insertUnorderedList')\" tabindex=\"-1\"><i\n      class='fa fa-list-ul'></i></button>\n    <button [id]=\"'insertOrderedList-'+id\" type=\"button\" title=\"Ordered List\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('insertOrderedList')\" [disabled]=\"htmlMode\"\n            [hidden]=\"isButtonHidden('insertOrderedList')\" tabindex=\"-1\"><i\n      class='fa fa-list-ol'></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n\n    <ae-select class=\"select-heading\" [options]=\"headings\"\n               [(ngModel)]=\"block\"\n               (change)=\"triggerCommand(block)\"\n               [disabled]=\"htmlMode\"\n               [hidden]=\"isButtonHidden('heading')\"\n               tabindex=\"-1\"></ae-select>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n\n    <ae-select class=\"select-font\" [options]=\"fonts\"\n               [(ngModel)]=\"fontName\"\n               (change)=\"setFontName(fontName)\"\n               [disabled]=\"htmlMode\"\n               [hidden]=\"isButtonHidden('fontName')\"\n               tabindex=\"-1\"></ae-select>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n\n    <ae-select class=\"select-font-size\" [options]=\"fontSizes\"\n               [(ngModel)]=\"fontSize\"\n               (change)=\"setFontSize(fontSize)\"\n               [disabled]=\"htmlMode\"\n               [hidden]=\"isButtonHidden('fontSize')\"\n               tabindex=\"-1\">\n    </ae-select>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <input\n      style=\"display: none\"\n      type=\"color\" (change)=\"insertColor(fgInput.value, 'textColor')\"\n      #fgInput>\n    <button [id]=\"'foregroundColorPicker-'+id\" type=\"button\" class=\"angular-editor-button\" (click)=\"focus(); ; fgInput.click()\"\n            title=\"Text Color\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('textColor')\" tabindex=\"-1\"><span\n      class=\"color-label foreground\"><i class=\"fa fa-font\"></i></span>\n    </button>\n    <input\n      style=\"display: none\"\n      type=\"color\" (change)=\"insertColor(bgInput.value, 'backgroundColor')\"\n      #bgInput>\n    <button [id]=\"'backgroundColorPicker-'+id\" type=\"button\" class=\"angular-editor-button\" (click)=\"focus(); ; bgInput.click()\"\n            title=\"Background Color\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('backgroundColor')\" tabindex=\"-1\"><span\n      class=\"color-label background\"><i class=\"fa fa-font\"></i></span>\n    </button>\n  </div>\n  <div *ngIf=\"_customClasses\" class=\"angular-editor-toolbar-set\">\n    <ae-select class=\"select-custom-style\" [options]=\"customClassList\"\n               [(ngModel)]=\"customClassId\"\n               (change)=\"setCustomClass(customClassId)\"\n               [disabled]=\"htmlMode\"\n               [hidden]=\"isButtonHidden('customClasses')\"\n               tabindex=\"-1\"></ae-select>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'link-'+id\" type=\"button\" class=\"angular-editor-button\" (click)=\"insertUrl()\"\n            title=\"Insert Link\" [disabled]=\"isLinkButtonDisabled\" [hidden]=\"isButtonHidden('link')\" tabindex=\"-1\">\n      <i class=\"fa fa-link\"></i>\n    </button>\n    <button [id]=\"'unlink-'+id\" type=\"button\" class=\"angular-editor-button\" (click)=\"triggerCommand('unlink')\"\n            title=\"Unlink\" [disabled]=\"htmlMode || !linkSelected\" [hidden]=\"isButtonHidden('unlink')\" tabindex=\"-1\">\n      <i class=\"fa fa-chain-broken\"></i>\n    </button>\n    <input\n      style=\"display: none\"\n      accept=\"image/*\"\n      type=\"file\" (change)=\"onFileChanged($event)\"\n      #fileInput>\n    <button [id]=\"'insertImage-'+id\" type=\"button\" class=\"angular-editor-button\" (click)=\"focus(); fileInput.click()\"\n            title=\"Insert Image\"\n            [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('insertImage')\" tabindex=\"-1\"><i class=\"fa fa-image\"></i>\n    </button>\n    <button [id]=\"'insertVideo-'+id\" type=\"button\" class=\"angular-editor-button\"\n            (click)=\"insertVideo()\" title=\"Insert Video\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('insertVideo')\"\n            tabindex=\"-1\"><i\n      class=\"fa fa-video-camera\"></i></button>\n    <button [id]=\"'insertHorizontalRule-'+id\" type=\"button\" title=\"Horizontal Line\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('insertHorizontalRule')\" [disabled]=\"htmlMode\"\n            [hidden]=\"isButtonHidden('insertHorizontalRule')\" tabindex=\"-1\"><i\n      class=\"fa fa-minus\"></i></button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'clearFormatting-'+id\" type=\"button\" title=\"Clear Formatting\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('removeFormat')\" [disabled]=\"htmlMode\" [hidden]=\"isButtonHidden('removeFormat')\"\n            tabindex=\"-1\"><i class='fa fa-remove'></i>\n    </button>\n  </div>\n  <div class=\"angular-editor-toolbar-set\">\n    <button [id]=\"'toggleEditorMode-'+id\" type=\"button\" title=\"HTML Code\" class=\"angular-editor-button\"\n            (click)=\"triggerCommand('toggleEditorMode')\" [hidden]=\"isButtonHidden('toggleEditorMode')\" tabindex=\"-1\"><i\n      class='fa fa-code'></i></button>\n  </div>\n</div>\n",
-        styles: ["@charset \"UTF-8\";/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */@font-face{font-family:FontAwesome;src:url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0);src:url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format(\"embedded-opentype\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0) format(\"woff2\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0) format(\"woff\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0) format(\"truetype\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format(\"svg\");font-weight:400;font-style:normal}.fa{display:inline-block;font:14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.2857142857em;text-align:center}.fa-ul{padding-left:0;margin-left:2.1428571429em;list-style-type:none}.fa-ul>li{position:relative}.fa-li{position:absolute;left:-2.1428571429em;width:2.1428571429em;top:.1428571429em;text-align:center}.fa-li.fa-lg{left:-1.8571428571em}.fa-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left{margin-right:.3em}.fa.fa-pull-right{margin-left:.3em}.pull-right{float:right}.pull-left{float:left}.fa.pull-left{margin-right:.3em}.fa.pull-right{margin-left:.3em}.fa-spin{-webkit-animation:2s linear infinite fa-spin;animation:2s linear infinite fa-spin}.fa-pulse{-webkit-animation:1s steps(8) infinite fa-spin;animation:1s steps(8) infinite fa-spin}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{position:relative;display:inline-block;width:2em;height:2em;line-height:2em;vertical-align:middle}.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}.fa-stack-1x{line-height:inherit}.fa-stack-2x{font-size:2em}.fa-inverse{color:#fff}.fa-glass:before{content:\"\uF000\"}.fa-music:before{content:\"\uF001\"}.fa-search:before{content:\"\uF002\"}.fa-envelope-o:before{content:\"\uF003\"}.fa-heart:before{content:\"\uF004\"}.fa-star:before{content:\"\uF005\"}.fa-star-o:before{content:\"\uF006\"}.fa-user:before{content:\"\uF007\"}.fa-film:before{content:\"\uF008\"}.fa-th-large:before{content:\"\uF009\"}.fa-th:before{content:\"\uF00A\"}.fa-th-list:before{content:\"\uF00B\"}.fa-check:before{content:\"\uF00C\"}.fa-close:before,.fa-remove:before,.fa-times:before{content:\"\uF00D\"}.fa-search-plus:before{content:\"\uF00E\"}.fa-search-minus:before{content:\"\uF010\"}.fa-power-off:before{content:\"\uF011\"}.fa-signal:before{content:\"\uF012\"}.fa-cog:before,.fa-gear:before{content:\"\uF013\"}.fa-trash-o:before{content:\"\uF014\"}.fa-home:before{content:\"\uF015\"}.fa-file-o:before{content:\"\uF016\"}.fa-clock-o:before{content:\"\uF017\"}.fa-road:before{content:\"\uF018\"}.fa-download:before{content:\"\uF019\"}.fa-arrow-circle-o-down:before{content:\"\uF01A\"}.fa-arrow-circle-o-up:before{content:\"\uF01B\"}.fa-inbox:before{content:\"\uF01C\"}.fa-play-circle-o:before{content:\"\uF01D\"}.fa-repeat:before,.fa-rotate-right:before{content:\"\uF01E\"}.fa-refresh:before{content:\"\uF021\"}.fa-list-alt:before{content:\"\uF022\"}.fa-lock:before{content:\"\uF023\"}.fa-flag:before{content:\"\uF024\"}.fa-headphones:before{content:\"\uF025\"}.fa-volume-off:before{content:\"\uF026\"}.fa-volume-down:before{content:\"\uF027\"}.fa-volume-up:before{content:\"\uF028\"}.fa-qrcode:before{content:\"\uF029\"}.fa-barcode:before{content:\"\uF02A\"}.fa-tag:before{content:\"\uF02B\"}.fa-tags:before{content:\"\uF02C\"}.fa-book:before{content:\"\uF02D\"}.fa-bookmark:before{content:\"\uF02E\"}.fa-print:before{content:\"\uF02F\"}.fa-camera:before{content:\"\uF030\"}.fa-font:before{content:\"\uF031\"}.fa-bold:before{content:\"\uF032\"}.fa-italic:before{content:\"\uF033\"}.fa-text-height:before{content:\"\uF034\"}.fa-text-width:before{content:\"\uF035\"}.fa-align-left:before{content:\"\uF036\"}.fa-align-center:before{content:\"\uF037\"}.fa-align-right:before{content:\"\uF038\"}.fa-align-justify:before{content:\"\uF039\"}.fa-list:before{content:\"\uF03A\"}.fa-dedent:before,.fa-outdent:before{content:\"\uF03B\"}.fa-indent:before{content:\"\uF03C\"}.fa-video-camera:before{content:\"\uF03D\"}.fa-image:before,.fa-photo:before,.fa-picture-o:before{content:\"\uF03E\"}.fa-pencil:before{content:\"\uF040\"}.fa-map-marker:before{content:\"\uF041\"}.fa-adjust:before{content:\"\uF042\"}.fa-tint:before{content:\"\uF043\"}.fa-edit:before,.fa-pencil-square-o:before{content:\"\uF044\"}.fa-share-square-o:before{content:\"\uF045\"}.fa-check-square-o:before{content:\"\uF046\"}.fa-arrows:before{content:\"\uF047\"}.fa-step-backward:before{content:\"\uF048\"}.fa-fast-backward:before{content:\"\uF049\"}.fa-backward:before{content:\"\uF04A\"}.fa-play:before{content:\"\uF04B\"}.fa-pause:before{content:\"\uF04C\"}.fa-stop:before{content:\"\uF04D\"}.fa-forward:before{content:\"\uF04E\"}.fa-fast-forward:before{content:\"\uF050\"}.fa-step-forward:before{content:\"\uF051\"}.fa-eject:before{content:\"\uF052\"}.fa-chevron-left:before{content:\"\uF053\"}.fa-chevron-right:before{content:\"\uF054\"}.fa-plus-circle:before{content:\"\uF055\"}.fa-minus-circle:before{content:\"\uF056\"}.fa-times-circle:before{content:\"\uF057\"}.fa-check-circle:before{content:\"\uF058\"}.fa-question-circle:before{content:\"\uF059\"}.fa-info-circle:before{content:\"\uF05A\"}.fa-crosshairs:before{content:\"\uF05B\"}.fa-times-circle-o:before{content:\"\uF05C\"}.fa-check-circle-o:before{content:\"\uF05D\"}.fa-ban:before{content:\"\uF05E\"}.fa-arrow-left:before{content:\"\uF060\"}.fa-arrow-right:before{content:\"\uF061\"}.fa-arrow-up:before{content:\"\uF062\"}.fa-arrow-down:before{content:\"\uF063\"}.fa-mail-forward:before,.fa-share:before{content:\"\uF064\"}.fa-expand:before{content:\"\uF065\"}.fa-compress:before{content:\"\uF066\"}.fa-plus:before{content:\"\uF067\"}.fa-minus:before{content:\"\uF068\"}.fa-asterisk:before{content:\"\uF069\"}.fa-exclamation-circle:before{content:\"\uF06A\"}.fa-gift:before{content:\"\uF06B\"}.fa-leaf:before{content:\"\uF06C\"}.fa-fire:before{content:\"\uF06D\"}.fa-eye:before{content:\"\uF06E\"}.fa-eye-slash:before{content:\"\uF070\"}.fa-exclamation-triangle:before,.fa-warning:before{content:\"\uF071\"}.fa-plane:before{content:\"\uF072\"}.fa-calendar:before{content:\"\uF073\"}.fa-random:before{content:\"\uF074\"}.fa-comment:before{content:\"\uF075\"}.fa-magnet:before{content:\"\uF076\"}.fa-chevron-up:before{content:\"\uF077\"}.fa-chevron-down:before{content:\"\uF078\"}.fa-retweet:before{content:\"\uF079\"}.fa-shopping-cart:before{content:\"\uF07A\"}.fa-folder:before{content:\"\uF07B\"}.fa-folder-open:before{content:\"\uF07C\"}.fa-arrows-v:before{content:\"\uF07D\"}.fa-arrows-h:before{content:\"\uF07E\"}.fa-bar-chart-o:before,.fa-bar-chart:before{content:\"\uF080\"}.fa-twitter-square:before{content:\"\uF081\"}.fa-facebook-square:before{content:\"\uF082\"}.fa-camera-retro:before{content:\"\uF083\"}.fa-key:before{content:\"\uF084\"}.fa-cogs:before,.fa-gears:before{content:\"\uF085\"}.fa-comments:before{content:\"\uF086\"}.fa-thumbs-o-up:before{content:\"\uF087\"}.fa-thumbs-o-down:before{content:\"\uF088\"}.fa-star-half:before{content:\"\uF089\"}.fa-heart-o:before{content:\"\uF08A\"}.fa-sign-out:before{content:\"\uF08B\"}.fa-linkedin-square:before{content:\"\uF08C\"}.fa-thumb-tack:before{content:\"\uF08D\"}.fa-external-link:before{content:\"\uF08E\"}.fa-sign-in:before{content:\"\uF090\"}.fa-trophy:before{content:\"\uF091\"}.fa-github-square:before{content:\"\uF092\"}.fa-upload:before{content:\"\uF093\"}.fa-lemon-o:before{content:\"\uF094\"}.fa-phone:before{content:\"\uF095\"}.fa-square-o:before{content:\"\uF096\"}.fa-bookmark-o:before{content:\"\uF097\"}.fa-phone-square:before{content:\"\uF098\"}.fa-twitter:before{content:\"\uF099\"}.fa-facebook-f:before,.fa-facebook:before{content:\"\uF09A\"}.fa-github:before{content:\"\uF09B\"}.fa-unlock:before{content:\"\uF09C\"}.fa-credit-card:before{content:\"\uF09D\"}.fa-feed:before,.fa-rss:before{content:\"\uF09E\"}.fa-hdd-o:before{content:\"\uF0A0\"}.fa-bullhorn:before{content:\"\uF0A1\"}.fa-bell:before{content:\"\uF0F3\"}.fa-certificate:before{content:\"\uF0A3\"}.fa-hand-o-right:before{content:\"\uF0A4\"}.fa-hand-o-left:before{content:\"\uF0A5\"}.fa-hand-o-up:before{content:\"\uF0A6\"}.fa-hand-o-down:before{content:\"\uF0A7\"}.fa-arrow-circle-left:before{content:\"\uF0A8\"}.fa-arrow-circle-right:before{content:\"\uF0A9\"}.fa-arrow-circle-up:before{content:\"\uF0AA\"}.fa-arrow-circle-down:before{content:\"\uF0AB\"}.fa-globe:before{content:\"\uF0AC\"}.fa-wrench:before{content:\"\uF0AD\"}.fa-tasks:before{content:\"\uF0AE\"}.fa-filter:before{content:\"\uF0B0\"}.fa-briefcase:before{content:\"\uF0B1\"}.fa-arrows-alt:before{content:\"\uF0B2\"}.fa-group:before,.fa-users:before{content:\"\uF0C0\"}.fa-chain:before,.fa-link:before{content:\"\uF0C1\"}.fa-cloud:before{content:\"\uF0C2\"}.fa-flask:before{content:\"\uF0C3\"}.fa-cut:before,.fa-scissors:before{content:\"\uF0C4\"}.fa-copy:before,.fa-files-o:before{content:\"\uF0C5\"}.fa-paperclip:before{content:\"\uF0C6\"}.fa-floppy-o:before,.fa-save:before{content:\"\uF0C7\"}.fa-square:before{content:\"\uF0C8\"}.fa-bars:before,.fa-navicon:before,.fa-reorder:before{content:\"\uF0C9\"}.fa-list-ul:before{content:\"\uF0CA\"}.fa-list-ol:before{content:\"\uF0CB\"}.fa-strikethrough:before{content:\"\uF0CC\"}.fa-underline:before{content:\"\uF0CD\"}.fa-table:before{content:\"\uF0CE\"}.fa-magic:before{content:\"\uF0D0\"}.fa-truck:before{content:\"\uF0D1\"}.fa-pinterest:before{content:\"\uF0D2\"}.fa-pinterest-square:before{content:\"\uF0D3\"}.fa-google-plus-square:before{content:\"\uF0D4\"}.fa-google-plus:before{content:\"\uF0D5\"}.fa-money:before{content:\"\uF0D6\"}.fa-caret-down:before{content:\"\uF0D7\"}.fa-caret-up:before{content:\"\uF0D8\"}.fa-caret-left:before{content:\"\uF0D9\"}.fa-caret-right:before{content:\"\uF0DA\"}.fa-columns:before{content:\"\uF0DB\"}.fa-sort:before,.fa-unsorted:before{content:\"\uF0DC\"}.fa-sort-desc:before,.fa-sort-down:before{content:\"\uF0DD\"}.fa-sort-asc:before,.fa-sort-up:before{content:\"\uF0DE\"}.fa-envelope:before{content:\"\uF0E0\"}.fa-linkedin:before{content:\"\uF0E1\"}.fa-rotate-left:before,.fa-undo:before{content:\"\uF0E2\"}.fa-gavel:before,.fa-legal:before{content:\"\uF0E3\"}.fa-dashboard:before,.fa-tachometer:before{content:\"\uF0E4\"}.fa-comment-o:before{content:\"\uF0E5\"}.fa-comments-o:before{content:\"\uF0E6\"}.fa-bolt:before,.fa-flash:before{content:\"\uF0E7\"}.fa-sitemap:before{content:\"\uF0E8\"}.fa-umbrella:before{content:\"\uF0E9\"}.fa-clipboard:before,.fa-paste:before{content:\"\uF0EA\"}.fa-lightbulb-o:before{content:\"\uF0EB\"}.fa-exchange:before{content:\"\uF0EC\"}.fa-cloud-download:before{content:\"\uF0ED\"}.fa-cloud-upload:before{content:\"\uF0EE\"}.fa-user-md:before{content:\"\uF0F0\"}.fa-stethoscope:before{content:\"\uF0F1\"}.fa-suitcase:before{content:\"\uF0F2\"}.fa-bell-o:before{content:\"\uF0A2\"}.fa-coffee:before{content:\"\uF0F4\"}.fa-cutlery:before{content:\"\uF0F5\"}.fa-file-text-o:before{content:\"\uF0F6\"}.fa-building-o:before{content:\"\uF0F7\"}.fa-hospital-o:before{content:\"\uF0F8\"}.fa-ambulance:before{content:\"\uF0F9\"}.fa-medkit:before{content:\"\uF0FA\"}.fa-fighter-jet:before{content:\"\uF0FB\"}.fa-beer:before{content:\"\uF0FC\"}.fa-h-square:before{content:\"\uF0FD\"}.fa-plus-square:before{content:\"\uF0FE\"}.fa-angle-double-left:before{content:\"\uF100\"}.fa-angle-double-right:before{content:\"\uF101\"}.fa-angle-double-up:before{content:\"\uF102\"}.fa-angle-double-down:before{content:\"\uF103\"}.fa-angle-left:before{content:\"\uF104\"}.fa-angle-right:before{content:\"\uF105\"}.fa-angle-up:before{content:\"\uF106\"}.fa-angle-down:before{content:\"\uF107\"}.fa-desktop:before{content:\"\uF108\"}.fa-laptop:before{content:\"\uF109\"}.fa-tablet:before{content:\"\uF10A\"}.fa-mobile-phone:before,.fa-mobile:before{content:\"\uF10B\"}.fa-circle-o:before{content:\"\uF10C\"}.fa-quote-left:before{content:\"\uF10D\"}.fa-quote-right:before{content:\"\uF10E\"}.fa-spinner:before{content:\"\uF110\"}.fa-circle:before{content:\"\uF111\"}.fa-mail-reply:before,.fa-reply:before{content:\"\uF112\"}.fa-github-alt:before{content:\"\uF113\"}.fa-folder-o:before{content:\"\uF114\"}.fa-folder-open-o:before{content:\"\uF115\"}.fa-smile-o:before{content:\"\uF118\"}.fa-frown-o:before{content:\"\uF119\"}.fa-meh-o:before{content:\"\uF11A\"}.fa-gamepad:before{content:\"\uF11B\"}.fa-keyboard-o:before{content:\"\uF11C\"}.fa-flag-o:before{content:\"\uF11D\"}.fa-flag-checkered:before{content:\"\uF11E\"}.fa-terminal:before{content:\"\uF120\"}.fa-code:before{content:\"\uF121\"}.fa-mail-reply-all:before,.fa-reply-all:before{content:\"\uF122\"}.fa-star-half-empty:before,.fa-star-half-full:before,.fa-star-half-o:before{content:\"\uF123\"}.fa-location-arrow:before{content:\"\uF124\"}.fa-crop:before{content:\"\uF125\"}.fa-code-fork:before{content:\"\uF126\"}.fa-chain-broken:before,.fa-unlink:before{content:\"\uF127\"}.fa-question:before{content:\"\uF128\"}.fa-info:before{content:\"\uF129\"}.fa-exclamation:before{content:\"\uF12A\"}.fa-superscript:before{content:\"\uF12B\"}.fa-subscript:before{content:\"\uF12C\"}.fa-eraser:before{content:\"\uF12D\"}.fa-puzzle-piece:before{content:\"\uF12E\"}.fa-microphone:before{content:\"\uF130\"}.fa-microphone-slash:before{content:\"\uF131\"}.fa-shield:before{content:\"\uF132\"}.fa-calendar-o:before{content:\"\uF133\"}.fa-fire-extinguisher:before{content:\"\uF134\"}.fa-rocket:before{content:\"\uF135\"}.fa-maxcdn:before{content:\"\uF136\"}.fa-chevron-circle-left:before{content:\"\uF137\"}.fa-chevron-circle-right:before{content:\"\uF138\"}.fa-chevron-circle-up:before{content:\"\uF139\"}.fa-chevron-circle-down:before{content:\"\uF13A\"}.fa-html5:before{content:\"\uF13B\"}.fa-css3:before{content:\"\uF13C\"}.fa-anchor:before{content:\"\uF13D\"}.fa-unlock-alt:before{content:\"\uF13E\"}.fa-bullseye:before{content:\"\uF140\"}.fa-ellipsis-h:before{content:\"\uF141\"}.fa-ellipsis-v:before{content:\"\uF142\"}.fa-rss-square:before{content:\"\uF143\"}.fa-play-circle:before{content:\"\uF144\"}.fa-ticket:before{content:\"\uF145\"}.fa-minus-square:before{content:\"\uF146\"}.fa-minus-square-o:before{content:\"\uF147\"}.fa-level-up:before{content:\"\uF148\"}.fa-level-down:before{content:\"\uF149\"}.fa-check-square:before{content:\"\uF14A\"}.fa-pencil-square:before{content:\"\uF14B\"}.fa-external-link-square:before{content:\"\uF14C\"}.fa-share-square:before{content:\"\uF14D\"}.fa-compass:before{content:\"\uF14E\"}.fa-caret-square-o-down:before,.fa-toggle-down:before{content:\"\uF150\"}.fa-caret-square-o-up:before,.fa-toggle-up:before{content:\"\uF151\"}.fa-caret-square-o-right:before,.fa-toggle-right:before{content:\"\uF152\"}.fa-eur:before,.fa-euro:before{content:\"\uF153\"}.fa-gbp:before{content:\"\uF154\"}.fa-dollar:before,.fa-usd:before{content:\"\uF155\"}.fa-inr:before,.fa-rupee:before{content:\"\uF156\"}.fa-cny:before,.fa-jpy:before,.fa-rmb:before,.fa-yen:before{content:\"\uF157\"}.fa-rouble:before,.fa-rub:before,.fa-ruble:before{content:\"\uF158\"}.fa-krw:before,.fa-won:before{content:\"\uF159\"}.fa-bitcoin:before,.fa-btc:before{content:\"\uF15A\"}.fa-file:before{content:\"\uF15B\"}.fa-file-text:before{content:\"\uF15C\"}.fa-sort-alpha-asc:before{content:\"\uF15D\"}.fa-sort-alpha-desc:before{content:\"\uF15E\"}.fa-sort-amount-asc:before{content:\"\uF160\"}.fa-sort-amount-desc:before{content:\"\uF161\"}.fa-sort-numeric-asc:before{content:\"\uF162\"}.fa-sort-numeric-desc:before{content:\"\uF163\"}.fa-thumbs-up:before{content:\"\uF164\"}.fa-thumbs-down:before{content:\"\uF165\"}.fa-youtube-square:before{content:\"\uF166\"}.fa-youtube:before{content:\"\uF167\"}.fa-xing:before{content:\"\uF168\"}.fa-xing-square:before{content:\"\uF169\"}.fa-youtube-play:before{content:\"\uF16A\"}.fa-dropbox:before{content:\"\uF16B\"}.fa-stack-overflow:before{content:\"\uF16C\"}.fa-instagram:before{content:\"\uF16D\"}.fa-flickr:before{content:\"\uF16E\"}.fa-adn:before{content:\"\uF170\"}.fa-bitbucket:before{content:\"\uF171\"}.fa-bitbucket-square:before{content:\"\uF172\"}.fa-tumblr:before{content:\"\uF173\"}.fa-tumblr-square:before{content:\"\uF174\"}.fa-long-arrow-down:before{content:\"\uF175\"}.fa-long-arrow-up:before{content:\"\uF176\"}.fa-long-arrow-left:before{content:\"\uF177\"}.fa-long-arrow-right:before{content:\"\uF178\"}.fa-apple:before{content:\"\uF179\"}.fa-windows:before{content:\"\uF17A\"}.fa-android:before{content:\"\uF17B\"}.fa-linux:before{content:\"\uF17C\"}.fa-dribbble:before{content:\"\uF17D\"}.fa-skype:before{content:\"\uF17E\"}.fa-foursquare:before{content:\"\uF180\"}.fa-trello:before{content:\"\uF181\"}.fa-female:before{content:\"\uF182\"}.fa-male:before{content:\"\uF183\"}.fa-gittip:before,.fa-gratipay:before{content:\"\uF184\"}.fa-sun-o:before{content:\"\uF185\"}.fa-moon-o:before{content:\"\uF186\"}.fa-archive:before{content:\"\uF187\"}.fa-bug:before{content:\"\uF188\"}.fa-vk:before{content:\"\uF189\"}.fa-weibo:before{content:\"\uF18A\"}.fa-renren:before{content:\"\uF18B\"}.fa-pagelines:before{content:\"\uF18C\"}.fa-stack-exchange:before{content:\"\uF18D\"}.fa-arrow-circle-o-right:before{content:\"\uF18E\"}.fa-arrow-circle-o-left:before{content:\"\uF190\"}.fa-caret-square-o-left:before,.fa-toggle-left:before{content:\"\uF191\"}.fa-dot-circle-o:before{content:\"\uF192\"}.fa-wheelchair:before{content:\"\uF193\"}.fa-vimeo-square:before{content:\"\uF194\"}.fa-try:before,.fa-turkish-lira:before{content:\"\uF195\"}.fa-plus-square-o:before{content:\"\uF196\"}.fa-space-shuttle:before{content:\"\uF197\"}.fa-slack:before{content:\"\uF198\"}.fa-envelope-square:before{content:\"\uF199\"}.fa-wordpress:before{content:\"\uF19A\"}.fa-openid:before{content:\"\uF19B\"}.fa-bank:before,.fa-institution:before,.fa-university:before{content:\"\uF19C\"}.fa-graduation-cap:before,.fa-mortar-board:before{content:\"\uF19D\"}.fa-yahoo:before{content:\"\uF19E\"}.fa-google:before{content:\"\uF1A0\"}.fa-reddit:before{content:\"\uF1A1\"}.fa-reddit-square:before{content:\"\uF1A2\"}.fa-stumbleupon-circle:before{content:\"\uF1A3\"}.fa-stumbleupon:before{content:\"\uF1A4\"}.fa-delicious:before{content:\"\uF1A5\"}.fa-digg:before{content:\"\uF1A6\"}.fa-pied-piper-pp:before{content:\"\uF1A7\"}.fa-pied-piper-alt:before{content:\"\uF1A8\"}.fa-drupal:before{content:\"\uF1A9\"}.fa-joomla:before{content:\"\uF1AA\"}.fa-language:before{content:\"\uF1AB\"}.fa-fax:before{content:\"\uF1AC\"}.fa-building:before{content:\"\uF1AD\"}.fa-child:before{content:\"\uF1AE\"}.fa-paw:before{content:\"\uF1B0\"}.fa-spoon:before{content:\"\uF1B1\"}.fa-cube:before{content:\"\uF1B2\"}.fa-cubes:before{content:\"\uF1B3\"}.fa-behance:before{content:\"\uF1B4\"}.fa-behance-square:before{content:\"\uF1B5\"}.fa-steam:before{content:\"\uF1B6\"}.fa-steam-square:before{content:\"\uF1B7\"}.fa-recycle:before{content:\"\uF1B8\"}.fa-automobile:before,.fa-car:before{content:\"\uF1B9\"}.fa-cab:before,.fa-taxi:before{content:\"\uF1BA\"}.fa-tree:before{content:\"\uF1BB\"}.fa-spotify:before{content:\"\uF1BC\"}.fa-deviantart:before{content:\"\uF1BD\"}.fa-soundcloud:before{content:\"\uF1BE\"}.fa-database:before{content:\"\uF1C0\"}.fa-file-pdf-o:before{content:\"\uF1C1\"}.fa-file-word-o:before{content:\"\uF1C2\"}.fa-file-excel-o:before{content:\"\uF1C3\"}.fa-file-powerpoint-o:before{content:\"\uF1C4\"}.fa-file-image-o:before,.fa-file-photo-o:before,.fa-file-picture-o:before{content:\"\uF1C5\"}.fa-file-archive-o:before,.fa-file-zip-o:before{content:\"\uF1C6\"}.fa-file-audio-o:before,.fa-file-sound-o:before{content:\"\uF1C7\"}.fa-file-movie-o:before,.fa-file-video-o:before{content:\"\uF1C8\"}.fa-file-code-o:before{content:\"\uF1C9\"}.fa-vine:before{content:\"\uF1CA\"}.fa-codepen:before{content:\"\uF1CB\"}.fa-jsfiddle:before{content:\"\uF1CC\"}.fa-life-bouy:before,.fa-life-buoy:before,.fa-life-ring:before,.fa-life-saver:before,.fa-support:before{content:\"\uF1CD\"}.fa-circle-o-notch:before{content:\"\uF1CE\"}.fa-ra:before,.fa-rebel:before,.fa-resistance:before{content:\"\uF1D0\"}.fa-empire:before,.fa-ge:before{content:\"\uF1D1\"}.fa-git-square:before{content:\"\uF1D2\"}.fa-git:before{content:\"\uF1D3\"}.fa-hacker-news:before,.fa-y-combinator-square:before,.fa-yc-square:before{content:\"\uF1D4\"}.fa-tencent-weibo:before{content:\"\uF1D5\"}.fa-qq:before{content:\"\uF1D6\"}.fa-wechat:before,.fa-weixin:before{content:\"\uF1D7\"}.fa-paper-plane:before,.fa-send:before{content:\"\uF1D8\"}.fa-paper-plane-o:before,.fa-send-o:before{content:\"\uF1D9\"}.fa-history:before{content:\"\uF1DA\"}.fa-circle-thin:before{content:\"\uF1DB\"}.fa-header:before{content:\"\uF1DC\"}.fa-paragraph:before{content:\"\uF1DD\"}.fa-sliders:before{content:\"\uF1DE\"}.fa-share-alt:before{content:\"\uF1E0\"}.fa-share-alt-square:before{content:\"\uF1E1\"}.fa-bomb:before{content:\"\uF1E2\"}.fa-futbol-o:before,.fa-soccer-ball-o:before{content:\"\uF1E3\"}.fa-tty:before{content:\"\uF1E4\"}.fa-binoculars:before{content:\"\uF1E5\"}.fa-plug:before{content:\"\uF1E6\"}.fa-slideshare:before{content:\"\uF1E7\"}.fa-twitch:before{content:\"\uF1E8\"}.fa-yelp:before{content:\"\uF1E9\"}.fa-newspaper-o:before{content:\"\uF1EA\"}.fa-wifi:before{content:\"\uF1EB\"}.fa-calculator:before{content:\"\uF1EC\"}.fa-paypal:before{content:\"\uF1ED\"}.fa-google-wallet:before{content:\"\uF1EE\"}.fa-cc-visa:before{content:\"\uF1F0\"}.fa-cc-mastercard:before{content:\"\uF1F1\"}.fa-cc-discover:before{content:\"\uF1F2\"}.fa-cc-amex:before{content:\"\uF1F3\"}.fa-cc-paypal:before{content:\"\uF1F4\"}.fa-cc-stripe:before{content:\"\uF1F5\"}.fa-bell-slash:before{content:\"\uF1F6\"}.fa-bell-slash-o:before{content:\"\uF1F7\"}.fa-trash:before{content:\"\uF1F8\"}.fa-copyright:before{content:\"\uF1F9\"}.fa-at:before{content:\"\uF1FA\"}.fa-eyedropper:before{content:\"\uF1FB\"}.fa-paint-brush:before{content:\"\uF1FC\"}.fa-birthday-cake:before{content:\"\uF1FD\"}.fa-area-chart:before{content:\"\uF1FE\"}.fa-pie-chart:before{content:\"\uF200\"}.fa-line-chart:before{content:\"\uF201\"}.fa-lastfm:before{content:\"\uF202\"}.fa-lastfm-square:before{content:\"\uF203\"}.fa-toggle-off:before{content:\"\uF204\"}.fa-toggle-on:before{content:\"\uF205\"}.fa-bicycle:before{content:\"\uF206\"}.fa-bus:before{content:\"\uF207\"}.fa-ioxhost:before{content:\"\uF208\"}.fa-angellist:before{content:\"\uF209\"}.fa-cc:before{content:\"\uF20A\"}.fa-ils:before,.fa-shekel:before,.fa-sheqel:before{content:\"\uF20B\"}.fa-meanpath:before{content:\"\uF20C\"}.fa-buysellads:before{content:\"\uF20D\"}.fa-connectdevelop:before{content:\"\uF20E\"}.fa-dashcube:before{content:\"\uF210\"}.fa-forumbee:before{content:\"\uF211\"}.fa-leanpub:before{content:\"\uF212\"}.fa-sellsy:before{content:\"\uF213\"}.fa-shirtsinbulk:before{content:\"\uF214\"}.fa-simplybuilt:before{content:\"\uF215\"}.fa-skyatlas:before{content:\"\uF216\"}.fa-cart-plus:before{content:\"\uF217\"}.fa-cart-arrow-down:before{content:\"\uF218\"}.fa-diamond:before{content:\"\uF219\"}.fa-ship:before{content:\"\uF21A\"}.fa-user-secret:before{content:\"\uF21B\"}.fa-motorcycle:before{content:\"\uF21C\"}.fa-street-view:before{content:\"\uF21D\"}.fa-heartbeat:before{content:\"\uF21E\"}.fa-venus:before{content:\"\uF221\"}.fa-mars:before{content:\"\uF222\"}.fa-mercury:before{content:\"\uF223\"}.fa-intersex:before,.fa-transgender:before{content:\"\uF224\"}.fa-transgender-alt:before{content:\"\uF225\"}.fa-venus-double:before{content:\"\uF226\"}.fa-mars-double:before{content:\"\uF227\"}.fa-venus-mars:before{content:\"\uF228\"}.fa-mars-stroke:before{content:\"\uF229\"}.fa-mars-stroke-v:before{content:\"\uF22A\"}.fa-mars-stroke-h:before{content:\"\uF22B\"}.fa-neuter:before{content:\"\uF22C\"}.fa-genderless:before{content:\"\uF22D\"}.fa-facebook-official:before{content:\"\uF230\"}.fa-pinterest-p:before{content:\"\uF231\"}.fa-whatsapp:before{content:\"\uF232\"}.fa-server:before{content:\"\uF233\"}.fa-user-plus:before{content:\"\uF234\"}.fa-user-times:before{content:\"\uF235\"}.fa-bed:before,.fa-hotel:before{content:\"\uF236\"}.fa-viacoin:before{content:\"\uF237\"}.fa-train:before{content:\"\uF238\"}.fa-subway:before{content:\"\uF239\"}.fa-medium:before{content:\"\uF23A\"}.fa-y-combinator:before,.fa-yc:before{content:\"\uF23B\"}.fa-optin-monster:before{content:\"\uF23C\"}.fa-opencart:before{content:\"\uF23D\"}.fa-expeditedssl:before{content:\"\uF23E\"}.fa-battery-4:before,.fa-battery-full:before,.fa-battery:before{content:\"\uF240\"}.fa-battery-3:before,.fa-battery-three-quarters:before{content:\"\uF241\"}.fa-battery-2:before,.fa-battery-half:before{content:\"\uF242\"}.fa-battery-1:before,.fa-battery-quarter:before{content:\"\uF243\"}.fa-battery-0:before,.fa-battery-empty:before{content:\"\uF244\"}.fa-mouse-pointer:before{content:\"\uF245\"}.fa-i-cursor:before{content:\"\uF246\"}.fa-object-group:before{content:\"\uF247\"}.fa-object-ungroup:before{content:\"\uF248\"}.fa-sticky-note:before{content:\"\uF249\"}.fa-sticky-note-o:before{content:\"\uF24A\"}.fa-cc-jcb:before{content:\"\uF24B\"}.fa-cc-diners-club:before{content:\"\uF24C\"}.fa-clone:before{content:\"\uF24D\"}.fa-balance-scale:before{content:\"\uF24E\"}.fa-hourglass-o:before{content:\"\uF250\"}.fa-hourglass-1:before,.fa-hourglass-start:before{content:\"\uF251\"}.fa-hourglass-2:before,.fa-hourglass-half:before{content:\"\uF252\"}.fa-hourglass-3:before,.fa-hourglass-end:before{content:\"\uF253\"}.fa-hourglass:before{content:\"\uF254\"}.fa-hand-grab-o:before,.fa-hand-rock-o:before{content:\"\uF255\"}.fa-hand-paper-o:before,.fa-hand-stop-o:before{content:\"\uF256\"}.fa-hand-scissors-o:before{content:\"\uF257\"}.fa-hand-lizard-o:before{content:\"\uF258\"}.fa-hand-spock-o:before{content:\"\uF259\"}.fa-hand-pointer-o:before{content:\"\uF25A\"}.fa-hand-peace-o:before{content:\"\uF25B\"}.fa-trademark:before{content:\"\uF25C\"}.fa-registered:before{content:\"\uF25D\"}.fa-creative-commons:before{content:\"\uF25E\"}.fa-gg:before{content:\"\uF260\"}.fa-gg-circle:before{content:\"\uF261\"}.fa-tripadvisor:before{content:\"\uF262\"}.fa-odnoklassniki:before{content:\"\uF263\"}.fa-odnoklassniki-square:before{content:\"\uF264\"}.fa-get-pocket:before{content:\"\uF265\"}.fa-wikipedia-w:before{content:\"\uF266\"}.fa-safari:before{content:\"\uF267\"}.fa-chrome:before{content:\"\uF268\"}.fa-firefox:before{content:\"\uF269\"}.fa-opera:before{content:\"\uF26A\"}.fa-internet-explorer:before{content:\"\uF26B\"}.fa-television:before,.fa-tv:before{content:\"\uF26C\"}.fa-contao:before{content:\"\uF26D\"}.fa-500px:before{content:\"\uF26E\"}.fa-amazon:before{content:\"\uF270\"}.fa-calendar-plus-o:before{content:\"\uF271\"}.fa-calendar-minus-o:before{content:\"\uF272\"}.fa-calendar-times-o:before{content:\"\uF273\"}.fa-calendar-check-o:before{content:\"\uF274\"}.fa-industry:before{content:\"\uF275\"}.fa-map-pin:before{content:\"\uF276\"}.fa-map-signs:before{content:\"\uF277\"}.fa-map-o:before{content:\"\uF278\"}.fa-map:before{content:\"\uF279\"}.fa-commenting:before{content:\"\uF27A\"}.fa-commenting-o:before{content:\"\uF27B\"}.fa-houzz:before{content:\"\uF27C\"}.fa-vimeo:before{content:\"\uF27D\"}.fa-black-tie:before{content:\"\uF27E\"}.fa-fonticons:before{content:\"\uF280\"}.fa-reddit-alien:before{content:\"\uF281\"}.fa-edge:before{content:\"\uF282\"}.fa-credit-card-alt:before{content:\"\uF283\"}.fa-codiepie:before{content:\"\uF284\"}.fa-modx:before{content:\"\uF285\"}.fa-fort-awesome:before{content:\"\uF286\"}.fa-usb:before{content:\"\uF287\"}.fa-product-hunt:before{content:\"\uF288\"}.fa-mixcloud:before{content:\"\uF289\"}.fa-scribd:before{content:\"\uF28A\"}.fa-pause-circle:before{content:\"\uF28B\"}.fa-pause-circle-o:before{content:\"\uF28C\"}.fa-stop-circle:before{content:\"\uF28D\"}.fa-stop-circle-o:before{content:\"\uF28E\"}.fa-shopping-bag:before{content:\"\uF290\"}.fa-shopping-basket:before{content:\"\uF291\"}.fa-hashtag:before{content:\"\uF292\"}.fa-bluetooth:before{content:\"\uF293\"}.fa-bluetooth-b:before{content:\"\uF294\"}.fa-percent:before{content:\"\uF295\"}.fa-gitlab:before{content:\"\uF296\"}.fa-wpbeginner:before{content:\"\uF297\"}.fa-wpforms:before{content:\"\uF298\"}.fa-envira:before{content:\"\uF299\"}.fa-universal-access:before{content:\"\uF29A\"}.fa-wheelchair-alt:before{content:\"\uF29B\"}.fa-question-circle-o:before{content:\"\uF29C\"}.fa-blind:before{content:\"\uF29D\"}.fa-audio-description:before{content:\"\uF29E\"}.fa-volume-control-phone:before{content:\"\uF2A0\"}.fa-braille:before{content:\"\uF2A1\"}.fa-assistive-listening-systems:before{content:\"\uF2A2\"}.fa-american-sign-language-interpreting:before,.fa-asl-interpreting:before{content:\"\uF2A3\"}.fa-deaf:before,.fa-deafness:before,.fa-hard-of-hearing:before{content:\"\uF2A4\"}.fa-glide:before{content:\"\uF2A5\"}.fa-glide-g:before{content:\"\uF2A6\"}.fa-sign-language:before,.fa-signing:before{content:\"\uF2A7\"}.fa-low-vision:before{content:\"\uF2A8\"}.fa-viadeo:before{content:\"\uF2A9\"}.fa-viadeo-square:before{content:\"\uF2AA\"}.fa-snapchat:before{content:\"\uF2AB\"}.fa-snapchat-ghost:before{content:\"\uF2AC\"}.fa-snapchat-square:before{content:\"\uF2AD\"}.fa-pied-piper:before{content:\"\uF2AE\"}.fa-first-order:before{content:\"\uF2B0\"}.fa-yoast:before{content:\"\uF2B1\"}.fa-themeisle:before{content:\"\uF2B2\"}.fa-google-plus-circle:before,.fa-google-plus-official:before{content:\"\uF2B3\"}.fa-fa:before,.fa-font-awesome:before{content:\"\uF2B4\"}.fa-handshake-o:before{content:\"\uF2B5\"}.fa-envelope-open:before{content:\"\uF2B6\"}.fa-envelope-open-o:before{content:\"\uF2B7\"}.fa-linode:before{content:\"\uF2B8\"}.fa-address-book:before{content:\"\uF2B9\"}.fa-address-book-o:before{content:\"\uF2BA\"}.fa-address-card:before,.fa-vcard:before{content:\"\uF2BB\"}.fa-address-card-o:before,.fa-vcard-o:before{content:\"\uF2BC\"}.fa-user-circle:before{content:\"\uF2BD\"}.fa-user-circle-o:before{content:\"\uF2BE\"}.fa-user-o:before{content:\"\uF2C0\"}.fa-id-badge:before{content:\"\uF2C1\"}.fa-drivers-license:before,.fa-id-card:before{content:\"\uF2C2\"}.fa-drivers-license-o:before,.fa-id-card-o:before{content:\"\uF2C3\"}.fa-quora:before{content:\"\uF2C4\"}.fa-free-code-camp:before{content:\"\uF2C5\"}.fa-telegram:before{content:\"\uF2C6\"}.fa-thermometer-4:before,.fa-thermometer-full:before,.fa-thermometer:before{content:\"\uF2C7\"}.fa-thermometer-3:before,.fa-thermometer-three-quarters:before{content:\"\uF2C8\"}.fa-thermometer-2:before,.fa-thermometer-half:before{content:\"\uF2C9\"}.fa-thermometer-1:before,.fa-thermometer-quarter:before{content:\"\uF2CA\"}.fa-thermometer-0:before,.fa-thermometer-empty:before{content:\"\uF2CB\"}.fa-shower:before{content:\"\uF2CC\"}.fa-bath:before,.fa-bathtub:before,.fa-s15:before{content:\"\uF2CD\"}.fa-podcast:before{content:\"\uF2CE\"}.fa-window-maximize:before{content:\"\uF2D0\"}.fa-window-minimize:before{content:\"\uF2D1\"}.fa-window-restore:before{content:\"\uF2D2\"}.fa-times-rectangle:before,.fa-window-close:before{content:\"\uF2D3\"}.fa-times-rectangle-o:before,.fa-window-close-o:before{content:\"\uF2D4\"}.fa-bandcamp:before{content:\"\uF2D5\"}.fa-grav:before{content:\"\uF2D6\"}.fa-etsy:before{content:\"\uF2D7\"}.fa-imdb:before{content:\"\uF2D8\"}.fa-ravelry:before{content:\"\uF2D9\"}.fa-eercast:before{content:\"\uF2DA\"}.fa-microchip:before{content:\"\uF2DB\"}.fa-snowflake-o:before{content:\"\uF2DC\"}.fa-superpowers:before{content:\"\uF2DD\"}.fa-wpexplorer:before{content:\"\uF2DE\"}.fa-meetup:before{content:\"\uF2E0\"}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}a{cursor:pointer}.angular-editor-textarea{min-height:150px;overflow:auto;margin-top:5px;resize:vertical}.angular-editor-textarea:after{content:\"\";position:absolute;bottom:0;right:0;display:block;width:8px;height:8px;cursor:nwse-resize;background-color:rgba(255,255,255,.5)}.angular-editor-toolbar{font:100 .8rem/15px Roboto,Arial,sans-serif;background-color:#f5f5f5;padding:.2rem;border:1px solid #ddd}.angular-editor-toolbar .angular-editor-toolbar-set{display:none;margin-right:5px;vertical-align:baseline}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button{background-color:#fff;vertical-align:middle;border:1px solid #ddd;padding:.4rem;min-width:2rem;float:left}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.focus,.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:focus{outline:0}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label{pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label.background,.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label.foreground :after{background:#555}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.active{background:#fff5b9}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.active:hover{background-color:#fffa98}.angular-editor-toolbar .angular-editor-toolbar-set select{font-size:11px;width:90px;vertical-align:middle;background-color:transparent;border:.5px solid rgba(255,255,255,0);border-radius:5px;outline:0;padding:.4rem;cursor:pointer}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading{display:inline-block;width:90px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-font{display:inline-block;width:90px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-font:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size{display:inline-block;width:50px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style{display:inline-block;width:90px}@supports not (-moz-appearance:none){.angular-editor-toolbar .angular-editor-toolbar-set .select-heading optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .default{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h1{font-size:24px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h2{font-size:20px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h3{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h4{font-size:15px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h5{font-size:14px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h6{font-size:13px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .div,.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .pre{font-size:12px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size1{font-size:10px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size2{font-size:12px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size3{font-size:14px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size4{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size5{font-size:18px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size6{font-size:20px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size7{font-size:22px}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style option{border:1px solid;background-color:#fff}}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .color-label{position:relative;cursor:pointer}.angular-editor-toolbar .angular-editor-toolbar-set .background{font-size:smaller;background:#1b1b1b;color:#fff;padding:3px}.angular-editor-toolbar .angular-editor-toolbar-set .foreground :after{position:absolute;content:\"\";left:-1px;top:auto;bottom:-3px;right:auto;width:15px;height:2px;z-index:0;background:#1b1b1b}.angular-editor-toolbar .angular-editor-toolbar-set:not([style*=\"display:none\"]):not([style*=\"display: none\"]),.select-button{display:inline-block}.select-button.disabled{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}"]
-      }]
-    }];
-    /** @nocollapse */
-
-    AngularEditorToolbarComponent.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-      }, {
-        type: AngularEditorService
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-          args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-        }]
-      }];
-    };
-
-    AngularEditorToolbarComponent.propDecorators = {
-      id: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      uploadUrl: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      showToolbar: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      fonts: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      customClasses: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      defaultFontName: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      defaultFontSize: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      hiddenButtons: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      execute: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-      }],
-      myInputFile: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['fileInput', {
-          "static": true
-        }]
-      }]
-    };
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/utils.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-
-
-    function isDefined(value) {
-      return value !== undefined && value !== null;
-    }
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/angular-editor.component.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var AngularEditorComponent = /*#__PURE__*/function () {
-      /**
-       * @param {?} r
-       * @param {?} editorService
-       * @param {?} doc
-       * @param {?} sanitizer
-       * @param {?} cdRef
-       * @param {?} defaultTabIndex
-       * @param {?} autoFocus
-       */
-      function AngularEditorComponent(r, editorService, doc, sanitizer, cdRef, defaultTabIndex, autoFocus) {
-        _classCallCheck(this, AngularEditorComponent);
-
-        this.r = r;
-        this.editorService = editorService;
-        this.doc = doc;
-        this.sanitizer = sanitizer;
-        this.cdRef = cdRef;
-        this.autoFocus = autoFocus;
-        this.modeVisual = true;
-        this.showPlaceholder = false;
-        this.disabled = false;
-        this.focused = false;
-        this.touched = false;
-        this.changed = false;
-        this.id = '';
-        this.config = angularEditorConfig;
-        this.placeholder = '';
-        this.viewMode = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-         * emits `blur` event when focused out from the textarea
-         */
-        // tslint:disable-next-line:no-output-native no-output-rename
-
-        this.blurEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-         * emits `focus` event when focused in to the textarea
-         */
-        // tslint:disable-next-line:no-output-rename no-output-native
-
-        this.focusEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.tabindex = -1;
-        /** @type {?} */
-
-        var parsedTabIndex = Number(defaultTabIndex);
-        this.tabIndex = parsedTabIndex || parsedTabIndex === 0 ? parsedTabIndex : null;
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(AngularEditorComponent, [{
-        key: "onFocus",
-        value: function onFocus() {
-          this.focus();
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          this.config.toolbarPosition = this.config.toolbarPosition ? this.config.toolbarPosition : angularEditorConfig.toolbarPosition;
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {
-          if (isDefined(this.autoFocus)) {
-            this.focus();
-          }
-        }
-        /**
-         * Executed command from editor header buttons
-         * @param {?} command string from triggerCommand
-         * @return {?}
-         */
-
-      }, {
-        key: "executeCommand",
-        value: function executeCommand(command) {
-          this.focus();
-
-          if (command === 'focus') {
-            return;
-          }
-
-          if (command === 'toggleEditorMode') {
-            this.toggleEditorMode(this.modeVisual);
-          } else if (command !== '') {
-            if (command === 'clear') {
-              this.editorService.removeSelectedElements(this.getCustomTags());
-              this.onContentChange(this.textArea.nativeElement);
-            } else if (command === 'default') {
-              this.editorService.removeSelectedElements('h1,h2,h3,h4,h5,h6,p,pre');
-              this.onContentChange(this.textArea.nativeElement);
-            } else {
-              this.editorService.executeCommand(command);
-            }
-
-            this.exec();
-          }
-        }
-        /**
-         * focus event
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onTextAreaFocus",
-        value: function onTextAreaFocus(event) {
-          var _this7 = this;
-
-          if (this.focused) {
-            event.stopPropagation();
-            return;
-          }
-
-          this.focused = true;
-          this.focusEvent.emit(event);
-
-          if (!this.touched || !this.changed) {
-            this.editorService.executeInNextQueueIteration(
-            /**
-            * @return {?}
-            */
-            function () {
-              _this7.configure();
-
-              _this7.touched = true;
-            });
-          }
-        }
-        /**
-         * \@description fires when cursor leaves textarea
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onTextAreaMouseOut",
-        value: function onTextAreaMouseOut(event) {
-          this.editorService.saveSelection();
-        }
-        /**
-         * blur event
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onTextAreaBlur",
-        value: function onTextAreaBlur(event) {
-          /**
-           * save selection if focussed out
-           */
-          this.editorService.executeInNextQueueIteration(this.editorService.saveSelection);
-
-          if (typeof this.onTouched === 'function') {
-            this.onTouched();
-          }
-
-          if (event.relatedTarget !== null) {
-            /** @type {?} */
-            var parent =
-            /** @type {?} */
-            event.relatedTarget.parentElement;
-
-            if (!parent.classList.contains('angular-editor-toolbar-set') && !parent.classList.contains('ae-picker')) {
-              this.blurEvent.emit(event);
-              this.focused = false;
-            }
-          }
-        }
-        /**
-         *  focus the text area when the editor is focused
-         * @return {?}
-         */
-
-      }, {
-        key: "focus",
-        value: function focus() {
-          if (this.modeVisual) {
-            this.textArea.nativeElement.focus();
-          } else {
-            /** @type {?} */
-            var sourceText = this.doc.getElementById('sourceText' + this.id);
-            sourceText.focus();
-            this.focused = true;
-          }
-        }
-        /**
-         * Executed from the contenteditable section while the input property changes
-         * @param {?} element html element from contenteditable
-         * @return {?}
-         */
-
-      }, {
-        key: "onContentChange",
-        value: function onContentChange(element) {
-          /** @type {?} */
-          var html = '';
-
-          if (this.modeVisual) {
-            html = element.innerHTML;
-          } else {
-            html = element.innerText;
-          }
-
-          if (!html || html === '<br>') {
-            html = '';
-          }
-
-          if (typeof this.onChange === 'function') {
-            this.onChange(this.config.sanitize || this.config.sanitize === undefined ? this.sanitizer.sanitize(_angular_core__WEBPACK_IMPORTED_MODULE_0__["SecurityContext"].HTML, html) : html);
-
-            if (!html !== this.showPlaceholder) {
-              this.togglePlaceholder(this.showPlaceholder);
-            }
-          }
-
-          this.changed = true;
-        }
-        /**
-         * Set the function to be called
-         * when the control receives a change event.
-         *
-         * @param {?} fn a function
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnChange",
-        value: function registerOnChange(fn) {
-          this.onChange =
-          /**
-          * @param {?} e
-          * @return {?}
-          */
-          function (e) {
-            return e === '<br>' ? fn('') : fn(e);
-          };
-        }
-        /**
-         * Set the function to be called
-         * when the control receives a touch event.
-         *
-         * @param {?} fn a function
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnTouched",
-        value: function registerOnTouched(fn) {
-          this.onTouched = fn;
-        }
-        /**
-         * Write a new value to the element.
-         *
-         * @param {?} value value to be executed when there is a change in contenteditable
-         * @return {?}
-         */
-
-      }, {
-        key: "writeValue",
-        value: function writeValue(value) {
-          if ((!value || value === '<br>' || value === '') !== this.showPlaceholder) {
-            this.togglePlaceholder(this.showPlaceholder);
-          }
-
-          if (value === undefined || value === '' || value === '<br>') {
-            value = null;
-          }
-
-          this.refreshView(value);
-        }
-        /**
-         * refresh view/HTML of the editor
-         *
-         * @param {?} value html string from the editor
-         * @return {?}
-         */
-
-      }, {
-        key: "refreshView",
-        value: function refreshView(value) {
-          /** @type {?} */
-          var normalizedValue = value === null ? '' : value;
-          this.r.setProperty(this.textArea.nativeElement, 'innerHTML', normalizedValue);
-          return;
-        }
-        /**
-         * toggles placeholder based on input string
-         *
-         * @param {?} value A HTML string from the editor
-         * @return {?}
-         */
-
-      }, {
-        key: "togglePlaceholder",
-        value: function togglePlaceholder(value) {
-          if (!value) {
-            this.r.addClass(this.editorWrapper.nativeElement, 'show-placeholder');
-            this.showPlaceholder = true;
-          } else {
-            this.r.removeClass(this.editorWrapper.nativeElement, 'show-placeholder');
-            this.showPlaceholder = false;
-          }
-        }
-        /**
-         * Implements disabled state for this element
-         *
-         * @param {?} isDisabled Disabled flag
-         * @return {?}
-         */
-
-      }, {
-        key: "setDisabledState",
-        value: function setDisabledState(isDisabled) {
-          /** @type {?} */
-          var div = this.textArea.nativeElement;
-          /** @type {?} */
-
-          var action = isDisabled ? 'addClass' : 'removeClass';
-          this.r[action](div, 'disabled');
-          this.disabled = isDisabled;
-        }
-        /**
-         * toggles editor mode based on bToSource bool
-         *
-         * @param {?} bToSource A boolean value from the editor
-         * @return {?}
-         */
-
-      }, {
-        key: "toggleEditorMode",
-        value: function toggleEditorMode(bToSource) {
-          var _this8 = this;
-
-          /** @type {?} */
-          var oContent;
-          /** @type {?} */
-
-          var editableElement = this.textArea.nativeElement;
-
-          if (bToSource) {
-            oContent = this.r.createText(editableElement.innerHTML);
-            this.r.setProperty(editableElement, 'innerHTML', '');
-            this.r.setProperty(editableElement, 'contentEditable', false);
-            /** @type {?} */
-
-            var oPre = this.r.createElement('pre');
-            this.r.setStyle(oPre, 'margin', '0');
-            this.r.setStyle(oPre, 'outline', 'none');
-            /** @type {?} */
-
-            var oCode = this.r.createElement('code');
-            this.r.setProperty(oCode, 'id', 'sourceText' + this.id);
-            this.r.setStyle(oCode, 'display', 'block');
-            this.r.setStyle(oCode, 'white-space', 'pre-wrap');
-            this.r.setStyle(oCode, 'word-break', 'keep-all');
-            this.r.setStyle(oCode, 'outline', 'none');
-            this.r.setStyle(oCode, 'margin', '0');
-            this.r.setStyle(oCode, 'background-color', '#fff5b9');
-            this.r.setProperty(oCode, 'contentEditable', true);
-            this.r.appendChild(oCode, oContent);
-            this.focusInstance = this.r.listen(oCode, 'focus',
-            /**
-            * @param {?} event
-            * @return {?}
-            */
-            function (event) {
-              return _this8.onTextAreaFocus(event);
-            });
-            this.blurInstance = this.r.listen(oCode, 'blur',
-            /**
-            * @param {?} event
-            * @return {?}
-            */
-            function (event) {
-              return _this8.onTextAreaBlur(event);
-            });
-            this.r.appendChild(oPre, oCode);
-            this.r.appendChild(editableElement, oPre); // ToDo move to service
-
-            this.doc.execCommand('defaultParagraphSeparator', false, 'div');
-            this.modeVisual = false;
-            this.viewMode.emit(false);
-            oCode.focus();
-          } else {
-            if (this.doc.querySelectorAll) {
-              this.r.setProperty(editableElement, 'innerHTML', editableElement.innerText);
-            } else {
-              oContent = this.doc.createRange();
-              oContent.selectNodeContents(editableElement.firstChild);
-              this.r.setProperty(editableElement, 'innerHTML', oContent.toString());
-            }
-
-            this.r.setProperty(editableElement, 'contentEditable', true);
-            this.modeVisual = true;
-            this.viewMode.emit(true);
-            this.onContentChange(editableElement);
-            editableElement.focus();
-          }
-
-          this.editorToolbar.setEditorMode(!this.modeVisual);
-        }
-        /**
-         * toggles editor buttons when cursor moved or positioning
-         *
-         * Send a node array from the contentEditable of the editor
-         * @return {?}
-         */
-
-      }, {
-        key: "exec",
-        value: function exec() {
-          this.editorToolbar.triggerButtons();
-          /** @type {?} */
-
-          var userSelection;
-
-          if (this.doc.getSelection) {
-            userSelection = this.doc.getSelection();
-            this.editorService.executeInNextQueueIteration(this.editorService.saveSelection);
-          }
-          /** @type {?} */
-
-
-          var a = userSelection.focusNode;
-          /** @type {?} */
-
-          var els = [];
-
-          while (a && a.id !== 'editor') {
-            els.unshift(a);
-            a = a.parentNode;
-          }
-
-          this.editorToolbar.triggerBlocks(els);
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "configure",
-        value: function configure() {
-          this.editorService.uploadUrl = this.config.uploadUrl;
-          this.editorService.uploadWithCredentials = this.config.uploadWithCredentials;
-
-          if (this.config.defaultParagraphSeparator) {
-            this.editorService.setDefaultParagraphSeparator(this.config.defaultParagraphSeparator);
-          }
-
-          if (this.config.defaultFontName) {
-            this.editorService.setFontName(this.config.defaultFontName);
-          }
-
-          if (this.config.defaultFontSize) {
-            this.editorService.setFontSize(this.config.defaultFontSize);
-          }
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "getFonts",
-        value: function getFonts() {
-          /** @type {?} */
-          var fonts = this.config.fonts ? this.config.fonts : angularEditorConfig.fonts;
-          return fonts.map(
-          /**
-          * @param {?} x
-          * @return {?}
-          */
-          function (x) {
-            return {
-              label: x.name,
-              value: x.name
-            };
-          });
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "getCustomTags",
-        value: function getCustomTags() {
-          /** @type {?} */
-          var tags = ['span'];
-          this.config.customClasses.forEach(
-          /**
-          * @param {?} x
-          * @return {?}
-          */
-          function (x) {
-            if (x.tag !== undefined) {
-              if (!tags.includes(x.tag)) {
-                tags.push(x.tag);
-              }
-            }
-          });
-          return tags.join(',');
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "ngOnDestroy",
-        value: function ngOnDestroy() {
-          if (this.blurInstance) {
-            this.blurInstance();
-          }
-
-          if (this.focusInstance) {
-            this.focusInstance();
-          }
-        }
-        /**
-         * @param {?} html
-         * @return {?}
-         */
-
-      }, {
-        key: "filterStyles",
-        value: function filterStyles(html) {
-          html = html.replace('position: fixed;', '');
-          return html;
-        }
-      }]);
-
-      return AngularEditorComponent;
-    }();
-
-    AngularEditorComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'angular-editor',
-        template: "<div class=\"angular-editor\" #angularEditor [style.width]=\"config.width\"\n     [style.minWidth]=\"config.minWidth\">\n  <angular-editor-toolbar *ngIf=\"config.toolbarPosition === 'top'\" #editorToolbar\n                          [id]=\"id\"\n                          [uploadUrl]=\"config.uploadUrl\"\n                          [showToolbar]=\"config.showToolbar !== undefined ? config.showToolbar : true\"\n                          [fonts]=\"getFonts()\"\n                          [customClasses]=\"config.customClasses\"\n                          [defaultFontName]=\"config.defaultFontName\"\n                          [defaultFontSize]=\"config.defaultFontSize\"\n                          [hiddenButtons]=\"config.toolbarHiddenButtons\"\n                          (execute)=\"executeCommand($event)\"></angular-editor-toolbar>\n\n  <div class=\"angular-editor-wrapper\" #editorWrapper>\n    <div #editor class=\"angular-editor-textarea\"\n         [attr.contenteditable]=\"config.editable\"\n         [attr.tabindex]=\"disabled ? -1 : tabIndex\"\n         [attr.translate]=\"config.translate\"\n         [attr.spellcheck]=\"config.spellcheck\"\n         [style.height]=\"config.height\"\n         [style.minHeight]=\"config.minHeight\"\n         [style.maxHeight]=\"config.maxHeight\"\n         [style.outline]=\"config.outline === false ? 'none': undefined\"\n         (input)=\"onContentChange($event.target)\"\n         (focus)=\"onTextAreaFocus($event)\"\n         (blur)=\"onTextAreaBlur($event)\"\n         (click)=\"exec()\"\n         (keyup)=\"exec()\"\n         (mouseout)=\"onTextAreaMouseOut($event)\"\n    >\n    </div>\n    <span class=\"angular-editor-placeholder\">{{ placeholder || config['placeholder'] }}</span>\n  </div>\n  <angular-editor-toolbar *ngIf=\"config.toolbarPosition === 'bottom'\" #editorToolbar\n                          [id]=\"id\"\n                          [uploadUrl]=\"config.uploadUrl\"\n                          [showToolbar]=\"config.showToolbar !== undefined ? config.showToolbar : true\"\n                          [fonts]=\"getFonts()\"\n                          [customClasses]=\"config.customClasses\"\n                          [defaultFontName]=\"config.defaultFontName\"\n                          [defaultFontSize]=\"config.defaultFontSize\"\n                          [hiddenButtons]=\"config.toolbarHiddenButtons\"\n                          (execute)=\"executeCommand($event)\"></angular-editor-toolbar>\n</div>\n",
-        providers: [{
-          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NG_VALUE_ACCESSOR"],
-          useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(
-          /**
-          * @return {?}
-          */
-          function () {
-            return AngularEditorComponent;
-          }),
-          multi: true
-        }, AngularEditorService],
-        styles: ["@charset \"UTF-8\";/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */@font-face{font-family:FontAwesome;src:url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0);src:url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format(\"embedded-opentype\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0) format(\"woff2\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0) format(\"woff\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0) format(\"truetype\"),url(https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format(\"svg\");font-weight:400;font-style:normal}.fa{display:inline-block;font:14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-15%}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-fw{width:1.2857142857em;text-align:center}.fa-ul{padding-left:0;margin-left:2.1428571429em;list-style-type:none}.fa-ul>li{position:relative}.fa-li{position:absolute;left:-2.1428571429em;width:2.1428571429em;top:.1428571429em;text-align:center}.fa-li.fa-lg{left:-1.8571428571em}.fa-border{padding:.2em .25em .15em;border:.08em solid #eee;border-radius:.1em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left{margin-right:.3em}.fa.fa-pull-right{margin-left:.3em}.pull-right{float:right}.pull-left{float:left}.fa.pull-left{margin-right:.3em}.fa.pull-right{margin-left:.3em}.fa-spin{-webkit-animation:2s linear infinite fa-spin;animation:2s linear infinite fa-spin}.fa-pulse{-webkit-animation:1s steps(8) infinite fa-spin;animation:1s steps(8) infinite fa-spin}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{position:relative;display:inline-block;width:2em;height:2em;line-height:2em;vertical-align:middle}.fa-stack-1x,.fa-stack-2x{position:absolute;left:0;width:100%;text-align:center}.fa-stack-1x{line-height:inherit}.fa-stack-2x{font-size:2em}.fa-inverse{color:#fff}.fa-glass:before{content:\"\uF000\"}.fa-music:before{content:\"\uF001\"}.fa-search:before{content:\"\uF002\"}.fa-envelope-o:before{content:\"\uF003\"}.fa-heart:before{content:\"\uF004\"}.fa-star:before{content:\"\uF005\"}.fa-star-o:before{content:\"\uF006\"}.fa-user:before{content:\"\uF007\"}.fa-film:before{content:\"\uF008\"}.fa-th-large:before{content:\"\uF009\"}.fa-th:before{content:\"\uF00A\"}.fa-th-list:before{content:\"\uF00B\"}.fa-check:before{content:\"\uF00C\"}.fa-close:before,.fa-remove:before,.fa-times:before{content:\"\uF00D\"}.fa-search-plus:before{content:\"\uF00E\"}.fa-search-minus:before{content:\"\uF010\"}.fa-power-off:before{content:\"\uF011\"}.fa-signal:before{content:\"\uF012\"}.fa-cog:before,.fa-gear:before{content:\"\uF013\"}.fa-trash-o:before{content:\"\uF014\"}.fa-home:before{content:\"\uF015\"}.fa-file-o:before{content:\"\uF016\"}.fa-clock-o:before{content:\"\uF017\"}.fa-road:before{content:\"\uF018\"}.fa-download:before{content:\"\uF019\"}.fa-arrow-circle-o-down:before{content:\"\uF01A\"}.fa-arrow-circle-o-up:before{content:\"\uF01B\"}.fa-inbox:before{content:\"\uF01C\"}.fa-play-circle-o:before{content:\"\uF01D\"}.fa-repeat:before,.fa-rotate-right:before{content:\"\uF01E\"}.fa-refresh:before{content:\"\uF021\"}.fa-list-alt:before{content:\"\uF022\"}.fa-lock:before{content:\"\uF023\"}.fa-flag:before{content:\"\uF024\"}.fa-headphones:before{content:\"\uF025\"}.fa-volume-off:before{content:\"\uF026\"}.fa-volume-down:before{content:\"\uF027\"}.fa-volume-up:before{content:\"\uF028\"}.fa-qrcode:before{content:\"\uF029\"}.fa-barcode:before{content:\"\uF02A\"}.fa-tag:before{content:\"\uF02B\"}.fa-tags:before{content:\"\uF02C\"}.fa-book:before{content:\"\uF02D\"}.fa-bookmark:before{content:\"\uF02E\"}.fa-print:before{content:\"\uF02F\"}.fa-camera:before{content:\"\uF030\"}.fa-font:before{content:\"\uF031\"}.fa-bold:before{content:\"\uF032\"}.fa-italic:before{content:\"\uF033\"}.fa-text-height:before{content:\"\uF034\"}.fa-text-width:before{content:\"\uF035\"}.fa-align-left:before{content:\"\uF036\"}.fa-align-center:before{content:\"\uF037\"}.fa-align-right:before{content:\"\uF038\"}.fa-align-justify:before{content:\"\uF039\"}.fa-list:before{content:\"\uF03A\"}.fa-dedent:before,.fa-outdent:before{content:\"\uF03B\"}.fa-indent:before{content:\"\uF03C\"}.fa-video-camera:before{content:\"\uF03D\"}.fa-image:before,.fa-photo:before,.fa-picture-o:before{content:\"\uF03E\"}.fa-pencil:before{content:\"\uF040\"}.fa-map-marker:before{content:\"\uF041\"}.fa-adjust:before{content:\"\uF042\"}.fa-tint:before{content:\"\uF043\"}.fa-edit:before,.fa-pencil-square-o:before{content:\"\uF044\"}.fa-share-square-o:before{content:\"\uF045\"}.fa-check-square-o:before{content:\"\uF046\"}.fa-arrows:before{content:\"\uF047\"}.fa-step-backward:before{content:\"\uF048\"}.fa-fast-backward:before{content:\"\uF049\"}.fa-backward:before{content:\"\uF04A\"}.fa-play:before{content:\"\uF04B\"}.fa-pause:before{content:\"\uF04C\"}.fa-stop:before{content:\"\uF04D\"}.fa-forward:before{content:\"\uF04E\"}.fa-fast-forward:before{content:\"\uF050\"}.fa-step-forward:before{content:\"\uF051\"}.fa-eject:before{content:\"\uF052\"}.fa-chevron-left:before{content:\"\uF053\"}.fa-chevron-right:before{content:\"\uF054\"}.fa-plus-circle:before{content:\"\uF055\"}.fa-minus-circle:before{content:\"\uF056\"}.fa-times-circle:before{content:\"\uF057\"}.fa-check-circle:before{content:\"\uF058\"}.fa-question-circle:before{content:\"\uF059\"}.fa-info-circle:before{content:\"\uF05A\"}.fa-crosshairs:before{content:\"\uF05B\"}.fa-times-circle-o:before{content:\"\uF05C\"}.fa-check-circle-o:before{content:\"\uF05D\"}.fa-ban:before{content:\"\uF05E\"}.fa-arrow-left:before{content:\"\uF060\"}.fa-arrow-right:before{content:\"\uF061\"}.fa-arrow-up:before{content:\"\uF062\"}.fa-arrow-down:before{content:\"\uF063\"}.fa-mail-forward:before,.fa-share:before{content:\"\uF064\"}.fa-expand:before{content:\"\uF065\"}.fa-compress:before{content:\"\uF066\"}.fa-plus:before{content:\"\uF067\"}.fa-minus:before{content:\"\uF068\"}.fa-asterisk:before{content:\"\uF069\"}.fa-exclamation-circle:before{content:\"\uF06A\"}.fa-gift:before{content:\"\uF06B\"}.fa-leaf:before{content:\"\uF06C\"}.fa-fire:before{content:\"\uF06D\"}.fa-eye:before{content:\"\uF06E\"}.fa-eye-slash:before{content:\"\uF070\"}.fa-exclamation-triangle:before,.fa-warning:before{content:\"\uF071\"}.fa-plane:before{content:\"\uF072\"}.fa-calendar:before{content:\"\uF073\"}.fa-random:before{content:\"\uF074\"}.fa-comment:before{content:\"\uF075\"}.fa-magnet:before{content:\"\uF076\"}.fa-chevron-up:before{content:\"\uF077\"}.fa-chevron-down:before{content:\"\uF078\"}.fa-retweet:before{content:\"\uF079\"}.fa-shopping-cart:before{content:\"\uF07A\"}.fa-folder:before{content:\"\uF07B\"}.fa-folder-open:before{content:\"\uF07C\"}.fa-arrows-v:before{content:\"\uF07D\"}.fa-arrows-h:before{content:\"\uF07E\"}.fa-bar-chart-o:before,.fa-bar-chart:before{content:\"\uF080\"}.fa-twitter-square:before{content:\"\uF081\"}.fa-facebook-square:before{content:\"\uF082\"}.fa-camera-retro:before{content:\"\uF083\"}.fa-key:before{content:\"\uF084\"}.fa-cogs:before,.fa-gears:before{content:\"\uF085\"}.fa-comments:before{content:\"\uF086\"}.fa-thumbs-o-up:before{content:\"\uF087\"}.fa-thumbs-o-down:before{content:\"\uF088\"}.fa-star-half:before{content:\"\uF089\"}.fa-heart-o:before{content:\"\uF08A\"}.fa-sign-out:before{content:\"\uF08B\"}.fa-linkedin-square:before{content:\"\uF08C\"}.fa-thumb-tack:before{content:\"\uF08D\"}.fa-external-link:before{content:\"\uF08E\"}.fa-sign-in:before{content:\"\uF090\"}.fa-trophy:before{content:\"\uF091\"}.fa-github-square:before{content:\"\uF092\"}.fa-upload:before{content:\"\uF093\"}.fa-lemon-o:before{content:\"\uF094\"}.fa-phone:before{content:\"\uF095\"}.fa-square-o:before{content:\"\uF096\"}.fa-bookmark-o:before{content:\"\uF097\"}.fa-phone-square:before{content:\"\uF098\"}.fa-twitter:before{content:\"\uF099\"}.fa-facebook-f:before,.fa-facebook:before{content:\"\uF09A\"}.fa-github:before{content:\"\uF09B\"}.fa-unlock:before{content:\"\uF09C\"}.fa-credit-card:before{content:\"\uF09D\"}.fa-feed:before,.fa-rss:before{content:\"\uF09E\"}.fa-hdd-o:before{content:\"\uF0A0\"}.fa-bullhorn:before{content:\"\uF0A1\"}.fa-bell:before{content:\"\uF0F3\"}.fa-certificate:before{content:\"\uF0A3\"}.fa-hand-o-right:before{content:\"\uF0A4\"}.fa-hand-o-left:before{content:\"\uF0A5\"}.fa-hand-o-up:before{content:\"\uF0A6\"}.fa-hand-o-down:before{content:\"\uF0A7\"}.fa-arrow-circle-left:before{content:\"\uF0A8\"}.fa-arrow-circle-right:before{content:\"\uF0A9\"}.fa-arrow-circle-up:before{content:\"\uF0AA\"}.fa-arrow-circle-down:before{content:\"\uF0AB\"}.fa-globe:before{content:\"\uF0AC\"}.fa-wrench:before{content:\"\uF0AD\"}.fa-tasks:before{content:\"\uF0AE\"}.fa-filter:before{content:\"\uF0B0\"}.fa-briefcase:before{content:\"\uF0B1\"}.fa-arrows-alt:before{content:\"\uF0B2\"}.fa-group:before,.fa-users:before{content:\"\uF0C0\"}.fa-chain:before,.fa-link:before{content:\"\uF0C1\"}.fa-cloud:before{content:\"\uF0C2\"}.fa-flask:before{content:\"\uF0C3\"}.fa-cut:before,.fa-scissors:before{content:\"\uF0C4\"}.fa-copy:before,.fa-files-o:before{content:\"\uF0C5\"}.fa-paperclip:before{content:\"\uF0C6\"}.fa-floppy-o:before,.fa-save:before{content:\"\uF0C7\"}.fa-square:before{content:\"\uF0C8\"}.fa-bars:before,.fa-navicon:before,.fa-reorder:before{content:\"\uF0C9\"}.fa-list-ul:before{content:\"\uF0CA\"}.fa-list-ol:before{content:\"\uF0CB\"}.fa-strikethrough:before{content:\"\uF0CC\"}.fa-underline:before{content:\"\uF0CD\"}.fa-table:before{content:\"\uF0CE\"}.fa-magic:before{content:\"\uF0D0\"}.fa-truck:before{content:\"\uF0D1\"}.fa-pinterest:before{content:\"\uF0D2\"}.fa-pinterest-square:before{content:\"\uF0D3\"}.fa-google-plus-square:before{content:\"\uF0D4\"}.fa-google-plus:before{content:\"\uF0D5\"}.fa-money:before{content:\"\uF0D6\"}.fa-caret-down:before{content:\"\uF0D7\"}.fa-caret-up:before{content:\"\uF0D8\"}.fa-caret-left:before{content:\"\uF0D9\"}.fa-caret-right:before{content:\"\uF0DA\"}.fa-columns:before{content:\"\uF0DB\"}.fa-sort:before,.fa-unsorted:before{content:\"\uF0DC\"}.fa-sort-desc:before,.fa-sort-down:before{content:\"\uF0DD\"}.fa-sort-asc:before,.fa-sort-up:before{content:\"\uF0DE\"}.fa-envelope:before{content:\"\uF0E0\"}.fa-linkedin:before{content:\"\uF0E1\"}.fa-rotate-left:before,.fa-undo:before{content:\"\uF0E2\"}.fa-gavel:before,.fa-legal:before{content:\"\uF0E3\"}.fa-dashboard:before,.fa-tachometer:before{content:\"\uF0E4\"}.fa-comment-o:before{content:\"\uF0E5\"}.fa-comments-o:before{content:\"\uF0E6\"}.fa-bolt:before,.fa-flash:before{content:\"\uF0E7\"}.fa-sitemap:before{content:\"\uF0E8\"}.fa-umbrella:before{content:\"\uF0E9\"}.fa-clipboard:before,.fa-paste:before{content:\"\uF0EA\"}.fa-lightbulb-o:before{content:\"\uF0EB\"}.fa-exchange:before{content:\"\uF0EC\"}.fa-cloud-download:before{content:\"\uF0ED\"}.fa-cloud-upload:before{content:\"\uF0EE\"}.fa-user-md:before{content:\"\uF0F0\"}.fa-stethoscope:before{content:\"\uF0F1\"}.fa-suitcase:before{content:\"\uF0F2\"}.fa-bell-o:before{content:\"\uF0A2\"}.fa-coffee:before{content:\"\uF0F4\"}.fa-cutlery:before{content:\"\uF0F5\"}.fa-file-text-o:before{content:\"\uF0F6\"}.fa-building-o:before{content:\"\uF0F7\"}.fa-hospital-o:before{content:\"\uF0F8\"}.fa-ambulance:before{content:\"\uF0F9\"}.fa-medkit:before{content:\"\uF0FA\"}.fa-fighter-jet:before{content:\"\uF0FB\"}.fa-beer:before{content:\"\uF0FC\"}.fa-h-square:before{content:\"\uF0FD\"}.fa-plus-square:before{content:\"\uF0FE\"}.fa-angle-double-left:before{content:\"\uF100\"}.fa-angle-double-right:before{content:\"\uF101\"}.fa-angle-double-up:before{content:\"\uF102\"}.fa-angle-double-down:before{content:\"\uF103\"}.fa-angle-left:before{content:\"\uF104\"}.fa-angle-right:before{content:\"\uF105\"}.fa-angle-up:before{content:\"\uF106\"}.fa-angle-down:before{content:\"\uF107\"}.fa-desktop:before{content:\"\uF108\"}.fa-laptop:before{content:\"\uF109\"}.fa-tablet:before{content:\"\uF10A\"}.fa-mobile-phone:before,.fa-mobile:before{content:\"\uF10B\"}.fa-circle-o:before{content:\"\uF10C\"}.fa-quote-left:before{content:\"\uF10D\"}.fa-quote-right:before{content:\"\uF10E\"}.fa-spinner:before{content:\"\uF110\"}.fa-circle:before{content:\"\uF111\"}.fa-mail-reply:before,.fa-reply:before{content:\"\uF112\"}.fa-github-alt:before{content:\"\uF113\"}.fa-folder-o:before{content:\"\uF114\"}.fa-folder-open-o:before{content:\"\uF115\"}.fa-smile-o:before{content:\"\uF118\"}.fa-frown-o:before{content:\"\uF119\"}.fa-meh-o:before{content:\"\uF11A\"}.fa-gamepad:before{content:\"\uF11B\"}.fa-keyboard-o:before{content:\"\uF11C\"}.fa-flag-o:before{content:\"\uF11D\"}.fa-flag-checkered:before{content:\"\uF11E\"}.fa-terminal:before{content:\"\uF120\"}.fa-code:before{content:\"\uF121\"}.fa-mail-reply-all:before,.fa-reply-all:before{content:\"\uF122\"}.fa-star-half-empty:before,.fa-star-half-full:before,.fa-star-half-o:before{content:\"\uF123\"}.fa-location-arrow:before{content:\"\uF124\"}.fa-crop:before{content:\"\uF125\"}.fa-code-fork:before{content:\"\uF126\"}.fa-chain-broken:before,.fa-unlink:before{content:\"\uF127\"}.fa-question:before{content:\"\uF128\"}.fa-info:before{content:\"\uF129\"}.fa-exclamation:before{content:\"\uF12A\"}.fa-superscript:before{content:\"\uF12B\"}.fa-subscript:before{content:\"\uF12C\"}.fa-eraser:before{content:\"\uF12D\"}.fa-puzzle-piece:before{content:\"\uF12E\"}.fa-microphone:before{content:\"\uF130\"}.fa-microphone-slash:before{content:\"\uF131\"}.fa-shield:before{content:\"\uF132\"}.fa-calendar-o:before{content:\"\uF133\"}.fa-fire-extinguisher:before{content:\"\uF134\"}.fa-rocket:before{content:\"\uF135\"}.fa-maxcdn:before{content:\"\uF136\"}.fa-chevron-circle-left:before{content:\"\uF137\"}.fa-chevron-circle-right:before{content:\"\uF138\"}.fa-chevron-circle-up:before{content:\"\uF139\"}.fa-chevron-circle-down:before{content:\"\uF13A\"}.fa-html5:before{content:\"\uF13B\"}.fa-css3:before{content:\"\uF13C\"}.fa-anchor:before{content:\"\uF13D\"}.fa-unlock-alt:before{content:\"\uF13E\"}.fa-bullseye:before{content:\"\uF140\"}.fa-ellipsis-h:before{content:\"\uF141\"}.fa-ellipsis-v:before{content:\"\uF142\"}.fa-rss-square:before{content:\"\uF143\"}.fa-play-circle:before{content:\"\uF144\"}.fa-ticket:before{content:\"\uF145\"}.fa-minus-square:before{content:\"\uF146\"}.fa-minus-square-o:before{content:\"\uF147\"}.fa-level-up:before{content:\"\uF148\"}.fa-level-down:before{content:\"\uF149\"}.fa-check-square:before{content:\"\uF14A\"}.fa-pencil-square:before{content:\"\uF14B\"}.fa-external-link-square:before{content:\"\uF14C\"}.fa-share-square:before{content:\"\uF14D\"}.fa-compass:before{content:\"\uF14E\"}.fa-caret-square-o-down:before,.fa-toggle-down:before{content:\"\uF150\"}.fa-caret-square-o-up:before,.fa-toggle-up:before{content:\"\uF151\"}.fa-caret-square-o-right:before,.fa-toggle-right:before{content:\"\uF152\"}.fa-eur:before,.fa-euro:before{content:\"\uF153\"}.fa-gbp:before{content:\"\uF154\"}.fa-dollar:before,.fa-usd:before{content:\"\uF155\"}.fa-inr:before,.fa-rupee:before{content:\"\uF156\"}.fa-cny:before,.fa-jpy:before,.fa-rmb:before,.fa-yen:before{content:\"\uF157\"}.fa-rouble:before,.fa-rub:before,.fa-ruble:before{content:\"\uF158\"}.fa-krw:before,.fa-won:before{content:\"\uF159\"}.fa-bitcoin:before,.fa-btc:before{content:\"\uF15A\"}.fa-file:before{content:\"\uF15B\"}.fa-file-text:before{content:\"\uF15C\"}.fa-sort-alpha-asc:before{content:\"\uF15D\"}.fa-sort-alpha-desc:before{content:\"\uF15E\"}.fa-sort-amount-asc:before{content:\"\uF160\"}.fa-sort-amount-desc:before{content:\"\uF161\"}.fa-sort-numeric-asc:before{content:\"\uF162\"}.fa-sort-numeric-desc:before{content:\"\uF163\"}.fa-thumbs-up:before{content:\"\uF164\"}.fa-thumbs-down:before{content:\"\uF165\"}.fa-youtube-square:before{content:\"\uF166\"}.fa-youtube:before{content:\"\uF167\"}.fa-xing:before{content:\"\uF168\"}.fa-xing-square:before{content:\"\uF169\"}.fa-youtube-play:before{content:\"\uF16A\"}.fa-dropbox:before{content:\"\uF16B\"}.fa-stack-overflow:before{content:\"\uF16C\"}.fa-instagram:before{content:\"\uF16D\"}.fa-flickr:before{content:\"\uF16E\"}.fa-adn:before{content:\"\uF170\"}.fa-bitbucket:before{content:\"\uF171\"}.fa-bitbucket-square:before{content:\"\uF172\"}.fa-tumblr:before{content:\"\uF173\"}.fa-tumblr-square:before{content:\"\uF174\"}.fa-long-arrow-down:before{content:\"\uF175\"}.fa-long-arrow-up:before{content:\"\uF176\"}.fa-long-arrow-left:before{content:\"\uF177\"}.fa-long-arrow-right:before{content:\"\uF178\"}.fa-apple:before{content:\"\uF179\"}.fa-windows:before{content:\"\uF17A\"}.fa-android:before{content:\"\uF17B\"}.fa-linux:before{content:\"\uF17C\"}.fa-dribbble:before{content:\"\uF17D\"}.fa-skype:before{content:\"\uF17E\"}.fa-foursquare:before{content:\"\uF180\"}.fa-trello:before{content:\"\uF181\"}.fa-female:before{content:\"\uF182\"}.fa-male:before{content:\"\uF183\"}.fa-gittip:before,.fa-gratipay:before{content:\"\uF184\"}.fa-sun-o:before{content:\"\uF185\"}.fa-moon-o:before{content:\"\uF186\"}.fa-archive:before{content:\"\uF187\"}.fa-bug:before{content:\"\uF188\"}.fa-vk:before{content:\"\uF189\"}.fa-weibo:before{content:\"\uF18A\"}.fa-renren:before{content:\"\uF18B\"}.fa-pagelines:before{content:\"\uF18C\"}.fa-stack-exchange:before{content:\"\uF18D\"}.fa-arrow-circle-o-right:before{content:\"\uF18E\"}.fa-arrow-circle-o-left:before{content:\"\uF190\"}.fa-caret-square-o-left:before,.fa-toggle-left:before{content:\"\uF191\"}.fa-dot-circle-o:before{content:\"\uF192\"}.fa-wheelchair:before{content:\"\uF193\"}.fa-vimeo-square:before{content:\"\uF194\"}.fa-try:before,.fa-turkish-lira:before{content:\"\uF195\"}.fa-plus-square-o:before{content:\"\uF196\"}.fa-space-shuttle:before{content:\"\uF197\"}.fa-slack:before{content:\"\uF198\"}.fa-envelope-square:before{content:\"\uF199\"}.fa-wordpress:before{content:\"\uF19A\"}.fa-openid:before{content:\"\uF19B\"}.fa-bank:before,.fa-institution:before,.fa-university:before{content:\"\uF19C\"}.fa-graduation-cap:before,.fa-mortar-board:before{content:\"\uF19D\"}.fa-yahoo:before{content:\"\uF19E\"}.fa-google:before{content:\"\uF1A0\"}.fa-reddit:before{content:\"\uF1A1\"}.fa-reddit-square:before{content:\"\uF1A2\"}.fa-stumbleupon-circle:before{content:\"\uF1A3\"}.fa-stumbleupon:before{content:\"\uF1A4\"}.fa-delicious:before{content:\"\uF1A5\"}.fa-digg:before{content:\"\uF1A6\"}.fa-pied-piper-pp:before{content:\"\uF1A7\"}.fa-pied-piper-alt:before{content:\"\uF1A8\"}.fa-drupal:before{content:\"\uF1A9\"}.fa-joomla:before{content:\"\uF1AA\"}.fa-language:before{content:\"\uF1AB\"}.fa-fax:before{content:\"\uF1AC\"}.fa-building:before{content:\"\uF1AD\"}.fa-child:before{content:\"\uF1AE\"}.fa-paw:before{content:\"\uF1B0\"}.fa-spoon:before{content:\"\uF1B1\"}.fa-cube:before{content:\"\uF1B2\"}.fa-cubes:before{content:\"\uF1B3\"}.fa-behance:before{content:\"\uF1B4\"}.fa-behance-square:before{content:\"\uF1B5\"}.fa-steam:before{content:\"\uF1B6\"}.fa-steam-square:before{content:\"\uF1B7\"}.fa-recycle:before{content:\"\uF1B8\"}.fa-automobile:before,.fa-car:before{content:\"\uF1B9\"}.fa-cab:before,.fa-taxi:before{content:\"\uF1BA\"}.fa-tree:before{content:\"\uF1BB\"}.fa-spotify:before{content:\"\uF1BC\"}.fa-deviantart:before{content:\"\uF1BD\"}.fa-soundcloud:before{content:\"\uF1BE\"}.fa-database:before{content:\"\uF1C0\"}.fa-file-pdf-o:before{content:\"\uF1C1\"}.fa-file-word-o:before{content:\"\uF1C2\"}.fa-file-excel-o:before{content:\"\uF1C3\"}.fa-file-powerpoint-o:before{content:\"\uF1C4\"}.fa-file-image-o:before,.fa-file-photo-o:before,.fa-file-picture-o:before{content:\"\uF1C5\"}.fa-file-archive-o:before,.fa-file-zip-o:before{content:\"\uF1C6\"}.fa-file-audio-o:before,.fa-file-sound-o:before{content:\"\uF1C7\"}.fa-file-movie-o:before,.fa-file-video-o:before{content:\"\uF1C8\"}.fa-file-code-o:before{content:\"\uF1C9\"}.fa-vine:before{content:\"\uF1CA\"}.fa-codepen:before{content:\"\uF1CB\"}.fa-jsfiddle:before{content:\"\uF1CC\"}.fa-life-bouy:before,.fa-life-buoy:before,.fa-life-ring:before,.fa-life-saver:before,.fa-support:before{content:\"\uF1CD\"}.fa-circle-o-notch:before{content:\"\uF1CE\"}.fa-ra:before,.fa-rebel:before,.fa-resistance:before{content:\"\uF1D0\"}.fa-empire:before,.fa-ge:before{content:\"\uF1D1\"}.fa-git-square:before{content:\"\uF1D2\"}.fa-git:before{content:\"\uF1D3\"}.fa-hacker-news:before,.fa-y-combinator-square:before,.fa-yc-square:before{content:\"\uF1D4\"}.fa-tencent-weibo:before{content:\"\uF1D5\"}.fa-qq:before{content:\"\uF1D6\"}.fa-wechat:before,.fa-weixin:before{content:\"\uF1D7\"}.fa-paper-plane:before,.fa-send:before{content:\"\uF1D8\"}.fa-paper-plane-o:before,.fa-send-o:before{content:\"\uF1D9\"}.fa-history:before{content:\"\uF1DA\"}.fa-circle-thin:before{content:\"\uF1DB\"}.fa-header:before{content:\"\uF1DC\"}.fa-paragraph:before{content:\"\uF1DD\"}.fa-sliders:before{content:\"\uF1DE\"}.fa-share-alt:before{content:\"\uF1E0\"}.fa-share-alt-square:before{content:\"\uF1E1\"}.fa-bomb:before{content:\"\uF1E2\"}.fa-futbol-o:before,.fa-soccer-ball-o:before{content:\"\uF1E3\"}.fa-tty:before{content:\"\uF1E4\"}.fa-binoculars:before{content:\"\uF1E5\"}.fa-plug:before{content:\"\uF1E6\"}.fa-slideshare:before{content:\"\uF1E7\"}.fa-twitch:before{content:\"\uF1E8\"}.fa-yelp:before{content:\"\uF1E9\"}.fa-newspaper-o:before{content:\"\uF1EA\"}.fa-wifi:before{content:\"\uF1EB\"}.fa-calculator:before{content:\"\uF1EC\"}.fa-paypal:before{content:\"\uF1ED\"}.fa-google-wallet:before{content:\"\uF1EE\"}.fa-cc-visa:before{content:\"\uF1F0\"}.fa-cc-mastercard:before{content:\"\uF1F1\"}.fa-cc-discover:before{content:\"\uF1F2\"}.fa-cc-amex:before{content:\"\uF1F3\"}.fa-cc-paypal:before{content:\"\uF1F4\"}.fa-cc-stripe:before{content:\"\uF1F5\"}.fa-bell-slash:before{content:\"\uF1F6\"}.fa-bell-slash-o:before{content:\"\uF1F7\"}.fa-trash:before{content:\"\uF1F8\"}.fa-copyright:before{content:\"\uF1F9\"}.fa-at:before{content:\"\uF1FA\"}.fa-eyedropper:before{content:\"\uF1FB\"}.fa-paint-brush:before{content:\"\uF1FC\"}.fa-birthday-cake:before{content:\"\uF1FD\"}.fa-area-chart:before{content:\"\uF1FE\"}.fa-pie-chart:before{content:\"\uF200\"}.fa-line-chart:before{content:\"\uF201\"}.fa-lastfm:before{content:\"\uF202\"}.fa-lastfm-square:before{content:\"\uF203\"}.fa-toggle-off:before{content:\"\uF204\"}.fa-toggle-on:before{content:\"\uF205\"}.fa-bicycle:before{content:\"\uF206\"}.fa-bus:before{content:\"\uF207\"}.fa-ioxhost:before{content:\"\uF208\"}.fa-angellist:before{content:\"\uF209\"}.fa-cc:before{content:\"\uF20A\"}.fa-ils:before,.fa-shekel:before,.fa-sheqel:before{content:\"\uF20B\"}.fa-meanpath:before{content:\"\uF20C\"}.fa-buysellads:before{content:\"\uF20D\"}.fa-connectdevelop:before{content:\"\uF20E\"}.fa-dashcube:before{content:\"\uF210\"}.fa-forumbee:before{content:\"\uF211\"}.fa-leanpub:before{content:\"\uF212\"}.fa-sellsy:before{content:\"\uF213\"}.fa-shirtsinbulk:before{content:\"\uF214\"}.fa-simplybuilt:before{content:\"\uF215\"}.fa-skyatlas:before{content:\"\uF216\"}.fa-cart-plus:before{content:\"\uF217\"}.fa-cart-arrow-down:before{content:\"\uF218\"}.fa-diamond:before{content:\"\uF219\"}.fa-ship:before{content:\"\uF21A\"}.fa-user-secret:before{content:\"\uF21B\"}.fa-motorcycle:before{content:\"\uF21C\"}.fa-street-view:before{content:\"\uF21D\"}.fa-heartbeat:before{content:\"\uF21E\"}.fa-venus:before{content:\"\uF221\"}.fa-mars:before{content:\"\uF222\"}.fa-mercury:before{content:\"\uF223\"}.fa-intersex:before,.fa-transgender:before{content:\"\uF224\"}.fa-transgender-alt:before{content:\"\uF225\"}.fa-venus-double:before{content:\"\uF226\"}.fa-mars-double:before{content:\"\uF227\"}.fa-venus-mars:before{content:\"\uF228\"}.fa-mars-stroke:before{content:\"\uF229\"}.fa-mars-stroke-v:before{content:\"\uF22A\"}.fa-mars-stroke-h:before{content:\"\uF22B\"}.fa-neuter:before{content:\"\uF22C\"}.fa-genderless:before{content:\"\uF22D\"}.fa-facebook-official:before{content:\"\uF230\"}.fa-pinterest-p:before{content:\"\uF231\"}.fa-whatsapp:before{content:\"\uF232\"}.fa-server:before{content:\"\uF233\"}.fa-user-plus:before{content:\"\uF234\"}.fa-user-times:before{content:\"\uF235\"}.fa-bed:before,.fa-hotel:before{content:\"\uF236\"}.fa-viacoin:before{content:\"\uF237\"}.fa-train:before{content:\"\uF238\"}.fa-subway:before{content:\"\uF239\"}.fa-medium:before{content:\"\uF23A\"}.fa-y-combinator:before,.fa-yc:before{content:\"\uF23B\"}.fa-optin-monster:before{content:\"\uF23C\"}.fa-opencart:before{content:\"\uF23D\"}.fa-expeditedssl:before{content:\"\uF23E\"}.fa-battery-4:before,.fa-battery-full:before,.fa-battery:before{content:\"\uF240\"}.fa-battery-3:before,.fa-battery-three-quarters:before{content:\"\uF241\"}.fa-battery-2:before,.fa-battery-half:before{content:\"\uF242\"}.fa-battery-1:before,.fa-battery-quarter:before{content:\"\uF243\"}.fa-battery-0:before,.fa-battery-empty:before{content:\"\uF244\"}.fa-mouse-pointer:before{content:\"\uF245\"}.fa-i-cursor:before{content:\"\uF246\"}.fa-object-group:before{content:\"\uF247\"}.fa-object-ungroup:before{content:\"\uF248\"}.fa-sticky-note:before{content:\"\uF249\"}.fa-sticky-note-o:before{content:\"\uF24A\"}.fa-cc-jcb:before{content:\"\uF24B\"}.fa-cc-diners-club:before{content:\"\uF24C\"}.fa-clone:before{content:\"\uF24D\"}.fa-balance-scale:before{content:\"\uF24E\"}.fa-hourglass-o:before{content:\"\uF250\"}.fa-hourglass-1:before,.fa-hourglass-start:before{content:\"\uF251\"}.fa-hourglass-2:before,.fa-hourglass-half:before{content:\"\uF252\"}.fa-hourglass-3:before,.fa-hourglass-end:before{content:\"\uF253\"}.fa-hourglass:before{content:\"\uF254\"}.fa-hand-grab-o:before,.fa-hand-rock-o:before{content:\"\uF255\"}.fa-hand-paper-o:before,.fa-hand-stop-o:before{content:\"\uF256\"}.fa-hand-scissors-o:before{content:\"\uF257\"}.fa-hand-lizard-o:before{content:\"\uF258\"}.fa-hand-spock-o:before{content:\"\uF259\"}.fa-hand-pointer-o:before{content:\"\uF25A\"}.fa-hand-peace-o:before{content:\"\uF25B\"}.fa-trademark:before{content:\"\uF25C\"}.fa-registered:before{content:\"\uF25D\"}.fa-creative-commons:before{content:\"\uF25E\"}.fa-gg:before{content:\"\uF260\"}.fa-gg-circle:before{content:\"\uF261\"}.fa-tripadvisor:before{content:\"\uF262\"}.fa-odnoklassniki:before{content:\"\uF263\"}.fa-odnoklassniki-square:before{content:\"\uF264\"}.fa-get-pocket:before{content:\"\uF265\"}.fa-wikipedia-w:before{content:\"\uF266\"}.fa-safari:before{content:\"\uF267\"}.fa-chrome:before{content:\"\uF268\"}.fa-firefox:before{content:\"\uF269\"}.fa-opera:before{content:\"\uF26A\"}.fa-internet-explorer:before{content:\"\uF26B\"}.fa-television:before,.fa-tv:before{content:\"\uF26C\"}.fa-contao:before{content:\"\uF26D\"}.fa-500px:before{content:\"\uF26E\"}.fa-amazon:before{content:\"\uF270\"}.fa-calendar-plus-o:before{content:\"\uF271\"}.fa-calendar-minus-o:before{content:\"\uF272\"}.fa-calendar-times-o:before{content:\"\uF273\"}.fa-calendar-check-o:before{content:\"\uF274\"}.fa-industry:before{content:\"\uF275\"}.fa-map-pin:before{content:\"\uF276\"}.fa-map-signs:before{content:\"\uF277\"}.fa-map-o:before{content:\"\uF278\"}.fa-map:before{content:\"\uF279\"}.fa-commenting:before{content:\"\uF27A\"}.fa-commenting-o:before{content:\"\uF27B\"}.fa-houzz:before{content:\"\uF27C\"}.fa-vimeo:before{content:\"\uF27D\"}.fa-black-tie:before{content:\"\uF27E\"}.fa-fonticons:before{content:\"\uF280\"}.fa-reddit-alien:before{content:\"\uF281\"}.fa-edge:before{content:\"\uF282\"}.fa-credit-card-alt:before{content:\"\uF283\"}.fa-codiepie:before{content:\"\uF284\"}.fa-modx:before{content:\"\uF285\"}.fa-fort-awesome:before{content:\"\uF286\"}.fa-usb:before{content:\"\uF287\"}.fa-product-hunt:before{content:\"\uF288\"}.fa-mixcloud:before{content:\"\uF289\"}.fa-scribd:before{content:\"\uF28A\"}.fa-pause-circle:before{content:\"\uF28B\"}.fa-pause-circle-o:before{content:\"\uF28C\"}.fa-stop-circle:before{content:\"\uF28D\"}.fa-stop-circle-o:before{content:\"\uF28E\"}.fa-shopping-bag:before{content:\"\uF290\"}.fa-shopping-basket:before{content:\"\uF291\"}.fa-hashtag:before{content:\"\uF292\"}.fa-bluetooth:before{content:\"\uF293\"}.fa-bluetooth-b:before{content:\"\uF294\"}.fa-percent:before{content:\"\uF295\"}.fa-gitlab:before{content:\"\uF296\"}.fa-wpbeginner:before{content:\"\uF297\"}.fa-wpforms:before{content:\"\uF298\"}.fa-envira:before{content:\"\uF299\"}.fa-universal-access:before{content:\"\uF29A\"}.fa-wheelchair-alt:before{content:\"\uF29B\"}.fa-question-circle-o:before{content:\"\uF29C\"}.fa-blind:before{content:\"\uF29D\"}.fa-audio-description:before{content:\"\uF29E\"}.fa-volume-control-phone:before{content:\"\uF2A0\"}.fa-braille:before{content:\"\uF2A1\"}.fa-assistive-listening-systems:before{content:\"\uF2A2\"}.fa-american-sign-language-interpreting:before,.fa-asl-interpreting:before{content:\"\uF2A3\"}.fa-deaf:before,.fa-deafness:before,.fa-hard-of-hearing:before{content:\"\uF2A4\"}.fa-glide:before{content:\"\uF2A5\"}.fa-glide-g:before{content:\"\uF2A6\"}.fa-sign-language:before,.fa-signing:before{content:\"\uF2A7\"}.fa-low-vision:before{content:\"\uF2A8\"}.fa-viadeo:before{content:\"\uF2A9\"}.fa-viadeo-square:before{content:\"\uF2AA\"}.fa-snapchat:before{content:\"\uF2AB\"}.fa-snapchat-ghost:before{content:\"\uF2AC\"}.fa-snapchat-square:before{content:\"\uF2AD\"}.fa-pied-piper:before{content:\"\uF2AE\"}.fa-first-order:before{content:\"\uF2B0\"}.fa-yoast:before{content:\"\uF2B1\"}.fa-themeisle:before{content:\"\uF2B2\"}.fa-google-plus-circle:before,.fa-google-plus-official:before{content:\"\uF2B3\"}.fa-fa:before,.fa-font-awesome:before{content:\"\uF2B4\"}.fa-handshake-o:before{content:\"\uF2B5\"}.fa-envelope-open:before{content:\"\uF2B6\"}.fa-envelope-open-o:before{content:\"\uF2B7\"}.fa-linode:before{content:\"\uF2B8\"}.fa-address-book:before{content:\"\uF2B9\"}.fa-address-book-o:before{content:\"\uF2BA\"}.fa-address-card:before,.fa-vcard:before{content:\"\uF2BB\"}.fa-address-card-o:before,.fa-vcard-o:before{content:\"\uF2BC\"}.fa-user-circle:before{content:\"\uF2BD\"}.fa-user-circle-o:before{content:\"\uF2BE\"}.fa-user-o:before{content:\"\uF2C0\"}.fa-id-badge:before{content:\"\uF2C1\"}.fa-drivers-license:before,.fa-id-card:before{content:\"\uF2C2\"}.fa-drivers-license-o:before,.fa-id-card-o:before{content:\"\uF2C3\"}.fa-quora:before{content:\"\uF2C4\"}.fa-free-code-camp:before{content:\"\uF2C5\"}.fa-telegram:before{content:\"\uF2C6\"}.fa-thermometer-4:before,.fa-thermometer-full:before,.fa-thermometer:before{content:\"\uF2C7\"}.fa-thermometer-3:before,.fa-thermometer-three-quarters:before{content:\"\uF2C8\"}.fa-thermometer-2:before,.fa-thermometer-half:before{content:\"\uF2C9\"}.fa-thermometer-1:before,.fa-thermometer-quarter:before{content:\"\uF2CA\"}.fa-thermometer-0:before,.fa-thermometer-empty:before{content:\"\uF2CB\"}.fa-shower:before{content:\"\uF2CC\"}.fa-bath:before,.fa-bathtub:before,.fa-s15:before{content:\"\uF2CD\"}.fa-podcast:before{content:\"\uF2CE\"}.fa-window-maximize:before{content:\"\uF2D0\"}.fa-window-minimize:before{content:\"\uF2D1\"}.fa-window-restore:before{content:\"\uF2D2\"}.fa-times-rectangle:before,.fa-window-close:before{content:\"\uF2D3\"}.fa-times-rectangle-o:before,.fa-window-close-o:before{content:\"\uF2D4\"}.fa-bandcamp:before{content:\"\uF2D5\"}.fa-grav:before{content:\"\uF2D6\"}.fa-etsy:before{content:\"\uF2D7\"}.fa-imdb:before{content:\"\uF2D8\"}.fa-ravelry:before{content:\"\uF2D9\"}.fa-eercast:before{content:\"\uF2DA\"}.fa-microchip:before{content:\"\uF2DB\"}.fa-snowflake-o:before{content:\"\uF2DC\"}.fa-superpowers:before{content:\"\uF2DD\"}.fa-wpexplorer:before{content:\"\uF2DE\"}.fa-meetup:before{content:\"\uF2E0\"}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}a{cursor:pointer}.angular-editor-textarea{min-height:150px;overflow:auto;margin-top:5px;resize:vertical}.angular-editor-textarea:after{content:\"\";position:absolute;bottom:0;right:0;display:block;width:8px;height:8px;cursor:nwse-resize;background-color:rgba(255,255,255,.5)}.angular-editor-toolbar{font:100 .8rem/15px Roboto,Arial,sans-serif;background-color:#f5f5f5;padding:.2rem;border:1px solid #ddd}.angular-editor-toolbar .angular-editor-toolbar-set{display:none;margin-right:5px;vertical-align:baseline}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button{background-color:#fff;vertical-align:middle;border:1px solid #ddd;padding:.4rem;min-width:2rem;float:left}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.focus,.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:focus{outline:0}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label{pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label.background,.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button:disabled>.color-label.foreground :after{background:#555}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.active{background:#fff5b9}.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button.active:hover{background-color:#fffa98}.angular-editor-toolbar .angular-editor-toolbar-set select{font-size:11px;width:90px;vertical-align:middle;background-color:transparent;border:.5px solid rgba(255,255,255,0);border-radius:5px;outline:0;padding:.4rem;cursor:pointer}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading{display:inline-block;width:90px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-font{display:inline-block;width:90px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-font:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size{display:inline-block;width:50px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style{display:inline-block;width:90px}@supports not (-moz-appearance:none){.angular-editor-toolbar .angular-editor-toolbar-set .select-heading optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .default{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h1{font-size:24px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h2{font-size:20px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h3{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h4{font-size:15px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h5{font-size:14px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .h6{font-size:13px}.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .div,.angular-editor-toolbar .angular-editor-toolbar-set .select-heading .pre{font-size:12px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size option{border:1px solid;background-color:#fff}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size1{font-size:10px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size2{font-size:12px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size3{font-size:14px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size4{font-size:16px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size5{font-size:18px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size6{font-size:20px}.angular-editor-toolbar .angular-editor-toolbar-set .select-font-size .size7{font-size:22px}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style optgroup{font-size:12px;background-color:#f4f4f4;padding:5px}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style option{border:1px solid;background-color:#fff}}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.angular-editor-toolbar .angular-editor-toolbar-set .select-custom-style:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.angular-editor-toolbar .angular-editor-toolbar-set .color-label{position:relative;cursor:pointer}.angular-editor-toolbar .angular-editor-toolbar-set .background{font-size:smaller;background:#1b1b1b;color:#fff;padding:3px}.angular-editor-toolbar .angular-editor-toolbar-set .foreground :after{position:absolute;content:\"\";left:-1px;top:auto;bottom:-3px;right:auto;width:15px;height:2px;z-index:0;background:#1b1b1b}.angular-editor-toolbar .angular-editor-toolbar-set:not([style*=\"display:none\"]):not([style*=\"display: none\"]){display:inline-block}.angular-editor{position:relative}.angular-editor ::ng-deep [contenteditable=true]:empty:before{content:attr(placeholder);color:#868e96;opacity:1}.angular-editor .angular-editor-wrapper{position:relative}.angular-editor .angular-editor-wrapper .angular-editor-textarea{min-height:5rem;padding:.5rem .8rem 1rem;border:1px solid #ddd;background-color:transparent;overflow-x:hidden;overflow-y:auto;position:relative}.angular-editor .angular-editor-wrapper .angular-editor-textarea ::ng-deep blockquote{margin-left:1rem;border-left:.2em solid #dfe2e5;padding-left:.5rem}.angular-editor .angular-editor-wrapper ::ng-deep p{margin-bottom:0}.angular-editor .angular-editor-wrapper .angular-editor-placeholder{display:none;position:absolute;top:0;padding:.5rem .8rem 1rem .9rem;color:#6c757d;opacity:.75}.angular-editor .angular-editor-wrapper.show-placeholder .angular-editor-placeholder{display:block}.angular-editor .angular-editor-wrapper.disabled{cursor:not-allowed;opacity:.5;pointer-events:none}"]
-      }]
-    }];
-    /** @nocollapse */
-
-    AngularEditorComponent.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-      }, {
-        type: AngularEditorService
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"],
-          args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-        }]
-      }, {
-        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]
-      }, {
-        type: String,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"],
-          args: ['tabindex']
-        }]
-      }, {
-        type: undefined,
-        decorators: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Attribute"],
-          args: ['autofocus']
-        }]
-      }];
-    };
-
-    AngularEditorComponent.propDecorators = {
-      id: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      config: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      placeholder: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      tabIndex: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      html: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-      }],
-      textArea: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['editor', {
-          "static": true
-        }]
-      }],
-      editorWrapper: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['editorWrapper', {
-          "static": true
-        }]
-      }],
-      editorToolbar: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['editorToolbar', {
-          "static": false
-        }]
-      }],
-      viewMode: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-      }],
-      blurEvent: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"],
-        args: ['blur']
-      }],
-      focusEvent: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"],
-        args: ['focus']
-      }],
-      tabindex: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-        args: ['attr.tabindex']
-      }],
-      onFocus: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
-        args: ['focus']
-      }]
-    };
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/ae-select/ae-select.component.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @record
-     */
-
-
-    function SelectOption() {}
-
-    if (false) {}
-
-    var AeSelectComponent = /*#__PURE__*/function () {
-      /**
-       * @param {?} elRef
-       * @param {?} r
-       */
-      function AeSelectComponent(elRef, r) {
-        _classCallCheck(this, AeSelectComponent);
-
-        this.elRef = elRef;
-        this.r = r;
-        this.options = [];
-        this.disabled = false;
-        this.optionId = 0;
-        this.opened = false;
-        this.hidden = 'inline-block'; // tslint:disable-next-line:no-output-native no-output-rename
-
-        this.changeEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-
-        this.onChange =
-        /**
-        * @return {?}
-        */
-        function () {};
-
-        this.onTouched =
-        /**
-        * @return {?}
-        */
-        function () {};
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(AeSelectComponent, [{
-        key: "ngOnInit",
-
-        /**
-         * @return {?}
-         */
-        value: function ngOnInit() {
-          this.selectedOption = this.options[0];
-
-          if (isDefined(this.isHidden) && this.isHidden) {
-            this.hide();
-          }
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "hide",
-        value: function hide() {
-          this.hidden = 'none';
-        }
-        /**
-         * @param {?} option
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "optionSelect",
-        value: function optionSelect(option, event) {
-          event.stopPropagation();
-          this.setValue(option.value);
-          this.onChange(this.selectedOption.value);
-          this.changeEvent.emit(this.selectedOption.value);
-          this.onTouched();
-          this.opened = false;
-        }
-        /**
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "toggleOpen",
-        value: function toggleOpen(event) {
-          // event.stopPropagation();
-          if (this.disabled) {
-            return;
-          }
-
-          this.opened = !this.opened;
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "onClick",
-        value: function onClick($event) {
-          if (!this.elRef.nativeElement.contains($event.target)) {
-            this.close();
-          }
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "close",
-        value: function close() {
-          this.opened = false;
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "writeValue",
-
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        value: function writeValue(value) {
-          if (!value || typeof value !== 'string') {
-            return;
-          }
-
-          this.setValue(value);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "setValue",
-        value: function setValue(value) {
-          /** @type {?} */
-          var index = 0;
-          /** @type {?} */
-
-          var selectedEl = this.options.find(
-          /**
-          * @param {?} el
-          * @param {?} i
-          * @return {?}
-          */
-          function (el, i) {
-            index = i;
-            return el.value === value;
-          });
-
-          if (selectedEl) {
-            this.selectedOption = selectedEl;
-            this.optionId = index;
-          }
-        }
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnChange",
-        value: function registerOnChange(fn) {
-          this.onChange = fn;
-        }
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
-
-      }, {
-        key: "registerOnTouched",
-        value: function registerOnTouched(fn) {
-          this.onTouched = fn;
-        }
-        /**
-         * @param {?} isDisabled
-         * @return {?}
-         */
-
-      }, {
-        key: "setDisabledState",
-        value: function setDisabledState(isDisabled) {
-          this.labelButton.nativeElement.disabled = isDisabled;
-          /** @type {?} */
-
-          var div = this.labelButton.nativeElement;
-          /** @type {?} */
-
-          var action = isDisabled ? 'addClass' : 'removeClass';
-          this.r[action](div, 'disabled');
-          this.disabled = isDisabled;
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "handleKeyDown",
-        value: function handleKeyDown($event) {
-          if (!this.opened) {
-            return;
-          } // console.log($event.key);
-          // if (KeyCode[$event.key]) {
-
-
-          switch ($event.key) {
-            case 'ArrowDown':
-              this._handleArrowDown($event);
-
-              break;
-
-            case 'ArrowUp':
-              this._handleArrowUp($event);
-
-              break;
-
-            case 'Space':
-              this._handleSpace($event);
-
-              break;
-
-            case 'Enter':
-              this._handleEnter($event);
-
-              break;
-
-            case 'Tab':
-              this._handleTab($event);
-
-              break;
-
-            case 'Escape':
-              this.close();
-              $event.preventDefault();
-              break;
-
-            case 'Backspace':
-              this._handleBackspace();
-
-              break;
-          } // } else if ($event.key && $event.key.length === 1) {
-          // this._keyPress$.next($event.key.toLocaleLowerCase());
-          // }
-
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleArrowDown",
-        value: function _handleArrowDown($event) {
-          if (this.optionId < this.options.length - 1) {
-            this.optionId++;
-          }
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleArrowUp",
-        value: function _handleArrowUp($event) {
-          if (this.optionId >= 1) {
-            this.optionId--;
-          }
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleSpace",
-        value: function _handleSpace($event) {}
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleEnter",
-        value: function _handleEnter($event) {
-          this.optionSelect(this.options[this.optionId], $event);
-        }
-        /**
-         * @param {?} $event
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleTab",
-        value: function _handleTab($event) {}
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "_handleBackspace",
-        value: function _handleBackspace() {}
-      }, {
-        key: "label",
-        get: function get() {
-          return this.selectedOption && this.selectedOption.hasOwnProperty('label') ? this.selectedOption.label : 'Select';
-        }
-        /**
-         * @return {?}
-         */
-
-      }, {
-        key: "value",
-        get: function get() {
-          return this.selectedOption.value;
-        }
-      }, {
-        key: "isOpen",
-        get: function get() {
-          return this.opened;
-        }
-      }]);
-
-      return AeSelectComponent;
-    }();
-
-    AeSelectComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'ae-select',
-        template: "<span class=\"ae-font ae-picker\" [ngClass]=\"{'ae-expanded':isOpen}\">\n  <button [tabIndex]=\"-1\" #labelButton tabindex=\"0\" type=\"button\" role=\"button\" class=\"ae-picker-label\" (click)=\"toggleOpen($event);\">{{label}}\n    <svg viewBox=\"0 0 18 18\">\n     <!-- <use x=\"0\" y=\"0\" xlink:href=\"../assets/icons.svg#hom\"></use>-->\n      <polygon class=\"ae-stroke\" points=\"7 11 9 13 11 11 7 11\"></polygon>\n      <polygon class=\"ae-stroke\" points=\"7 7 9 5 11 7 7 7\"></polygon>\n    </svg>\n  </button>\n  <span class=\"ae-picker-options\">\n    <button tabindex=\"-1\" type=\"button\" role=\"button\" class=\"ae-picker-item\"\n          *ngFor=\"let item of options; let i = index\"\n          [ngClass]=\"{'selected': item.value === value, 'focused': i === optionId}\"\n          (click)=\"optionSelect(item, $event)\">\n          {{item.label}}\n    </button>\n    <span class=\"dropdown-item\" *ngIf=\"!options.length\">No items for select</span>\n  </span>\n</span>\n",
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
-        providers: [{
-          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NG_VALUE_ACCESSOR"],
-          useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(
-          /**
-          * @return {?}
-          */
-          function () {
-            return AeSelectComponent;
-          }),
-          multi: true
-        }],
-        styles: [".ae-font.ae-picker{color:#444;display:inline-block;float:left;width:100%;position:relative;vertical-align:middle}.ae-font .ae-picker-label{cursor:pointer;display:inline-block;height:100%;padding-left:8px;padding-right:10px;position:relative;width:100%;line-height:26px;vertical-align:middle;font-size:85%;text-align:left;background-color:#fff;min-width:2rem;float:left;border:1px solid #ddd;text-overflow:clip;overflow:hidden;white-space:nowrap}.ae-font .ae-picker-label:before{content:\"\";position:absolute;right:0;top:0;width:20px;height:100%;background:-webkit-gradient(linear,left top,right top,from(white),to(#fff));background:linear-gradient(to right,#fff,#fff 100%)}.ae-font .ae-picker-label:focus{outline:0}.ae-font .ae-picker-label:hover{cursor:pointer;background-color:#f1f1f1;-webkit-transition:.2s;transition:.2s}.ae-font .ae-picker-label:hover:before{background:-webkit-gradient(linear,left top,right top,color-stop(100%,#f5f5f5),to(#fff));background:linear-gradient(to right,#f5f5f5 100%,#fff 100%)}.ae-font .ae-picker-label:disabled{background-color:#f5f5f5;pointer-events:none;cursor:not-allowed}.ae-font .ae-picker-label:disabled:before{background:-webkit-gradient(linear,left top,right top,color-stop(100%,#f5f5f5),to(#fff));background:linear-gradient(to right,#f5f5f5 100%,#fff 100%)}.ae-font .ae-picker-label svg{position:absolute;margin-top:-9px;right:0;top:50%;width:18px}.ae-font .ae-picker-label svg:not(:root){overflow:hidden}.ae-font .ae-picker-label svg .ae-stroke{fill:none;stroke:#444;stroke-linecap:round;stroke-linejoin:round;stroke-width:2}.ae-font .ae-picker-options{background-color:#fff;display:none;min-width:100%;position:absolute;white-space:nowrap;z-index:3;border:1px solid transparent;box-shadow:rgba(0,0,0,.2) 0 2px 8px}.ae-font .ae-picker-options .ae-picker-item{cursor:pointer;display:block;padding-bottom:5px;padding-top:5px;padding-left:5px;z-index:3;text-align:left;background-color:transparent;min-width:2rem;width:100%;border:0 solid #ddd}.ae-font .ae-picker-options .ae-picker-item.selected{color:#06c;background-color:#fff4c2}.ae-font .ae-picker-options .ae-picker-item.focused,.ae-font .ae-picker-options .ae-picker-item:hover{background-color:#fffa98}.ae-font.ae-expanded{display:block;margin-top:-1px;z-index:1}.ae-font.ae-expanded .ae-picker-label,.ae-font.ae-expanded .ae-picker-label svg{color:#ccc;z-index:2}.ae-font.ae-expanded .ae-picker-label svg .ae-stroke{stroke:#ccc}.ae-font.ae-expanded .ae-picker-options{display:block;margin-top:-1px;top:100%;z-index:3;border-color:#ccc}"]
-      }]
-    }];
-    /** @nocollapse */
-
-    AeSelectComponent.ctorParameters = function () {
-      return [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]
-      }, {
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]
-      }];
-    };
-
-    AeSelectComponent.propDecorators = {
-      options: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-      }],
-      isHidden: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: ['hidden']
-      }],
-      hidden: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"],
-        args: ['style.display']
-      }],
-      changeEvent: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"],
-        args: ['change']
-      }],
-      labelButton: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['labelButton', {
-          "static": true
-        }]
-      }],
-      onClick: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
-        args: ['document:click', ['$event']]
-      }],
-      handleKeyDown: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"],
-        args: ['keydown', ['$event']]
-      }]
-    };
-
-    if (false) {}
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: lib/angular-editor.module.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var AngularEditorModule = function AngularEditorModule() {
-      _classCallCheck(this, AngularEditorModule);
-    };
-
-    AngularEditorModule.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-      args: [{
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]],
-        declarations: [AngularEditorComponent, AngularEditorToolbarComponent, AeSelectComponent],
-        exports: [AngularEditorComponent, AngularEditorToolbarComponent]
-      }]
-    }];
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: public-api.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * Generated from: kolkov-angular-editor.ts
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    //# sourceMappingURL=kolkov-angular-editor.js.map
+    exports.OwlChild = OwlChild; //# sourceMappingURL=owl-child.component.js.map
 
     /***/
   },
@@ -2383,7 +330,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n  <div class=\"page-header\">\n    <div class=\"row\">\n    <div class=\"col-12 mt-2 mb-2\">\n      <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger ml-2\" (click)=\"myproduct(true)\">Add Product</button></span>\n      <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger ml-2\" (click)=\"myproduct(false)\">Listing</button></span>\n      <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger\" (click)=\"myorders()\">My Orders</button></span>\n    </div>\n  </div>\n  </div>\n\n  <ng-template [ngIf]= \"addClassifiedTemplate\" [ngIfElse]=\"classifiedListing\">\n    <div class=\"container\" style=\"background-color: #fff;\">\n          <form [formGroup]=\"classifiedForm\" class=\"form-horizontal\">\n            <div class=\"row\">\n              <div class=\"col-12\">\n                  <div class=\"form-group\">\n                    <label for=\"memberId\" class=\"control-label\">Item name</label>\n                    <input type=\"text\" formControlName=\"name\" class=\"form-control\" id=\"memberId\"/>\n\n                  </div>\n                  <div class=\"form-group\">\n                      <label for=\"categoryId\" class=\"control-label\">Category</label>\n                      <select class=\"form-control\"   formControlName=\"category\" id=\"categoryId\" (change)=\"selectCategory($event.target.value)\">\n                        <option value=\"\" >Select</option>\n                        <option value=\"category1\">Electronics</option>\n                        <option value=\"category2\">Furniture</option>\n                        <option value=\"category3\">Automobile </option>\n                        <option value=\"category4\">Home Applicances</option>\n                        <option value=\"category5\">Apartment</option>\n                        <option value=\"category6\">Fashion</option>\n                        <option value=\"category7\">Books</option>\n                        <option value=\"category8\">Sports </option>\n                        <option value=\"category9\">Others </option>\n                      </select>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"categoryId\" class=\"control-label\">Sub Category</label>\n                    <select class=\"form-control\"   formControlName=\"subcategory\" id=\"categoryId\">\n                      <option value=\"\" >Select</option>\n                      <option *ngFor=\"let obj of objArray\" [value]=\"obj.value\">{{obj.name}}</option>\n                    </select>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"categoryId\" class=\"control-label\">Brand</label>\n                    <input type=\"text\" formControlName=\"brand\" class=\"form-control\" id=\"brandId\"/>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"priceId\" class=\"control-label\">Price</label>\n                    <input type=\"number\" formControlName=\"price\" class=\"form-control\" id=\"priceId\"/>\n                  </div>\n\n                  <div class=\"form-group\">\n                    <label for=\"descriptionId\" class=\"control-label\">Description</label>\n                    <angular-editor [placeholder]=\"'Enter text here...'\" formControlName=\"description\"  [config]=\"editorConfig\"></angular-editor>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"quantityId\" class=\"control-label\">Quantity</label>\n                    <input type=\"number\" formControlName=\"quantity\" class=\"form-control\" id=\"quantityId\"/>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"quantityId\" class=\"control-label\">Key Features one</label>\n                    <input type=\"text\" formControlName=\"keyFeatureOne\" class=\"form-control\" id=\"quantityId\"/>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"quantityId\" class=\"control-label\">Key Features two</label>\n                    <input type=\"text\" formControlName=\"keyFeatureTwo\" class=\"form-control\" id=\"quantityId\"/>\n                  </div>\n                  <div class=\"form-group\">\n                    <label for=\"quantityId\" class=\"control-label\">Key Features three</label>\n                    <input type=\"text\" formControlName=\"keyFeatureThree\" class=\"form-control\" id=\"quantityId\"/>\n                  </div>\n\n                  <div class=\"form-group\">\n                      <input class=\"form-check-input com ml-2\" type=\"checkbox\"   name=\"committee\" formControlName=\"showNumber\"/>\n                      <label class=\"form-check-label ml-4\">\n                          You want to show you number\n                      </label>\n                  </div>\n                </div>\n          </div>\n             <div class=\"row\">\n                  <div class=\"col-12 form-group\">\n                    <label for=\"file-upload\" class=\"custom-file-upload caption\"> Add Image </label>\n                    <input id=\"file-upload\" type=\"file\" (change)=\"uploadClassifiedattachment($event)\" accept=\"image/x-png, image/jpeg\"/>\n                  </div>\n                  <span style=\"color: #aa0000;\" *ngIf=\"imgURL == 0\">At least one image is required</span>\n              </div>\n              <div class=\"row\"  *ngIf=\"uploadedVideo == ''\">\n                <div class=\"col-12 form-group\">\n                  <label for=\"file-upload1\" class=\"custom-file-upload caption\"> Add Video </label>\n                  <input id=\"file-upload1\" type=\"file\" (change)=\"uploadClassifiedVideo($event, uploadingFolder)\" accept=\"video/mp4\"/>\n                </div>\n              </div>\n              <div class=\"row\" *ngIf=\"!editProductStatus\">\n                  <div class=\"col-12 form-group\">\n\n                    <ul class=\"nav mt-2\">\n                      <ng-container  *ngFor=\"let item of imgURL; index as i\">\n                        <li class=\"ml-2\">\n                          <div style=\"position:relative;\">\n                            <button type=\"submit\" class=\"close AClass\"  (click)=\"removeClassified(i)\">\n                              <span>&times;</span>\n                            </button>\n\n                            <img [src]=\"item\" height=\"200\" width=\"200\"/>\n                        </div>\n                        </li>\n\n                      </ng-container>\n                    </ul>\n                  </div>\n              </div>\n              <div class=\"row\" *ngIf=\"editProductStatus\">\n                <div class=\"col-12 form-group\">\n\n                  <ul class=\"nav mt-2\">\n                    <ng-container  *ngFor=\"let item of imgURL; index as i\">\n                      <li class=\"ml-2\" *ngIf=\"item.extension != 'mp4'\">\n                        <div style=\"position:relative;\">\n                          <button type=\"submit\" class=\"close AClass\"  (click)=\"removeClassified(i)\">\n                            <span>&times;</span>\n                          </button>\n\n                          <img *ngIf=\"item.name == undefined\" [src]=\"item\" height=\"200\" width=\"200\"/>\n                          <img *ngIf=\"item.name != undefined\" [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" height=\"200\" width=\"200\"/>\n                      </div>\n                      </li>\n\n                    </ng-container>\n                  </ul>\n\n                </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-12 form-group\" *ngIf=\"uploadedVideo != ''\">\n                <img src=\"../../../assets/images/videoThumbnail.jpg\" (click)=\"openVideo(playVideo, {'name': uploadedVideo})\" height=\"80px\" width=\"80px\"/>\n                {{uploadedVideo}} <span class=\"close\"    (click)=\"removeVideo(i)\">&times;</span>\n              </div>\n                <div class=\"col-12 mt-2\">\n                  <div class=\"form-group\">\n\n                    <button type=\"button\"  *ngIf=\"!editProductStatus\" class=\"btn setColor mb-2\" [disabled]=\"(!classifiedForm.valid || imgURL.length == 0)\" (click)=\"addProduct(uploadingFolder)\">Submit</button>\n                    <button type=\"button\"  *ngIf=\"editProductStatus\" class=\"btn setColor mb-2\" [disabled]=\"(!classifiedForm.valid || imgURL.length == 0)\" (click)=\"addProduct(uploadingFolder)\">Submit</button>\n                  </div>\n                </div>\n            </div>\n\n            </form>\n        </div>\n  </ng-template>\n  <ng-template #classifiedListing>\n    <ng-template [ngIf]= \"detailClassifiedStatus\" [ngIfElse]=\"productdetailsSection\">\n      <div class=\"row\">\n        <div class=\"col-md-4 col-sm-12\" *ngFor=\"let item of allProduct; index as i;\">\n          <div class=\"container1\">\n            <div class=\"card\">\n              <div class=\"card-head\">\n                <img [src]=\"api.delear+'uploads/comunication/medium/'+item.fileName[0].name\" alt=\"logo\" class=\"card-logo\">\n\n                <!-- <div class=\"product-detail\">\n                  <h2>Hartbeespoort</h2> Support and Nike Zoom Air come together for a more supportive feel with high-speed responsiveness\n                </div> -->\n                <!-- <span class=\"back-text\">\n                        FAS\n                      </span> -->\n              </div>\n              <div class=\"card-body\">\n                <div class=\"product-desc\">\n                  <span class=\"product-title\">\n                         {{item.name}}\n                          <span class=\"badge\">\n                            &#x20B9;<b>{{item.price}}</b>\n                          </span>\n                  </span>\n                  <span class=\"product-caption\">\n                         Brand: <b> {{item.brand}}</b>\n                        </span>\n                  <span class=\"product-rating\">\n\n                    <span class=\"rating\">\n                      <span class=\"fa fa-star star checked\"></span>\n                      <span class=\"fa fa-star star checked\"></span>\n                      <span class=\"fa fa-star star checked\"></span>\n                      <span class=\"fa fa-star star\"></span>\n                      <span class=\"fa fa-star star\"></span>\n                    </span>\n                    </span>\n                </div>\n                <div class=\"product-properties\">\n                  <span class=\"product-size\">\n                          <h4><b>Key Features</b></h4>\n\n                          <span class=\"product-caption\">\n                           {{item?.keyFeatureOne}}\n                          </span>\n                          <span class=\"product-caption\">\n                            {{item?.keyFeatureTwo}}\n                          </span>\n                          <span class=\"product-caption\">\n                            {{item?.keyFeatureThree}}\n                          </span>\n                        </span>\n\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-4\">\n                    <span class=\"setColor mt-2 ml-3 float-right btn\" (click)=\"deleteProduct(item._id,i)\">\n                      Delete\n                     </span>\n                    <!-- <div class=\"input-group mt-3\">\n                      <span class=\"input-group-btn\">\n                        <button class=\"Plusbutton button5\">-</button>\n                      </span>\n                      <input type=\"text\" id=\"quantity\" name=\"quantity\" class=\"input-number\" value=\"10\" min=\"1\" max=\"100\">\n                      <span class=\"input-group-btn\">\n                        <button class=\"Plusbutton button5\">+</button>\n                      </span>\n                  </div> -->\n                    </div>\n                    <div class=\"col-4\">\n                      <span class=\"setColor mt-2 float-right btn\" (click)=\"detailProduct(item)\">\n                        Detail\n                       </span>\n                    </div>\n                    <div class=\"col-4\">\n                      <span class=\"setColor mt-2 float-right btn\" (click)=\"editProduct(item)\">\n                             Edit\n                            </span>\n                            </div>\n                </div>\n              </div>\n            </div>\n          </div>\n\n        </div>\n        <div class=\"col-4\"></div>\n        <div class=\"col-4\"></div>\n\n      </div>\n      </ng-template>\n\n      <ng-template #productdetailsSection>\n        <div class=\"container\">\n          <div class=\"cardDetails\">\n            <div class=\"container-fliud\">\n              <div class=\"wrapper row\">\n                <div class=\"preview col-md-12\">\n\n                  <div class=\"preview-pic tab-content\">\n                    <ng-container  *ngFor=\"let item of detailedImages; index as i\">\n                        <div [ngClass]=\"{'active': i == setCurrentIndexImage}\" class=\"tab-pane\" id=\"pic-1\" *ngIf=\"item.extension != 'mp4'\">\n                          <img  [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" />\n                        </div>\n                        <div [ngClass]=\"{'active': i == setCurrentIndexImage}\" class=\"tab-pane\" id=\"pic-1\" *ngIf=\"item.extension == 'mp4'\">\n                              <video width=\"420\" height=\"240\" controls>\n                                <source  [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" type=\"video/mp4\"/>\n\n                              </video>\n                        </div>\n                  </ng-container>\n                  </div>\n                  <ul class=\"preview-thumbnail nav nav-tabs\">\n                    <ng-container  *ngFor=\"let item of detailedImages; index as i\">\n                    <li [ngClass]=\"{'active': i == setCurrentIndexImage}\"  *ngIf=\"item.extension != 'mp4'\" (click)=\"setCurrentImage(i)\" ><a data-target=\"#pic-1\" data-toggle=\"tab\" >\n                       <img  [src]=\"api.delear+ 'uploads/comunication/medium/'+ item.name\" /></a>\n                      </li>\n                      <li [ngClass]=\"{'active': i == setCurrentIndexImage}\"  *ngIf=\"item.extension == 'mp4'\" (click)=\"setCurrentImage(i)\" ><a data-target=\"#pic-1\" data-toggle=\"tab\" >\n                        <img  src=\"../../../assets/images/videoThumbnail.jpg\" height=\"177\"/></a>\n                       </li>\n                    </ng-container>\n                  </ul>\n\n                </div>\n                <div class=\"details col-md-12\">\n                  <h3 class=\"product-title\">{{detailPageData.name}}</h3>\n                  <div class=\"rating\">\n                    <div class=\"stars\">\n                      <span class=\"fa fa-star detailStar checked\"></span>\n                      <span class=\"fa fa-star detailStar checked\"></span>\n                      <span class=\"fa fa-star detailStar checked\"></span>\n                      <span class=\"fa fa-star detailStar \"></span>\n                      <span class=\"fa fa-star detailStar\"></span>\n                    </div>\n                    <span class=\"review-no\">41 reviews</span>\n                  </div>\n\n                  <h4 class=\"price\">price: <span>&#x20B9; {{detailPageData.price}}</span></h4>\n\n                  <!-- <h5 class=\"sizes\">sizes:\n                    <span class=\"size\" data-toggle=\"tooltip\" title=\"small\">s</span>\n                    <span class=\"size\" data-toggle=\"tooltip\" title=\"medium\">m</span>\n                    <span class=\"size\" data-toggle=\"tooltip\" title=\"large\">l</span>\n                    <span class=\"size\" data-toggle=\"tooltip\" title=\"xtra large\">xl</span>\n                  </h5>\n                  <h5 class=\"colors\">colors:\n                    <span class=\"color orange not-available\" data-toggle=\"tooltip\" title=\"Not In store\"></span>\n                    <span class=\"color green\"></span>\n                    <span class=\"color blue\"></span>\n                  </h5> -->\n                  <div class=\"action\">\n                    <button class=\"add-to-cart btn btn-default\" type=\"button\">add to cart</button>\n\n                  </div>\n                  <p class=\"product-description\" [innerHTML]=\"detailPageData.description | safeHtml\"></p>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"row justify-content-center mx-0 mx-md-auto\">\n            <div class=\"col-lg-12 col-md-11 px-1 px-sm-2\">\n                <div class=\"card border-0 px-3\">\n                    <!-- top row -->\n\n                      <ng-template [ngIf]=\"detailPageData.comment != undefined && detailPageData.comment.length > 0\">\n                    <div class=\"review p-2\" *ngFor=\"let com of detailPageData.comment; index as i\">\n                        <div class=\"row d-flex\">\n                            <div class=\"profile-pic\">{{com.associationId}}</div>\n                            <div class=\"d-flex flex-column pl-3\">\n                                <h5>{{com.senderName}}</h5>\n                                <p class=\"grey-text\">{{com.createdOn | date: 'mediumDate'}}</p>\n                            </div>\n                        </div>\n                        <div class=\"row pb-1 ml-5\">\n                            <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 0}\"></span>\n                            <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 1}\"></span>\n                            <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 2}\"></span>\n                            <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 3}\"></span>\n                            <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 4}\"></span>\n                        </div>\n                        <div class=\"row pb-1 ml-5\">\n                            <p>{{com.reveiw}}</p>\n                        </div>\n\n                    </div>\n                  </ng-template>\n\n                </div>\n            </div>\n        </div>\n\n        </div>\n      </ng-template>\n  </ng-template>\n</div>\n\n<app-side-bar></app-side-bar>\n<ng-template #playVideo>\n  <div class=\"modal-header\">\n\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n\n          <video width=\"420\" height=\"240\" controls>\n            <source  [src]=\"api.delear+ 'uploads/comunication/'+ setImageName\" type=\"video/mp4\">\n\n          </video>\n\n\n      </div>\n\n    </div>\n\n  </div>\n</ng-template>\n\n<ng-template #uploadingFolder>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Uploading Image</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n        <div class=\"slideshow-container\">\n          <div class=\"mySlides\">\n            <div class=\"progress\">\n              <div class=\"progress-bar\" role=\"progressbar\"  [style.width]=\"imageUploadPercent + '%'\">\n                <span class=\"sr-only\">{{imageUploadPercent}} % Complete</span>\n              </div>\n            </div>\n            <div class=\"card-body sliderBody ml-1\"> {{imageUploadPercent}} % completed </div>\n            </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</ng-template>\n";
+    __webpack_exports__["default"] = " <div class=\"container\">\n  <div class=\"page-header\">\n    <div class=\"row\">\n          <div class=\"col-12 mt-2 mb-2\">\n            <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger ml-2\" (click)=\"myproduct(true)\">Add Product</button></span>\n            <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger ml-2\" (click)=\"myproduct(false)\">Listing</button></span>\n            <span style=\"float: right;\"><button type=\"button\" class=\"btn btn-danger\" (click)=\"myorders()\">My Orders</button></span>\n          </div>\n      </div>\n  </div>\n<ng-template [ngIf]= \"!myOrderStatus\" [ngIfElse]=\"myOrderStatus1\">\n      <ng-template [ngIf]= \"addClassifiedTemplate\" [ngIfElse]=\"classifiedListing\">\n        <div class=\"container\" style=\"background-color: #fff;\">\n              <form [formGroup]=\"classifiedForm\" class=\"form-horizontal\">\n                <div class=\"row\">\n                  <div class=\"col-12\">\n                      <div class=\"form-group\">\n                        <label for=\"memberId\" class=\"control-label\">Item name</label>\n                        <input type=\"text\" formControlName=\"name\" class=\"form-control\" id=\"memberId\"/>\n\n                      </div>\n                      <div class=\"form-group\">\n                          <label for=\"categoryId\" class=\"control-label\">Category</label>\n                          <select class=\"form-control\"   formControlName=\"category\" id=\"categoryId\" (change)=\"selectCategory($event.target.value)\">\n                            <option value=\"\" >Select</option>\n                            <option value=\"category1\">Electronics</option>\n                            <option value=\"category2\">Furniture</option>\n                            <option value=\"category3\">Automobile </option>\n                            <option value=\"category4\">Home Applicances</option>\n                            <option value=\"category5\">Apartment</option>\n                            <option value=\"category6\">Fashion</option>\n                            <option value=\"category7\">Books</option>\n                            <option value=\"category8\">Sports </option>\n                            <option value=\"category9\">Others </option>\n                          </select>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"categoryId\" class=\"control-label\">Sub Category</label>\n                        <select class=\"form-control\"   formControlName=\"subcategory\" id=\"categoryId\">\n                          <option value=\"\" >Select</option>\n                          <option *ngFor=\"let obj of objArray\" [value]=\"obj.value\">{{obj.name}}</option>\n                        </select>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"categoryId\" class=\"control-label\">Brand</label>\n                        <input type=\"text\" formControlName=\"brand\" class=\"form-control\" id=\"brandId\"/>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"priceId\" class=\"control-label\">Price</label>\n                        <input type=\"number\" formControlName=\"price\" class=\"form-control\" id=\"priceId\"/>\n                      </div>\n\n                      <div class=\"form-group\">\n                        <label for=\"descriptionId\" class=\"control-label\">Description</label>\n                        <angular-editor [placeholder]=\"'Enter text here...'\" formControlName=\"description\"  [config]=\"editorConfig\"></angular-editor>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantityId\" class=\"control-label\">Quantity</label>\n                        <input type=\"number\" formControlName=\"quantity\" class=\"form-control\" id=\"quantityId\"/>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantityId\" class=\"control-label\">Key Features one</label>\n                        <input type=\"text\" formControlName=\"keyFeatureOne\" class=\"form-control\" id=\"quantityId\"/>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantityId\" class=\"control-label\">Key Features two</label>\n                        <input type=\"text\" formControlName=\"keyFeatureTwo\" class=\"form-control\" id=\"quantityId\"/>\n                      </div>\n                      <div class=\"form-group\">\n                        <label for=\"quantityId\" class=\"control-label\">Key Features three</label>\n                        <input type=\"text\" formControlName=\"keyFeatureThree\" class=\"form-control\" id=\"quantityId\"/>\n                      </div>\n\n                      <div class=\"form-group\">\n                          <input class=\"form-check-input com ml-2\" type=\"checkbox\"   name=\"committee\" formControlName=\"showNumber\"/>\n                          <label class=\"form-check-label ml-4\">\n                              You want to show you number\n                          </label>\n                      </div>\n                    </div>\n              </div>\n                <div class=\"row\">\n                      <div class=\"col-12 form-group\">\n                        <label for=\"file-upload\" class=\"custom-file-upload caption\"> Add Image </label>\n                        <input id=\"file-upload\" type=\"file\" (change)=\"uploadClassifiedattachment($event)\" accept=\"image/x-png, image/jpeg\"/>\n                      </div>\n                      <span style=\"color: #aa0000;\" *ngIf=\"imgURL == 0\">At least one image is required</span>\n                  </div>\n                  <div class=\"row\"  *ngIf=\"uploadedVideo == ''\">\n                    <div class=\"col-12 form-group\">\n                      <label for=\"file-upload1\" class=\"custom-file-upload caption\"> Add Video </label>\n                      <input id=\"file-upload1\" type=\"file\" (change)=\"uploadClassifiedVideo($event, uploadingFolder)\" accept=\"video/mp4\"/>\n                    </div>\n                  </div>\n                  <div class=\"row\" *ngIf=\"!editProductStatus\">\n                      <div class=\"col-12 form-group\">\n\n                        <ul class=\"nav mt-2\">\n                          <ng-container  *ngFor=\"let item of imgURL; index as i\">\n                            <li class=\"ml-2\">\n                              <div style=\"position:relative;\">\n                                <button type=\"submit\" class=\"close AClass\"  (click)=\"removeClassified(i)\">\n                                  <span>&times;</span>\n                                </button>\n\n                                <img [src]=\"item\" height=\"200\" width=\"200\"/>\n                            </div>\n                            </li>\n\n                          </ng-container>\n                        </ul>\n                      </div>\n                  </div>\n                  <div class=\"row\" *ngIf=\"editProductStatus\">\n                    <div class=\"col-12 form-group\">\n\n                      <ul class=\"nav mt-2\">\n                        <ng-container  *ngFor=\"let item of imgURL; index as i\">\n                          <li class=\"ml-2\" *ngIf=\"item.extension != 'mp4'\">\n                            <div style=\"position:relative;\">\n                              <button type=\"submit\" class=\"close AClass\"  (click)=\"removeClassified(i)\">\n                                <span>&times;</span>\n                              </button>\n\n                              <img *ngIf=\"item.name == undefined\" [src]=\"item\" height=\"200\" width=\"200\"/>\n                              <img *ngIf=\"item.name != undefined\" [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" height=\"200\" width=\"200\"/>\n                          </div>\n                          </li>\n\n                        </ng-container>\n                      </ul>\n\n                    </div>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-12 form-group\" *ngIf=\"uploadedVideo != ''\">\n                    <img src=\"../../../assets/images/videoThumbnail.jpg\" (click)=\"openVideo(playVideo, {'name': uploadedVideo})\" height=\"80px\" width=\"80px\"/>\n                    {{uploadedVideo}} <span class=\"close\"    (click)=\"removeVideo(i)\">&times;</span>\n                  </div>\n                    <div class=\"col-12 mt-2\">\n                      <div class=\"form-group\">\n\n                        <button type=\"button\"  *ngIf=\"!editProductStatus\" class=\"btn setColor mb-2\" [disabled]=\"(!classifiedForm.valid || imgURL.length == 0)\" (click)=\"addProduct(uploadingFolder)\">Submit</button>\n                        <button type=\"button\"  *ngIf=\"editProductStatus\" class=\"btn setColor mb-2\" [disabled]=\"(!classifiedForm.valid || imgURL.length == 0)\" (click)=\"addProduct(uploadingFolder)\">Submit</button>\n                      </div>\n                    </div>\n                </div>\n\n                </form>\n            </div>\n      </ng-template>\n      <ng-template #classifiedListing>\n        <ng-template [ngIf]= \"detailClassifiedStatus\" [ngIfElse]=\"productdetailsSection\">\n          <div class=\"row\">\n            <div class=\"col-md-4 col-sm-12\" *ngFor=\"let item of allProduct; index as i;\">\n              <div class=\"container1\">\n                <div class=\"card\">\n                  <div class=\"card-head\">\n                    <img [src]=\"api.delear+'uploads/comunication/medium/'+item.doc.fileName[0].name\" alt=\"logo\" class=\"card-logo\">\n                  </div>\n                  <div class=\"card-body\">\n                    <div class=\"product-desc\">\n                      <span class=\"product-title\">\n                             {{item.doc.name}}\n                              <span class=\"badge\">\n                                &#x20B9;<b>{{item.doc.price}}</b>\n\n                              </span>\n                              <div class=\"popover__wrapper\" *ngIf=\"item.listPrice.length > 1\">\n                                <a> <h2 class=\"popover__title\">see other offers</h2> </a>\n                                <div class=\"popover__content\">\n                                  <p class=\"popover__message\" *ngFor=\"let priceList of item.listPrice\">\n                                    &#x20B9; {{priceList.price}} by {{priceList.ownerName}}\n                                  </p>\n                                </div>\n                              </div>\n\n                      </span>\n                      <span class=\"product-caption\">\n                             Brand: <b> {{item.doc.brand}}</b>\n                            </span>\n                        <span class=\"product-rating\">\n                          <div class=\"star-rating\" (click)=\"showRatingPercentage(Rating,item.doc.comment)\">\n                              <div class=\"back-stars\">\n                                  <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                  <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                  <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                  <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                  <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n\n                                  <div class=\"front-stars\" [style.width.%]=\"((item.averageRating/5)*100)\">\n                                      <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                      <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                      <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                      <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                      <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                  </div>\n                              </div>\n                          </div>\n                        </span>\n                    </div>\n                    <div class=\"product-properties\">\n                      <span class=\"product-size\">\n                              <h4><b>Key Features</b></h4>\n\n                              <span class=\"cardDiv product-caption\">\n                               {{item?.doc.keyFeatureOne}}\n                              </span>\n                              <span class=\"cardDiv product-caption\">\n                                {{item?.doc.keyFeatureTwo}}\n                              </span>\n                              <span class=\"cardDiv product-caption\">\n                                {{item?.doc.keyFeatureThree}}\n                              </span>\n                            </span>\n\n                    </div>\n                    <div class=\"row\">\n                      <div class=\"col-4\">\n                        <span class=\"setColor mt-2 ml-3 float-right btn\" (click)=\"deleteProduct(item._id,i)\">\n                          Delete\n                        </span>\n\n                        </div>\n                        <div class=\"col-4\">\n                          <span class=\"setColor mt-2 float-right btn\" (click)=\"detailProduct(item)\">\n                            Detail\n                          </span>\n                        </div>\n                        <div class=\"col-4\">\n                          <span class=\"setColor mt-2 float-right btn\" (click)=\"editProduct(item)\">\n                                Edit\n                                </span>\n                                </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n\n            </div>\n            <div class=\"col-4\"></div>\n            <div class=\"col-4\"></div>\n\n          </div>\n          </ng-template>\n\n          <ng-template #productdetailsSection>\n            <div class=\"container\">\n              <div class=\"cardDetails\">\n                <div class=\"container-fliud\">\n                  <div class=\"wrapper row\">\n                    <div class=\"preview col-md-12\">\n\n                      <div class=\"preview-pic tab-content\">\n                        <ng-container  *ngFor=\"let item of detailedImages; index as i\">\n                            <div [ngClass]=\"{'active': i == setCurrentIndexImage}\" class=\"tab-pane\" id=\"pic-1\" *ngIf=\"item.extension != 'mp4'\">\n                              <img  [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" />\n                            </div>\n                            <div [ngClass]=\"{'active': i == setCurrentIndexImage}\" class=\"tab-pane\" id=\"pic-1\" *ngIf=\"item.extension == 'mp4'\">\n                                  <video width=\"420\" height=\"240\" controls>\n                                    <source  [src]=\"api.delear+ 'uploads/comunication/'+ item.name\" type=\"video/mp4\"/>\n\n                                  </video>\n                            </div>\n                      </ng-container>\n                      </div>\n                      <ul class=\"preview-thumbnail nav nav-tabs\">\n                        <ng-container  *ngFor=\"let item of detailedImages; index as i\">\n                        <li [ngClass]=\"{'active': i == setCurrentIndexImage}\"  *ngIf=\"item.extension != 'mp4'\" (click)=\"setCurrentImage(i)\" ><a data-target=\"#pic-1\" data-toggle=\"tab\" >\n                           <img  [src]=\"api.delear+ 'uploads/comunication/medium/'+ item.name\" /></a>\n                          </li>\n                          <li [ngClass]=\"{'active': i == setCurrentIndexImage}\"  *ngIf=\"item.extension == 'mp4'\" (click)=\"setCurrentImage(i)\" ><a data-target=\"#pic-1\" data-toggle=\"tab\" >\n                            <img  src=\"../../../assets/images/videoThumbnail.jpg\" height=\"177\"/></a>\n                           </li>\n                        </ng-container>\n                      </ul>\n\n                    </div>\n                    <div class=\"details col-md-12\">\n                      <h3 class=\"product-title\">{{detailPageData.doc.name}}</h3>\n                      <div class=\"rating\">\n                        <span class=\"product-rating\">\n                              <div class=\"star-rating\" (click)=\"showRatingPercentage(Rating,detailPageData.doc.comment)\">\n                                <div class=\"back-stars\">\n                                    <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    <div class=\"front-stars\" [style.width.%]=\"ratingPercentage\">\n                                        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                                    </div>\n                                </div>\n                            </div>\n                          </span>\n                      </div>\n                      <div class=\"rating mt-2\">  <span class=\"review-no\">{{detailPageData.doc?.comment.length}} reviews</span></div>\n                      <h4 class=\"price mt-2\">price: <span>&#x20B9; {{detailPageData.doc.price}}</span></h4>\n\n                      <p class=\"product-description\" [innerHTML]=\"detailPageData.doc.description | safeHtml\"></p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n\n                <div class=\"row justify-content-center mx-0 mx-md-auto\">\n                    <div class=\"col-lg-12 col-md-11 px-1 px-sm-2\">\n                        <div class=\"card border-0 px-3\">\n\n                              <ng-template [ngIf]=\"detailPageData.doc.comment != undefined && detailPageData.doc.comment.length > 0\">\n                                  <div class=\"review p-2\" *ngFor=\"let com of detailPageData.doc.comment; index as i\">\n                                      <div class=\"row d-flex\">\n                                          <div class=\"profile-pic\">{{com.associationId}}</div>\n                                          <div class=\"d-flex flex-column pl-3\">\n                                              <h5>{{com.senderName}}</h5>\n                                              <p class=\"grey-text\">{{com.createdOn | date: 'mediumDate'}}</p>\n                                          </div>\n                                      </div>\n                                      <div class=\"row pb-1 ml-5\">\n                                          <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 0}\"></span>\n                                          <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 1}\"></span>\n                                          <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 2}\"></span>\n                                          <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 3}\"></span>\n                                          <span class=\"fa fa-star detailStar\" [ngClass]=\"{'checked':  com.rating > 4}\"></span>\n                                      </div>\n                                      <div class=\"row pb-1 ml-5\">\n                                          <p>{{com.reveiw}}</p>\n                                      </div>\n\n                                  </div>\n                                </ng-template>\n\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n          </ng-template>\n      </ng-template>\n</ng-template>\n<ng-template #myOrderStatus1>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n        <div class=\"topnav\">\n          <a [ngClass]=\"currentTab == 1 ? 'active' : ''\" (click)=\"changeTab(1, 'open')\">Open</a>\n          <a [ngClass]=\"currentTab == 2 ? 'active' : ''\" (click)=\"changeTab(2, 'close')\">Closed</a>\n          <a [ngClass]=\"currentTab == 3 ? 'active' : ''\" (click)=\"changeTab(3, 'invoicerequestByretailer')\">Accepted by Retailer</a>\n          <a [ngClass]=\"currentTab == 4 ? 'active' : ''\" (click)=\"changeTab(4, 'rejectByRetailer')\">Reject by Retailer</a>\n          <a [ngClass]=\"currentTab == 5 ? 'active' : ''\" (click)=\"changeTab(5, 'rejectByMerchant')\">Reject by Me</a>\n\n        </div>\n      </div>\n    </div>\n    <div class=\"row mt-3\">\n      <div class=\"col-md-4 col-sm-12 mt-2\" *ngFor=\"let item of orderList; index as i\">\n\n        <div class=\"cardmerchant\">\n          <h5>{{item.senderName}}</h5>\n          <p class=\"pricemercahnt\"> &#x20B9; <b>{{item.totalamount}}</b></p>\n          <p class=\"merchantName\">  {{item.senderNumber}}</p>\n         <div class=\"row mt-2\" *ngFor=\"let p of item.cart| keyvalue\">\n           <div class=\"col-2\">\n            <svg *ngIf=\"item.list[p.key] != undefined\" _ngcontent-shv-c64=\"\"  xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"#00a94f\" class=\"mr-1 pl-1\"><path _ngcontent-shv-c64=\"\" fill=\"#00a94f\" d=\"M11,3a8,8,0,1,0,8,8,7,7,0,0,0-.423-2.519l-1,.981A6.228,6.228,0,0,1,17.769,11,6.769,6.769,0,1,1,11,4.231a6.591,6.591,0,0,1,4.673,1.9l.865-.865A7.806,7.806,0,0,0,11,3Zm6.942,2.635L11,12.577,8.365,9.942l-.885.885L10.558,13.9l.442.423.442-.423,7.385-7.385Z\" transform=\"translate(-3 -3)\"></path></svg>\n            <svg *ngIf=\"item.list[p.key] == undefined\" version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" fill=\"#E64A19\"\n              width=\"16.926px\" height=\"16.926px\" viewBox=\"0 0 94.926 94.926\" style=\"enable-background:new 0 0 94.926 94.926;\"\n              xml:space=\"preserve\" class=\"mr-1 pl-1\">\n              <g>\n                <path d=\"M55.931,47.463L94.306,9.09c0.826-0.827,0.826-2.167,0-2.994L88.833,0.62C88.436,0.224,87.896,0,87.335,0\n                  c-0.562,0-1.101,0.224-1.498,0.62L47.463,38.994L9.089,0.62c-0.795-0.795-2.202-0.794-2.995,0L0.622,6.096\n                  c-0.827,0.827-0.827,2.167,0,2.994l38.374,38.373L0.622,85.836c-0.827,0.827-0.827,2.167,0,2.994l5.473,5.476\n                  c0.397,0.396,0.936,0.62,1.498,0.62s1.1-0.224,1.497-0.62l38.374-38.374l38.374,38.374c0.397,0.396,0.937,0.62,1.498,0.62\n                  s1.101-0.224,1.498-0.62l5.473-5.476c0.826-0.827,0.826-2.167,0-2.994L55.931,47.463z\"/>\n              </g>\n\n           </svg>\n           </div>\n           <div class=\"col-6\">\n            {{p.key}}\n           </div>\n           <div class=\"col-4\" *ngIf=\"item.list[p.key] != undefined\">  &#x20B9;  {{item.list[p.key] }}</div>\n           <div class=\"col-4\" *ngIf=\"item.list[p.key] == undefined\">  N/A</div>\n          </div>\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'open'\">\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(item._id, 'acceptedByMerchant', i)\">Accept</button></p>\n            </div>\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(item._id, 'rejectByMerchant', i)\">Reject</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'acceptedByMerchant'\">\n            <div class=\"col-12\">\n              <p><button> Waiting for Retailer</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'invoicerequestByretailer'\">\n            <div class=\"col-6\">\n              <p><button  (click)=\"InvoiceSend(item, 'close', i)\">Send Invoice</button></p>\n            </div>\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(item._id, 'rejectByMerchant', i)\">Reject</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'close'\">\n            <div class=\"col-12\">\n              <p><button>Closed</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'rejectByMerchant'\">\n            <div class=\"col-12\">\n              <p><button>Rejected</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'rejectByRetailer'\">\n            <div class=\"col-12\">\n             <p><button>Reject by Retailer</button></p>\n           </div>\n         </div>\n          <!-- <div class=\"row mt-2\" *ngIf=\"item.status == 'rejectByRetailer'\">\n            <div class=\"col-12\">\n              <p><button>Reject by retailer</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'rejectByMerchant'\">\n             <div class=\"col-12\">\n              <p><button>Reject by Merchant</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'invoicerequestByretailer'\">\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(false, item._id, i)\">Generate Invoice</button></p>\n            </div>\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(false, item._id, i)\">Reject</button></p>\n            </div>\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'acceptByMerchant'\">\n            <div class=\"col-12\">\n              <p><button>Waiting for Retailer</button></p>\n            </div>\n\n          </div>\n\n          <div class=\"row mt-2\" *ngIf=\"item.status == 'Invoice'\">\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(true, item._id, i)\">Accept</button></p>\n            </div>\n            <div class=\"col-6\">\n              <p><button  (click)=\"updateStatus(false, item._id, i)\">Reject</button></p>\n            </div>\n          </div> -->\n\n        </div>\n      </div>\n    </div>\n\n  </div>\n</ng-template>\n    </div>\n\n\n\n<app-side-bar></app-side-bar>\n<ng-template #playVideo>\n  <div class=\"modal-header\">\n\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n\n          <video width=\"420\" height=\"240\" controls>\n            <source  [src]=\"api.delear+ 'uploads/comunication/'+ setImageName\" type=\"video/mp4\">\n\n          </video>\n\n\n      </div>\n\n    </div>\n\n  </div>\n</ng-template>\n\n<ng-template #uploadingFolder>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title pull-left\">Uploading Image</h4>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div class=\"row\">\n      <div class=\"col-12\">\n        <div class=\"slideshow-container\">\n          <div class=\"mySlides\">\n            <div class=\"progress\">\n              <div class=\"progress-bar\" role=\"progressbar\"  [style.width]=\"imageUploadPercent + '%'\">\n                <span class=\"sr-only\">{{imageUploadPercent}} % Complete</span>\n              </div>\n            </div>\n            <div class=\"card-body sliderBody ml-1\"> {{imageUploadPercent}} % completed </div>\n            </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</ng-template>\n";
     /***/
   },
 
@@ -4048,7 +1995,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n@import url(\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\");\n@charset \"UTF-8\";\n.custom-file-upload {\n  border: 1px solid #ccc;\n  display: inline-block;\n  padding: 6px 12px;\n  cursor: pointer;\n}\ninput[type=file] {\n  display: none;\n}\n.setColor {\n  background-color: #AA0000 !important;\n  color: #ffffff;\n}\n.container1 {\n  width: 300px;\n  height: auto;\n  margin: 30px auto;\n}\n.card {\n  border-radius: 25px;\n  box-shadow: -11px 11px 1px rgba(255, 253, 253, 0.3);\n}\n.card-head {\n  height: 200px;\n  border-radius: 25px 25px 0 0;\n}\n.product-img {\n  left: 0;\n}\n.product-detail {\n  padding: 0 20px;\n  font-size: 11px;\n  color: #fff;\n}\n.product-detail h2 {\n  font-size: 18px;\n  font-weight: 500;\n  letter-spacing: 2px;\n  padding-bottom: 10px;\n  text-transform: capitalize;\n}\n.back-text {\n  display: inline-block;\n  font-size: 125px;\n  font-weight: 900;\n  margin-left: -7px;\n  margin-top: -12px;\n  opacity: 0.1;\n}\n.card-body {\n  height: 300px;\n  background: #fff;\n  border-radius: 0 0 25px 25px;\n}\n.product-title {\n  padding: 20px 20px 5px 20px;\n  display: block;\n  font-size: 17px;\n  font-weight: 500;\n  letter-spacing: 1px;\n  text-transform: capitalize;\n}\n.product-title b {\n  font-weight: 900;\n  letter-spacing: 0px;\n}\n.badge {\n  position: relative;\n  font-size: 14px;\n  font-weight: 300;\n  color: #fff;\n  background: #dc3545;\n  padding: 12px 15px;\n  border-radius: 4px;\n  top: -2px;\n  margin-left: 5px;\n}\n.product-caption {\n  display: block;\n  padding: 0 20px;\n  font-size: 15px;\n  font-weight: 400;\n  text-transform: capitalize;\n}\n.product-rating {\n  padding: 0 20px;\n  font-size: 11px;\n}\n.product-rating i.grey {\n  color: #cece15;\n}\n.product-size h4 {\n  font-size: 15px;\n  padding: 0 21px;\n  margin-top: 15px;\n  padding-bottom: 10px;\n  text-transform: uppercase;\n}\n.ul-size {\n  margin-left: 15px;\n}\n.ul-size li {\n  list-style: none;\n  float: left;\n  margin-right: 20px;\n}\n.ul-size li a {\n  display: block;\n  text-decoration: none;\n  font-size: 11px;\n  width: 22px;\n  height: 22px;\n  border-radius: 100%;\n  text-align: center;\n  line-height: 23px;\n  color: #000;\n}\n.ul-size li a.active {\n  background: #f35e3d;\n  color: #fff;\n}\n.product-size:before,\n.product-size:after {\n  content: \"\";\n  display: block;\n  clear: both;\n}\n.product-color h4 {\n  font-size: 11px;\n  padding: 0 21px;\n  margin-top: 20px;\n  padding-bottom: 20px;\n  text-transform: uppercase;\n}\n.ul-color {\n  margin-left: 27px;\n}\n.ul-color li {\n  list-style: none;\n  float: left;\n  margin-right: 20px;\n}\n.ul-color li a {\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  border-radius: 100%;\n}\n.ul-color li a.orange {\n  background: #f35e3d;\n}\n.ul-color li a.green {\n  background: #dc3545;\n}\n.ul-color li a.yellow {\n  background: #ffd414;\n}\n.ul-color li a.active:after {\n  position: absolute;\n  content: \"\";\n  display: inline-block;\n  border: 1px solid #f35e3d;\n  width: 24px;\n  height: 24px;\n  border-radius: 100%;\n  margin-left: -5px;\n  margin-top: -5px;\n}\n.product-price {\n  background: #dc3545;\n  padding: 7px 20px;\n  text-align: center;\n  display: inline-block;\n  font-size: 15px;\n  font-weight: 200;\n  color: #fff;\n  border-radius: 7px;\n  margin-top: -13px;\n  margin-left: -5px;\n  box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);\n}\n.product-price b {\n  margin-left: 5px;\n}\n.yt {\n  position: fixed;\n  padding: 7px 10px 3px 10px;\n  top: 5px;\n  right: 5px;\n  background: rgba(0, 0, 0, 0.1);\n}\n.yt:hover {\n  background: rgba(0, 0, 0, 0.2);\n}\n.Plusbutton {\n  background-color: #dc3545;\n  border: none;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 12px;\n  margin: 4px 2px;\n  width: 20px;\n  height: 20px;\n}\n.button5 {\n  border-radius: 50%;\n}\n.input-number {\n  width: 50% !important;\n  flex: 1 1 0%;\n}\n.checked {\n  color: orange;\n}\n.fa-star {\n  cursor: pointer;\n  font-size: 25px;\n}\n/***************** Detail Page *************************/\n.preview {\n  display: flex;\n  flex-direction: column;\n}\n@media screen and (max-width: 996px) {\n  .preview {\n    margin-bottom: 20px;\n  }\n}\n.preview-pic {\n  flex-grow: 1;\n}\n.preview-thumbnail.nav-tabs {\n  border: none;\n  margin-top: 15px;\n}\n.preview-thumbnail.nav-tabs li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.preview-thumbnail.nav-tabs li img {\n  max-width: 100%;\n  display: block;\n  height: 177px !important;\n}\n.preview-thumbnail.nav-tabs li a {\n  padding: 0;\n  margin: 0;\n}\n.preview-thumbnail.nav-tabs li:last-of-type {\n  margin-right: 0;\n}\n.tab-content {\n  overflow: hidden;\n}\n.tab-content img {\n  width: 100%;\n  -webkit-animation-name: opacity;\n  animation-name: opacity;\n  -webkit-animation-duration: 0.3s;\n  animation-duration: 0.3s;\n}\n.cardDetails {\n  margin-top: 50px;\n  background: #eee;\n  padding: 3em;\n  line-height: 1.5em;\n}\n@media screen and (min-width: 997px) {\n  .wrapper {\n    display: flex;\n  }\n}\n.details {\n  display: flex;\n  flex-direction: column;\n}\n.colors {\n  flex-grow: 1;\n}\n.product-title, .price, .sizes, .colors {\n  text-transform: capitalize;\n  font-weight: bold;\n}\n.checked, .price span {\n  color: #ff9f1a;\n}\n.product-title {\n  margin-top: 0;\n}\n.size {\n  margin-right: 10px;\n}\n.size:first-of-type {\n  margin-left: 40px;\n}\n.color {\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  height: 2em;\n  width: 2em;\n  border-radius: 2px;\n}\n.color:first-of-type {\n  margin-left: 20px;\n}\n.add-to-cart, .like {\n  background: #ff9f1a;\n  padding: 1.2em 1.5em;\n  border: none;\n  text-transform: UPPERCASE;\n  font-weight: bold;\n  color: #fff;\n  transition: background 0.3s ease;\n}\n.add-to-cart:hover, .like:hover {\n  background: #b36800;\n  color: #fff;\n}\n.not-available {\n  text-align: center;\n  line-height: 2em;\n}\n.not-available:before {\n  font-family: fontawesome;\n  content: \"\";\n  color: #fff;\n}\n.orange {\n  background: #ff9f1a;\n}\n.green {\n  background: #85ad00;\n}\n.blue {\n  background: #0076ad;\n}\n.tooltip-inner {\n  padding: 1.3em;\n}\n@-webkit-keyframes opacity {\n  0% {\n    opacity: 0;\n    transform: scale(3);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n@keyframes opacity {\n  0% {\n    opacity: 0;\n    transform: scale(3);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n/*# sourceMappingURL=style.css.map */\n.star {\n  font-size: 12px;\n}\n.detailStar {\n  font-size: 15px;\n}\n.btn {\n  cursor: pointer;\n}\n.sm-text {\n  font-size: 10px;\n  letter-spacing: 1px;\n}\n.sm-text-1 {\n  font-size: 14px;\n}\n.green-tab {\n  background-color: #00C853;\n  color: #fff;\n  border-radius: 5px;\n  padding: 5px 3px 5px 3px;\n}\n.btn-red {\n  background-color: #E64A19;\n  color: #fff;\n  border-radius: 20px;\n  border: none;\n  outline: none;\n}\n.btn-red:hover {\n  background-color: #BF360C;\n}\n.btn-red:focus {\n  box-shadow: none !important;\n  outline-width: 0;\n}\n.round-icon {\n  font-size: 40px;\n  padding-bottom: 10px;\n}\n.fa-circle {\n  font-size: 10px;\n  color: #EEEEEF;\n}\n.green-dot {\n  color: #4CAF50;\n}\n.red-dot {\n  color: #E64A19;\n}\n.yellow-dot {\n  color: #FFD54F;\n}\n.grey-text {\n  color: #BDBDBD;\n}\n.green-text {\n  color: #4CAF50;\n}\n.block {\n  border-right: 1px solid #F5EEEE;\n  border-top: 1px solid #F5EEEE;\n  border-bottom: 1px solid #F5EEEE;\n}\n.profile-pic img {\n  border-radius: 50%;\n}\n.rating-dot {\n  letter-spacing: 5px;\n}\n.via {\n  border-radius: 20px;\n  height: 28px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hvcGluZy9hZGRwcm9kdWN0L0M6XFxVc2Vyc1xcQWJoaXNoZWsuU2F4ZW5hMVxcRGVza3RvcFxccHJha2FzaFxcc2hvZWRlbGl2ZXJ5RnJvbnRFbmQvc3JjXFxhcHBcXHNob3BpbmdcXGFkZHByb2R1Y3RcXGFkZHByb2R1Y3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3Nob3BpbmcvYWRkcHJvZHVjdC9hZGRwcm9kdWN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBUSxpR0FBQTtBQ0FSLGdCQUFnQjtBRENoQjtFQUNFLHNCQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUNFRjtBREFBO0VBQ0UsYUFBQTtBQ0dGO0FEREE7RUFDRSxvQ0FBQTtFQUNBLGNBQUE7QUNJRjtBRERBO0VBQ0UsWUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtBQ0lGO0FEREE7RUFDRSxtQkFBQTtFQUNBLG1EQUFBO0FDSUY7QUREQTtFQUVFLGFBQUE7RUFFQSw0QkFBQTtBQ0VGO0FER0E7RUFFRSxPQUFBO0FDREY7QURLQTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtBQ0ZGO0FES0E7RUFDRSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtFQUNBLG9CQUFBO0VBQ0EsMEJBQUE7QUNGRjtBREtBO0VBQ0UscUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7QUNGRjtBREtBO0VBQ0UsYUFBQTtFQUNBLGdCQUFBO0VBQ0EsNEJBQUE7QUNGRjtBREtBO0VBQ0UsMkJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFDQSwwQkFBQTtBQ0ZGO0FES0E7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0FDRkY7QURLQTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxnQkFBQTtBQ0ZGO0FEaUJBO0VBQ0UsY0FBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSwwQkFBQTtBQ2RGO0FEaUJBO0VBQ0UsZUFBQTtFQUNBLGVBQUE7QUNkRjtBRGlCQTtFQUNFLGNBQUE7QUNkRjtBRGlCQTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLHlCQUFBO0FDZEY7QURpQkE7RUFDRSxpQkFBQTtBQ2RGO0FEaUJBO0VBQ0UsZ0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNkRjtBRGlCQTtFQUNFLGNBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLFdBQUE7QUNkRjtBRGlCQTtFQUNFLG1CQUFBO0VBQ0EsV0FBQTtBQ2RGO0FEaUJBOztFQUVFLFdBQUE7RUFDQSxjQUFBO0VBQ0EsV0FBQTtBQ2RGO0FEaUJBO0VBQ0UsZUFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLG9CQUFBO0VBQ0EseUJBQUE7QUNkRjtBRGlCQTtFQUNFLGlCQUFBO0FDZEY7QURpQkE7RUFDRSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ2RGO0FEaUJBO0VBQ0UscUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDZEY7QURpQkE7RUFDRSxtQkFBQTtBQ2RGO0FEaUJBO0VBQ0UsbUJBQUE7QUNkRjtBRGlCQTtFQUNFLG1CQUFBO0FDZEY7QURpQkE7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNkRjtBRGlCQTtFQUNFLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLHdEQUFBO0FDZEY7QURpQkE7RUFDRSxnQkFBQTtBQ2RGO0FEbUJBO0VBRUUsZUFBQTtFQUNBLDBCQUFBO0VBQ0EsUUFBQTtFQUNBLFVBQUE7RUFDQSw4QkFBQTtBQ2pCRjtBRG9CQTtFQUVFLDhCQUFBO0FDbEJGO0FEcURBO0VBQ0UseUJBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUVBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNFLFlBQUE7QUNuREo7QURzREE7RUFBVSxrQkFBQTtBQ2xEVjtBRG9EQTtFQUNFLHFCQUFBO0VBQ0EsWUFBQTtBQ2pERjtBRG1EQTtFQUNFLGFBQUE7QUNoREY7QURrREE7RUFDRSxlQUFBO0VBQ0EsZUFBQTtBQy9DRjtBRG1EQSx3REFBQTtBQUNBO0VBSUUsYUFBQTtFQUtRLHNCQUFBO0FDaERWO0FEaURFO0VBQ0U7SUFDRSxtQkFBQTtFQzlDSjtBQUNGO0FEK0NBO0VBSVUsWUFBQTtBQzdDVjtBRCtDQTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtBQzVDRjtBRDZDRTtFQUNFLFVBQUE7RUFDQSxrQkFBQTtBQzFDSjtBRDJDSTtFQUNFLGVBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7QUN4Q047QUQwQ0k7RUFDRSxVQUFBO0VBQ0EsU0FBQTtBQ3ZDTjtBRHdDSTtFQUNFLGVBQUE7QUNyQ047QUR1Q0E7RUFDRSxnQkFBQTtBQ3BDRjtBRHFDRTtFQUNFLFdBQUE7RUFDQSwrQkFBQTtFQUNRLHVCQUFBO0VBQ1IsZ0NBQUE7RUFDUSx3QkFBQTtBQ2xDWjtBRG9DQTtFQUNFLGdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNqQ0Y7QURtQ0E7RUFDRTtJQUlFLGFBQUE7RUNoQ0Y7QUFDRjtBRGlDQTtFQUlFLGFBQUE7RUFLUSxzQkFBQTtBQy9CVjtBRGlDQTtFQUlVLFlBQUE7QUM5QlY7QURnQ0E7RUFDRSwwQkFBQTtFQUNBLGlCQUFBO0FDN0JGO0FEK0JBO0VBQ0UsY0FBQTtBQzVCRjtBRGlDQTtFQUNFLGFBQUE7QUM5QkY7QURnQ0E7RUFDRSxrQkFBQTtBQzdCRjtBRDhCRTtFQUNFLGlCQUFBO0FDM0JKO0FENkJBO0VBQ0UscUJBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtBQzFCRjtBRDJCRTtFQUNFLGlCQUFBO0FDeEJKO0FEMEJBO0VBQ0UsbUJBQUE7RUFDQSxvQkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtFQUNBLGlCQUFBO0VBQ0EsV0FBQTtFQUVRLGdDQUFBO0FDdkJWO0FEd0JFO0VBQ0UsbUJBQUE7RUFDQSxXQUFBO0FDckJKO0FEdUJBO0VBQ0Usa0JBQUE7RUFDQSxnQkFBQTtBQ3BCRjtBRHFCRTtFQUNFLHdCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNsQko7QURvQkE7RUFDRSxtQkFBQTtBQ2pCRjtBRG1CQTtFQUNFLG1CQUFBO0FDaEJGO0FEa0JBO0VBQ0UsbUJBQUE7QUNmRjtBRGlCQTtFQUNFLGNBQUE7QUNkRjtBRGdCQTtFQUNFO0lBQ0UsVUFBQTtJQUVRLG1CQUFBO0VDYlY7RURjQTtJQUNFLFVBQUE7SUFFUSxtQkFBQTtFQ1pWO0FBQ0Y7QURhQTtFQUNFO0lBQ0UsVUFBQTtJQUVRLG1CQUFBO0VDWFY7RURZQTtJQUNFLFVBQUE7SUFFUSxtQkFBQTtFQ1ZWO0FBQ0Y7QURXQSxvQ0FBQTtBQUVBO0VBQ0UsZUFBQTtBQ1ZGO0FEYUE7RUFDRSxlQUFBO0FDVkY7QURZQTtFQUNFLGVBQUE7QUNURjtBRGFBO0VBQ0UsZUFBQTtFQUNBLG1CQUFBO0FDVkY7QURhQTtFQUNFLGVBQUE7QUNWRjtBRGFBO0VBQ0UseUJBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSx3QkFBQTtBQ1ZGO0FEYUE7RUFDRSx5QkFBQTtFQUNBLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0FDVkY7QURhQTtFQUNFLHlCQUFBO0FDVkY7QURhQTtFQUdFLDJCQUFBO0VBQ0EsZ0JBQUE7QUNWRjtBRGFBO0VBQ0UsZUFBQTtFQUNBLG9CQUFBO0FDVkY7QURhQTtFQUNFLGVBQUE7RUFDQSxjQUFBO0FDVkY7QURhQTtFQUNFLGNBQUE7QUNWRjtBRGFBO0VBQ0UsY0FBQTtBQ1ZGO0FEYUE7RUFDRSxjQUFBO0FDVkY7QURhQTtFQUNFLGNBQUE7QUNWRjtBRGFBO0VBQ0UsY0FBQTtBQ1ZGO0FEYUE7RUFDRSwrQkFBQTtFQUNBLDZCQUFBO0VBQ0EsZ0NBQUE7QUNWRjtBRGFBO0VBQ0Usa0JBQUE7QUNWRjtBRGFBO0VBQ0UsbUJBQUE7QUNWRjtBRGFBO0VBQ0UsbUJBQUE7RUFDQSxZQUFBO0FDVkYiLCJmaWxlIjoic3JjL2FwcC9zaG9waW5nL2FkZHByb2R1Y3QvYWRkcHJvZHVjdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvZm9udC1hd2Vzb21lLzQuNy4wL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzc1wiKTtcclxuLmN1c3RvbS1maWxlLXVwbG9hZCB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgcGFkZGluZzogNnB4IDEycHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbmlucHV0W3R5cGU9XCJmaWxlXCJdIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5zZXRDb2xvciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI0FBMDAwMCAhaW1wb3J0YW50O1xyXG4gIGNvbG9yOiAjZmZmZmZmO1xyXG59XHJcblxyXG4uY29udGFpbmVyMSB7XHJcbiAgd2lkdGg6IDMwMHB4O1xyXG4gIGhlaWdodDogYXV0bztcclxuICBtYXJnaW46IDMwcHggYXV0bztcclxufVxyXG5cclxuLmNhcmQge1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgYm94LXNoYWRvdzogLTExcHggMTFweCAxcHggcmdiYSgyNTUsIDI1MywgMjUzLCAwLjMpO1xyXG59XHJcblxyXG4uY2FyZC1oZWFkIHtcclxuXHJcbiAgaGVpZ2h0OiAyMDBweDtcclxuXHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAyNXB4IDAgMDtcclxufVxyXG5cclxuXHJcblxyXG4ucHJvZHVjdC1pbWcge1xyXG5cclxuICBsZWZ0OiAwO1xyXG5cclxufVxyXG5cclxuLnByb2R1Y3QtZGV0YWlsIHtcclxuICBwYWRkaW5nOiAwIDIwcHg7XHJcbiAgZm9udC1zaXplOiAxMXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG59XHJcblxyXG4ucHJvZHVjdC1kZXRhaWwgaDIge1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG4gIGxldHRlci1zcGFjaW5nOiAycHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XHJcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbn1cclxuXHJcbi5iYWNrLXRleHQge1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXNpemU6IDEyNXB4O1xyXG4gIGZvbnQtd2VpZ2h0OiA5MDA7XHJcbiAgbWFyZ2luLWxlZnQ6IC03cHg7XHJcbiAgbWFyZ2luLXRvcDogLTEycHg7XHJcbiAgb3BhY2l0eTogMC4xO1xyXG59XHJcblxyXG4uY2FyZC1ib2R5IHtcclxuICBoZWlnaHQ6IDMwMHB4O1xyXG4gIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgYm9yZGVyLXJhZGl1czogMCAwIDI1cHggMjVweDtcclxufVxyXG5cclxuLnByb2R1Y3QtdGl0bGUge1xyXG4gIHBhZGRpbmc6IDIwcHggMjBweCA1cHggMjBweDtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBmb250LXNpemU6IDE3cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICBsZXR0ZXItc3BhY2luZzogMXB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG59XHJcblxyXG4ucHJvZHVjdC10aXRsZSBiIHtcclxuICBmb250LXdlaWdodDogOTAwO1xyXG4gIGxldHRlci1zcGFjaW5nOiAwcHg7XHJcbn1cclxuXHJcbi5iYWRnZSB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxuICBmb250LXdlaWdodDogMzAwO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XHJcbiAgcGFkZGluZzogMTJweCAxNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICB0b3A6IC0ycHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxufVxyXG5cclxuLy8gLnJhdGluZyB7XHJcbi8vICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4vLyAgIGZvbnQtc2l6ZTogMTFweDtcclxuLy8gICBmb250LXdlaWdodDogMzAwO1xyXG4vLyAgIGNvbG9yOiAjZmZmO1xyXG4vLyAgIGJhY2tncm91bmQ6ICNkYzM1NDU7XHJcbi8vICAgcGFkZGluZzogNXB4IDVweDtcclxuLy8gICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbi8vICAgdG9wOiAtMnB4O1xyXG4vLyAgIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbi8vIH1cclxuXHJcbi5wcm9kdWN0LWNhcHRpb24ge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHBhZGRpbmc6IDAgMjBweDtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcclxufVxyXG5cclxuLnByb2R1Y3QtcmF0aW5nIHtcclxuICBwYWRkaW5nOiAwIDIwcHg7XHJcbiAgZm9udC1zaXplOiAxMXB4O1xyXG59XHJcblxyXG4ucHJvZHVjdC1yYXRpbmcgaS5ncmV5IHtcclxuICBjb2xvcjogI2NlY2UxNTtcclxufVxyXG5cclxuLnByb2R1Y3Qtc2l6ZSBoNCB7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG4gIHBhZGRpbmc6IDAgMjFweDtcclxuICBtYXJnaW4tdG9wOiAxNXB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxuXHJcbi51bC1zaXplIHtcclxuICBtYXJnaW4tbGVmdDogMTVweDtcclxufVxyXG5cclxuLnVsLXNpemUgbGkge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG59XHJcblxyXG4udWwtc2l6ZSBsaSBhIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZm9udC1zaXplOiAxMXB4O1xyXG4gIHdpZHRoOiAyMnB4O1xyXG4gIGhlaWdodDogMjJweDtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBsaW5lLWhlaWdodDogMjNweDtcclxuICBjb2xvcjogIzAwMDtcclxufVxyXG5cclxuLnVsLXNpemUgbGkgYS5hY3RpdmUge1xyXG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XHJcbiAgY29sb3I6ICNmZmY7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXNpemU6YmVmb3JlLFxyXG4ucHJvZHVjdC1zaXplOmFmdGVyIHtcclxuICBjb250ZW50OiAnJztcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBjbGVhcjogYm90aDtcclxufVxyXG5cclxuLnByb2R1Y3QtY29sb3IgaDQge1xyXG4gIGZvbnQtc2l6ZTogMTFweDtcclxuICBwYWRkaW5nOiAwIDIxcHg7XHJcbiAgbWFyZ2luLXRvcDogMjBweDtcclxuICBwYWRkaW5nLWJvdHRvbTogMjBweDtcclxuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG59XHJcblxyXG4udWwtY29sb3Ige1xyXG4gIG1hcmdpbi1sZWZ0OiAyN3B4O1xyXG59XHJcblxyXG4udWwtY29sb3IgbGkge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG59XHJcblxyXG4udWwtY29sb3IgbGkgYSB7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIHdpZHRoOiAxNnB4O1xyXG4gIGhlaWdodDogMTZweDtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG59XHJcblxyXG4udWwtY29sb3IgbGkgYS5vcmFuZ2Uge1xyXG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSBhLmdyZWVuIHtcclxuICBiYWNrZ3JvdW5kOiAjZGMzNTQ1O1xyXG59XHJcblxyXG4udWwtY29sb3IgbGkgYS55ZWxsb3cge1xyXG4gIGJhY2tncm91bmQ6ICNmZmQ0MTQ7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSBhLmFjdGl2ZTphZnRlciB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGNvbnRlbnQ6ICcnO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZjM1ZTNkO1xyXG4gIHdpZHRoOiAyNHB4O1xyXG4gIGhlaWdodDogMjRweDtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNXB4O1xyXG4gIG1hcmdpbi10b3A6IC01cHg7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXByaWNlIHtcclxuICBiYWNrZ3JvdW5kOiAjZGMzNTQ1O1xyXG4gIHBhZGRpbmc6IDdweCAyMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG4gIGZvbnQtd2VpZ2h0OiAyMDA7XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xyXG4gIG1hcmdpbi10b3A6IC0xM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtNXB4O1xyXG4gIGJveC1zaGFkb3c6IC0xMHB4IDIwcHggMTVweCAtMTBweCByZ2JhKDE3LCAyMzMsIDkxLCAwLjMpO1xyXG59XHJcblxyXG4ucHJvZHVjdC1wcmljZSBiIHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcblxyXG5cclxuXHJcbi55dFxyXG57XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHBhZGRpbmc6N3B4IDEwcHggM3B4IDEwcHg7XHJcbiAgdG9wOiA1cHg7XHJcbiAgcmlnaHQ6IDVweDtcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsMCwwLDAuMSk7XHJcbn1cclxuXHJcbi55dDpob3ZlclxyXG57XHJcbiAgYmFja2dyb3VuZDogcmdiYSgwLDAsMCwwLjIpO1xyXG59XHJcblxyXG4vLyAucXVhbnRpdHkge1xyXG4vLyAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuLy8gfVxyXG5cclxuLy8gaW5wdXRbdHlwZT1udW1iZXJdOjotd2Via2l0LWlubmVyLXNwaW4tYnV0dG9uLFxyXG4vLyBpbnB1dFt0eXBlPW51bWJlcl06Oi13ZWJraXQtb3V0ZXItc3Bpbi1idXR0b25cclxuLy8ge1xyXG4vLyAgIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcclxuLy8gICBtYXJnaW46IDA7XHJcbi8vIH1cclxuXHJcbi8vIGlucHV0W3R5cGU9bnVtYmVyXVxyXG4vLyB7XHJcbi8vICAgLW1vei1hcHBlYXJhbmNlOiB0ZXh0ZmllbGQ7XHJcbi8vIH1cclxuXHJcbi8vIC5xdWFudGl0eSBpbnB1dCB7XHJcbi8vICAgd2lkdGg6IDI1cHg7XHJcbi8vICAgaGVpZ2h0OiAyMHB4O1xyXG4vLyAgIGxpbmUtaGVpZ2h0OiAxLjY1O1xyXG4vLyAgIGZsb2F0OiBsZWZ0O1xyXG4vLyAgIGRpc3BsYXk6IGJsb2NrO1xyXG4vLyAgIHBhZGRpbmc6IDA7XHJcbi8vICAgbWFyZ2luOiAwO1xyXG4vLyAgIHBhZGRpbmctbGVmdDogMjBweDtcclxuLy8gICBib3JkZXI6IDFweCBzb2xpZCAjZWVlO1xyXG4vLyB9XHJcblxyXG4vLyAucXVhbnRpdHkgaW5wdXQ6Zm9jdXMge1xyXG4vLyAgIG91dGxpbmU6IDA7XHJcbi8vIH1cclxuXHJcbi5QbHVzYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGMzNTQ1O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcblxyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxuICBtYXJnaW46IDRweCAycHg7XHJcbiAgd2lkdGg6IDIwcHg7XHJcbiAgICBoZWlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi5idXR0b241IHtib3JkZXItcmFkaXVzOiA1MCU7fVxyXG5cclxuLmlucHV0LW51bWJlciB7XHJcbiAgd2lkdGg6IDUwJSAhaW1wb3J0YW50O1xyXG4gIGZsZXg6IDEgMSAwJTtcclxufVxyXG4uY2hlY2tlZCB7XHJcbiAgY29sb3I6IG9yYW5nZTtcclxufVxyXG4uZmEtc3RhciB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIGZvbnQtc2l6ZTogMjVweDtcclxufVxyXG5cclxuXHJcbi8qKioqKioqKioqKioqKioqKiBEZXRhaWwgUGFnZSAqKioqKioqKioqKioqKioqKioqKioqKioqL1xyXG4ucHJldmlldyB7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1mbGV4O1xyXG4gIGRpc3BsYXk6IC1tcy1mbGV4Ym94O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcclxuICAtd2Via2l0LWJveC1kaXJlY3Rpb246IG5vcm1hbDtcclxuICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICAgIC1tcy1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDk5NnB4KSB7XHJcbiAgICAucHJldmlldyB7XHJcbiAgICAgIG1hcmdpbi1ib3R0b206IDIwcHg7IH0gfVxyXG5cclxuLnByZXZpZXctcGljIHtcclxuICAtd2Via2l0LWJveC1mbGV4OiAxO1xyXG4gIC13ZWJraXQtZmxleC1ncm93OiAxO1xyXG4gICAgICAtbXMtZmxleC1wb3NpdGl2ZTogMTtcclxuICAgICAgICAgIGZsZXgtZ3JvdzogMTsgfVxyXG5cclxuLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIHtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgbWFyZ2luLXRvcDogMTVweDsgfVxyXG4gIC5wcmV2aWV3LXRodW1ibmFpbC5uYXYtdGFicyBsaSB7XHJcbiAgICB3aWR0aDogMTglO1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAyLjUlOyB9XHJcbiAgICAucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgaW1nIHtcclxuICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgICAgaGVpZ2h0OiAxNzdweCAgIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIC5wcmV2aWV3LXRodW1ibmFpbC5uYXYtdGFicyBsaSBhIHtcclxuICAgICAgcGFkZGluZzogMDtcclxuICAgICAgbWFyZ2luOiAwOyB9XHJcbiAgICAucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGk6bGFzdC1vZi10eXBlIHtcclxuICAgICAgbWFyZ2luLXJpZ2h0OiAwOyB9XHJcblxyXG4udGFiLWNvbnRlbnQge1xyXG4gIG92ZXJmbG93OiBoaWRkZW47IH1cclxuICAudGFiLWNvbnRlbnQgaW1nIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgLXdlYmtpdC1hbmltYXRpb24tbmFtZTogb3BhY2l0eTtcclxuICAgICAgICAgICAgYW5pbWF0aW9uLW5hbWU6IG9wYWNpdHk7XHJcbiAgICAtd2Via2l0LWFuaW1hdGlvbi1kdXJhdGlvbjogLjNzO1xyXG4gICAgICAgICAgICBhbmltYXRpb24tZHVyYXRpb246IC4zczsgfVxyXG5cclxuLmNhcmREZXRhaWxzIHtcclxuICBtYXJnaW4tdG9wOiA1MHB4O1xyXG4gIGJhY2tncm91bmQ6ICNlZWU7XHJcbiAgcGFkZGluZzogM2VtO1xyXG4gIGxpbmUtaGVpZ2h0OiAxLjVlbTsgfVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogOTk3cHgpIHtcclxuICAud3JhcHBlciB7XHJcbiAgICBkaXNwbGF5OiAtd2Via2l0LWJveDtcclxuICAgIGRpc3BsYXk6IC13ZWJraXQtZmxleDtcclxuICAgIGRpc3BsYXk6IC1tcy1mbGV4Ym94O1xyXG4gICAgZGlzcGxheTogZmxleDsgfSB9XHJcblxyXG4uZGV0YWlscyB7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1mbGV4O1xyXG4gIGRpc3BsYXk6IC1tcy1mbGV4Ym94O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcclxuICAtd2Via2l0LWJveC1kaXJlY3Rpb246IG5vcm1hbDtcclxuICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICAgIC1tcy1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG5cclxuLmNvbG9ycyB7XHJcbiAgLXdlYmtpdC1ib3gtZmxleDogMTtcclxuICAtd2Via2l0LWZsZXgtZ3JvdzogMTtcclxuICAgICAgLW1zLWZsZXgtcG9zaXRpdmU6IDE7XHJcbiAgICAgICAgICBmbGV4LWdyb3c6IDE7IH1cclxuXHJcbi5wcm9kdWN0LXRpdGxlLCAucHJpY2UsIC5zaXplcywgLmNvbG9ycyB7XHJcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7IH1cclxuXHJcbi5jaGVja2VkLCAucHJpY2Ugc3BhbiB7XHJcbiAgY29sb3I6ICNmZjlmMWE7IH1cclxuXHJcbi8vIC5wcm9kdWN0LXRpdGxlLCAucmF0aW5nLCAucHJvZHVjdC1kZXNjcmlwdGlvbiwgLnByaWNlLCAudm90ZSwgLnNpemVzIHtcclxuLy8gICBtYXJnaW4tYm90dG9tOiAxNXB4OyB9XHJcblxyXG4ucHJvZHVjdC10aXRsZSB7XHJcbiAgbWFyZ2luLXRvcDogMDsgfVxyXG5cclxuLnNpemUge1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDsgfVxyXG4gIC5zaXplOmZpcnN0LW9mLXR5cGUge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDQwcHg7IH1cclxuXHJcbi5jb2xvciB7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gIGhlaWdodDogMmVtO1xyXG4gIHdpZHRoOiAyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogMnB4OyB9XHJcbiAgLmNvbG9yOmZpcnN0LW9mLXR5cGUge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7IH1cclxuXHJcbi5hZGQtdG8tY2FydCwgLmxpa2Uge1xyXG4gIGJhY2tncm91bmQ6ICNmZjlmMWE7XHJcbiAgcGFkZGluZzogMS4yZW0gMS41ZW07XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIHRleHQtdHJhbnNmb3JtOiBVUFBFUkNBU0U7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBiYWNrZ3JvdW5kIC4zcyBlYXNlO1xyXG4gICAgICAgICAgdHJhbnNpdGlvbjogYmFja2dyb3VuZCAuM3MgZWFzZTsgfVxyXG4gIC5hZGQtdG8tY2FydDpob3ZlciwgLmxpa2U6aG92ZXIge1xyXG4gICAgYmFja2dyb3VuZDogI2IzNjgwMDtcclxuICAgIGNvbG9yOiAjZmZmOyB9XHJcblxyXG4ubm90LWF2YWlsYWJsZSB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGxpbmUtaGVpZ2h0OiAyZW07IH1cclxuICAubm90LWF2YWlsYWJsZTpiZWZvcmUge1xyXG4gICAgZm9udC1mYW1pbHk6IGZvbnRhd2Vzb21lO1xyXG4gICAgY29udGVudDogXCJcXGYwMGRcIjtcclxuICAgIGNvbG9yOiAjZmZmOyB9XHJcblxyXG4ub3JhbmdlIHtcclxuICBiYWNrZ3JvdW5kOiAjZmY5ZjFhOyB9XHJcblxyXG4uZ3JlZW4ge1xyXG4gIGJhY2tncm91bmQ6ICM4NWFkMDA7IH1cclxuXHJcbi5ibHVlIHtcclxuICBiYWNrZ3JvdW5kOiAjMDA3NmFkOyB9XHJcblxyXG4udG9vbHRpcC1pbm5lciB7XHJcbiAgcGFkZGluZzogMS4zZW07IH1cclxuXHJcbkAtd2Via2l0LWtleWZyYW1lcyBvcGFjaXR5IHtcclxuICAwJSB7XHJcbiAgICBvcGFjaXR5OiAwO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDMpO1xyXG4gICAgICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDMpOyB9XHJcbiAgMTAwJSB7XHJcbiAgICBvcGFjaXR5OiAxO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDEpO1xyXG4gICAgICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDEpOyB9IH1cclxuXHJcbkBrZXlmcmFtZXMgb3BhY2l0eSB7XHJcbiAgMCUge1xyXG4gICAgb3BhY2l0eTogMDtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgzKTtcclxuICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgzKTsgfVxyXG4gIDEwMCUge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgxKTtcclxuICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgxKTsgfSB9XHJcblxyXG4vKiMgc291cmNlTWFwcGluZ1VSTD1zdHlsZS5jc3MubWFwICovXHJcblxyXG4uc3RhciB7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcblxyXG4uZGV0YWlsU3RhciB7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcbi5idG4ge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuXHJcbi5zbS10ZXh0IHtcclxuICBmb250LXNpemU6IDEwcHg7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IDFweFxyXG59XHJcblxyXG4uc20tdGV4dC0xIHtcclxuICBmb250LXNpemU6IDE0cHhcclxufVxyXG5cclxuLmdyZWVuLXRhYiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwQzg1MztcclxuICBjb2xvcjogI2ZmZjtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgcGFkZGluZzogNXB4IDNweCA1cHggM3B4XHJcbn1cclxuXHJcbi5idG4tcmVkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRTY0QTE5O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIG91dGxpbmU6IG5vbmVcclxufVxyXG5cclxuLmJ0bi1yZWQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNCRjM2MENcclxufVxyXG5cclxuLmJ0bi1yZWQ6Zm9jdXMge1xyXG4gIC1tb3otYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xyXG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICBvdXRsaW5lLXdpZHRoOiAwXHJcbn1cclxuXHJcbi5yb3VuZC1pY29uIHtcclxuICBmb250LXNpemU6IDQwcHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDEwcHhcclxufVxyXG5cclxuLmZhLWNpcmNsZSB7XHJcbiAgZm9udC1zaXplOiAxMHB4O1xyXG4gIGNvbG9yOiAjRUVFRUVGXHJcbn1cclxuXHJcbi5ncmVlbi1kb3Qge1xyXG4gIGNvbG9yOiAjNENBRjUwXHJcbn1cclxuXHJcbi5yZWQtZG90IHtcclxuICBjb2xvcjogI0U2NEExOVxyXG59XHJcblxyXG4ueWVsbG93LWRvdCB7XHJcbiAgY29sb3I6ICNGRkQ1NEZcclxufVxyXG5cclxuLmdyZXktdGV4dCB7XHJcbiAgY29sb3I6ICNCREJEQkRcclxufVxyXG5cclxuLmdyZWVuLXRleHQge1xyXG4gIGNvbG9yOiAjNENBRjUwXHJcbn1cclxuXHJcbi5ibG9jayB7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI0Y1RUVFRTtcclxuICBib3JkZXItdG9wOiAxcHggc29saWQgI0Y1RUVFRTtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI0Y1RUVFRVxyXG59XHJcblxyXG4ucHJvZmlsZS1waWMgaW1nIHtcclxuICBib3JkZXItcmFkaXVzOiA1MCVcclxufVxyXG5cclxuLnJhdGluZy1kb3Qge1xyXG4gIGxldHRlci1zcGFjaW5nOiA1cHhcclxufVxyXG5cclxuLnZpYSB7XHJcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcclxuICBoZWlnaHQ6IDI4cHhcclxufVxyXG4iLCJAY2hhcnNldCBcIlVURi04XCI7XG5AaW1wb3J0IHVybChcImh0dHBzOi8vY2RuanMuY2xvdWRmbGFyZS5jb20vYWpheC9saWJzL2ZvbnQtYXdlc29tZS80LjcuMC9jc3MvZm9udC1hd2Vzb21lLm1pbi5jc3NcIik7XG4uY3VzdG9tLWZpbGUtdXBsb2FkIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwYWRkaW5nOiA2cHggMTJweDtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG5pbnB1dFt0eXBlPWZpbGVdIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLnNldENvbG9yIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0FBMDAwMCAhaW1wb3J0YW50O1xuICBjb2xvcjogI2ZmZmZmZjtcbn1cblxuLmNvbnRhaW5lcjEge1xuICB3aWR0aDogMzAwcHg7XG4gIGhlaWdodDogYXV0bztcbiAgbWFyZ2luOiAzMHB4IGF1dG87XG59XG5cbi5jYXJkIHtcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgYm94LXNoYWRvdzogLTExcHggMTFweCAxcHggcmdiYSgyNTUsIDI1MywgMjUzLCAwLjMpO1xufVxuXG4uY2FyZC1oZWFkIHtcbiAgaGVpZ2h0OiAyMDBweDtcbiAgYm9yZGVyLXJhZGl1czogMjVweCAyNXB4IDAgMDtcbn1cblxuLnByb2R1Y3QtaW1nIHtcbiAgbGVmdDogMDtcbn1cblxuLnByb2R1Y3QtZGV0YWlsIHtcbiAgcGFkZGluZzogMCAyMHB4O1xuICBmb250LXNpemU6IDExcHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4ucHJvZHVjdC1kZXRhaWwgaDIge1xuICBmb250LXNpemU6IDE4cHg7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGxldHRlci1zcGFjaW5nOiAycHg7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbn1cblxuLmJhY2stdGV4dCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgZm9udC1zaXplOiAxMjVweDtcbiAgZm9udC13ZWlnaHQ6IDkwMDtcbiAgbWFyZ2luLWxlZnQ6IC03cHg7XG4gIG1hcmdpbi10b3A6IC0xMnB4O1xuICBvcGFjaXR5OiAwLjE7XG59XG5cbi5jYXJkLWJvZHkge1xuICBoZWlnaHQ6IDMwMHB4O1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBib3JkZXItcmFkaXVzOiAwIDAgMjVweCAyNXB4O1xufVxuXG4ucHJvZHVjdC10aXRsZSB7XG4gIHBhZGRpbmc6IDIwcHggMjBweCA1cHggMjBweDtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XG59XG5cbi5wcm9kdWN0LXRpdGxlIGIge1xuICBmb250LXdlaWdodDogOTAwO1xuICBsZXR0ZXItc3BhY2luZzogMHB4O1xufVxuXG4uYmFkZ2Uge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XG4gIHBhZGRpbmc6IDEycHggMTVweDtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xuICB0b3A6IC0ycHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG5cbi5wcm9kdWN0LWNhcHRpb24ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgcGFkZGluZzogMCAyMHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xufVxuXG4ucHJvZHVjdC1yYXRpbmcge1xuICBwYWRkaW5nOiAwIDIwcHg7XG4gIGZvbnQtc2l6ZTogMTFweDtcbn1cblxuLnByb2R1Y3QtcmF0aW5nIGkuZ3JleSB7XG4gIGNvbG9yOiAjY2VjZTE1O1xufVxuXG4ucHJvZHVjdC1zaXplIGg0IHtcbiAgZm9udC1zaXplOiAxNXB4O1xuICBwYWRkaW5nOiAwIDIxcHg7XG4gIG1hcmdpbi10b3A6IDE1cHg7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4udWwtc2l6ZSB7XG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xufVxuXG4udWwtc2l6ZSBsaSB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG4gIGZsb2F0OiBsZWZ0O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi51bC1zaXplIGxpIGEge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LXNpemU6IDExcHg7XG4gIHdpZHRoOiAyMnB4O1xuICBoZWlnaHQ6IDIycHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbGluZS1oZWlnaHQ6IDIzcHg7XG4gIGNvbG9yOiAjMDAwO1xufVxuXG4udWwtc2l6ZSBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4ucHJvZHVjdC1zaXplOmJlZm9yZSxcbi5wcm9kdWN0LXNpemU6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgY2xlYXI6IGJvdGg7XG59XG5cbi5wcm9kdWN0LWNvbG9yIGg0IHtcbiAgZm9udC1zaXplOiAxMXB4O1xuICBwYWRkaW5nOiAwIDIxcHg7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4udWwtY29sb3Ige1xuICBtYXJnaW4tbGVmdDogMjdweDtcbn1cblxuLnVsLWNvbG9yIGxpIHtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgZmxvYXQ6IGxlZnQ7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnVsLWNvbG9yIGxpIGEge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHdpZHRoOiAxNnB4O1xuICBoZWlnaHQ6IDE2cHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG59XG5cbi51bC1jb2xvciBsaSBhLm9yYW5nZSB7XG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XG59XG5cbi51bC1jb2xvciBsaSBhLmdyZWVuIHtcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcbn1cblxuLnVsLWNvbG9yIGxpIGEueWVsbG93IHtcbiAgYmFja2dyb3VuZDogI2ZmZDQxNDtcbn1cblxuLnVsLWNvbG9yIGxpIGEuYWN0aXZlOmFmdGVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNmMzVlM2Q7XG4gIHdpZHRoOiAyNHB4O1xuICBoZWlnaHQ6IDI0cHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG4gIG1hcmdpbi1sZWZ0OiAtNXB4O1xuICBtYXJnaW4tdG9wOiAtNXB4O1xufVxuXG4ucHJvZHVjdC1wcmljZSB7XG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XG4gIHBhZGRpbmc6IDdweCAyMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgZm9udC1zaXplOiAxNXB4O1xuICBmb250LXdlaWdodDogMjAwO1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xuICBtYXJnaW4tdG9wOiAtMTNweDtcbiAgbWFyZ2luLWxlZnQ6IC01cHg7XG4gIGJveC1zaGFkb3c6IC0xMHB4IDIwcHggMTVweCAtMTBweCByZ2JhKDE3LCAyMzMsIDkxLCAwLjMpO1xufVxuXG4ucHJvZHVjdC1wcmljZSBiIHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbn1cblxuLnl0IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBwYWRkaW5nOiA3cHggMTBweCAzcHggMTBweDtcbiAgdG9wOiA1cHg7XG4gIHJpZ2h0OiA1cHg7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC4xKTtcbn1cblxuLnl0OmhvdmVyIHtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjIpO1xufVxuXG4uUGx1c2J1dHRvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkYzM1NDU7XG4gIGJvcmRlcjogbm9uZTtcbiAgY29sb3I6IHdoaXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDEycHg7XG4gIG1hcmdpbjogNHB4IDJweDtcbiAgd2lkdGg6IDIwcHg7XG4gIGhlaWdodDogMjBweDtcbn1cblxuLmJ1dHRvbjUge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5pbnB1dC1udW1iZXIge1xuICB3aWR0aDogNTAlICFpbXBvcnRhbnQ7XG4gIGZsZXg6IDEgMSAwJTtcbn1cblxuLmNoZWNrZWQge1xuICBjb2xvcjogb3JhbmdlO1xufVxuXG4uZmEtc3RhciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1zaXplOiAyNXB4O1xufVxuXG4vKioqKioqKioqKioqKioqKiogRGV0YWlsIFBhZ2UgKioqKioqKioqKioqKioqKioqKioqKioqKi9cbi5wcmV2aWV3IHtcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIGRpc3BsYXk6IC13ZWJraXQtZmxleDtcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIC13ZWJraXQtYm94LW9yaWVudDogdmVydGljYWw7XG4gIC13ZWJraXQtYm94LWRpcmVjdGlvbjogbm9ybWFsO1xuICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIC1tcy1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTZweCkge1xuICAucHJldmlldyB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgfVxufVxuLnByZXZpZXctcGljIHtcbiAgLXdlYmtpdC1ib3gtZmxleDogMTtcbiAgLXdlYmtpdC1mbGV4LWdyb3c6IDE7XG4gIC1tcy1mbGV4LXBvc2l0aXZlOiAxO1xuICBmbGV4LWdyb3c6IDE7XG59XG5cbi5wcmV2aWV3LXRodW1ibmFpbC5uYXYtdGFicyB7XG4gIGJvcmRlcjogbm9uZTtcbiAgbWFyZ2luLXRvcDogMTVweDtcbn1cblxuLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpIHtcbiAgd2lkdGg6IDE4JTtcbiAgbWFyZ2luLXJpZ2h0OiAyLjUlO1xufVxuXG4ucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgaW1nIHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgaGVpZ2h0OiAxNzdweCAhaW1wb3J0YW50O1xufVxuXG4ucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgYSB7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbn1cblxuLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpOmxhc3Qtb2YtdHlwZSB7XG4gIG1hcmdpbi1yaWdodDogMDtcbn1cblxuLnRhYi1jb250ZW50IHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLnRhYi1jb250ZW50IGltZyB7XG4gIHdpZHRoOiAxMDAlO1xuICAtd2Via2l0LWFuaW1hdGlvbi1uYW1lOiBvcGFjaXR5O1xuICBhbmltYXRpb24tbmFtZTogb3BhY2l0eTtcbiAgLXdlYmtpdC1hbmltYXRpb24tZHVyYXRpb246IDAuM3M7XG4gIGFuaW1hdGlvbi1kdXJhdGlvbjogMC4zcztcbn1cblxuLmNhcmREZXRhaWxzIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgYmFja2dyb3VuZDogI2VlZTtcbiAgcGFkZGluZzogM2VtO1xuICBsaW5lLWhlaWdodDogMS41ZW07XG59XG5cbkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDk5N3B4KSB7XG4gIC53cmFwcGVyIHtcbiAgICBkaXNwbGF5OiAtd2Via2l0LWJveDtcbiAgICBkaXNwbGF5OiAtd2Via2l0LWZsZXg7XG4gICAgZGlzcGxheTogLW1zLWZsZXhib3g7XG4gICAgZGlzcGxheTogZmxleDtcbiAgfVxufVxuLmRldGFpbHMge1xuICBkaXNwbGF5OiAtd2Via2l0LWJveDtcbiAgZGlzcGxheTogLXdlYmtpdC1mbGV4O1xuICBkaXNwbGF5OiAtbXMtZmxleGJveDtcbiAgZGlzcGxheTogZmxleDtcbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcbiAgLXdlYmtpdC1ib3gtZGlyZWN0aW9uOiBub3JtYWw7XG4gIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgLW1zLWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5jb2xvcnMge1xuICAtd2Via2l0LWJveC1mbGV4OiAxO1xuICAtd2Via2l0LWZsZXgtZ3JvdzogMTtcbiAgLW1zLWZsZXgtcG9zaXRpdmU6IDE7XG4gIGZsZXgtZ3JvdzogMTtcbn1cblxuLnByb2R1Y3QtdGl0bGUsIC5wcmljZSwgLnNpemVzLCAuY29sb3JzIHtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG4uY2hlY2tlZCwgLnByaWNlIHNwYW4ge1xuICBjb2xvcjogI2ZmOWYxYTtcbn1cblxuLnByb2R1Y3QtdGl0bGUge1xuICBtYXJnaW4tdG9wOiAwO1xufVxuXG4uc2l6ZSB7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbn1cblxuLnNpemU6Zmlyc3Qtb2YtdHlwZSB7XG4gIG1hcmdpbi1sZWZ0OiA0MHB4O1xufVxuXG4uY29sb3Ige1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgaGVpZ2h0OiAyZW07XG4gIHdpZHRoOiAyZW07XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbn1cblxuLmNvbG9yOmZpcnN0LW9mLXR5cGUge1xuICBtYXJnaW4tbGVmdDogMjBweDtcbn1cblxuLmFkZC10by1jYXJ0LCAubGlrZSB7XG4gIGJhY2tncm91bmQ6ICNmZjlmMWE7XG4gIHBhZGRpbmc6IDEuMmVtIDEuNWVtO1xuICBib3JkZXI6IG5vbmU7XG4gIHRleHQtdHJhbnNmb3JtOiBVUFBFUkNBU0U7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogI2ZmZjtcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBiYWNrZ3JvdW5kIDAuM3MgZWFzZTtcbiAgdHJhbnNpdGlvbjogYmFja2dyb3VuZCAwLjNzIGVhc2U7XG59XG5cbi5hZGQtdG8tY2FydDpob3ZlciwgLmxpa2U6aG92ZXIge1xuICBiYWNrZ3JvdW5kOiAjYjM2ODAwO1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLm5vdC1hdmFpbGFibGUge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGxpbmUtaGVpZ2h0OiAyZW07XG59XG5cbi5ub3QtYXZhaWxhYmxlOmJlZm9yZSB7XG4gIGZvbnQtZmFtaWx5OiBmb250YXdlc29tZTtcbiAgY29udGVudDogXCLvgI1cIjtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5vcmFuZ2Uge1xuICBiYWNrZ3JvdW5kOiAjZmY5ZjFhO1xufVxuXG4uZ3JlZW4ge1xuICBiYWNrZ3JvdW5kOiAjODVhZDAwO1xufVxuXG4uYmx1ZSB7XG4gIGJhY2tncm91bmQ6ICMwMDc2YWQ7XG59XG5cbi50b29sdGlwLWlubmVyIHtcbiAgcGFkZGluZzogMS4zZW07XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBvcGFjaXR5IHtcbiAgMCUge1xuICAgIG9wYWNpdHk6IDA7XG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDMpO1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMyk7XG4gIH1cbiAgMTAwJSB7XG4gICAgb3BhY2l0eTogMTtcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMSk7XG4gICAgdHJhbnNmb3JtOiBzY2FsZSgxKTtcbiAgfVxufVxuQGtleWZyYW1lcyBvcGFjaXR5IHtcbiAgMCUge1xuICAgIG9wYWNpdHk6IDA7XG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDMpO1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMyk7XG4gIH1cbiAgMTAwJSB7XG4gICAgb3BhY2l0eTogMTtcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMSk7XG4gICAgdHJhbnNmb3JtOiBzY2FsZSgxKTtcbiAgfVxufVxuLyojIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGUuY3NzLm1hcCAqL1xuLnN0YXIge1xuICBmb250LXNpemU6IDEycHg7XG59XG5cbi5kZXRhaWxTdGFyIHtcbiAgZm9udC1zaXplOiAxNXB4O1xufVxuXG4uYnRuIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uc20tdGV4dCB7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcbn1cblxuLnNtLXRleHQtMSB7XG4gIGZvbnQtc2l6ZTogMTRweDtcbn1cblxuLmdyZWVuLXRhYiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMwMEM4NTM7XG4gIGNvbG9yOiAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDVweCAzcHggNXB4IDNweDtcbn1cblxuLmJ0bi1yZWQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRTY0QTE5O1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcbiAgYm9yZGVyOiBub25lO1xuICBvdXRsaW5lOiBub25lO1xufVxuXG4uYnRuLXJlZDpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNCRjM2MEM7XG59XG5cbi5idG4tcmVkOmZvY3VzIHtcbiAgLW1vei1ib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmUtd2lkdGg6IDA7XG59XG5cbi5yb3VuZC1pY29uIHtcbiAgZm9udC1zaXplOiA0MHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbn1cblxuLmZhLWNpcmNsZSB7XG4gIGZvbnQtc2l6ZTogMTBweDtcbiAgY29sb3I6ICNFRUVFRUY7XG59XG5cbi5ncmVlbi1kb3Qge1xuICBjb2xvcjogIzRDQUY1MDtcbn1cblxuLnJlZC1kb3Qge1xuICBjb2xvcjogI0U2NEExOTtcbn1cblxuLnllbGxvdy1kb3Qge1xuICBjb2xvcjogI0ZGRDU0Rjtcbn1cblxuLmdyZXktdGV4dCB7XG4gIGNvbG9yOiAjQkRCREJEO1xufVxuXG4uZ3JlZW4tdGV4dCB7XG4gIGNvbG9yOiAjNENBRjUwO1xufVxuXG4uYmxvY2sge1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjRjVFRUVFO1xuICBib3JkZXItdG9wOiAxcHggc29saWQgI0Y1RUVFRTtcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNGNUVFRUU7XG59XG5cbi5wcm9maWxlLXBpYyBpbWcge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5yYXRpbmctZG90IHtcbiAgbGV0dGVyLXNwYWNpbmc6IDVweDtcbn1cblxuLnZpYSB7XG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gIGhlaWdodDogMjhweDtcbn0iXX0= */";
+    __webpack_exports__["default"] = "\n@import url(\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\");\n@charset \"UTF-8\";\n.custom-file-upload {\n  border: 1px solid #ccc;\n  display: inline-block;\n  padding: 6px 12px;\n  cursor: pointer;\n}\ninput[type=file] {\n  display: none;\n}\n.setColor {\n  background-color: #AA0000 !important;\n  color: #ffffff;\n}\n.container1 {\n  width: 300px;\n  height: auto;\n  margin: 30px auto;\n}\n.card {\n  border-radius: 25px;\n  box-shadow: -11px 11px 1px rgba(255, 253, 253, 0.3);\n}\n.card-head {\n  height: 200px;\n  border-radius: 25px 25px 0 0;\n}\n.product-img {\n  left: 0;\n}\n.product-detail {\n  padding: 0 20px;\n  font-size: 11px;\n  color: #fff;\n}\n.product-detail h2 {\n  font-size: 18px;\n  font-weight: 500;\n  letter-spacing: 2px;\n  padding-bottom: 10px;\n  text-transform: capitalize;\n}\n.back-text {\n  display: inline-block;\n  font-size: 125px;\n  font-weight: 900;\n  margin-left: -7px;\n  margin-top: -12px;\n  opacity: 0.1;\n}\n.card-body {\n  height: 330px;\n  background: #fff;\n  border-radius: 0 0 25px 25px;\n}\n.product-title {\n  padding: 20px 20px 5px 20px;\n  display: block;\n  font-size: 17px;\n  font-weight: 500;\n  letter-spacing: 1px;\n  text-transform: capitalize;\n}\n.product-title b {\n  font-weight: 900;\n  letter-spacing: 0px;\n}\n.badge {\n  position: relative;\n  font-size: 14px;\n  font-weight: 300;\n  color: #fff;\n  background: #dc3545;\n  padding: 15px 10px;\n  border-radius: 50%;\n  top: -2px;\n  margin-left: 5px;\n  float: right;\n}\n.product-caption {\n  display: block;\n  padding: 0 20px;\n  font-size: 15px;\n  font-weight: 400;\n  text-transform: capitalize;\n}\n.product-rating {\n  float: left;\n  padding-left: 1rem;\n}\n.product-rating i.grey {\n  color: #cece15;\n}\n.product-size h4 {\n  font-size: 15px;\n  padding: 0 21px;\n  margin-top: 15px;\n  padding-bottom: 10px;\n  text-transform: uppercase;\n}\n.ul-size {\n  margin-left: 15px;\n}\n.ul-size li {\n  list-style: none;\n  float: left;\n  margin-right: 20px;\n}\n.ul-size li a {\n  display: block;\n  text-decoration: none;\n  font-size: 11px;\n  width: 22px;\n  height: 22px;\n  border-radius: 100%;\n  text-align: center;\n  line-height: 23px;\n  color: #000;\n}\n.ul-size li a.active {\n  background: #f35e3d;\n  color: #fff;\n}\n.product-size:before,\n.product-size:after {\n  content: \"\";\n  display: block;\n  clear: both;\n}\n.product-color h4 {\n  font-size: 11px;\n  padding: 0 21px;\n  margin-top: 20px;\n  padding-bottom: 20px;\n  text-transform: uppercase;\n}\n.ul-color {\n  margin-left: 27px;\n}\n.ul-color li {\n  list-style: none;\n  float: left;\n  margin-right: 20px;\n}\n.ul-color li a {\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  border-radius: 100%;\n}\n.ul-color li a.orange {\n  background: #f35e3d;\n}\n.ul-color li a.green {\n  background: #dc3545;\n}\n.ul-color li a.yellow {\n  background: #ffd414;\n}\n.ul-color li a.active:after {\n  position: absolute;\n  content: \"\";\n  display: inline-block;\n  border: 1px solid #f35e3d;\n  width: 24px;\n  height: 24px;\n  border-radius: 100%;\n  margin-left: -5px;\n  margin-top: -5px;\n}\n.product-price {\n  background: #dc3545;\n  padding: 7px 20px;\n  text-align: center;\n  display: inline-block;\n  font-size: 15px;\n  font-weight: 200;\n  color: #fff;\n  border-radius: 7px;\n  margin-top: -13px;\n  margin-left: -5px;\n  box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);\n}\n.product-price b {\n  margin-left: 5px;\n}\n.yt {\n  position: fixed;\n  padding: 7px 10px 3px 10px;\n  top: 5px;\n  right: 5px;\n  background: rgba(0, 0, 0, 0.1);\n}\n.yt:hover {\n  background: rgba(0, 0, 0, 0.2);\n}\n.Plusbutton {\n  background-color: #dc3545;\n  border: none;\n  color: white;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 12px;\n  margin: 4px 2px;\n  width: 20px;\n  height: 20px;\n}\n.button5 {\n  border-radius: 50%;\n}\n.input-number {\n  width: 50% !important;\n  flex: 1 1 0%;\n}\n.checked {\n  color: orange;\n}\n.fa-star {\n  cursor: pointer;\n  font-size: 21px;\n}\n/***************** Detail Page *************************/\n.preview {\n  display: flex;\n  flex-direction: column;\n}\n@media screen and (max-width: 996px) {\n  .preview {\n    margin-bottom: 20px;\n  }\n}\n.preview-pic {\n  flex-grow: 1;\n}\n.preview-thumbnail.nav-tabs {\n  border: none;\n  margin-top: 15px;\n}\n.preview-thumbnail.nav-tabs li {\n  width: 18%;\n  margin-right: 2.5%;\n}\n.preview-thumbnail.nav-tabs li img {\n  max-width: 100%;\n  display: block;\n  height: 177px !important;\n}\n.preview-thumbnail.nav-tabs li a {\n  padding: 0;\n  margin: 0;\n}\n.preview-thumbnail.nav-tabs li:last-of-type {\n  margin-right: 0;\n}\n.tab-content {\n  overflow: hidden;\n}\n.tab-content img {\n  width: 100%;\n  -webkit-animation-name: opacity;\n  animation-name: opacity;\n  -webkit-animation-duration: 0.3s;\n  animation-duration: 0.3s;\n}\n.cardDetails {\n  margin-top: 50px;\n  background: #eee;\n  padding: 3em;\n  line-height: 1.5em;\n}\n@media screen and (min-width: 997px) {\n  .wrapper {\n    display: flex;\n  }\n}\n.details {\n  display: flex;\n  flex-direction: column;\n}\n.colors {\n  flex-grow: 1;\n}\n.product-title, .price, .sizes, .colors {\n  text-transform: capitalize;\n  font-weight: bold;\n}\n.checked, .price span {\n  color: #ff9f1a;\n}\n.product-title {\n  margin-top: 0;\n}\n.size {\n  margin-right: 10px;\n}\n.size:first-of-type {\n  margin-left: 40px;\n}\n.color {\n  display: inline-block;\n  vertical-align: middle;\n  margin-right: 10px;\n  height: 2em;\n  width: 2em;\n  border-radius: 2px;\n}\n.color:first-of-type {\n  margin-left: 20px;\n}\n.add-to-cart, .like {\n  background: #ff9f1a;\n  padding: 0.5em 1em;\n  border: none;\n  text-transform: UPPERCASE;\n  font-weight: bold;\n  color: #fff;\n  transition: background 0.3s ease;\n}\n.add-to-cart:hover, .like:hover {\n  background: #b36800;\n  color: #fff;\n}\n.not-available {\n  text-align: center;\n  line-height: 2em;\n}\n.not-available:before {\n  font-family: fontawesome;\n  content: \"\";\n  color: #fff;\n}\n.orange {\n  background: #ff9f1a;\n}\n.green {\n  background: #85ad00;\n}\n.blue {\n  background: #0076ad;\n}\n.tooltip-inner {\n  padding: 1.3em;\n}\n@-webkit-keyframes opacity {\n  0% {\n    opacity: 0;\n    transform: scale(3);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n@keyframes opacity {\n  0% {\n    opacity: 0;\n    transform: scale(3);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n/*# sourceMappingURL=style.css.map */\n.star {\n  font-size: 12px;\n}\n.detailStar {\n  font-size: 15px;\n}\n.btn {\n  cursor: pointer;\n}\n.sm-text {\n  font-size: 10px;\n  letter-spacing: 1px;\n}\n.sm-text-1 {\n  font-size: 14px;\n}\n.green-tab {\n  background-color: #00C853;\n  color: #fff;\n  border-radius: 5px;\n  padding: 5px 3px 5px 3px;\n}\n.btn-red {\n  background-color: #E64A19;\n  color: #fff;\n  border-radius: 20px;\n  border: none;\n  outline: none;\n}\n.btn-red:hover {\n  background-color: #BF360C;\n}\n.btn-red:focus {\n  box-shadow: none !important;\n  outline-width: 0;\n}\n.round-icon {\n  font-size: 40px;\n  padding-bottom: 10px;\n}\n.fa-circle {\n  font-size: 10px;\n  color: #EEEEEF;\n}\n.green-dot {\n  color: #4CAF50;\n}\n.red-dot {\n  color: #E64A19;\n}\n.yellow-dot {\n  color: #FFD54F;\n}\n.grey-text {\n  color: #BDBDBD;\n}\n.green-text {\n  color: #4CAF50;\n}\n.block {\n  border-right: 1px solid #F5EEEE;\n  border-top: 1px solid #F5EEEE;\n  border-bottom: 1px solid #F5EEEE;\n}\n.profile-pic {\n  border-radius: 50%;\n  height: 40px;\n  width: 40px;\n  padding: 5px;\n  border: 1px solid #000;\n}\n.rating-dot {\n  letter-spacing: 5px;\n}\n.via {\n  border-radius: 20px;\n  height: 28px;\n}\n/* Base styling*/\n.popover__title {\n  font-size: 10px;\n  text-decoration: none;\n  color: #e44444;\n  text-align: center;\n}\n.popover__wrapper {\n  position: relative;\n  display: inline-block;\n}\n.popover__content {\n  opacity: 0;\n  visibility: hidden;\n  position: absolute;\n  width: 200px;\n  left: -100px;\n  transform: translate(0, 10px);\n  background-color: #fff;\n  padding: 0.5rem;\n  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);\n  width: auto;\n}\n.popover__wrapper:hover .popover__content {\n  z-index: 10;\n  opacity: 1;\n  visibility: visible;\n  transform: translate(0, -20px);\n  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);\n}\n.popover__message {\n  text-align: center;\n  font-size: 10px;\n}\n.cardDiv {\n  height: 20px;\n  word-break: break-all;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.cardmerchant {\n  box-shadow: 0 4px 8px 0;\n  max-width: 300px;\n  margin: auto;\n  text-align: center;\n  font-family: arial;\n  border-radius: 25px;\n  background-color: #fff;\n}\n.cardmerchant h1 {\n  padding-left: 3rem;\n}\n.pricemercahnt {\n  color: grey;\n  font-size: 22px;\n}\n.merchantName {\n  font-size: 22px;\n  text-transform: capitalize;\n}\n.cardmerchant button {\n  border: none;\n  outline: 0;\n  padding: 12px;\n  color: white;\n  background-color: #AA0000;\n  text-align: center;\n  cursor: pointer;\n  width: 100%;\n  font-size: 18px;\n}\n.cardmerchant button:hover {\n  opacity: 0.7;\n}\n.rowSegregate {\n  border-bottom: 2px solid #ccc;\n}\n.star-rating {\n  display: flex;\n  align-items: center;\n  font-size: 3em;\n  justify-content: center;\n  margin-top: 10px;\n}\n.back-stars {\n  display: flex;\n  color: #ccc;\n  position: relative;\n  text-shadow: 4px 4px 10px #843a3a;\n}\n.front-stars {\n  display: flex;\n  color: #AA0000;\n  overflow: hidden;\n  position: absolute;\n  text-shadow: 1px 1px 1px #AA0000;\n  top: 0;\n  transition: all 0.5s;\n}\n.progress-bar {\n  background-color: #AA0000 !important;\n}\n.topnav {\n  overflow: hidden;\n  float: left;\n}\n.topnav a {\n  float: left;\n  display: block;\n  text-align: center;\n  text-decoration: none;\n  border-bottom: 1px solid #ccc;\n  text-transform: uppercase;\n  font-size: 14px;\n  font-weight: 600;\n  color: #AA0000;\n  opacity: 1;\n}\n.topnav a:hover {\n  border-bottom: 3px solid #AA0000;\n  cursor: pointer;\n}\n.topnav a.active {\n  border-bottom: 3px solid #AA0000;\n}\n.topnav a {\n  padding: 0.05rem 2.9rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hvcGluZy9hZGRwcm9kdWN0L0M6XFxVc2Vyc1xcQWJoaXNoZWsuU2F4ZW5hMVxcRGVza3RvcFxccHJha2FzaFxcc2hvZWRlbGl2ZXJ5RnJvbnRFbmQvc3JjXFxhcHBcXHNob3BpbmdcXGFkZHByb2R1Y3RcXGFkZHByb2R1Y3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3Nob3BpbmcvYWRkcHJvZHVjdC9hZGRwcm9kdWN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBUSxpR0FBQTtBQ0FSLGdCQUFnQjtBRENoQjtFQUNFLHNCQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUNFRjtBREFBO0VBQ0UsYUFBQTtBQ0dGO0FEREE7RUFDRSxvQ0FBQTtFQUNBLGNBQUE7QUNJRjtBRERBO0VBQ0UsWUFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtBQ0lGO0FEREE7RUFDRSxtQkFBQTtFQUNBLG1EQUFBO0FDSUY7QUREQTtFQUVFLGFBQUE7RUFFQSw0QkFBQTtBQ0VGO0FER0E7RUFFRSxPQUFBO0FDREY7QURLQTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtBQ0ZGO0FES0E7RUFDRSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtFQUNBLG9CQUFBO0VBQ0EsMEJBQUE7QUNGRjtBREtBO0VBQ0UscUJBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7QUNGRjtBREtBO0VBQ0UsYUFBQTtFQUNBLGdCQUFBO0VBQ0EsNEJBQUE7QUNGRjtBREtBO0VBQ0UsMkJBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFDQSwwQkFBQTtBQ0ZGO0FES0E7RUFDRSxnQkFBQTtFQUNBLG1CQUFBO0FDRkY7QURLQTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7QUNGRjtBRGlCQTtFQUNFLGNBQUE7RUFDQSxlQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsMEJBQUE7QUNkRjtBRGlCQTtFQUdFLFdBQUE7RUFDQSxrQkFBQTtBQ2hCRjtBRG1CQTtFQUNFLGNBQUE7QUNoQkY7QURtQkE7RUFDRSxlQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7RUFDQSx5QkFBQTtBQ2hCRjtBRG1CQTtFQUNFLGlCQUFBO0FDaEJGO0FEbUJBO0VBQ0UsZ0JBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7QUNoQkY7QURtQkE7RUFDRSxjQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0FDaEJGO0FEbUJBO0VBQ0UsbUJBQUE7RUFDQSxXQUFBO0FDaEJGO0FEbUJBOztFQUVFLFdBQUE7RUFDQSxjQUFBO0VBQ0EsV0FBQTtBQ2hCRjtBRG1CQTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxvQkFBQTtFQUNBLHlCQUFBO0FDaEJGO0FEbUJBO0VBQ0UsaUJBQUE7QUNoQkY7QURtQkE7RUFDRSxnQkFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ2hCRjtBRG1CQTtFQUNFLHFCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtBQ2hCRjtBRG1CQTtFQUNFLG1CQUFBO0FDaEJGO0FEbUJBO0VBQ0UsbUJBQUE7QUNoQkY7QURtQkE7RUFDRSxtQkFBQTtBQ2hCRjtBRG1CQTtFQUNFLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLHFCQUFBO0VBQ0EseUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ2hCRjtBRG1CQTtFQUNFLG1CQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLHdEQUFBO0FDaEJGO0FEbUJBO0VBQ0UsZ0JBQUE7QUNoQkY7QURxQkE7RUFFRSxlQUFBO0VBQ0EsMEJBQUE7RUFDQSxRQUFBO0VBQ0EsVUFBQTtFQUNBLDhCQUFBO0FDbkJGO0FEc0JBO0VBRUUsOEJBQUE7QUNwQkY7QUR1REE7RUFDRSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0VBQ0UsWUFBQTtBQ3BESjtBRHVEQTtFQUFVLGtCQUFBO0FDbkRWO0FEcURBO0VBQ0UscUJBQUE7RUFDQSxZQUFBO0FDbERGO0FEb0RBO0VBQ0UsYUFBQTtBQ2pERjtBRG1EQTtFQUNFLGVBQUE7RUFDQSxlQUFBO0FDaERGO0FEb0RBLHdEQUFBO0FBQ0E7RUFJRSxhQUFBO0VBS1Esc0JBQUE7QUNqRFY7QURrREU7RUFDRTtJQUNFLG1CQUFBO0VDL0NKO0FBQ0Y7QURnREE7RUFJVSxZQUFBO0FDOUNWO0FEZ0RBO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0FDN0NGO0FEOENFO0VBQ0UsVUFBQTtFQUNBLGtCQUFBO0FDM0NKO0FENENJO0VBQ0UsZUFBQTtFQUNBLGNBQUE7RUFDQSx3QkFBQTtBQ3pDTjtBRDJDSTtFQUNFLFVBQUE7RUFDQSxTQUFBO0FDeENOO0FEeUNJO0VBQ0UsZUFBQTtBQ3RDTjtBRHdDQTtFQUNFLGdCQUFBO0FDckNGO0FEc0NFO0VBQ0UsV0FBQTtFQUNBLCtCQUFBO0VBQ1EsdUJBQUE7RUFDUixnQ0FBQTtFQUNRLHdCQUFBO0FDbkNaO0FEcUNBO0VBQ0UsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtBQ2xDRjtBRG9DQTtFQUNFO0lBSUUsYUFBQTtFQ2pDRjtBQUNGO0FEa0NBO0VBSUUsYUFBQTtFQUtRLHNCQUFBO0FDaENWO0FEa0NBO0VBSVUsWUFBQTtBQy9CVjtBRGlDQTtFQUNFLDBCQUFBO0VBQ0EsaUJBQUE7QUM5QkY7QURnQ0E7RUFDRSxjQUFBO0FDN0JGO0FEa0NBO0VBQ0UsYUFBQTtBQy9CRjtBRGlDQTtFQUNFLGtCQUFBO0FDOUJGO0FEK0JFO0VBQ0UsaUJBQUE7QUM1Qko7QUQ4QkE7RUFDRSxxQkFBQTtFQUNBLHNCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0FDM0JGO0FENEJFO0VBQ0UsaUJBQUE7QUN6Qko7QUQyQkE7RUFDRSxtQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0VBRVEsZ0NBQUE7QUN4QlY7QUR5QkU7RUFDRSxtQkFBQTtFQUNBLFdBQUE7QUN0Qko7QUR3QkE7RUFDRSxrQkFBQTtFQUNBLGdCQUFBO0FDckJGO0FEc0JFO0VBQ0Usd0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtBQ25CSjtBRHFCQTtFQUNFLG1CQUFBO0FDbEJGO0FEb0JBO0VBQ0UsbUJBQUE7QUNqQkY7QURtQkE7RUFDRSxtQkFBQTtBQ2hCRjtBRGtCQTtFQUNFLGNBQUE7QUNmRjtBRGlCQTtFQUNFO0lBQ0UsVUFBQTtJQUVRLG1CQUFBO0VDZFY7RURlQTtJQUNFLFVBQUE7SUFFUSxtQkFBQTtFQ2JWO0FBQ0Y7QURjQTtFQUNFO0lBQ0UsVUFBQTtJQUVRLG1CQUFBO0VDWlY7RURhQTtJQUNFLFVBQUE7SUFFUSxtQkFBQTtFQ1hWO0FBQ0Y7QURZQSxvQ0FBQTtBQUVBO0VBQ0UsZUFBQTtBQ1hGO0FEY0E7RUFDRSxlQUFBO0FDWEY7QURhQTtFQUNFLGVBQUE7QUNWRjtBRGNBO0VBQ0UsZUFBQTtFQUNBLG1CQUFBO0FDWEY7QURjQTtFQUNFLGVBQUE7QUNYRjtBRGNBO0VBQ0UseUJBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSx3QkFBQTtBQ1hGO0FEY0E7RUFDRSx5QkFBQTtFQUNBLFdBQUE7RUFDQSxtQkFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0FDWEY7QURjQTtFQUNFLHlCQUFBO0FDWEY7QURjQTtFQUdFLDJCQUFBO0VBQ0EsZ0JBQUE7QUNYRjtBRGNBO0VBQ0UsZUFBQTtFQUNBLG9CQUFBO0FDWEY7QURjQTtFQUNFLGVBQUE7RUFDQSxjQUFBO0FDWEY7QURjQTtFQUNFLGNBQUE7QUNYRjtBRGNBO0VBQ0UsY0FBQTtBQ1hGO0FEY0E7RUFDRSxjQUFBO0FDWEY7QURjQTtFQUNFLGNBQUE7QUNYRjtBRGNBO0VBQ0UsY0FBQTtBQ1hGO0FEY0E7RUFDRSwrQkFBQTtFQUNBLDZCQUFBO0VBQ0EsZ0NBQUE7QUNYRjtBRGNBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxzQkFBQTtBQ1hGO0FEY0E7RUFDRSxtQkFBQTtBQ1hGO0FEY0E7RUFDRSxtQkFBQTtFQUNBLFlBQUE7QUNYRjtBRGFBLGdCQUFBO0FBRUE7RUFDRSxlQUFBO0VBRUEscUJBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7QUNaRjtBRGdCQTtFQUNFLGtCQUFBO0VBQ0EscUJBQUE7QUNiRjtBRGVBO0VBQ0UsVUFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLDZCQUFBO0VBQ0Esc0JBQUE7RUFDQSxlQUFBO0VBQ0EsMkNBQUE7RUFDQSxXQUFBO0FDWkY7QUQwQkE7RUFDRSxXQUFBO0VBQ0EsVUFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFDQSx5REFBQTtBQ3ZCRjtBRHlCQTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtBQ3RCRjtBRHdCQTtFQUNFLFlBQUE7RUFDQSxxQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSx1QkFBQTtBQ3JCRjtBRHdCQTtFQUNFLHVCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7QUNyQkY7QURzQkU7RUFDRSxrQkFBQTtBQ3BCSjtBRHdCQTtFQUNFLFdBQUE7RUFDQSxlQUFBO0FDckJGO0FEdUJBO0VBQ0UsZUFBQTtFQUNBLDBCQUFBO0FDcEJGO0FEdUJBO0VBQ0UsWUFBQTtFQUNBLFVBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNwQkY7QUR1QkE7RUFDRSxZQUFBO0FDcEJGO0FEdUJBO0VBQ0UsNkJBQUE7QUNwQkY7QUQ2QkE7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsdUJBQUE7RUFDQSxnQkFBQTtBQzFCRjtBRDRCQTtFQUNFLGFBQUE7RUFDQSxXQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQ0FBQTtBQ3pCRjtBRDJCQTtFQUNFLGFBQUE7RUFDQSxjQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGdDQUFBO0VBQ0EsTUFBQTtFQUNBLG9CQUFBO0FDeEJGO0FEMkJBO0VBQ0Usb0NBQUE7QUN4QkY7QUQ0QkE7RUFDRSxnQkFBQTtFQUNBLFdBQUE7QUN6QkY7QUQwQk07RUFDSSxXQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFFQSw2QkFBQTtFQUNBLHlCQUFBO0VBQ0EsZUFBQTtFQUVBLGdCQUFBO0VBQ0EsY0FBQTtFQUNBLFVBQUE7QUMxQlY7QUQ0QlU7RUFDRSxnQ0FBQTtFQUNBLGVBQUE7QUMxQlo7QUQrQkE7RUFDRSxnQ0FBQTtBQzVCRjtBRGdDQTtFQUNFLHVCQUFBO0FDN0JGIiwiZmlsZSI6InNyYy9hcHAvc2hvcGluZy9hZGRwcm9kdWN0L2FkZHByb2R1Y3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybChcImh0dHBzOi8vY2RuanMuY2xvdWRmbGFyZS5jb20vYWpheC9saWJzL2ZvbnQtYXdlc29tZS80LjcuMC9jc3MvZm9udC1hd2Vzb21lLm1pbi5jc3NcIik7XHJcbi5jdXN0b20tZmlsZS11cGxvYWQge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIHBhZGRpbmc6IDZweCAxMnB4O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5pbnB1dFt0eXBlPVwiZmlsZVwiXSB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uc2V0Q29sb3Ige1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNBQTAwMDAgIWltcG9ydGFudDtcclxuICBjb2xvcjogI2ZmZmZmZjtcclxufVxyXG5cclxuLmNvbnRhaW5lcjEge1xyXG4gIHdpZHRoOiAzMDBweDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgbWFyZ2luOiAzMHB4IGF1dG87XHJcbn1cclxuXHJcbi5jYXJkIHtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gIGJveC1zaGFkb3c6IC0xMXB4IDExcHggMXB4IHJnYmEoMjU1LCAyNTMsIDI1MywgMC4zKTtcclxufVxyXG5cclxuLmNhcmQtaGVhZCB7XHJcblxyXG4gIGhlaWdodDogMjAwcHg7XHJcblxyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMjVweCAwIDA7XHJcbn1cclxuXHJcblxyXG5cclxuLnByb2R1Y3QtaW1nIHtcclxuXHJcbiAgbGVmdDogMDtcclxuXHJcbn1cclxuXHJcbi5wcm9kdWN0LWRldGFpbCB7XHJcbiAgcGFkZGluZzogMCAyMHB4O1xyXG4gIGZvbnQtc2l6ZTogMTFweDtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuLnByb2R1Y3QtZGV0YWlsIGgyIHtcclxuICBmb250LXNpemU6IDE4cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICBsZXR0ZXItc3BhY2luZzogMnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG59XHJcblxyXG4uYmFjay10ZXh0IHtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgZm9udC1zaXplOiAxMjVweDtcclxuICBmb250LXdlaWdodDogOTAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtN3B4O1xyXG4gIG1hcmdpbi10b3A6IC0xMnB4O1xyXG4gIG9wYWNpdHk6IDAuMTtcclxufVxyXG5cclxuLmNhcmQtYm9keSB7XHJcbiAgaGVpZ2h0OiAzMzBweDtcclxuICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG4gIGJvcmRlci1yYWRpdXM6IDAgMCAyNXB4IDI1cHg7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXRpdGxlIHtcclxuICBwYWRkaW5nOiAyMHB4IDIwcHggNXB4IDIwcHg7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgZm9udC1zaXplOiAxN3B4O1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcclxuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcclxufVxyXG5cclxuLnByb2R1Y3QtdGl0bGUgYiB7XHJcbiAgZm9udC13ZWlnaHQ6IDkwMDtcclxuICBsZXR0ZXItc3BhY2luZzogMHB4O1xyXG59XHJcblxyXG4uYmFkZ2Uge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICBjb2xvcjogI2ZmZjtcclxuICBiYWNrZ3JvdW5kOiAjZGMzNTQ1O1xyXG4gIHBhZGRpbmc6IDE1cHggMTBweDtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgdG9wOiAtMnB4O1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgZmxvYXQ6cmlnaHQ7XHJcbn1cclxuXHJcbi8vIC5yYXRpbmcge1xyXG4vLyAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuLy8gICBmb250LXNpemU6IDExcHg7XHJcbi8vICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuLy8gICBjb2xvcjogI2ZmZjtcclxuLy8gICBiYWNrZ3JvdW5kOiAjZGMzNTQ1O1xyXG4vLyAgIHBhZGRpbmc6IDVweCA1cHg7XHJcbi8vICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4vLyAgIHRvcDogLTJweDtcclxuLy8gICBtYXJnaW4tbGVmdDogNXB4O1xyXG4vLyB9XHJcblxyXG4ucHJvZHVjdC1jYXB0aW9uIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBwYWRkaW5nOiAwIDIwcHg7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG4gIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXJhdGluZyB7XHJcbiAgLy8gcGFkZGluZzogMCAyMHB4O1xyXG4gIC8vIGZvbnQtc2l6ZTogMTFweDtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbn1cclxuXHJcbi5wcm9kdWN0LXJhdGluZyBpLmdyZXkge1xyXG4gIGNvbG9yOiAjY2VjZTE1O1xyXG59XHJcblxyXG4ucHJvZHVjdC1zaXplIGg0IHtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgcGFkZGluZzogMCAyMXB4O1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxufVxyXG5cclxuLnVsLXNpemUge1xyXG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG59XHJcblxyXG4udWwtc2l6ZSBsaSB7XHJcbiAgbGlzdC1zdHlsZTogbm9uZTtcclxuICBmbG9hdDogbGVmdDtcclxuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi51bC1zaXplIGxpIGEge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBmb250LXNpemU6IDExcHg7XHJcbiAgd2lkdGg6IDIycHg7XHJcbiAgaGVpZ2h0OiAyMnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGxpbmUtaGVpZ2h0OiAyM3B4O1xyXG4gIGNvbG9yOiAjMDAwO1xyXG59XHJcblxyXG4udWwtc2l6ZSBsaSBhLmFjdGl2ZSB7XHJcbiAgYmFja2dyb3VuZDogI2YzNWUzZDtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuLnByb2R1Y3Qtc2l6ZTpiZWZvcmUsXHJcbi5wcm9kdWN0LXNpemU6YWZ0ZXIge1xyXG4gIGNvbnRlbnQ6ICcnO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGNsZWFyOiBib3RoO1xyXG59XHJcblxyXG4ucHJvZHVjdC1jb2xvciBoNCB7XHJcbiAgZm9udC1zaXplOiAxMXB4O1xyXG4gIHBhZGRpbmc6IDAgMjFweDtcclxuICBtYXJnaW4tdG9wOiAyMHB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxuXHJcbi51bC1jb2xvciB7XHJcbiAgbWFyZ2luLWxlZnQ6IDI3cHg7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSB7XHJcbiAgbGlzdC1zdHlsZTogbm9uZTtcclxuICBmbG9hdDogbGVmdDtcclxuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSBhIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgd2lkdGg6IDE2cHg7XHJcbiAgaGVpZ2h0OiAxNnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSBhLm9yYW5nZSB7XHJcbiAgYmFja2dyb3VuZDogI2YzNWUzZDtcclxufVxyXG5cclxuLnVsLWNvbG9yIGxpIGEuZ3JlZW4ge1xyXG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XHJcbn1cclxuXHJcbi51bC1jb2xvciBsaSBhLnllbGxvdyB7XHJcbiAgYmFja2dyb3VuZDogI2ZmZDQxNDtcclxufVxyXG5cclxuLnVsLWNvbG9yIGxpIGEuYWN0aXZlOmFmdGVyIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgY29udGVudDogJyc7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNmMzVlM2Q7XHJcbiAgd2lkdGg6IDI0cHg7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgbWFyZ2luLWxlZnQ6IC01cHg7XHJcbiAgbWFyZ2luLXRvcDogLTVweDtcclxufVxyXG5cclxuLnByb2R1Y3QtcHJpY2Uge1xyXG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XHJcbiAgcGFkZGluZzogN3B4IDIwcHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXNpemU6IDE1cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDIwMDtcclxuICBjb2xvcjogI2ZmZjtcclxuICBib3JkZXItcmFkaXVzOiA3cHg7XHJcbiAgbWFyZ2luLXRvcDogLTEzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC01cHg7XHJcbiAgYm94LXNoYWRvdzogLTEwcHggMjBweCAxNXB4IC0xMHB4IHJnYmEoMTcsIDIzMywgOTEsIDAuMyk7XHJcbn1cclxuXHJcbi5wcm9kdWN0LXByaWNlIGIge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuXHJcblxyXG5cclxuLnl0XHJcbntcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgcGFkZGluZzo3cHggMTBweCAzcHggMTBweDtcclxuICB0b3A6IDVweDtcclxuICByaWdodDogNXB4O1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMCwwLDAsMC4xKTtcclxufVxyXG5cclxuLnl0OmhvdmVyXHJcbntcclxuICBiYWNrZ3JvdW5kOiByZ2JhKDAsMCwwLDAuMik7XHJcbn1cclxuXHJcbi8vIC5xdWFudGl0eSB7XHJcbi8vICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4vLyB9XHJcblxyXG4vLyBpbnB1dFt0eXBlPW51bWJlcl06Oi13ZWJraXQtaW5uZXItc3Bpbi1idXR0b24sXHJcbi8vIGlucHV0W3R5cGU9bnVtYmVyXTo6LXdlYmtpdC1vdXRlci1zcGluLWJ1dHRvblxyXG4vLyB7XHJcbi8vICAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xyXG4vLyAgIG1hcmdpbjogMDtcclxuLy8gfVxyXG5cclxuLy8gaW5wdXRbdHlwZT1udW1iZXJdXHJcbi8vIHtcclxuLy8gICAtbW96LWFwcGVhcmFuY2U6IHRleHRmaWVsZDtcclxuLy8gfVxyXG5cclxuLy8gLnF1YW50aXR5IGlucHV0IHtcclxuLy8gICB3aWR0aDogMjVweDtcclxuLy8gICBoZWlnaHQ6IDIwcHg7XHJcbi8vICAgbGluZS1oZWlnaHQ6IDEuNjU7XHJcbi8vICAgZmxvYXQ6IGxlZnQ7XHJcbi8vICAgZGlzcGxheTogYmxvY2s7XHJcbi8vICAgcGFkZGluZzogMDtcclxuLy8gICBtYXJnaW46IDA7XHJcbi8vICAgcGFkZGluZy1sZWZ0OiAyMHB4O1xyXG4vLyAgIGJvcmRlcjogMXB4IHNvbGlkICNlZWU7XHJcbi8vIH1cclxuXHJcbi8vIC5xdWFudGl0eSBpbnB1dDpmb2N1cyB7XHJcbi8vICAgb3V0bGluZTogMDtcclxuLy8gfVxyXG5cclxuLlBsdXNidXR0b24ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNkYzM1NDU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXNpemU6IDEycHg7XHJcbiAgbWFyZ2luOiA0cHggMnB4O1xyXG4gIHdpZHRoOiAyMHB4O1xyXG4gICAgaGVpZ2h0OiAyMHB4O1xyXG59XHJcblxyXG4uYnV0dG9uNSB7Ym9yZGVyLXJhZGl1czogNTAlO31cclxuXHJcbi5pbnB1dC1udW1iZXIge1xyXG4gIHdpZHRoOiA1MCUgIWltcG9ydGFudDtcclxuICBmbGV4OiAxIDEgMCU7XHJcbn1cclxuLmNoZWNrZWQge1xyXG4gIGNvbG9yOiBvcmFuZ2U7XHJcbn1cclxuLmZhLXN0YXIge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBmb250LXNpemU6IDIxcHg7XHJcbn1cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKiogRGV0YWlsIFBhZ2UgKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuLnByZXZpZXcge1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtZmxleDtcclxuICBkaXNwbGF5OiAtbXMtZmxleGJveDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC13ZWJraXQtYm94LW9yaWVudDogdmVydGljYWw7XHJcbiAgLXdlYmtpdC1ib3gtZGlyZWN0aW9uOiBub3JtYWw7XHJcbiAgLXdlYmtpdC1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAtbXMtZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IH1cclxuICBAbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTZweCkge1xyXG4gICAgLnByZXZpZXcge1xyXG4gICAgICBtYXJnaW4tYm90dG9tOiAyMHB4OyB9IH1cclxuXHJcbi5wcmV2aWV3LXBpYyB7XHJcbiAgLXdlYmtpdC1ib3gtZmxleDogMTtcclxuICAtd2Via2l0LWZsZXgtZ3JvdzogMTtcclxuICAgICAgLW1zLWZsZXgtcG9zaXRpdmU6IDE7XHJcbiAgICAgICAgICBmbGV4LWdyb3c6IDE7IH1cclxuXHJcbi5wcmV2aWV3LXRodW1ibmFpbC5uYXYtdGFicyB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7IH1cclxuICAucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkge1xyXG4gICAgd2lkdGg6IDE4JTtcclxuICAgIG1hcmdpbi1yaWdodDogMi41JTsgfVxyXG4gICAgLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpIGltZyB7XHJcbiAgICAgIG1heC13aWR0aDogMTAwJTtcclxuICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgIGhlaWdodDogMTc3cHggICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgICAucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgYSB7XHJcbiAgICAgIHBhZGRpbmc6IDA7XHJcbiAgICAgIG1hcmdpbjogMDsgfVxyXG4gICAgLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpOmxhc3Qtb2YtdHlwZSB7XHJcbiAgICAgIG1hcmdpbi1yaWdodDogMDsgfVxyXG5cclxuLnRhYi1jb250ZW50IHtcclxuICBvdmVyZmxvdzogaGlkZGVuOyB9XHJcbiAgLnRhYi1jb250ZW50IGltZyB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIC13ZWJraXQtYW5pbWF0aW9uLW5hbWU6IG9wYWNpdHk7XHJcbiAgICAgICAgICAgIGFuaW1hdGlvbi1uYW1lOiBvcGFjaXR5O1xyXG4gICAgLXdlYmtpdC1hbmltYXRpb24tZHVyYXRpb246IC4zcztcclxuICAgICAgICAgICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAuM3M7IH1cclxuXHJcbi5jYXJkRGV0YWlscyB7XHJcbiAgbWFyZ2luLXRvcDogNTBweDtcclxuICBiYWNrZ3JvdW5kOiAjZWVlO1xyXG4gIHBhZGRpbmc6IDNlbTtcclxuICBsaW5lLWhlaWdodDogMS41ZW07IH1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDk5N3B4KSB7XHJcbiAgLndyYXBwZXIge1xyXG4gICAgZGlzcGxheTogLXdlYmtpdC1ib3g7XHJcbiAgICBkaXNwbGF5OiAtd2Via2l0LWZsZXg7XHJcbiAgICBkaXNwbGF5OiAtbXMtZmxleGJveDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IH0gfVxyXG5cclxuLmRldGFpbHMge1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtYm94O1xyXG4gIGRpc3BsYXk6IC13ZWJraXQtZmxleDtcclxuICBkaXNwbGF5OiAtbXMtZmxleGJveDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC13ZWJraXQtYm94LW9yaWVudDogdmVydGljYWw7XHJcbiAgLXdlYmtpdC1ib3gtZGlyZWN0aW9uOiBub3JtYWw7XHJcbiAgLXdlYmtpdC1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgICAtbXMtZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IH1cclxuXHJcbi5jb2xvcnMge1xyXG4gIC13ZWJraXQtYm94LWZsZXg6IDE7XHJcbiAgLXdlYmtpdC1mbGV4LWdyb3c6IDE7XHJcbiAgICAgIC1tcy1mbGV4LXBvc2l0aXZlOiAxO1xyXG4gICAgICAgICAgZmxleC1ncm93OiAxOyB9XHJcblxyXG4ucHJvZHVjdC10aXRsZSwgLnByaWNlLCAuc2l6ZXMsIC5jb2xvcnMge1xyXG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkOyB9XHJcblxyXG4uY2hlY2tlZCwgLnByaWNlIHNwYW4ge1xyXG4gIGNvbG9yOiAjZmY5ZjFhOyB9XHJcblxyXG4vLyAucHJvZHVjdC10aXRsZSwgLnJhdGluZywgLnByb2R1Y3QtZGVzY3JpcHRpb24sIC5wcmljZSwgLnZvdGUsIC5zaXplcyB7XHJcbi8vICAgbWFyZ2luLWJvdHRvbTogMTVweDsgfVxyXG5cclxuLnByb2R1Y3QtdGl0bGUge1xyXG4gIG1hcmdpbi10b3A6IDA7IH1cclxuXHJcbi5zaXplIHtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7IH1cclxuICAuc2l6ZTpmaXJzdC1vZi10eXBlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiA0MHB4OyB9XHJcblxyXG4uY29sb3Ige1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDtcclxuICBoZWlnaHQ6IDJlbTtcclxuICB3aWR0aDogMmVtO1xyXG4gIGJvcmRlci1yYWRpdXM6IDJweDsgfVxyXG4gIC5jb2xvcjpmaXJzdC1vZi10eXBlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAyMHB4OyB9XHJcblxyXG4uYWRkLXRvLWNhcnQsIC5saWtlIHtcclxuICBiYWNrZ3JvdW5kOiAjZmY5ZjFhO1xyXG4gIHBhZGRpbmc6IC41ZW0gMWVtO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICB0ZXh0LXRyYW5zZm9ybTogVVBQRVJDQVNFO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYmFja2dyb3VuZCAuM3MgZWFzZTtcclxuICAgICAgICAgIHRyYW5zaXRpb246IGJhY2tncm91bmQgLjNzIGVhc2U7IH1cclxuICAuYWRkLXRvLWNhcnQ6aG92ZXIsIC5saWtlOmhvdmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNiMzY4MDA7XHJcbiAgICBjb2xvcjogI2ZmZjsgfVxyXG5cclxuLm5vdC1hdmFpbGFibGUge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBsaW5lLWhlaWdodDogMmVtOyB9XHJcbiAgLm5vdC1hdmFpbGFibGU6YmVmb3JlIHtcclxuICAgIGZvbnQtZmFtaWx5OiBmb250YXdlc29tZTtcclxuICAgIGNvbnRlbnQ6IFwiXFxmMDBkXCI7XHJcbiAgICBjb2xvcjogI2ZmZjsgfVxyXG5cclxuLm9yYW5nZSB7XHJcbiAgYmFja2dyb3VuZDogI2ZmOWYxYTsgfVxyXG5cclxuLmdyZWVuIHtcclxuICBiYWNrZ3JvdW5kOiAjODVhZDAwOyB9XHJcblxyXG4uYmx1ZSB7XHJcbiAgYmFja2dyb3VuZDogIzAwNzZhZDsgfVxyXG5cclxuLnRvb2x0aXAtaW5uZXIge1xyXG4gIHBhZGRpbmc6IDEuM2VtOyB9XHJcblxyXG5ALXdlYmtpdC1rZXlmcmFtZXMgb3BhY2l0eSB7XHJcbiAgMCUge1xyXG4gICAgb3BhY2l0eTogMDtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgzKTtcclxuICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgzKTsgfVxyXG4gIDEwMCUge1xyXG4gICAgb3BhY2l0eTogMTtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgxKTtcclxuICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgxKTsgfSB9XHJcblxyXG5Aa2V5ZnJhbWVzIG9wYWNpdHkge1xyXG4gIDAlIHtcclxuICAgIG9wYWNpdHk6IDA7XHJcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMyk7XHJcbiAgICAgICAgICAgIHRyYW5zZm9ybTogc2NhbGUoMyk7IH1cclxuICAxMDAlIHtcclxuICAgIG9wYWNpdHk6IDE7XHJcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMSk7XHJcbiAgICAgICAgICAgIHRyYW5zZm9ybTogc2NhbGUoMSk7IH0gfVxyXG5cclxuLyojIHNvdXJjZU1hcHBpbmdVUkw9c3R5bGUuY3NzLm1hcCAqL1xyXG5cclxuLnN0YXIge1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG5cclxuLmRldGFpbFN0YXIge1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxufVxyXG4uYnRuIHtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcblxyXG4uc20tdGV4dCB7XHJcbiAgZm9udC1zaXplOiAxMHB4O1xyXG4gIGxldHRlci1zcGFjaW5nOiAxcHhcclxufVxyXG5cclxuLnNtLXRleHQtMSB7XHJcbiAgZm9udC1zaXplOiAxNHB4XHJcbn1cclxuXHJcbi5ncmVlbi10YWIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMEM4NTM7XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIHBhZGRpbmc6IDVweCAzcHggNXB4IDNweFxyXG59XHJcblxyXG4uYnRuLXJlZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI0U2NEExOTtcclxuICBjb2xvcjogI2ZmZjtcclxuICBib3JkZXItcmFkaXVzOiAyMHB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBvdXRsaW5lOiBub25lXHJcbn1cclxuXHJcbi5idG4tcmVkOmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQkYzNjBDXHJcbn1cclxuXHJcbi5idG4tcmVkOmZvY3VzIHtcclxuICAtbW96LWJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XHJcbiAgb3V0bGluZS13aWR0aDogMFxyXG59XHJcblxyXG4ucm91bmQtaWNvbiB7XHJcbiAgZm9udC1zaXplOiA0MHB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAxMHB4XHJcbn1cclxuXHJcbi5mYS1jaXJjbGUge1xyXG4gIGZvbnQtc2l6ZTogMTBweDtcclxuICBjb2xvcjogI0VFRUVFRlxyXG59XHJcblxyXG4uZ3JlZW4tZG90IHtcclxuICBjb2xvcjogIzRDQUY1MFxyXG59XHJcblxyXG4ucmVkLWRvdCB7XHJcbiAgY29sb3I6ICNFNjRBMTlcclxufVxyXG5cclxuLnllbGxvdy1kb3Qge1xyXG4gIGNvbG9yOiAjRkZENTRGXHJcbn1cclxuXHJcbi5ncmV5LXRleHQge1xyXG4gIGNvbG9yOiAjQkRCREJEXHJcbn1cclxuXHJcbi5ncmVlbi10ZXh0IHtcclxuICBjb2xvcjogIzRDQUY1MFxyXG59XHJcblxyXG4uYmxvY2sge1xyXG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNGNUVFRUU7XHJcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkICNGNUVFRUU7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNGNUVFRUVcclxufVxyXG5cclxuLnByb2ZpbGUtcGljIHtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjMDAwO1xyXG59XHJcblxyXG4ucmF0aW5nLWRvdCB7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IDVweFxyXG59XHJcblxyXG4udmlhIHtcclxuICBib3JkZXItcmFkaXVzOiAyMHB4O1xyXG4gIGhlaWdodDogMjhweFxyXG59XHJcbi8qIEJhc2Ugc3R5bGluZyovXHJcblxyXG4ucG9wb3Zlcl9fdGl0bGUge1xyXG4gIGZvbnQtc2l6ZTogMTBweDtcclxuXHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGNvbG9yOiByZ2IoMjI4LCA2OCwgNjgpO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHJcbn1cclxuXHJcbi5wb3BvdmVyX193cmFwcGVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59XHJcbi5wb3BvdmVyX19jb250ZW50IHtcclxuICBvcGFjaXR5OiAwO1xyXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6MjAwcHg7XHJcbiAgbGVmdDogLTEwMHB4O1xyXG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDEwcHgpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XHJcbiAgcGFkZGluZzogLjVyZW07XHJcbiAgYm94LXNoYWRvdzogMCAycHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI2KTtcclxuICB3aWR0aDogYXV0bztcclxufVxyXG4ucG9wb3Zlcl9fY29udGVudDpiZWZvcmUge1xyXG4gIC8vIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAvLyB6LWluZGV4OiAtMTtcclxuICAvLyBjb250ZW50OiBcIlwiO1xyXG4gIC8vIHJpZ2h0OiBjYWxjKDUwJSAtIDEwcHgpO1xyXG4gIC8vIHRvcDogLThweDtcclxuICAvLyBib3JkZXItc3R5bGU6IHNvbGlkO1xyXG4gIC8vIGJvcmRlci13aWR0aDogMCAxMHB4IDEwcHggMTBweDtcclxuICAvLyBib3JkZXItY29sb3I6IHRyYW5zcGFyZW50IHRyYW5zcGFyZW50ICNiZmJmYmYgdHJhbnNwYXJlbnQ7XHJcbiAgLy8gdHJhbnNpdGlvbi1kdXJhdGlvbjogMC4zcztcclxuICAvLyB0cmFuc2l0aW9uLXByb3BlcnR5OiB0cmFuc2Zvcm07XHJcbn1cclxuLnBvcG92ZXJfX3dyYXBwZXI6aG92ZXIgLnBvcG92ZXJfX2NvbnRlbnQge1xyXG4gIHotaW5kZXg6IDEwO1xyXG4gIG9wYWNpdHk6IDE7XHJcbiAgdmlzaWJpbGl0eTogdmlzaWJsZTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgwLCAtMjBweCk7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuNXMgY3ViaWMtYmV6aWVyKDAuNzUsIC0wLjAyLCAwLjIsIDAuOTcpO1xyXG59XHJcbi5wb3BvdmVyX19tZXNzYWdlIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxMHB4O1xyXG59XHJcbi5jYXJkRGl2ICB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIHdvcmQtYnJlYWs6IGJyZWFrLWFsbDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XHJcbn1cclxuXHJcbi5jYXJkbWVyY2hhbnQge1xyXG4gIGJveC1zaGFkb3c6IDAgNHB4IDhweCAwO1xyXG4gIG1heC13aWR0aDogMzAwcHg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LWZhbWlseTogYXJpYWw7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG4gIGgxIHtcclxuICAgIHBhZGRpbmctbGVmdDogM3JlbTtcclxuICB9XHJcbn1cclxuXHJcbi5wcmljZW1lcmNhaG50IHtcclxuICBjb2xvcjogZ3JleTtcclxuICBmb250LXNpemU6IDIycHg7XHJcbn1cclxuLm1lcmNoYW50TmFtZSB7XHJcbiAgZm9udC1zaXplOiAyMnB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG59XHJcblxyXG4uY2FyZG1lcmNoYW50IGJ1dHRvbiB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIG91dGxpbmU6IDA7XHJcbiAgcGFkZGluZzogMTJweDtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI0FBMDAwMDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxufVxyXG5cclxuLmNhcmRtZXJjaGFudCBidXR0b246aG92ZXIge1xyXG4gIG9wYWNpdHk6IDAuNztcclxufVxyXG5cclxuLnJvd1NlZ3JlZ2F0ZSB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNjY2M7XHJcbn1cclxuXHJcblxyXG5cclxuLnVsUHJvZHVjdCB7XHJcbiAvLyBsaXN0LXN0eWxlLWltYWdlOiB1cmwoJ3NxcHVycGxlLmdpZicpO1xyXG59XHJcblxyXG4uc3Rhci1yYXRpbmcge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBmb250LXNpemU6IDNlbTtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcbi5iYWNrLXN0YXJzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGNvbG9yOiAjY2NjO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB0ZXh0LXNoYWRvdzogNHB4IDRweCAxMHB4ICM4NDNhM2E7XHJcbn1cclxuLmZyb250LXN0YXJzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGNvbG9yOiAjQUEwMDAwO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRleHQtc2hhZG93OiAxcHggMXB4IDFweCAjQUEwMDAwO1xyXG4gIHRvcDogMDtcclxuICB0cmFuc2l0aW9uOiBhbGwgLjVzXHJcbn1cclxuXHJcbi5wcm9ncmVzcy1iYXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNBQTAwMDAgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcbi50b3BuYXYge1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgICAgIGEge1xyXG4gICAgICAgICAgZmxvYXQ6IGxlZnQ7XHJcbiAgICAgICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgICAgICAgIC8vZm9udC1zaXplOiAxN3B4O1xyXG4gICAgICAgICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNjY2M7XHJcbiAgICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG5cclxuICAgICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICAgICAgICBjb2xvcjogI0FBMDAwMDtcclxuICAgICAgICAgIG9wYWNpdHk6IDE7XHJcblxyXG4gICAgICAgICAgJjpob3ZlciB7XHJcbiAgICAgICAgICAgIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjQUEwMDAwO1xyXG4gICAgICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgICAgICB9XHJcbiAgICAgIH1cclxufVxyXG5cclxuLnRvcG5hdiBhLmFjdGl2ZSB7XHJcbiAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICNBQTAwMDA7XHJcbn1cclxuXHJcblxyXG4udG9wbmF2IGEge1xyXG4gIHBhZGRpbmc6IC4wNXJlbSAyLjlyZW07XHJcbn1cclxuXHJcbiIsIkBjaGFyc2V0IFwiVVRGLThcIjtcbkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvZm9udC1hd2Vzb21lLzQuNy4wL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzc1wiKTtcbi5jdXN0b20tZmlsZS11cGxvYWQge1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHBhZGRpbmc6IDZweCAxMnB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbmlucHV0W3R5cGU9ZmlsZV0ge1xuICBkaXNwbGF5OiBub25lO1xufVxuXG4uc2V0Q29sb3Ige1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQUEwMDAwICFpbXBvcnRhbnQ7XG4gIGNvbG9yOiAjZmZmZmZmO1xufVxuXG4uY29udGFpbmVyMSB7XG4gIHdpZHRoOiAzMDBweDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBtYXJnaW46IDMwcHggYXV0bztcbn1cblxuLmNhcmQge1xuICBib3JkZXItcmFkaXVzOiAyNXB4O1xuICBib3gtc2hhZG93OiAtMTFweCAxMXB4IDFweCByZ2JhKDI1NSwgMjUzLCAyNTMsIDAuMyk7XG59XG5cbi5jYXJkLWhlYWQge1xuICBoZWlnaHQ6IDIwMHB4O1xuICBib3JkZXItcmFkaXVzOiAyNXB4IDI1cHggMCAwO1xufVxuXG4ucHJvZHVjdC1pbWcge1xuICBsZWZ0OiAwO1xufVxuXG4ucHJvZHVjdC1kZXRhaWwge1xuICBwYWRkaW5nOiAwIDIwcHg7XG4gIGZvbnQtc2l6ZTogMTFweDtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5wcm9kdWN0LWRldGFpbCBoMiB7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xufVxuXG4uYmFjay10ZXh0IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDEyNXB4O1xuICBmb250LXdlaWdodDogOTAwO1xuICBtYXJnaW4tbGVmdDogLTdweDtcbiAgbWFyZ2luLXRvcDogLTEycHg7XG4gIG9wYWNpdHk6IDAuMTtcbn1cblxuLmNhcmQtYm9keSB7XG4gIGhlaWdodDogMzMwcHg7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDAgMCAyNXB4IDI1cHg7XG59XG5cbi5wcm9kdWN0LXRpdGxlIHtcbiAgcGFkZGluZzogMjBweCAyMHB4IDVweCAyMHB4O1xuICBkaXNwbGF5OiBibG9jaztcbiAgZm9udC1zaXplOiAxN3B4O1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMXB4O1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbn1cblxuLnByb2R1Y3QtdGl0bGUgYiB7XG4gIGZvbnQtd2VpZ2h0OiA5MDA7XG4gIGxldHRlci1zcGFjaW5nOiAwcHg7XG59XG5cbi5iYWRnZSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBmb250LXdlaWdodDogMzAwO1xuICBjb2xvcjogI2ZmZjtcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcbiAgcGFkZGluZzogMTVweCAxMHB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIHRvcDogLTJweDtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgZmxvYXQ6IHJpZ2h0O1xufVxuXG4ucHJvZHVjdC1jYXB0aW9uIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBhZGRpbmc6IDAgMjBweDtcbiAgZm9udC1zaXplOiAxNXB4O1xuICBmb250LXdlaWdodDogNDAwO1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbn1cblxuLnByb2R1Y3QtcmF0aW5nIHtcbiAgZmxvYXQ6IGxlZnQ7XG4gIHBhZGRpbmctbGVmdDogMXJlbTtcbn1cblxuLnByb2R1Y3QtcmF0aW5nIGkuZ3JleSB7XG4gIGNvbG9yOiAjY2VjZTE1O1xufVxuXG4ucHJvZHVjdC1zaXplIGg0IHtcbiAgZm9udC1zaXplOiAxNXB4O1xuICBwYWRkaW5nOiAwIDIxcHg7XG4gIG1hcmdpbi10b3A6IDE1cHg7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4udWwtc2l6ZSB7XG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xufVxuXG4udWwtc2l6ZSBsaSB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG4gIGZsb2F0OiBsZWZ0O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi51bC1zaXplIGxpIGEge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LXNpemU6IDExcHg7XG4gIHdpZHRoOiAyMnB4O1xuICBoZWlnaHQ6IDIycHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbGluZS1oZWlnaHQ6IDIzcHg7XG4gIGNvbG9yOiAjMDAwO1xufVxuXG4udWwtc2l6ZSBsaSBhLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4ucHJvZHVjdC1zaXplOmJlZm9yZSxcbi5wcm9kdWN0LXNpemU6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBibG9jaztcbiAgY2xlYXI6IGJvdGg7XG59XG5cbi5wcm9kdWN0LWNvbG9yIGg0IHtcbiAgZm9udC1zaXplOiAxMXB4O1xuICBwYWRkaW5nOiAwIDIxcHg7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4udWwtY29sb3Ige1xuICBtYXJnaW4tbGVmdDogMjdweDtcbn1cblxuLnVsLWNvbG9yIGxpIHtcbiAgbGlzdC1zdHlsZTogbm9uZTtcbiAgZmxvYXQ6IGxlZnQ7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnVsLWNvbG9yIGxpIGEge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHdpZHRoOiAxNnB4O1xuICBoZWlnaHQ6IDE2cHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG59XG5cbi51bC1jb2xvciBsaSBhLm9yYW5nZSB7XG4gIGJhY2tncm91bmQ6ICNmMzVlM2Q7XG59XG5cbi51bC1jb2xvciBsaSBhLmdyZWVuIHtcbiAgYmFja2dyb3VuZDogI2RjMzU0NTtcbn1cblxuLnVsLWNvbG9yIGxpIGEueWVsbG93IHtcbiAgYmFja2dyb3VuZDogI2ZmZDQxNDtcbn1cblxuLnVsLWNvbG9yIGxpIGEuYWN0aXZlOmFmdGVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBjb250ZW50OiBcIlwiO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNmMzVlM2Q7XG4gIHdpZHRoOiAyNHB4O1xuICBoZWlnaHQ6IDI0cHg7XG4gIGJvcmRlci1yYWRpdXM6IDEwMCU7XG4gIG1hcmdpbi1sZWZ0OiAtNXB4O1xuICBtYXJnaW4tdG9wOiAtNXB4O1xufVxuXG4ucHJvZHVjdC1wcmljZSB7XG4gIGJhY2tncm91bmQ6ICNkYzM1NDU7XG4gIHBhZGRpbmc6IDdweCAyMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgZm9udC1zaXplOiAxNXB4O1xuICBmb250LXdlaWdodDogMjAwO1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogN3B4O1xuICBtYXJnaW4tdG9wOiAtMTNweDtcbiAgbWFyZ2luLWxlZnQ6IC01cHg7XG4gIGJveC1zaGFkb3c6IC0xMHB4IDIwcHggMTVweCAtMTBweCByZ2JhKDE3LCAyMzMsIDkxLCAwLjMpO1xufVxuXG4ucHJvZHVjdC1wcmljZSBiIHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbn1cblxuLnl0IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBwYWRkaW5nOiA3cHggMTBweCAzcHggMTBweDtcbiAgdG9wOiA1cHg7XG4gIHJpZ2h0OiA1cHg7XG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC4xKTtcbn1cblxuLnl0OmhvdmVyIHtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjIpO1xufVxuXG4uUGx1c2J1dHRvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkYzM1NDU7XG4gIGJvcmRlcjogbm9uZTtcbiAgY29sb3I6IHdoaXRlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBmb250LXNpemU6IDEycHg7XG4gIG1hcmdpbjogNHB4IDJweDtcbiAgd2lkdGg6IDIwcHg7XG4gIGhlaWdodDogMjBweDtcbn1cblxuLmJ1dHRvbjUge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5cbi5pbnB1dC1udW1iZXIge1xuICB3aWR0aDogNTAlICFpbXBvcnRhbnQ7XG4gIGZsZXg6IDEgMSAwJTtcbn1cblxuLmNoZWNrZWQge1xuICBjb2xvcjogb3JhbmdlO1xufVxuXG4uZmEtc3RhciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1zaXplOiAyMXB4O1xufVxuXG4vKioqKioqKioqKioqKioqKiogRGV0YWlsIFBhZ2UgKioqKioqKioqKioqKioqKioqKioqKioqKi9cbi5wcmV2aWV3IHtcbiAgZGlzcGxheTogLXdlYmtpdC1ib3g7XG4gIGRpc3BsYXk6IC13ZWJraXQtZmxleDtcbiAgZGlzcGxheTogLW1zLWZsZXhib3g7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIC13ZWJraXQtYm94LW9yaWVudDogdmVydGljYWw7XG4gIC13ZWJraXQtYm94LWRpcmVjdGlvbjogbm9ybWFsO1xuICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIC1tcy1mbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTZweCkge1xuICAucHJldmlldyB7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgfVxufVxuLnByZXZpZXctcGljIHtcbiAgLXdlYmtpdC1ib3gtZmxleDogMTtcbiAgLXdlYmtpdC1mbGV4LWdyb3c6IDE7XG4gIC1tcy1mbGV4LXBvc2l0aXZlOiAxO1xuICBmbGV4LWdyb3c6IDE7XG59XG5cbi5wcmV2aWV3LXRodW1ibmFpbC5uYXYtdGFicyB7XG4gIGJvcmRlcjogbm9uZTtcbiAgbWFyZ2luLXRvcDogMTVweDtcbn1cblxuLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpIHtcbiAgd2lkdGg6IDE4JTtcbiAgbWFyZ2luLXJpZ2h0OiAyLjUlO1xufVxuXG4ucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgaW1nIHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgaGVpZ2h0OiAxNzdweCAhaW1wb3J0YW50O1xufVxuXG4ucHJldmlldy10aHVtYm5haWwubmF2LXRhYnMgbGkgYSB7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbn1cblxuLnByZXZpZXctdGh1bWJuYWlsLm5hdi10YWJzIGxpOmxhc3Qtb2YtdHlwZSB7XG4gIG1hcmdpbi1yaWdodDogMDtcbn1cblxuLnRhYi1jb250ZW50IHtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLnRhYi1jb250ZW50IGltZyB7XG4gIHdpZHRoOiAxMDAlO1xuICAtd2Via2l0LWFuaW1hdGlvbi1uYW1lOiBvcGFjaXR5O1xuICBhbmltYXRpb24tbmFtZTogb3BhY2l0eTtcbiAgLXdlYmtpdC1hbmltYXRpb24tZHVyYXRpb246IDAuM3M7XG4gIGFuaW1hdGlvbi1kdXJhdGlvbjogMC4zcztcbn1cblxuLmNhcmREZXRhaWxzIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgYmFja2dyb3VuZDogI2VlZTtcbiAgcGFkZGluZzogM2VtO1xuICBsaW5lLWhlaWdodDogMS41ZW07XG59XG5cbkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDk5N3B4KSB7XG4gIC53cmFwcGVyIHtcbiAgICBkaXNwbGF5OiAtd2Via2l0LWJveDtcbiAgICBkaXNwbGF5OiAtd2Via2l0LWZsZXg7XG4gICAgZGlzcGxheTogLW1zLWZsZXhib3g7XG4gICAgZGlzcGxheTogZmxleDtcbiAgfVxufVxuLmRldGFpbHMge1xuICBkaXNwbGF5OiAtd2Via2l0LWJveDtcbiAgZGlzcGxheTogLXdlYmtpdC1mbGV4O1xuICBkaXNwbGF5OiAtbXMtZmxleGJveDtcbiAgZGlzcGxheTogZmxleDtcbiAgLXdlYmtpdC1ib3gtb3JpZW50OiB2ZXJ0aWNhbDtcbiAgLXdlYmtpdC1ib3gtZGlyZWN0aW9uOiBub3JtYWw7XG4gIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgLW1zLWZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5jb2xvcnMge1xuICAtd2Via2l0LWJveC1mbGV4OiAxO1xuICAtd2Via2l0LWZsZXgtZ3JvdzogMTtcbiAgLW1zLWZsZXgtcG9zaXRpdmU6IDE7XG4gIGZsZXgtZ3JvdzogMTtcbn1cblxuLnByb2R1Y3QtdGl0bGUsIC5wcmljZSwgLnNpemVzLCAuY29sb3JzIHtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG4uY2hlY2tlZCwgLnByaWNlIHNwYW4ge1xuICBjb2xvcjogI2ZmOWYxYTtcbn1cblxuLnByb2R1Y3QtdGl0bGUge1xuICBtYXJnaW4tdG9wOiAwO1xufVxuXG4uc2l6ZSB7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbn1cblxuLnNpemU6Zmlyc3Qtb2YtdHlwZSB7XG4gIG1hcmdpbi1sZWZ0OiA0MHB4O1xufVxuXG4uY29sb3Ige1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgaGVpZ2h0OiAyZW07XG4gIHdpZHRoOiAyZW07XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbn1cblxuLmNvbG9yOmZpcnN0LW9mLXR5cGUge1xuICBtYXJnaW4tbGVmdDogMjBweDtcbn1cblxuLmFkZC10by1jYXJ0LCAubGlrZSB7XG4gIGJhY2tncm91bmQ6ICNmZjlmMWE7XG4gIHBhZGRpbmc6IDAuNWVtIDFlbTtcbiAgYm9yZGVyOiBub25lO1xuICB0ZXh0LXRyYW5zZm9ybTogVVBQRVJDQVNFO1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6ICNmZmY7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYmFja2dyb3VuZCAwLjNzIGVhc2U7XG4gIHRyYW5zaXRpb246IGJhY2tncm91bmQgMC4zcyBlYXNlO1xufVxuXG4uYWRkLXRvLWNhcnQ6aG92ZXIsIC5saWtlOmhvdmVyIHtcbiAgYmFja2dyb3VuZDogI2IzNjgwMDtcbiAgY29sb3I6ICNmZmY7XG59XG5cbi5ub3QtYXZhaWxhYmxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBsaW5lLWhlaWdodDogMmVtO1xufVxuXG4ubm90LWF2YWlsYWJsZTpiZWZvcmUge1xuICBmb250LWZhbWlseTogZm9udGF3ZXNvbWU7XG4gIGNvbnRlbnQ6IFwi74CNXCI7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4ub3JhbmdlIHtcbiAgYmFja2dyb3VuZDogI2ZmOWYxYTtcbn1cblxuLmdyZWVuIHtcbiAgYmFja2dyb3VuZDogIzg1YWQwMDtcbn1cblxuLmJsdWUge1xuICBiYWNrZ3JvdW5kOiAjMDA3NmFkO1xufVxuXG4udG9vbHRpcC1pbm5lciB7XG4gIHBhZGRpbmc6IDEuM2VtO1xufVxuXG5ALXdlYmtpdC1rZXlmcmFtZXMgb3BhY2l0eSB7XG4gIDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgzKTtcbiAgICB0cmFuc2Zvcm06IHNjYWxlKDMpO1xuICB9XG4gIDEwMCUge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDEpO1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMSk7XG4gIH1cbn1cbkBrZXlmcmFtZXMgb3BhY2l0eSB7XG4gIDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICAgIC13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgzKTtcbiAgICB0cmFuc2Zvcm06IHNjYWxlKDMpO1xuICB9XG4gIDEwMCUge1xuICAgIG9wYWNpdHk6IDE7XG4gICAgLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDEpO1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMSk7XG4gIH1cbn1cbi8qIyBzb3VyY2VNYXBwaW5nVVJMPXN0eWxlLmNzcy5tYXAgKi9cbi5zdGFyIHtcbiAgZm9udC1zaXplOiAxMnB4O1xufVxuXG4uZGV0YWlsU3RhciB7XG4gIGZvbnQtc2l6ZTogMTVweDtcbn1cblxuLmJ0biB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnNtLXRleHQge1xuICBmb250LXNpemU6IDEwcHg7XG4gIGxldHRlci1zcGFjaW5nOiAxcHg7XG59XG5cbi5zbS10ZXh0LTEge1xuICBmb250LXNpemU6IDE0cHg7XG59XG5cbi5ncmVlbi10YWIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDBDODUzO1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBwYWRkaW5nOiA1cHggM3B4IDVweCAzcHg7XG59XG5cbi5idG4tcmVkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0U2NEExOTtcbiAgY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gIGJvcmRlcjogbm9uZTtcbiAgb3V0bGluZTogbm9uZTtcbn1cblxuLmJ0bi1yZWQ6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQkYzNjBDO1xufVxuXG4uYnRuLXJlZDpmb2N1cyB7XG4gIC1tb3otYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xuICAtd2Via2l0LWJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbiAgYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xuICBvdXRsaW5lLXdpZHRoOiAwO1xufVxuXG4ucm91bmQtaWNvbiB7XG4gIGZvbnQtc2l6ZTogNDBweDtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG59XG5cbi5mYS1jaXJjbGUge1xuICBmb250LXNpemU6IDEwcHg7XG4gIGNvbG9yOiAjRUVFRUVGO1xufVxuXG4uZ3JlZW4tZG90IHtcbiAgY29sb3I6ICM0Q0FGNTA7XG59XG5cbi5yZWQtZG90IHtcbiAgY29sb3I6ICNFNjRBMTk7XG59XG5cbi55ZWxsb3ctZG90IHtcbiAgY29sb3I6ICNGRkQ1NEY7XG59XG5cbi5ncmV5LXRleHQge1xuICBjb2xvcjogI0JEQkRCRDtcbn1cblxuLmdyZWVuLXRleHQge1xuICBjb2xvcjogIzRDQUY1MDtcbn1cblxuLmJsb2NrIHtcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI0Y1RUVFRTtcbiAgYm9yZGVyLXRvcDogMXB4IHNvbGlkICNGNUVFRUU7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjRjVFRUVFO1xufVxuXG4ucHJvZmlsZS1waWMge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGhlaWdodDogNDBweDtcbiAgd2lkdGg6IDQwcHg7XG4gIHBhZGRpbmc6IDVweDtcbiAgYm9yZGVyOiAxcHggc29saWQgIzAwMDtcbn1cblxuLnJhdGluZy1kb3Qge1xuICBsZXR0ZXItc3BhY2luZzogNXB4O1xufVxuXG4udmlhIHtcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcbiAgaGVpZ2h0OiAyOHB4O1xufVxuXG4vKiBCYXNlIHN0eWxpbmcqL1xuLnBvcG92ZXJfX3RpdGxlIHtcbiAgZm9udC1zaXplOiAxMHB4O1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGNvbG9yOiAjZTQ0NDQ0O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5wb3BvdmVyX193cmFwcGVyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbi5wb3BvdmVyX19jb250ZW50IHtcbiAgb3BhY2l0eTogMDtcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiAyMDBweDtcbiAgbGVmdDogLTEwMHB4O1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgwLCAxMHB4KTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgcGFkZGluZzogMC41cmVtO1xuICBib3gtc2hhZG93OiAwIDJweCA1cHggMCByZ2JhKDAsIDAsIDAsIDAuMjYpO1xuICB3aWR0aDogYXV0bztcbn1cblxuLnBvcG92ZXJfX3dyYXBwZXI6aG92ZXIgLnBvcG92ZXJfX2NvbnRlbnQge1xuICB6LWluZGV4OiAxMDtcbiAgb3BhY2l0eTogMTtcbiAgdmlzaWJpbGl0eTogdmlzaWJsZTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoMCwgLTIwcHgpO1xuICB0cmFuc2l0aW9uOiBhbGwgMC41cyBjdWJpYy1iZXppZXIoMC43NSwgLTAuMDIsIDAuMiwgMC45Nyk7XG59XG5cbi5wb3BvdmVyX19tZXNzYWdlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LXNpemU6IDEwcHg7XG59XG5cbi5jYXJkRGl2IHtcbiAgaGVpZ2h0OiAyMHB4O1xuICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xufVxuXG4uY2FyZG1lcmNoYW50IHtcbiAgYm94LXNoYWRvdzogMCA0cHggOHB4IDA7XG4gIG1heC13aWR0aDogMzAwcHg7XG4gIG1hcmdpbjogYXV0bztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LWZhbWlseTogYXJpYWw7XG4gIGJvcmRlci1yYWRpdXM6IDI1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZmY7XG59XG4uY2FyZG1lcmNoYW50IGgxIHtcbiAgcGFkZGluZy1sZWZ0OiAzcmVtO1xufVxuXG4ucHJpY2VtZXJjYWhudCB7XG4gIGNvbG9yOiBncmV5O1xuICBmb250LXNpemU6IDIycHg7XG59XG5cbi5tZXJjaGFudE5hbWUge1xuICBmb250LXNpemU6IDIycHg7XG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xufVxuXG4uY2FyZG1lcmNoYW50IGJ1dHRvbiB7XG4gIGJvcmRlcjogbm9uZTtcbiAgb3V0bGluZTogMDtcbiAgcGFkZGluZzogMTJweDtcbiAgY29sb3I6IHdoaXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQUEwMDAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgd2lkdGg6IDEwMCU7XG4gIGZvbnQtc2l6ZTogMThweDtcbn1cblxuLmNhcmRtZXJjaGFudCBidXR0b246aG92ZXIge1xuICBvcGFjaXR5OiAwLjc7XG59XG5cbi5yb3dTZWdyZWdhdGUge1xuICBib3JkZXItYm90dG9tOiAycHggc29saWQgI2NjYztcbn1cblxuLnN0YXItcmF0aW5nIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZm9udC1zaXplOiAzZW07XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uYmFjay1zdGFycyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiAjY2NjO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRleHQtc2hhZG93OiA0cHggNHB4IDEwcHggIzg0M2EzYTtcbn1cblxuLmZyb250LXN0YXJzIHtcbiAgZGlzcGxheTogZmxleDtcbiAgY29sb3I6ICNBQTAwMDA7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdGV4dC1zaGFkb3c6IDFweCAxcHggMXB4ICNBQTAwMDA7XG4gIHRvcDogMDtcbiAgdHJhbnNpdGlvbjogYWxsIDAuNXM7XG59XG5cbi5wcm9ncmVzcy1iYXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQUEwMDAwICFpbXBvcnRhbnQ7XG59XG5cbi50b3BuYXYge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBmbG9hdDogbGVmdDtcbn1cbi50b3BuYXYgYSB7XG4gIGZsb2F0OiBsZWZ0O1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjY2NjO1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGNvbG9yOiAjQUEwMDAwO1xuICBvcGFjaXR5OiAxO1xufVxuLnRvcG5hdiBhOmhvdmVyIHtcbiAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICNBQTAwMDA7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnRvcG5hdiBhLmFjdGl2ZSB7XG4gIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjQUEwMDAwO1xufVxuXG4udG9wbmF2IGEge1xuICBwYWRkaW5nOiAwLjA1cmVtIDIuOXJlbTtcbn0iXX0= */";
     /***/
   },
 
@@ -4080,58 +2027,64 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./../../delivery/delivery.service */
+    "./src/app/delivery/delivery.service.ts");
+    /* harmony import */
+
+
+    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./../../shared/api-link.service */
     "./src/app/shared/api-link.service.ts");
     /* harmony import */
 
 
-    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./../../dashboard/dashboard.service */
     "./src/app/dashboard/dashboard.service.ts");
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ngx-bootstrap/modal */
     "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
     /* harmony import */
 
 
-    var _shoping_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _shoping_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../shoping.service */
     "./src/app/shoping/shoping.service.ts");
     /* harmony import */
 
 
-    var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! sweetalert2/src/sweetalert2.scss */
     "./node_modules/sweetalert2/src/sweetalert2.scss");
     /* harmony import */
 
 
-    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! sweetalert2/dist/sweetalert2.all.min.js */
     "./node_modules/sweetalert2/dist/sweetalert2.all.min.js");
     /* harmony import */
 
 
-    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8__);
+    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__);
 
     var AddproductComponent = /*#__PURE__*/function () {
-      function AddproductComponent(formBuilder, modalService, fetch, dasboard, api) {
+      function AddproductComponent(formBuilder, modalService, fetch, dasboard, api, deliveryService) {
         _classCallCheck(this, AddproductComponent);
 
         this.formBuilder = formBuilder;
@@ -4139,6 +2092,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.fetch = fetch;
         this.dasboard = dasboard;
         this.api = api;
+        this.deliveryService = deliveryService;
         this.addClassifiedTemplate = false;
         this.uFrm = new FormData();
         this.selectedFile = "";
@@ -4203,7 +2157,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.detailClassifiedStatus = true;
         this.detailedImages = [];
         this.detailPageData = [];
+        this.ratingPercentage = 0;
         this.setCurrentIndexImage = 0;
+        this.orderList = [];
+        this.myOrderStatus = false;
+        this.allOrderList = [];
+        this.currentTab = 1;
       }
 
       _createClass(AddproductComponent, [{
@@ -4211,23 +2170,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           this.getProfileInfo();
           this.classifiedForm = this.formBuilder.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
             keyFeatureOne: [''],
             keyFeatureTwo: [''],
             keyFeatureThree: [''],
-            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
+            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
             showNumber: [false]
           });
         }
       }, {
         key: "uploadClassifiedVideo",
         value: function uploadClassifiedVideo(event, template) {
-          var _this9 = this;
+          var _this2 = this;
 
           console.log(event.target);
           this.modalRef = this.modalService.show(template);
@@ -4245,14 +2204,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.fetch.uploadImg(this.uFrmvideo).subscribe(function (imageData) {
-            _this9.imageUploadPercent = (imageData.loaded / imageData.total * 100).toFixed(2);
+            _this2.imageUploadPercent = (imageData.loaded / imageData.total * 100).toFixed(2);
 
             if (imageData.loaded != undefined && imageData.loaded == imageData.total) {
-              _this9.modalRef.hide();
+              _this2.modalRef.hide();
 
-              _this9.uFrmvideo = new FormData();
-              _this9.uploadedVideo = _this9.selectedFile;
-              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
+              _this2.uFrmvideo = new FormData();
+              _this2.uploadedVideo = _this2.selectedFile;
+              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
                 title: "Uploaded successfully.",
                 text: "",
                 icon: 'success',
@@ -4266,7 +2225,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadClassifiedattachment",
         value: function uploadClassifiedattachment(event) {
-          var _this10 = this;
+          var _this3 = this;
 
           console.log(event.target);
 
@@ -4291,7 +2250,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             reader.readAsDataURL(event.target.files[i]);
 
             reader.onload = function (_event) {
-              _this10.imgURL.push(reader.result);
+              _this3.imgURL.push(reader.result);
             };
           }
         }
@@ -4464,7 +2423,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addProduct",
         value: function addProduct(template) {
-          var _this11 = this;
+          var _this4 = this;
 
           this.imageUploadPercent = 0;
           var data = this.classifiedForm.value;
@@ -4484,20 +2443,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.fetch.addProduct(data, url).subscribe(function () {
-            _this11.classifiedForm.reset();
+            _this4.classifiedForm.reset();
 
-            _this11.fileNames = [];
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
+            _this4.fileNames = [];
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
               title: msg,
               text: "",
               icon: "success"
             });
 
-            _this11.fetch.uploadclassifiedImage(_this11.uFrm).subscribe(function () {
-              _this11.uFrm = new FormData();
-              _this11.imgURL = [];
-              _this11.uploadedVideo = "";
-              _this11.imageUploadPercent = (data.loaded / data.total * 100).toFixed(2);
+            _this4.fetch.uploadclassifiedImage(_this4.uFrm).subscribe(function () {
+              _this4.uFrm = new FormData();
+              _this4.imgURL = [];
+              _this4.uploadedVideo = "";
+              _this4.imageUploadPercent = (data.loaded / data.total * 100).toFixed(2);
 
               if (data.loaded == data.total) {} else {}
             });
@@ -4506,11 +2465,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getProfileInfo",
         value: function getProfileInfo() {
-          var _this12 = this;
+          var _this5 = this;
 
           this.dasboard.getProfInfo().subscribe(function (res) {
-            _this12.profInfo = res;
-            console.log(_this12.profInfo);
+            _this5.profInfo = res;
+            console.log(_this5.profInfo);
           }, function (err) {});
         }
       }, {
@@ -4524,22 +2483,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "myproduct",
         value: function myproduct(type) {
           this.addClassifiedTemplate = type;
+          this.myOrderStatus = type;
 
           if (!type) {
             this.detailClassifiedStatus = true;
             this.getMyProduct();
+          } else {
+            this.myOrderStatus = false;
+            this.addClassifiedTemplate = true;
           }
+
+          console.log(this.addClassifiedTemplate);
+          console.log(this.myOrderStatus);
+          console.log(this.detailClassifiedStatus);
         }
       }, {
         key: "getMyProduct",
         value: function getMyProduct() {
-          var _this13 = this;
+          var _this6 = this;
 
           var m = localStorage.getItem('mnumber');
           this.fetch.getAllProduct({
             "number": this.profInfo.mobileNo
           }).subscribe(function (data) {
-            _this13.allProduct = data;
+            _this6.allProduct = data;
             console.log(data);
           });
         }
@@ -4603,11 +2570,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "detailProduct",
         value: function detailProduct(item) {
+          console.log(item);
           this.detailPageData = item;
-          console.log(this.detailPageData); //this.detailedImages = this.detailPageData.fileName.filter((d:any) => d.extension != 'mp4');
+          console.log(this.detailPageData);
+          this.detailedImages = this.detailPageData.doc.fileName;
 
-          this.detailedImages = this.detailPageData.fileName;
+          if (this.detailPageData.doc.comment != undefined) {
+            this.detailPageData.doc.comment.reverse();
+          } else {
+            this.detailPageData.doc.comment = [];
+          }
+
           this.detailClassifiedStatus = false;
+          this.ratingPercentage = this.detailPageData.averageRating / 5 * 100;
         }
       }, {
         key: "setCurrentImage",
@@ -4617,9 +2592,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteProduct",
         value: function deleteProduct(id, index) {
-          var _this14 = this;
+          var _this7 = this;
 
-          sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
+          sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
             title: "Delete Product",
             text: "Are you sure you want to delete.",
             icon: "warning",
@@ -4628,12 +2603,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             cancelButtonText: 'No'
           }).then(function (isConfirm) {
             if (isConfirm.isConfirmed) {
-              _this14.fetch.delProduct({
+              _this7.fetch.delProduct({
                 id: id
               }).subscribe(function (data) {
-                _this14.allProduct.splice(index, 1);
+                _this7.allProduct.splice(index, 1);
 
-                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
+                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
                   title: "Deleted Successfullt",
                   text: "",
                   icon: "success"
@@ -4642,6 +2617,136 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
         }
+      }, {
+        key: "myorders",
+        value: function myorders() {
+          var _this8 = this;
+
+          this.myOrderStatus = true;
+          this.fetch.myorder().subscribe(function (data) {
+            _this8.allOrderList = JSON.parse(JSON.stringify(data));
+            console.log(_this8.allOrderList);
+            _this8.orderList = _this8.allOrderList.filter(function (d) {
+              return d.status == 'open' || d.status == 'acceptedByMerchant';
+            });
+          });
+        } // updateStatus (type, id, index) {
+        //   const data = {"id": id, "value":{status: type ? 'acceptByMerchant' : 'rejectByMerchant' }};
+        //   this.fetch.acceptedInvoice(data).subscribe((data: any) => {
+        //     this.orderList[index].status = type ? 'acceptByMerchant' : 'rejectByMerchant';
+        //   });
+        // }
+
+      }, {
+        key: "updateStatus",
+        value: function updateStatus(id, type, index) {
+          var _this9 = this;
+
+          var data = {
+            "id": id,
+            "value": {
+              status: type
+            }
+          };
+          this.fetch.acceptedInvoice(data).subscribe(function (data) {
+            _this9.orderList[index].status = type;
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+              title: "Updated successfully.",
+              text: "",
+              icon: 'success',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false
+            });
+          });
+        }
+      }, {
+        key: "changeTab",
+        value: function changeTab(type, val) {
+          this.currentTab = type;
+
+          if (val == 'open') {
+            this.orderList = this.allOrderList.filter(function (d) {
+              return d.status == 'acceptedByMerchant' || d.status == 'open';
+            });
+          } else {
+            this.orderList = this.allOrderList.filter(function (d) {
+              return d.status == val;
+            });
+          }
+        }
+      }, {
+        key: "InvoiceSend",
+        value: function InvoiceSend(data, type, index) {
+          var _this10 = this;
+
+          console.log(data);
+          var selectedProduct = [];
+          data.productList.map(function (d) {
+            selectedProduct.push({
+              "name": d.name,
+              "quantity": data.cart[d.name],
+              "price": d.price
+            });
+          });
+          var requestData = {
+            "id": data._id,
+            "value": {
+              status: type
+            },
+            "data": data
+          };
+          this.fetch.InvoiceSend(requestData).subscribe(function () {
+            _this10.orderList[index].status = type;
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+              title: "Updated successfully.",
+              text: "",
+              icon: 'success',
+              timer: 2000,
+              showCancelButton: false,
+              showConfirmButton: false
+            });
+
+            _this10.dasboard.createNewInvoice({
+              "selectedProducts": selectedProduct,
+              "company": _this10.profInfo.companyName,
+              "type": "shop"
+            }).subscribe(function (res) {
+              res["mobilenumber"] = data.senderNumber;
+              res['domain'] = _this10.profInfo.domain;
+              res['companyName'] = _this10.profInfo.companyName;
+              res['type'] = 'shop';
+              setTimeout(function () {
+                _this10.deliveryService.generateImageNewInvoice(res).subscribe(function () {});
+              }, 2800);
+            }, function (err) {});
+          }); // this.fetch.createNewInvoice({"selectedProducts": this.selectedProduct, "company": this.authService.getCompanyName(), "type": "dashboard"}).subscribe(
+          //   res => {
+          //     this.dMsg = {msg: "Bill created successfully.", alert: 'alert-success'};
+          //     this.selectedProduct = [];
+          //     this.dBtm = false;
+          //     this.paid = false;
+          //     res["mobilenumber"] = this.setMobile;
+          //     res['domain'] = this.authService.getDomainName();
+          //     res['companyName'] = this.authService.getCompanyName();
+          //     res['type'] = 'dashboard';
+          //     setTimeout(() => {
+          //       this.dMsg = {};
+          //       this.deliveryService.generateImageNewInvoice(res).subscribe(() => { this.getMonthData(false); })
+          //       this.paid = false;
+          //       this.modalRef.hide();
+          //     }, 2800);
+          //   },
+          //   err => {
+          //     this.dBtm = false;
+          //     this.dMsg = {msg: err.error, alert: 'alert-danger'};
+          //   }
+          // )
+          // const orderData = {
+          //   "company": "undefined",
+          //   "selectedProducts":
+          // }
+        }
       }]);
 
       return AddproductComponent;
@@ -4649,19 +2754,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddproductComponent.ctorParameters = function () {
       return [{
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
       }, {
-        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_5__["BsModalService"]
+        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]
       }, {
-        type: _shoping_service__WEBPACK_IMPORTED_MODULE_6__["ShopingService"]
+        type: _shoping_service__WEBPACK_IMPORTED_MODULE_7__["ShopingService"]
       }, {
-        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_2__["DashboardService"]
+        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"]
       }, {
-        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_1__["ApiLinkService"]
+        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__["ApiLinkService"]
+      }, {
+        type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"]
       }];
     };
 
-    AddproductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+    AddproductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
       selector: 'app-addproduct',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./addproduct.component.html */
@@ -4831,138 +2938,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       declarations: [_addproduct_addproduct_component__WEBPACK_IMPORTED_MODULE_8__["AddproductComponent"]],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], ngx_owl_carousel__WEBPACK_IMPORTED_MODULE_4__["OwlModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_5__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _shoping_routing_module__WEBPACK_IMPORTED_MODULE_9__["ShoppingAppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_10__["AngularEditorModule"], ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__["ModalModule"].forRoot()]
     })], ShopingModule);
-    /***/
-  },
-
-  /***/
-  "./src/app/shoping/shoping.service.ts":
-  /*!********************************************!*\
-    !*** ./src/app/shoping/shoping.service.ts ***!
-    \********************************************/
-
-  /*! exports provided: ShopingService */
-
-  /***/
-  function srcAppShopingShopingServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ShopingService", function () {
-      return ShopingService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
-    /* harmony import */
-
-
-    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../shared/api-link.service */
-    "./src/app/shared/api-link.service.ts");
-    /* harmony import */
-
-
-    var _guard_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../guard/auth.service */
-    "./src/app/guard/auth.service.ts");
-
-    var ShopingService = /*#__PURE__*/function () {
-      function ShopingService(http, api, auth) {
-        _classCallCheck(this, ShopingService);
-
-        this.http = http;
-        this.api = api;
-        this.auth = auth;
-        this.serverPath = this.api.srvLink;
-        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-          'Content-Type': "application/json",
-          'Authorization': this.auth.getLogged()
-        });
-        this.upHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-          'Authorization': this.auth.getLogged()
-        });
-        this.httpOptions = {
-          headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-            'Content-Type': 'application/json'
-          })
-        };
-      }
-
-      _createClass(ShopingService, [{
-        key: "uploadImg",
-        value: function uploadImg(data) {
-          return this.http.post(this.api.delear + "api/comunication/image", data, {
-            headers: this.upHeaders,
-            reportProgress: true,
-            observe: 'events'
-          });
-        }
-      }, {
-        key: "uploadclassifiedImage",
-        value: function uploadclassifiedImage(data) {
-          return this.http.post(this.api.delear + "api/comunication/imageuploadclassified", data, {
-            headers: this.upHeaders,
-            reportProgress: true,
-            observe: 'events'
-          });
-        }
-      }, {
-        key: "addProduct",
-        value: function addProduct(data, url) {
-          return this.http.post(this.api.server + url, data, {
-            headers: this.headers
-          });
-        }
-      }, {
-        key: "getAllProduct",
-        value: function getAllProduct(data) {
-          return this.http.post(this.api.delear + "api/product/allProduct", data, {
-            headers: this.headers
-          });
-        }
-      }, {
-        key: "delProduct",
-        value: function delProduct(data) {
-          return this.http.post(this.api.server + 'product/deleteProduct', data, {
-            headers: this.headers
-          });
-        }
-      }]);
-
-      return ShopingService;
-    }();
-
-    ShopingService.ctorParameters = function () {
-      return [{
-        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-      }, {
-        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__["ApiLinkService"]
-      }, {
-        type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]
-      }];
-    };
-
-    ShopingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], ShopingService);
     /***/
   }
 }]);

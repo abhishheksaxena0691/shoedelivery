@@ -1665,7 +1665,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | profile-profile-module */
-        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("common"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~landing-lan~6e15f554"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null,
         /*! ../profile/profile.module */
         "./src/app/profile/profile.module.ts")).then(function (m) {
           return m.ProfileModule;
@@ -2417,7 +2417,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.fetch.createNewInvoice({
             "selectedProducts": this.selectedProduct,
-            "company": this.authService.getCompanyName()
+            "company": this.authService.getCompanyName(),
+            "type": "dashboard"
           }).subscribe(function (res) {
             _this12.dMsg = {
               msg: "Bill created successfully.",
@@ -2429,6 +2430,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             res["mobilenumber"] = _this12.setMobile;
             res['domain'] = _this12.authService.getDomainName();
             res['companyName'] = _this12.authService.getCompanyName();
+            res['type'] = 'dashboard';
             setTimeout(function () {
               _this12.dMsg = {};
 

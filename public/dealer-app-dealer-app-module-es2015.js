@@ -1180,7 +1180,7 @@ const routes = [
     },
     {
         path: "/profile",
-        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~missing-mis~ad44b56a"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~profile-profile-module~quote-quote-m~324736df"), __webpack_require__.e("common"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ../profile/profile.module */ "./src/app/profile/profile.module.ts")).then(m => m.ProfileModule),
+        loadChildren: () => Promise.all(/*! import() | profile-profile-module */[__webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~landing-lan~6e15f554"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~landing-landing-module~profile-profi~35c6fc6c"), __webpack_require__.e("default~dashboard-dashboard-module~dealer-app-dealer-app-module~delivery-delivery-module~profile-pro~9910a3ab"), __webpack_require__.e("profile-profile-module")]).then(__webpack_require__.bind(null, /*! ../profile/profile.module */ "./src/app/profile/profile.module.ts")).then(m => m.ProfileModule),
         canActivate: [_guard_auth_guard__WEBPACK_IMPORTED_MODULE_1__["AuthGuard"]]
     },
 ];
@@ -1685,7 +1685,7 @@ let DealerDashboadComponent = class DealerDashboadComponent {
                 this.selectedProduct[index]["quantity"] = 1;
             }
         });
-        this.fetch.createNewInvoice({ "selectedProducts": this.selectedProduct, "company": this.authService.getCompanyName() }).subscribe(res => {
+        this.fetch.createNewInvoice({ "selectedProducts": this.selectedProduct, "company": this.authService.getCompanyName(), "type": "dashboard" }).subscribe(res => {
             this.dMsg = { msg: "Bill created successfully.", alert: 'alert-success' };
             this.selectedProduct = [];
             this.dBtm = false;
@@ -1693,6 +1693,7 @@ let DealerDashboadComponent = class DealerDashboadComponent {
             res["mobilenumber"] = this.setMobile;
             res['domain'] = this.authService.getDomainName();
             res['companyName'] = this.authService.getCompanyName();
+            res['type'] = 'dashboard';
             setTimeout(() => {
                 this.dMsg = {};
                 this.deliveryService.generateImageNewInvoice(res).subscribe(() => { this.getMonthData(false); });

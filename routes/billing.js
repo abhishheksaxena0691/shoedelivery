@@ -331,7 +331,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                             billDetails: pdfData,
                             paidBy: req.decoded.usrName,
                             usrNumber: req.decoded.mobile,
-                            category: 'dashboard',
+                            category: req.body.type,
                             paymentMode: "",
                             payStatus: false,
                             createdOn: new Date().toString(),
