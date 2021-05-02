@@ -5,6 +5,7 @@ const db = require('../module/dbConnect');
 const midWare = require('../module/middleware');
 var multer  = require('multer');
 const PDF2Pic = require("pdf2pic");
+const { ObjectID } = require('bson');
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './public/pdfBills/');
@@ -189,5 +190,20 @@ router.post('/api/profileInformation', (req, res, next) => {
         res.status(410).jsonp(err);
         next(err);
     });
+});
+
+router.post('/api/addDiscount', midWare.checkToken, (req, res, next) => {
+  
+        
+
+        db.getDB().collection('order').findOneAndUpdate({_id: ObjectID(req.body.id)},  {$set: req.body.val }, (err, doc) => {
+            if(err) {
+                res.status(410).jsonp(err);
+                next(err);
+            } else {
+                res.status(201).jsonp('Your profile information updated successfully!');
+            }
+        });
+    
 });
 module.exports = router;

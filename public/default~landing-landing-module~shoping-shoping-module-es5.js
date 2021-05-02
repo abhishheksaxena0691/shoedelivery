@@ -2508,6 +2508,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             headers: this.upHeaders1
           });
         }
+      }, {
+        key: "updateDiscount",
+        value: function updateDiscount(data) {
+          return this.http.post(this.api.server + 'addDiscount', data, {
+            headers: this.headers
+          });
+        }
       }]);
 
       return ShopingService;

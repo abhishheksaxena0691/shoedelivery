@@ -1787,6 +1787,9 @@ let ShopingService = class ShopingService {
     getSopkeeperInfo(data) {
         return this.http.post(this.api.server + "profileInformation", data, { headers: this.upHeaders1 });
     }
+    updateDiscount(data) {
+        return this.http.post(this.api.server + 'addDiscount', data, { headers: this.headers });
+    }
 };
 ShopingService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
