@@ -180,9 +180,38 @@ router.get('/api/user/all', midWare.checkToken, (req, res, next) => {
 
 router.post('/api/profileInformation', (req, res, next) => {
     console.log(req.body.mobile);
-    db.getDB().collection('userInfo').findOne({mobileNo: req.body.mobileNo}).then((doc) => {
-        if(doc)
-            res.status(200).jsonp(doc);
+    db.getDB().collection('userInfo').findOne({mobileNo: req.body.mobileNo}).then((doc1) => {
+        if(doc1)
+           {  
+            db.getDB().collection('order')
+            .aggregate([
+               
+                { $match: {status: 'close', ownerNumber: '9845496618'} },
+                { $group : { 
+                    _id : "$ownerNumber",
+                    averageDelivery: { $avg: "$averageDelivery" },
+                    paymentEase: { $avg: "$paymentEase" },
+                    productPrice: { $avg: "$productPrice" },
+                    productQuality: { $avg: "$productQuality" },
+                    refundRating: { $avg: "$refundRating" },
+                    returnRating: { $avg: "$returnRating" },
+                    staffBehaviour: { $avg: "$staffBehaviour" },
+                    staffHelping: { $avg: "$staffHelping" },        
+                } },
+                {$addFields : {"overallrating" : {$avg : ["$averageDelivery", "$paymentEase", "$productPrice", "$productQuality", "$refundRating", "$returnRating", "$staffBehaviour", "$staffHelping"]}}}
+              
+               
+              ]).toArray((err, doc) => {
+                    if(err) {
+                        res.status(410).jsonp(err);
+                        next(err);
+                    } else {
+                        console.log(doc);
+                        doc1["rating"] = doc[0];
+                        res.status(200).jsonp(doc1);
+                    }
+                });
+           }
         else
             res.status(404).jsonp('Profile not found!');
     })
@@ -202,6 +231,39 @@ router.post('/api/addDiscount', midWare.checkToken, (req, res, next) => {
                 next(err);
             } else {
                 res.status(201).jsonp('Your profile information updated successfully!');
+            }
+        });
+    
+});
+
+
+router.get('/api/getUserInformationData', (req, res, next) => {
+
+    db.getDB().collection('order')
+    .aggregate([
+       
+        { $match: {status: 'close', ownerNumber: '9845496618'} },
+        { $group : { 
+            _id : "$ownerNumber",
+            averageDelivery: { $avg: "$averageDelivery" },
+            paymentEase: { $avg: "$paymentEase" },
+            productPrice: { $avg: "$productPrice" },
+            productQuality: { $avg: "$productQuality" },
+            refundRating: { $avg: "$refundRating" },
+            returnRating: { $avg: "$returnRating" },
+            staffBehaviour: { $avg: "$staffBehaviour" },
+            staffHelping: { $avg: "$staffHelping" },        
+        } },
+        {$addFields : {"overallrating" : {$avg : ["$averageDelivery", "$paymentEase", "$productPrice", "$productQuality", "$refundRating", "$returnRating", "$staffBehaviour", "$staffHelping"]}}}
+      
+       
+      ]).toArray((err, doc) => {
+            if(err) {
+                res.status(410).jsonp(err);
+                next(err);
+            } else {
+                console.log(doc);
+                res.status(200).jsonp(doc);
             }
         });
     

@@ -84,7 +84,7 @@ router.post('/api/product/deleteProduct',  midWare.checkToken,  (req, res, next)
 });
 
 router.get('/api/product/myOrder',  midWare.checkToken,  (req, res, next) => {
-    db.getDB().collection('order').find({$or:[{ownerNumber: req.decoded.mobile} , {senderNumber: req.decoded.mobile}]}).toArray((err, doc) => {
+    db.getDB().collection('order').find({$or:[{ownerNumber: req.decoded.mobile} , {senderNumber: req.decoded.mobile}]}).sort({createdOn: -1}).toArray((err, doc) => {
              if(err) {
                  res.status(410).jsonp(err);
                  next(err);
@@ -135,6 +135,22 @@ router.post('/api/product/updateStatus',  midWare.checkToken,  (req, res, next) 
 });
 
 router.post('/api/product/InvoiceSend',  midWare.checkToken,  (req, res, next) => {
+    
+    db.getDB().collection('order').findOneAndUpdate({"_id": ObjectId(req.body.id)}, {$set: req.body.value}, {returnOriginal: false}, (err, doc) => {
+        if(err) {
+            res.status(410).jsonp(err);
+            next(err);
+        } else {
+            if(doc.value)
+                res.status(201).jsonp('Your account verified successfully!');
+            else
+                res.status(410).jsonp("Invalid user. Please check again!");
+        }
+        
+    });
+});
+
+router.post('/api/product/updatingRating',  midWare.checkToken,  (req, res, next) => {
     
     db.getDB().collection('order').findOneAndUpdate({"_id": ObjectId(req.body.id)}, {$set: req.body.value}, {returnOriginal: false}, (err, doc) => {
         if(err) {
