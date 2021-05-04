@@ -183,12 +183,13 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     var strTime = hours + ':' + minutes + ' ' + ampm;
     req.decoded['time'] = strTime;
     var totalPrice = 0;
-    
-    for (let i=0; i< req.body.selectedProducts.length; i++) {
-        totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
-    }
-    req.decoded['totalPrice'] = totalPrice;
-
+    if (req.body.totalamount == undefined) {
+        for (let i=0; i< req.body.selectedProducts.length; i++) {
+            totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
+        }
+        req.decoded['totalPrice'] = totalPrice;
+    }  
+        req.decoded['totalPrice'] = req.body.totalamount;
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((html1) => {
         console.log(html1);
