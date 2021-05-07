@@ -288,6 +288,8 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                     .substring(lineData.indexOf("Total:") + "Total:".length + 1)
                     .trim();
                     //total = total.replace(/\,/g, "");
+                    console.log(req.body.totalamount);
+                    console.log(total);
                     pdfData.total = req.body.totalamount != undefined ? req.body.totalamount : total;
                     isParsingComplete = true;
                     continue;
