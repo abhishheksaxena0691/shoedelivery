@@ -188,11 +188,12 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
             totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
         }
         req.decoded['totalPrice'] = totalPrice;
-    }  
+    }  else { 
         req.decoded['totalPrice'] = req.body.totalamount;
+    }
     const fileName = "FootWear_"+ new Date().getTime()+'_'+req.decoded.mobile;
     pdfGeneration(req.decoded, req.body.selectedProducts, req.body.company, true).then((html1) => {
-        console.log(html1);
+        
         const options = {
             format: "A4",
             orientation: "portrait"
