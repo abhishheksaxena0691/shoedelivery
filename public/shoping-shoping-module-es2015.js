@@ -799,7 +799,7 @@ let AddproductComponent = class AddproductComponent {
                 showCancelButton: false,
                 showConfirmButton: false,
             });
-            this.dasboard.createNewInvoice({ "selectedProducts": selectedProduct, "company": this.profInfo.companyName, "type": "shop", "totalamount": (data.totalamount - data.discount) }).subscribe(res => {
+            this.dasboard.createNewInvoice({ "selectedProducts": selectedProduct, "company": this.profInfo.companyName, "type": "shop", "totalamount": (data.totalamount - data.discount).toString() }).subscribe(res => {
                 res["mobilenumber"] = data.senderNumber;
                 res['domain'] = this.profInfo.domain;
                 res['companyName'] = this.profInfo.companyName;

@@ -2851,7 +2851,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "selectedProducts": selectedProduct,
               "company": _this11.profInfo.companyName,
               "type": "shop",
-              "totalamount": data.totalamount - data.discount
+              "totalamount": (data.totalamount - data.discount).toString()
             }).subscribe(function (res) {
               res["mobilenumber"] = data.senderNumber;
               res['domain'] = _this11.profInfo.domain;
