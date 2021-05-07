@@ -2608,10 +2608,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.myOrderStatus = false;
             this.addClassifiedTemplate = true;
           }
-
-          console.log(this.addClassifiedTemplate);
-          console.log(this.myOrderStatus);
-          console.log(this.detailClassifiedStatus);
         }
       }, {
         key: "getMyProduct",
@@ -2639,7 +2635,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editProduct",
         value: function editProduct(data) {
-          console.log(data);
           this.currentIndexId = data.doc._id;
           this.editProductStatus = true;
           this.addClassifiedTemplate = true;
@@ -2664,7 +2659,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.imgURL = data.doc.fileName.filter(function (data) {
             return data.extension != 'mp4';
           });
-          console.log(this.editfileNames);
 
           if (index > -1) {
             this.uploadedVideo = data.doc.fileName[index].name;
@@ -2688,9 +2682,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "detailProduct",
         value: function detailProduct(item) {
-          console.log(item);
           this.detailPageData = item;
-          console.log(this.detailPageData);
           this.detailedImages = this.detailPageData.doc.fileName;
 
           if (this.detailPageData.doc.comment != undefined) {
@@ -2832,6 +2824,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "price": d.price
             });
           });
+
+          if (data.discount == undefined) {
+            data.discount = 0;
+          }
+
           var requestData = {
             "id": data._id,
             "value": {

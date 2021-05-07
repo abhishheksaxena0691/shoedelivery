@@ -1710,7 +1710,6 @@ let DealerDashboadComponent = class DealerDashboadComponent {
         if (this.selectedProduct[index] !== undefined) {
             this.selectedProduct[index]['quantity'] = parseInt(val);
         }
-        console.log(this.selectedProduct);
         this.selectedProduct.map((data) => {
             console.log(data.price);
             console.log(data.quantity);

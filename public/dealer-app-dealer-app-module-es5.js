@@ -2461,7 +2461,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.selectedProduct[index]['quantity'] = parseInt(val);
           }
 
-          console.log(this.selectedProduct);
           this.selectedProduct.map(function (data) {
             console.log(data.price);
             console.log(data.quantity);

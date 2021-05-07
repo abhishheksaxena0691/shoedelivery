@@ -649,9 +649,6 @@ let AddproductComponent = class AddproductComponent {
             this.myOrderStatus = false;
             this.addClassifiedTemplate = true;
         }
-        console.log(this.addClassifiedTemplate);
-        console.log(this.myOrderStatus);
-        console.log(this.detailClassifiedStatus);
     }
     getMyProduct() {
         const m = localStorage.getItem('mnumber');
@@ -666,7 +663,6 @@ let AddproductComponent = class AddproductComponent {
         this.uploadedVideo = "";
     }
     editProduct(data) {
-        console.log(data);
         this.currentIndexId = data.doc._id;
         this.editProductStatus = true;
         this.addClassifiedTemplate = true;
@@ -687,7 +683,6 @@ let AddproductComponent = class AddproductComponent {
         this.fileNames = data.doc.fileName;
         const index = data.doc.fileName.findIndex((data) => data.extension == 'mp4');
         this.imgURL = data.doc.fileName.filter((data) => data.extension != 'mp4');
-        console.log(this.editfileNames);
         if (index > -1) {
             this.uploadedVideo = data.doc.fileName[index].name;
         }
@@ -703,9 +698,7 @@ let AddproductComponent = class AddproductComponent {
         console.log(this.fileNames);
     }
     detailProduct(item) {
-        console.log(item);
         this.detailPageData = item;
-        console.log(this.detailPageData);
         this.detailedImages = this.detailPageData.doc.fileName;
         if (this.detailPageData.doc.comment != undefined) {
             this.detailPageData.doc.comment.reverse();
@@ -792,6 +785,9 @@ let AddproductComponent = class AddproductComponent {
         data.productList.map((d) => {
             selectedProduct.push({ "name": d.name, "quantity": data.cart[d.name], "price": d.price });
         });
+        if (data.discount == undefined) {
+            data.discount = 0;
+        }
         const requestData = { "id": data._id, "value": { status: type }, "data": data };
         this.fetch.InvoiceSend(requestData).subscribe(() => {
             this.orderList[j].values[index].status = type;
