@@ -183,7 +183,7 @@ router.post('/api/bill/generateDealerBill', midWare.checkToken, (req, res, next)
     var strTime = hours + ':' + minutes + ' ' + ampm;
     req.decoded['time'] = strTime;
     var totalPrice = 0;
-    if (req.body.totalamount == undefined) {
+    if (req.body.totalamount == undefined || req.body.totalamount == 'undefined') {
         for (let i=0; i< req.body.selectedProducts.length; i++) {
             totalPrice += parseInt(req.body.selectedProducts[i].price * req.body.selectedProducts[i].quantity);
         }
