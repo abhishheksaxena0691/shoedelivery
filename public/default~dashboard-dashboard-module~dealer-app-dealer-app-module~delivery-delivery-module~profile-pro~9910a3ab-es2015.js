@@ -372,11 +372,15 @@ let FilterService = class FilterService {
         return days;
     }
     cleanPrice(amount) {
-        return parseInt(amount.replace(/[^a-zA-Z0-9]/g, ''));
+        if (isNaN(amount)) {
+            return parseInt(amount.replace(/[^a-zA-Z0-9]/g, ''));
+        }
+        else {
+            return parseInt(amount);
+        }
     }
     filterByDate(billData, startDate, endDate) {
         let data = { list: [], price: 0 };
-        console.log(billData);
         //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
         data.list = billData.filter((bill) => new Date(bill.date).getTime() >= endDate && new Date(bill.date).getTime() <= startDate);
         //  console.log(data.list);
@@ -394,7 +398,6 @@ let FilterService = class FilterService {
         //console.log(startDate);
         // console.log(endDate);
         //this.billList = this.billData.filter((bill: any) => new Date(bill.date).getTime() >= this.lastTwo.getTime() && new Date(bill.date).getTime() <= this.today.getTime());
-        console.log(billData);
         data.list = billData.filter((bill) => new Date(bill.billDetails.date).getTime() >= endDate && new Date(bill.billDetails.date).getTime() <= startDate);
         //console.log(data.list);
         if (data.list) {
