@@ -41,7 +41,7 @@ router.post('/api/product/getProductList',  midWare.checkToken,  (req, res, next
 });
 
 router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) => {
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": { $regex: req.body.name.trim()}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": req.body.name.trim()}).toArray((err, doc) => {
         if (doc.length ==0) {
             req.body["nameId"] = req.body.name.trim().toLowerCase();
                 db.getDB().collection('product').insertOne(req.body, (err, doc) => {
@@ -62,7 +62,7 @@ router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) =>
 router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) => {
     const id = req.body.currentIndexId;
     delete req.body.currentIndexId;
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": { $regex: req.body.name.trim().toLowerCase()}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId":  req.body.name.trim().toLowerCase()}).toArray((err, doc) => {
         console.log(doc);
         if (doc.length ==0) {
 
