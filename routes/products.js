@@ -41,7 +41,7 @@ router.post('/api/product/getProductList',  midWare.checkToken,  (req, res, next
 });
 
 router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) => {
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name, $options: 'i'}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim(), $options: 'i'}}).toArray((err, doc) => {
         if (doc.length ==0) {
                 db.getDB().collection('product').insertOne(req.body, (err, doc) => {
                     if(err) {
@@ -61,18 +61,24 @@ router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) =>
 router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) => {
     const id = req.body.currentIndexId;
     delete req.body.currentIndexId;
-    db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
-        if(err) {
-            res.status(410).jsonp(err);
-            next(err);
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim(), $options: 'i'}}).toArray((err, doc) => {
+        if (doc.length ==0) {
+                db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
+                    if(err) {
+                        res.status(410).jsonp(err);
+                        next(err);
+                    } else {
+                        if(doc.value)
+                            res.status(201).jsonp('Your account verified successfully!');
+                        else
+                            res.status(410).jsonp("Invalid user. Please check again!");
+                    }
+                    
+                });
         } else {
-            if(doc.value)
-                res.status(201).jsonp('Your account verified successfully!');
-            else
-                res.status(410).jsonp("Invalid user. Please check again!");
+            res.status(410).jsonp('Product already exist');
         }
-        
-    });
+        });
     
 });
 
