@@ -174,7 +174,7 @@ router.post('/api/product/updatingRating',  midWare.checkToken,  (req, res, next
     });
 });
 
-router.post('/api/product/getProductListtest',  midWare.checkToken,  (req, res, next) => {
+router.get('/api/product/getProductListtest',  (req, res, next) => {
     
     db.getDB().collection('product').find({}).toArray((err, doc) => {
         if(err) {
