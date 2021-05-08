@@ -80,22 +80,26 @@ router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) =
                     
                 });
             
-        } else if (doc.length ==1 &&( doc[0].nameId == req.body.name.trim().toLowerCase())) {
-            console.log(doc);
-            console.log( req.body.name.trim().toLowerCase());
-            
-                // db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
-                //     if(err) {
-                //         res.status(410).jsonp(err);
-                //         next(err);
-                //     } else {
-                //         if(doc.value)
-                //             res.status(201).jsonp('Your account verified successfully!');
-                //         else
-                //             res.status(410).jsonp("Invalid user. Please check again!");
-                //     }
-                    
-                // });
+        } else if (doc.length ==1) {
+          
+            db.getDB().collection('product').find({"_id": ObjectId(id)}).toArray((err, doc2) => {
+                if (doc2[0].nameId == req.body.name.trim().toLowerCase()) {
+                        db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
+                            if(err) {
+                                res.status(410).jsonp(err);
+                                next(err);
+                            } else {
+                                if(doc.value)
+                                    res.status(201).jsonp('Your account verified successfully!');
+                                else
+                                    res.status(410).jsonp("Invalid user. Please check again!");
+                            }
+                            
+                        }); 
+                } else {
+                    res.status(410).jsonp('Product already exist');
+                }       
+            });
             
         } else {
             res.status(410).jsonp('Product already exist');
