@@ -66,7 +66,7 @@ router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) =
         
         
         if (doc.length ==0) {
-            if (doc[0].nameId == req.body.name.trim().toLowerCase()) {
+           
                 db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
                     if(err) {
                         res.status(410).jsonp(err);
@@ -79,7 +79,7 @@ router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) =
                     }
                     
                 });
-            }
+            
         } else if (doc.length ==1 &&( doc[0].nameId == req.body.name.trim().toLowerCase())) {
             
                 db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
