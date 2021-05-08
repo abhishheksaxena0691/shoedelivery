@@ -173,4 +173,27 @@ router.post('/api/product/updatingRating',  midWare.checkToken,  (req, res, next
         
     });
 });
+
+router.post('/api/product/getProductListtest',  midWare.checkToken,  (req, res, next) => {
+    
+    db.getDB().collection('product').find({}).toArray((err, doc) => {
+        if(err) {
+            res.status(410).jsonp(err);
+            next(err);
+        } else {
+            for (let i=0; i <doc.length;i++) {
+                        db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(doc[i]._id)}, {$set: {"name": doc[i].name.trim()}}, {returnOriginal: false}, (err, doc) => {
+                            if(err) {
+                                res.status(410).jsonp(err);
+                                next(err);
+                            } else {
+                                
+                            }
+                            
+                        });
+            }
+        }
+    });
+    
+});
 module.exports = router;
