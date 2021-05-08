@@ -41,7 +41,7 @@ router.post('/api/product/getProductList',  midWare.checkToken,  (req, res, next
 });
 
 router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) => {
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim().toLowerCase(), $options: 'i'}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": { $regex: req.body.name.trim(), $options: 'i'}}).toArray((err, doc) => {
         if (doc.length ==0) {
             req.body["nameId"] = req.body.name.trim().toLowerCase();
                 db.getDB().collection('product').insertOne(req.body, (err, doc) => {

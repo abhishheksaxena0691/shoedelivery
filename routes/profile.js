@@ -186,7 +186,7 @@ router.post('/api/profileInformation', (req, res, next) => {
             db.getDB().collection('order')
             .aggregate([
                
-                { $match: {status: 'close', ownerNumber: '9845496618'} },
+                { $match: {status: 'close', ownerNumber: req.body.mobileNo} },
                 { $group : { 
                     _id : "$ownerNumber",
                     averageDelivery: { $avg: "$averageDelivery" },
