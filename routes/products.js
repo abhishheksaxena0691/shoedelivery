@@ -41,8 +41,9 @@ router.post('/api/product/getProductList',  midWare.checkToken,  (req, res, next
 });
 
 router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) => {
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim(), $options: 'i'}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim().toLowerCase(), $options: 'i'}}).toArray((err, doc) => {
         if (doc.length ==0) {
+            req.body["nameId"] = req.body.name.trim().toLowerCase();
                 db.getDB().collection('product').insertOne(req.body, (err, doc) => {
                     if(err) {
                         res.status(410).jsonp(err);
@@ -61,7 +62,7 @@ router.post('/api/product/addProduct',  midWare.checkToken,  (req, res, next) =>
 router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) => {
     const id = req.body.currentIndexId;
     delete req.body.currentIndexId;
-    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "name": { $regex: req.body.name.trim(), $options: 'i'}}).toArray((err, doc) => {
+    db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": { $regex: req.body.name.trim().toLowerCase(), $options: 'i'}}).toArray((err, doc) => {
         if (doc.length ==0) {
                 db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
                     if(err) {
@@ -182,7 +183,7 @@ router.get('/api/product/getProductListtest',  (req, res, next) => {
             next(err);
         } else {
             for (let i=0; i <doc.length;i++) {
-                        db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(doc[i]._id)}, {$set: {"name": doc[i].name.trim()}}, {returnOriginal: false}, (err, doc) => {
+                        db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(doc[i]._id)}, {$set: {"nameId": doc[i].name.trim().toLowerCase()}}, {returnOriginal: false}, (err, doc) => {
                             if(err) {
                                 res.status(410).jsonp(err);
                                 next(err);
