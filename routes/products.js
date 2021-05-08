@@ -63,7 +63,9 @@ router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) =
     const id = req.body.currentIndexId;
     delete req.body.currentIndexId;
     db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId": { $regex: req.body.name.trim().toLowerCase(), $options: 'i'}}).toArray((err, doc) => {
+        console.log(doc);
         if (doc.length ==0) {
+
                 db.getDB().collection('product').findOneAndUpdate({"_id": ObjectId(id)}, {$set: req.body}, {returnOriginal: false}, (err, doc) => {
                     if(err) {
                         res.status(410).jsonp(err);
