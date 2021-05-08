@@ -63,7 +63,7 @@ router.post('/api/product/editProduct',  midWare.checkToken,  (req, res, next) =
     const id = req.body.currentIndexId;
     delete req.body.currentIndexId;
     db.getDB().collection('product').find({"ownerNumber": req.body.ownerNumber, "nameId":  req.body.name.trim().toLowerCase()}).toArray((err, doc) => {
-        
+        console.log(doc);
         
         if (doc.length ==0) {
            
