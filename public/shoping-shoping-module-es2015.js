@@ -451,8 +451,7 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Personal & Baby Care", images: "personalandbabycare.png", "type": "subCategorytype24" },
                 { "name": "Household Care", images: "householdcare.jpg", "type": "subCategorytype25" },
                 { "name": "Dairy & Eggs", images: "dairyandeggs.jpg", "type": "subCategorytype26" },
-                { "name": "Home & Kitchen", images: "homekitchen.jpg", "type": "subCategorytype27" },
-                { "name": "Fruits & Vegetables", images: "fruitvegetable.jpg", "type": "subCategorytype28" }],
+                { "name": "Home & Kitchen", images: "homekitchen.jpg", "type": "subCategorytype27" }],
             "category3": [
                 { "name": "Mobile less 5000", images: "", "type": "subCategorytype31" },
                 { "name": "Mobile accessories", images: "", "type": "subCategorytype32" },

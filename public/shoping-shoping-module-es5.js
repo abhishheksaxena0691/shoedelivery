@@ -2210,10 +2210,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             "name": "Home & Kitchen",
             images: "homekitchen.jpg",
             "type": "subCategorytype27"
-          }, {
-            "name": "Fruits & Vegetables",
-            images: "fruitvegetable.jpg",
-            "type": "subCategorytype28"
           }],
           "category3": [{
             "name": "Mobile less 5000",
