@@ -686,7 +686,8 @@ let AddproductComponent = class AddproductComponent {
         this.nameId = data.doc.nameId;
         this.editProductStatus = true;
         this.addClassifiedTemplate = true;
-        this.selectCategory(data.category);
+        this.selectCategory(data.doc.category);
+        console.log(data.doc.category);
         this.classifiedForm.patchValue({
             "name": data.doc.name,
             "category": data.doc.category,
@@ -803,7 +804,7 @@ let AddproductComponent = class AddproductComponent {
     InvoiceSend(data, type, index, j) {
         let selectedProduct = [];
         data.productList.map((d) => {
-            selectedProduct.push({ "name": d.name, "quantity": data.cart[d.name], "price": d.price });
+            selectedProduct.push({ "name": d.name, "quantity": data.cart[d.name.toLowerCase()], "price": d.price });
         });
         if (data.discount == undefined) {
             data.discount = 0;
@@ -872,17 +873,12 @@ let AddproductComponent = class AddproductComponent {
         this.filterProductByCategoryAndSubCategory();
     }
     filterProductByCategory() {
-        console.log(this.setClassified);
-        console.log(this.allProductWithoutCategory);
         this.allProduct = JSON.parse(JSON.stringify(this.allProductWithoutCategory.filter((data) => data.doc.category == this.setClassified)));
     }
     filterProductByCategoryAndSubCategory() {
-        console.log(this.setClassified);
-        console.log(this.subCategoryClassified);
         this.allProduct = JSON.parse(JSON.stringify(this.allProductWithoutCategory.filter((data) => data.doc.category == this.setClassified && data.doc.subcategory == this.subCategoryClassified)));
     }
     addToTopOffer(val) {
-        console.log(val);
         if (val) {
             this.classifiedForm.patchValue({ 'category': 'category1' });
             this.classifiedForm.patchValue({ 'subcategory': 'category1' });
@@ -891,7 +887,6 @@ let AddproductComponent = class AddproductComponent {
             this.classifiedForm.patchValue({ 'category': null });
             this.classifiedForm.patchValue({ 'subcategory': null });
         }
-        console.log(this.classifiedForm.value);
     }
 };
 AddproductComponent.ctorParameters = () => [

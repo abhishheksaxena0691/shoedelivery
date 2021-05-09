@@ -2661,7 +2661,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.nameId = data.doc.nameId;
           this.editProductStatus = true;
           this.addClassifiedTemplate = true;
-          this.selectCategory(data.category);
+          this.selectCategory(data.doc.category);
+          console.log(data.doc.category);
           this.classifiedForm.patchValue({
             "name": data.doc.name,
             "category": data.doc.category,
@@ -2843,7 +2844,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           data.productList.map(function (d) {
             selectedProduct.push({
               "name": d.name,
-              "quantity": data.cart[d.name],
+              "quantity": data.cart[d.name.toLowerCase()],
               "price": d.price
             });
           });
@@ -2954,8 +2955,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function filterProductByCategory() {
           var _this14 = this;
 
-          console.log(this.setClassified);
-          console.log(this.allProductWithoutCategory);
           this.allProduct = JSON.parse(JSON.stringify(this.allProductWithoutCategory.filter(function (data) {
             return data.doc.category == _this14.setClassified;
           })));
@@ -2965,8 +2964,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function filterProductByCategoryAndSubCategory() {
           var _this15 = this;
 
-          console.log(this.setClassified);
-          console.log(this.subCategoryClassified);
           this.allProduct = JSON.parse(JSON.stringify(this.allProductWithoutCategory.filter(function (data) {
             return data.doc.category == _this15.setClassified && data.doc.subcategory == _this15.subCategoryClassified;
           })));
@@ -2974,8 +2971,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addToTopOffer",
         value: function addToTopOffer(val) {
-          console.log(val);
-
           if (val) {
             this.classifiedForm.patchValue({
               'category': 'category1'
@@ -2991,8 +2986,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               'subcategory': null
             });
           }
-
-          console.log(this.classifiedForm.value);
         }
       }]);
 
