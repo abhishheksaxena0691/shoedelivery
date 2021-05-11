@@ -236,6 +236,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           'Content-Type': "application/json",
           'Authorization': this.auth.getLogged()
         });
+        this.profileInfo = {};
       }
 
       _createClass(DashboardService, [{
@@ -349,6 +350,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.http.post(this.api.server + "verifyMobileNumber", data, {
             headers: this.headers
           });
+        }
+      }, {
+        key: "setProfileInfo",
+        value: function setProfileInfo(data) {
+          this.profileInfo = data;
+        }
+      }, {
+        key: "getProfileInfo",
+        value: function getProfileInfo() {
+          return this.profileInfo;
         }
       }]);
 

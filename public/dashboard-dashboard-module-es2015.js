@@ -129,6 +129,7 @@ let DashboardService = class DashboardService {
             'Content-Type': "application/json",
             'Authorization': this.auth.getLogged()
         });
+        this.profileInfo = {};
     }
     getProfInfo() {
         return this.http.get(this.api.server + "profile", { headers: this.headers });
@@ -177,6 +178,12 @@ let DashboardService = class DashboardService {
     }
     verifyRetailerMobileNumber(data) {
         return this.http.post(this.api.server + "verifyMobileNumber", data, { headers: this.headers });
+    }
+    setProfileInfo(data) {
+        this.profileInfo = data;
+    }
+    getProfileInfo() {
+        return this.profileInfo;
     }
 };
 DashboardService.ctorParameters = () => [
