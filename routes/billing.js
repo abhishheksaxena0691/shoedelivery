@@ -303,6 +303,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
             pdfData.deportment = req.body.companyName;
             pdfData.user = usrMobile[0];
             pdfData.genDate = new Date().toString();
+            pdfData.shipingAddress = req.body.shippingAddress;
 
             const pdf2pic = new PDF2Pic({
                 density: 100,
