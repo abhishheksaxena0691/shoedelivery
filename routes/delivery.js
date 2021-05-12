@@ -98,7 +98,16 @@ router.post('/api/delivery/updatedeliveryCredit', midWare.checkToken, (req, res,
 });
 router.post('/api/delivery/updateInvoiceStatus', midWare.checkToken, (req, res, next) => {
     console.log(req.body);
-    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {invoiceStatus: parseInt(req.body.status)}}, {returnOriginal: false}, (err, doc) => {
+    let key = "Packed";
+    if (parseInt(req.body.status) == 2) {
+        key = "Shipped";
+    } 
+    if (parseInt(req.body.status) == 3) {
+        key = "Delivered";
+    }
+    
+    
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {invoiceStatus: parseInt(req.body.status), key: new Date().getTime()}}, {returnOriginal: false}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
