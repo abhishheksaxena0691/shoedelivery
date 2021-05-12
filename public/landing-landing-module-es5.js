@@ -1297,8 +1297,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               "createdOn": new Date().getTime()
             }
           };
-          console.log(data);
-          return false;
           this.shop.reviewMerchant(data).subscribe(function () {
             if (_this9.profileData.comment != undefined) {
               _this9.profileData.comment.unshift({

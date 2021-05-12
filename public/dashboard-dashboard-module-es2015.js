@@ -544,6 +544,7 @@ let DashboardComponent = class DashboardComponent {
         }
         else {
             let formObj = this.deliveryFrm.getRawValue();
+            formObj[''];
             this.fetch.addDelivery(formObj).subscribe(res => {
                 this.dMsg = { msg: res, alert: 'alert-success' };
                 this.deliveryFrm.reset();

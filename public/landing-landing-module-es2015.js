@@ -801,8 +801,6 @@ let ShopkeeperprofileComponent = class ShopkeeperprofileComponent {
     }
     writeReview() {
         const data = { "parentId": this.profileData._id, "data": { "reveiw": this.reviewMerchant, "senderName": this.userProfile.fstName + ' ' + this.userProfile.lstName, "createdOn": new Date().getTime() } };
-        console.log(data);
-        return false;
         this.shop.reviewMerchant(data).subscribe(() => {
             if (this.profileData.comment != undefined) {
                 this.profileData.comment.unshift({ "reveiw": this.reviewMerchant, "senderName": this.userProfile.fstName + ' ' + this.userProfile.lstName, "createdOn": new Date().getTime() });
