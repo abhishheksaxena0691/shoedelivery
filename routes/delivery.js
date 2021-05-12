@@ -98,16 +98,16 @@ router.post('/api/delivery/updatedeliveryCredit', midWare.checkToken, (req, res,
 });
 router.post('/api/delivery/updateInvoiceStatus', midWare.checkToken, (req, res, next) => {
     console.log(req.body);
-    let key = "Packed";
-    if (parseInt(req.body.status) == 2) {
-        key = "Shipped";
-    } 
+     let key =  {invoiceStatus: parseInt(req.body.status), "Packed": new Date().getTime()};
     if (parseInt(req.body.status) == 3) {
-        key = "Delivered";
+         key = {invoiceStatus: parseInt(req.body.status), "Shipped": new Date().getTime()};
+    } 
+    if (parseInt(req.body.status) == 4) {
+         key = {invoiceStatus: parseInt(req.body.status), "Delivered": new Date().getTime()};
     }
     
     
-    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: {invoiceStatus: parseInt(req.body.status), key: new Date().getTime()}}, {returnOriginal: false}, (err, doc) => {
+    db.getDB().collection('delivery').findOneAndUpdate({_id: db.getPrimaryKey(req.body.billId)}, {$set: key}, {returnOriginal: false}, (err, doc) => {
         if(err) {
             res.status(410).jsonp(err);
             next(err);
