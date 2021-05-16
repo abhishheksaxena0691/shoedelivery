@@ -329,6 +329,7 @@ router.post('/api/bill/uploadGeneratedBills',  midWare.checkToken, (req, res, ne
                             paidBy: req.decoded.usrName,
                             usrNumber: req.decoded.mobile,
                             category: req.body.type,
+                            invoiceType: req.body.type == 'shop' ? true : false,
                             paymentMode: "",
                             payStatus: false,
                             createdOn: new Date().toString(),
