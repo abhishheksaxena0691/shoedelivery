@@ -430,16 +430,9 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Personal & Baby Care", images: "personalandbabycare.png", "type": "subCategorytype24" },
                 { "name": "Household Care", images: "householdcare.jpg", "type": "subCategorytype25" },
                 { "name": "Dairy & Eggs", images: "dairyandeggs.jpg", "type": "subCategorytype26" },
-                { "name": "Home & Kitchen", images: "homekitchen.jpg", "type": "subCategorytype27" }],
-            "category3": [
-                { "name": "Mobile less 5000", images: "mobile.jpg", "type": "subCategorytype31" },
-                { "name": "Mobile accessories", images: "mobile.jpg", "type": "subCategorytype32" },
-                { "name": "Mobile Less then 10000", images: "mobile.jpg", "type": "subCategorytype33" },
-                { "name": "Mobile Less then 15000", images: "mobile.jpg", "type": "subCategorytype34" },
-                { "name": "Mobile Price 15K -30K", images: "mobile.jpg", "type": "subCategorytype35" },
-                { "name": "Mobile Price 30000 - 50K", images: "mobile.jpg", "type": "subCategorytype36" },
-                { "name": "Mobile Price 50k and above", images: "mobile.jpg", "type": "subCategorytype37" }
-            ],
+                { "name": "Home & Kitchen", images: "homekitchen.jpg", "type": "subCategorytype27" },
+                { "name": "Fruits", images: "fruitvegetable.jpg", "type": "subCategorytype91" },
+                { "name": "Vegetable", images: "fruitvegetable.jpg", "type": "subCategorytype92" }],
             "category4": [{ "name": "Mens Top Wear", images: "menstopwear.jpg", "type": "subCategorytype41" },
                 { "name": "Mens Bottam Wear", images: "mensbottomwear.jpg", "type": "subCategorytype42" },
                 { "name": "Women Eiths", images: "womenethics.jpg", "type": "subCategorytype43" },
@@ -460,7 +453,20 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Storage", images: "storage.jpg", "type": "subCategorytype58" },
                 { "name": "Smart wearable", images: "smartwear.jpg", "type": "subCategorytype59" },
                 { "name": "Smart home automation", images: "smarthome.jpg", "type": "subCategorytype510" },
-                { "name": "Tablets and Accessories", images: "tabletaccesories.jpg", "type": "subCategorytype511" }
+                { "name": "Tablets and Accessories", images: "tabletaccesories.jpg", "type": "subCategorytype511" },
+                { "name": "Television", images: "tv.jpg", "type": "subCategorytype71" },
+                { "name": "Washing Mechine", images: "WashingMechine.jpg", "type": "subCategorytype72" },
+                { "name": "Air Conditioner", images: "aircondition.jpg", "type": "subCategorytype73" },
+                { "name": "Refrigerator", images: "refrigerator.jpg", "type": "subCategorytype74" },
+                { "name": "Kitchen Appliances", images: "kitchenappliances.jpg", "type": "subCategorytype75" },
+                { "name": "Home Appliances", images: "homeappliances.jpg", "type": "subCategorytype76" },
+                { "name": "Mobile less 5000", images: "mobile.jpg", "type": "subCategorytype31" },
+                { "name": "Mobile accessories", images: "mobile.jpg", "type": "subCategorytype32" },
+                { "name": "Mobile Less then 10000", images: "mobile.jpg", "type": "subCategorytype33" },
+                { "name": "Mobile Less then 15000", images: "mobile.jpg", "type": "subCategorytype34" },
+                { "name": "Mobile Price 15K -30K", images: "mobile.jpg", "type": "subCategorytype35" },
+                { "name": "Mobile Price 30000 - 50K", images: "mobile.jpg", "type": "subCategorytype36" },
+                { "name": "Mobile Price 50k and above", images: "mobile.jpg", "type": "subCategorytype37" }
             ],
             "category6": [{ "name": "Home Furnishing", images: "homefurniture.jpg", "type": "subCategorytype61" },
                 { "name": "Living room", images: "livingroom.jpg", "type": "subCategorytype62" },
@@ -471,14 +477,6 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Cleaning and Bath", images: "cleanbath.jpg", "type": "subCategorytype67" },
                 { "name": "Kids Furniture", images: "kidsroom.jpg", "type": "subCategorytype68" },
                 { "name": "Pets and gardening", images: "Petsandgardening.jpg", "type": "subCategorytype69" }
-            ],
-            "category7": [
-                { "name": "Television", images: "tv.jpg", "type": "subCategorytype71" },
-                { "name": "Washing Mechine", images: "WashingMechine.jpg", "type": "subCategorytype72" },
-                { "name": "Air Conditioner", images: "aircondition.jpg", "type": "subCategorytype73" },
-                { "name": "Refrigerator", images: "refrigerator.jpg", "type": "subCategorytype74" },
-                { "name": "Kitchen Appliances", images: "kitchenappliances.jpg", "type": "subCategorytype75" },
-                { "name": "Home Appliances", images: "homeappliances.jpg", "type": "subCategorytype76" }
             ],
             "category8": [
                 { "name": "Beauty and Personal care", images: "beautyandpersonal.jpg", "type": "subCategorytype81" },
@@ -492,8 +490,6 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Stationary & Office supplies", images: "StationeryOffice.jpg", "type": "subCategorytype89" },
                 { "name": "Saftey and Hygiene Essentials", images: "SafetyHygiene.jpg", "type": "subCategorytype810" }
             ],
-            "category9": [{ "name": "Fruits", images: "fruitvegetable.jpg", "type": "subCategorytype91" },
-                { "name": "Vegetable", images: "fruitvegetable.jpg", "type": "subCategorytype92" }],
             "category10": [{ "name": "Ayush", images: "Ayush.jpg", "type": "subCategorytype101" },
                 { "name": "Baby Essential", images: "BabyEssential.jpg", "type": "subCategorytype102" },
                 { "name": "Covid Essential", images: "CovidEssential.jpg", "type": "subCategorytype103" },
@@ -505,19 +501,55 @@ let AddproductComponent = class AddproductComponent {
                 { "name": "Medicine", images: "Lab_test.jpg", "type": "subCategorytype109" },
                 { "name": "Personal care", images: "Personalcare.jpg", "type": "subCategorytype110" },
                 { "name": "Surgical", images: "Surgical.jpg", "type": "subCategorytype111" },],
-            "category11": [{ "name": "Haire care", images: "Hairecare.jpg", "type": "subCategorytype201" },
+            "category11": [
+                { "name": "Haire care", images: "Hairecare.jpg", "type": "subCategorytype201" },
                 { "name": "Makeup", images: "makeup.jpg", "type": "subCategorytype202" },
                 { "name": "Massages", images: "Massages.jpg", "type": "subCategorytype203" },
                 { "name": "Pedicure & minicure", images: "Pedicure&minicure.jpg", "type": "subCategorytype204" },
                 { "name": "Skin care", images: "Skincare.jpg", "type": "subCategorytype205" },
-                { "name": "wax & Thread", images: "wax&Thread.jpg", "type": "subCategorytype206" }],
-            "category12": [{ "name": "car& bike service", images: "car&bikeservice.jpg", "type": "subCategorytype301" },
+                { "name": "wax & Thread", images: "wax&Thread.jpg", "type": "subCategorytype206" }
+            ],
+            "category12": [
+                { "name": "car& bike service", images: "car&bikeservice.jpg", "type": "subCategorytype301" },
                 { "name": "Electronics & Appliances", images: "Electronics&Appliances.jpg", "type": "subCategorytype302" },
                 { "name": "Home Clean", images: "homeclean.jpg", "type": "subCategorytype303" },
                 { "name": "Packers & Movers", images: "packers&MOvers.jpg", "type": "subCategorytype304" },
                 { "name": "Painting and interior", images: "paintingandinterior.jpg", "type": "subCategorytype305" },
                 { "name": "Pest Control", images: "pestControl.jpg", "type": "subCategorytype306" },
-                { "name": "Repair & Services", images: "Repair&Services.jpg", "type": "subCategorytype306" }],
+                { "name": "Repair & Services", images: "Repair&Services.jpg", "type": "subCategorytype306" }
+            ],
+            "category13": [
+                { "name": "Title Search", images: "TitalSearch.jpg", "type": "subCategorytype402" },
+                { "name": "Banking/Finance Matters", images: "Banking&Finance Matters.jpg", "type": "subCategorytype403" },
+                { "name": "Litigation Matters", images: "Litigation Matters.jpg", "type": "subCategorytype404" },
+                { "name": "Partition of Property", images: "Partition of Property.jpg", "type": "subCategorytype405" },
+                { "name": "Income Tax", images: "Income Tax.jpg", "type": "subCategorytype406" },
+                { "name": "Landlord Tenant Dispute", images: "Landlord Tenant Dispute.jpg", "type": "subCategorytype407" },
+                { "name": "Real Estate Service", images: "Real Estate Service.jpg", "type": "subCategorytype408" },
+                { "name": "Succession Certificate", images: "Succession Certificate.jpg", "type": "subCategorytype409" },
+                { "name": "Developer Claims", images: "Developer Claims.jpg", "type": "subCategorytype410" },
+                { "name": "Adverse Possession", images: "Adverse Possession.jpg", "type": "subCategorytype411" },
+                { "name": "Corporate Service Advisory", images: "Corporate Service Advisory.jpg", "type": "subCategorytype412" }
+            ],
+            "category14": [
+                { "name": "Civil Contractors", images: "Civil Contractors.jpg", "type": "subCategorytype502" },
+                { "name": "Construction Service", images: "Construction Service.jpg", "type": "subCategorytype503" },
+                { "name": "Road Construction", images: "Road Construction.jpg", "type": "subCategorytype504" },
+                { "name": "Civil Engineering Service", images: "Civil Engineering Service.jpg", "type": "subCategorytype505" },
+                { "name": "Surveying", images: "Surveying.jpg", "type": "subCategorytype506" },
+                { "name": "Piece Work", images: "Piece Work.jpg", "type": "subCategorytype507" },
+                { "name": "Civil Consulation", images: "Civil Consulation.jpg", "type": "subCategorytype508" },
+                { "name": "Carpentor", images: "Carpentor.jpg", "type": "subCategorytype509" },
+                { "name": "Hardware", images: "Hardware.jpg", "type": "subCategorytype510" }
+            ],
+            "category15": [
+                { "name": "State Board Tution", images: "State Board Tution.jpg", "type": "subCategorytype601" },
+                { "name": "Central Board Tution", images: "Central Board Tution.jpg", "type": "subCategorytype602" },
+                { "name": "Internation Board", images: "Internation Board.jpg", "type": "subCategorytype603" },
+                { "name": "Spoken Language", images: "Spoken Language.jpg", "type": "subCategorytype604" },
+                { "name": "Computer Language", images: "Computer Language.jpg", "type": "subCategorytype605" },
+                { "name": "Project Instructor", images: "Project Instructor.jpg", "type": "subCategorytype606" },
+            ]
         };
         this.classifiedListData = [];
         this.ShowMenu = true;
