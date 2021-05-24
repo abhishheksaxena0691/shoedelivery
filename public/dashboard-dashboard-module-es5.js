@@ -241,7 +241,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(DashboardService, [{
         key: "getProfInfo",
-        value: function getProfInfo() {
+        value: function getProfInfo(token) {
+          var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "profile", {
             headers: this.headers
           });
@@ -430,31 +434,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./../../guard/auth.service */
+    "./src/app/guard/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _dashboard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../dashboard.service */
     "./src/app/dashboard/dashboard.service.ts");
     /* harmony import */
 
 
-    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ngx-bootstrap/modal */
     "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var _shared_filter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_filter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ../../shared/filter.service */
     "./src/app/shared/filter.service.ts");
 
@@ -462,13 +472,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ;
 
     var DashboardComponent = /*#__PURE__*/function () {
-      function DashboardComponent(formBuilder, fetch, modalService, filterSrv) {
+      function DashboardComponent(formBuilder, fetch, modalService, filterSrv, auth) {
         _classCallCheck(this, DashboardComponent);
 
         this.formBuilder = formBuilder;
         this.fetch = fetch;
         this.modalService = modalService;
         this.filterSrv = filterSrv;
+        this.auth = auth;
         this.dSubmit = false;
         this.dBtm = false;
         this.popBill = false;
@@ -502,9 +513,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {
           this.deliveryFrm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            payMode: ['Net Banking', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            payMode: ['Net Banking', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
           });
           this.getMonthData();
           this.getSponsor();
@@ -684,7 +695,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getProfileInfo() {
           var _this6 = this;
 
-          this.fetch.getProfInfo().subscribe(function (res) {
+          this.fetch.getProfInfo(this.auth.getLogged()).subscribe(function (res) {
             _this6.profInfo = res;
           }, function (err) {
             _this6.pgMsg = {
@@ -971,17 +982,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     DashboardComponent.ctorParameters = function () {
       return [{
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
       }, {
-        type: _dashboard_service__WEBPACK_IMPORTED_MODULE_2__["DashboardService"]
+        type: _dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"]
       }, {
-        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"]
+        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["BsModalService"]
       }, {
-        type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_5__["FilterService"]
+        type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_6__["FilterService"]
+      }, {
+        type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
       }];
     };
 
-    DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
       selector: 'app-dashboard',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./dashboard.component.html */

@@ -1122,23 +1122,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "sendToken",
         value: function sendToken(token, usrFNm, companyName, domain, userType) {
           console.log(this.platformId);
-
-          if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
-            localStorage.setItem("shoeRetailUsr", token);
-            localStorage.setItem("shoeRetailUsrNm", usrFNm);
-            localStorage.setItem("userType", userType);
-            localStorage.setItem('companyName', companyName);
-            localStorage.setItem('domain', domain);
-          }
+          localStorage.removeItem("shoeRetailUsr");
+          localStorage.removeItem("shoeRetailUsrNm");
+          localStorage.setItem("shoeRetailUsr", token);
+          localStorage.setItem("shoeRetailUsrNm", usrFNm);
+          localStorage.setItem("userType", userType);
+          localStorage.setItem('companyName', companyName);
+          localStorage.setItem('domain', domain);
         }
       }, {
         key: "getLogged",
         value: function getLogged() {
-          if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
-            return localStorage.getItem("shoeRetailUsr");
-          } else {
-            return null;
-          }
+          return localStorage.getItem("shoeRetailUsr");
         }
       }, {
         key: "isLoggedIn",
@@ -1172,11 +1167,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "logout",
         value: function logout() {
-          if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["isPlatformBrowser"])(this.platformId)) {
-            localStorage.removeItem("shoeRetailUsr");
-            localStorage.removeItem("shoeRetailUsrNm");
-          }
-
+          localStorage.removeItem("shoeRetailUsr");
+          localStorage.removeItem("shoeRetailUsrNm");
+          console.log("hello");
           this.route.navigate(["/"]);
         }
       }]);

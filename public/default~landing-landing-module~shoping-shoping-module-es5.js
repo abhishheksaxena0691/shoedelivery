@@ -4079,7 +4079,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
       _createClass(DashboardService, [{
         key: "getProfInfo",
-        value: function getProfInfo() {
+        value: function getProfInfo(token) {
+          var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "profile", {
             headers: this.headers
           });

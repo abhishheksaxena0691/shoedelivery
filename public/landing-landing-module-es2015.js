@@ -290,8 +290,10 @@ let LoginPgComponent = class LoginPgComponent {
                 this.auth.sendToken(data.token, data.usrName, data.companyName, data.domainNme, this.logFrm.value.userType);
                 this.logMsg = { msg: "Login successfully!", alert: 'alert-success' };
                 this.logBtm = false;
+                const uType = this.logFrm.value.userType;
+                this.logFrm.reset();
                 setTimeout(() => {
-                    if (parseInt(this.logFrm.value.userType) === 1) {
+                    if (parseInt(uType) === 1) {
                         this.route.navigate(["/dealer/dashboard"]);
                         this.logFrm.reset();
                     }

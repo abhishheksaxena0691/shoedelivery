@@ -131,7 +131,11 @@ let DashboardService = class DashboardService {
         });
         this.profileInfo = {};
     }
-    getProfInfo() {
+    getProfInfo(token) {
+        const duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+        });
         return this.http.get(this.api.server + "profile", { headers: this.headers });
     }
     getAllBill(month, year) {
@@ -225,11 +229,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _dashboard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
+/* harmony import */ var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../guard/auth.service */ "./src/app/guard/auth.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
+
 
 
 
@@ -239,11 +245,12 @@ __webpack_require__.r(__webpack_exports__);
 ;
 ;
 let DashboardComponent = class DashboardComponent {
-    constructor(formBuilder, fetch, modalService, filterSrv) {
+    constructor(formBuilder, fetch, modalService, filterSrv, auth) {
         this.formBuilder = formBuilder;
         this.fetch = fetch;
         this.modalService = modalService;
         this.filterSrv = filterSrv;
+        this.auth = auth;
         this.dSubmit = false;
         this.dBtm = false;
         this.popBill = false;
@@ -274,9 +281,9 @@ let DashboardComponent = class DashboardComponent {
     }
     ngOnInit() {
         this.deliveryFrm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            payMode: ['Net Banking', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            payMode: ['Net Banking', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
         });
         this.getMonthData();
         this.getSponsor();
@@ -396,7 +403,7 @@ let DashboardComponent = class DashboardComponent {
             this.billDData = this.sectorDataList.filter(e => e.billDetails.title.toLowerCase().includes(this.selectBrand.toLowerCase()));
     }
     getProfileInfo() {
-        this.fetch.getProfInfo().subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
+        this.fetch.getProfInfo(this.auth.getLogged()).subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
     }
     getMonthData() {
         this.fetch.getAllBill(this.filterSrv.lastNine.getMonth() + 1, this.filterSrv.lastNine.getFullYear()).subscribe(res => {
@@ -564,13 +571,14 @@ let DashboardComponent = class DashboardComponent {
     }
 };
 DashboardComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: _dashboard_service__WEBPACK_IMPORTED_MODULE_2__["DashboardService"] },
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] },
-    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_5__["FilterService"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
+    { type: _dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"] },
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_4__["BsModalService"] },
+    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_6__["FilterService"] },
+    { type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] }
 ];
 DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-dashboard',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./dashboard.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard/dashboard.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/dashboard/dashboard/dashboard.component.scss")).default]

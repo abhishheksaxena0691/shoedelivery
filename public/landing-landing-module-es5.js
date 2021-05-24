@@ -505,8 +505,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 alert: 'alert-success'
               };
               _this.logBtm = false;
+              var uType = _this.logFrm.value.userType;
+
+              _this.logFrm.reset();
+
               setTimeout(function () {
-                if (parseInt(_this.logFrm.value.userType) === 1) {
+                if (parseInt(uType) === 1) {
                   _this.route.navigate(["/dealer/dashboard"]);
 
                   _this.logFrm.reset();

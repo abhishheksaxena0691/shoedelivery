@@ -1776,7 +1776,11 @@ let DashboardService = class DashboardService {
         });
         this.profileInfo = {};
     }
-    getProfInfo() {
+    getProfInfo(token) {
+        const duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+        });
         return this.http.get(this.api.server + "profile", { headers: this.headers });
     }
     getAllBill(month, year) {

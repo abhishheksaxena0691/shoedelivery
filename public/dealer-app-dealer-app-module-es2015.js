@@ -1173,7 +1173,11 @@ let DashboardService = class DashboardService {
         });
         this.profileInfo = {};
     }
-    getProfInfo() {
+    getProfInfo(token) {
+        const duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+        });
         return this.http.get(this.api.server + "profile", { headers: this.headers });
     }
     getAllBill(month, year) {
@@ -1557,7 +1561,7 @@ let DealerDashboadComponent = class DealerDashboadComponent {
         }
     }
     getProfileInfo() {
-        this.fetch.getProfInfo().subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
+        this.fetch.getProfInfo(this.authService.getLogged()).subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
     }
     getMonthData(sectionType) {
         this.billDData = [];
@@ -1963,15 +1967,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealerDeliveryPgComponent", function() { return DealerDeliveryPgComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
-/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../guard/auth.service */ "./src/app/guard/auth.service.ts");
+/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
+/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -1984,12 +1990,13 @@ __webpack_require__.r(__webpack_exports__);
 ;
 ;
 let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
-    constructor(formBuilder, fetch, modalService, filterSrv, deliveryService) {
+    constructor(formBuilder, fetch, modalService, filterSrv, deliveryService, authService) {
         this.formBuilder = formBuilder;
         this.fetch = fetch;
         this.modalService = modalService;
         this.filterSrv = filterSrv;
         this.deliveryService = deliveryService;
+        this.authService = authService;
         this.paid = true;
         this.dSubmit = false;
         this.dBtm = false;
@@ -2016,7 +2023,7 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
         this.col4Data = [];
         this.col3Data = [];
         this.productList = [];
-        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
+        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         this.loadingProduct = false;
         this.selectedProduct = [];
         this.cash = 0;
@@ -2033,7 +2040,7 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
         this.cOptions = this.filterSrv.cOptions;
         this.groupedData = [];
         this.productChange
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])())
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["distinctUntilChanged"])())
             .subscribe((value) => {
             console.log(value);
             this.productList = [];
@@ -2048,12 +2055,12 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
     }
     ngOnInit() {
         this.paymentForm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.invoicStatus = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            status: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            status: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.getMonthData();
         this.getProfileInfo();
@@ -2123,7 +2130,7 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
         }
     }
     getProfileInfo() {
-        this.fetch.getProfInfo().subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
+        this.fetch.getProfInfo(this.authService.getLogged()).subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
     }
     getMonthData() {
         this.monthData = [];
@@ -2416,14 +2423,15 @@ let DealerDeliveryPgComponent = class DealerDeliveryPgComponent {
     }
 };
 DealerDeliveryPgComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
-    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"] },
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__["BsModalService"] },
-    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__["FilterService"] },
-    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
+    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__["DashboardService"] },
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] },
+    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__["FilterService"] },
+    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__["DeliveryService"] },
+    { type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] }
 ];
 DealerDeliveryPgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
         selector: 'app-dealer-delivery-pg',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./dealer-delivery-pg.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/dealer-app/dealer-delivery-pg/dealer-delivery-pg.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dealer-delivery-pg.component.scss */ "./src/app/dealer-app/dealer-delivery-pg/dealer-delivery-pg.component.scss")).default]
@@ -2458,15 +2466,17 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoveToCreditComponent", function() { return MoveToCreditComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
-/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
-/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../guard/auth.service */ "./src/app/guard/auth.service.ts");
+/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/filter.service */ "./src/app/shared/filter.service.ts");
+/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/internal/Subject */ "./node_modules/rxjs/internal/Subject.js");
+/* harmony import */ var rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -2479,12 +2489,13 @@ __webpack_require__.r(__webpack_exports__);
 ;
 ;
 let MoveToCreditComponent = class MoveToCreditComponent {
-    constructor(formBuilder, fetch, modalService, filterSrv, deliveryService) {
+    constructor(formBuilder, fetch, modalService, filterSrv, deliveryService, authService) {
         this.formBuilder = formBuilder;
         this.fetch = fetch;
         this.modalService = modalService;
         this.filterSrv = filterSrv;
         this.deliveryService = deliveryService;
+        this.authService = authService;
         this.paid = true;
         this.dSubmit = false;
         this.dBtm = false;
@@ -2511,7 +2522,7 @@ let MoveToCreditComponent = class MoveToCreditComponent {
         this.col4Data = [];
         this.col3Data = [];
         this.productList = [];
-        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
+        this.productChange = new rxjs_internal_Subject__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         this.loadingProduct = false;
         this.selectedProduct = [];
         this.cash = 0;
@@ -2526,7 +2537,7 @@ let MoveToCreditComponent = class MoveToCreditComponent {
         this.cOptions = this.filterSrv.cOptions;
         this.groupedData = [];
         this.productChange
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])())
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["debounceTime"])(900), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["distinctUntilChanged"])())
             .subscribe((value) => {
             console.log(value);
             this.productList = [];
@@ -2541,16 +2552,16 @@ let MoveToCreditComponent = class MoveToCreditComponent {
     }
     ngOnInit() {
         this.paymentForm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.deliveryFrm = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            address: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            payMode: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.movetocredit = this.formBuilder.group({
-            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            billId: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.getMonthData();
         this.getProfileInfo();
@@ -2620,7 +2631,7 @@ let MoveToCreditComponent = class MoveToCreditComponent {
         }
     }
     getProfileInfo() {
-        this.fetch.getProfInfo().subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
+        this.fetch.getProfInfo(this.authService.getLogged()).subscribe(res => { this.profInfo = res; }, err => { this.pgMsg = { msg: err.error, alert: 'alert-danger' }; });
     }
     getMonthData() {
         this.monthData = [];
@@ -2880,14 +2891,15 @@ let MoveToCreditComponent = class MoveToCreditComponent {
     }
 };
 MoveToCreditComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
-    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"] },
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__["BsModalService"] },
-    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_3__["FilterService"] },
-    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
+    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_5__["DashboardService"] },
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["BsModalService"] },
+    { type: _shared_filter_service__WEBPACK_IMPORTED_MODULE_4__["FilterService"] },
+    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__["DeliveryService"] },
+    { type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] }
 ];
 MoveToCreditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["Component"])({
         selector: 'app-move-to-credit',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./move-to-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/dealer-app/move-to-credit/move-to-credit.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./move-to-credit.component.scss */ "./src/app/dealer-app/move-to-credit/move-to-credit.component.scss")).default]
