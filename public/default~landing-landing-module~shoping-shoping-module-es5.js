@@ -4330,9 +4330,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "getAllProduct",
-        value: function getAllProduct(data) {
+        value: function getAllProduct(data, token) {
+          var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.delear + "api/product/allProduct", data, {
-            headers: this.headers
+            headers: duplicateHeader
           });
         }
       }, {
@@ -4344,9 +4348,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "myorder",
-        value: function myorder() {
+        value: function myorder(token) {
+          var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + 'product/myOrder', {
-            headers: this.headers
+            headers: duplicateHeader
           });
         }
       }, {

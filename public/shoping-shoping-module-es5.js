@@ -382,76 +382,82 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./../../guard/auth.service */
+    "./src/app/guard/auth.service.ts");
+    /* harmony import */
+
+
+    var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./../../delivery/delivery.service */
     "./src/app/delivery/delivery.service.ts");
     /* harmony import */
 
 
-    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./../../shared/api-link.service */
     "./src/app/shared/api-link.service.ts");
     /* harmony import */
 
 
-    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./../../dashboard/dashboard.service */
     "./src/app/dashboard/dashboard.service.ts");
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ngx-bootstrap/modal */
     "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
     /* harmony import */
 
 
-    var _shoping_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _shoping_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../shoping.service */
     "./src/app/shoping/shoping.service.ts");
     /* harmony import */
 
 
-    var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! sweetalert2/src/sweetalert2.scss */
     "./node_modules/sweetalert2/src/sweetalert2.scss");
     /* harmony import */
 
 
-    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! sweetalert2/dist/sweetalert2.all.min.js */
     "./node_modules/sweetalert2/dist/sweetalert2.all.min.js");
     /* harmony import */
 
 
-    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__);
+    var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10__);
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var AddproductComponent = /*#__PURE__*/function () {
-      function AddproductComponent(formBuilder, modalService, fetch, dasboard, api, deliveryService) {
+      function AddproductComponent(formBuilder, modalService, fetch, dasboard, api, deliveryService, auth) {
         _classCallCheck(this, AddproductComponent);
 
         this.formBuilder = formBuilder;
@@ -460,6 +466,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.dasboard = dasboard;
         this.api = api;
         this.deliveryService = deliveryService;
+        this.auth = auth;
         this.addClassifiedTemplate = false;
         this.uFrm = new FormData();
         this.selectedFile = "";
@@ -1015,16 +1022,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.getProfileInfo();
           this.classifiedForm = this.formBuilder.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             keyFeatureOne: [''],
             keyFeatureTwo: [''],
             keyFeatureThree: [''],
-            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
           });
           this.myproduct(false);
         }
@@ -1056,7 +1063,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this2.uFrmvideo = new FormData();
               _this2.uploadedVideo = _this2.selectedFile;
-              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: "Uploaded successfully.",
                 text: "",
                 icon: 'success',
@@ -1138,7 +1145,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this4.classifiedForm.reset();
 
               _this4.fileNames = [];
-              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+              sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: msg,
                 text: "",
                 icon: "success"
@@ -1154,7 +1161,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
             } else {}
           }, function (error) {
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
               title: "Product Already exit.",
               text: "",
               icon: 'warning',
@@ -1206,7 +1213,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.loadingTrue = true;
           this.fetch.getAllProduct({
             "number": this.profInfo.mobileNo
-          }).subscribe(function (data) {
+          }, this.auth.getLogged()).subscribe(function (data) {
             _this6.loadingTrue = false;
             _this6.allProductWithoutCategory = data;
 
@@ -1296,7 +1303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function deleteProduct(id, index) {
           var _this7 = this;
 
-          sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+          sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
             title: "Delete Product",
             text: "Are you sure you want to delete.",
             icon: "warning",
@@ -1310,7 +1317,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }).subscribe(function (data) {
                 _this7.allProduct.splice(index, 1);
 
-                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                   title: "Deleted Successfullt",
                   text: "",
                   icon: "success"
@@ -1327,7 +1334,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.myOrderStatus = true;
           this.currentTab = 1;
           this.orderLoading = true;
-          this.fetch.myorder().subscribe(function (data) {
+          this.fetch.myorder(this.auth.getLogged()).subscribe(function (data) {
             _this8.allOrderList = JSON.parse(JSON.stringify(data));
             _this8.orderLoading = false; // console.log(this.allOrderList);
             // this.orderList = this.allOrderList.filter((d:any) => d.status == 'open');
@@ -1361,7 +1368,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.fetch.acceptedInvoice(data).subscribe(function (data) {
             _this9.orderList[j].values[index].status = type;
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
               title: "Updated successfully.",
               text: "",
               icon: 'success',
@@ -1389,18 +1396,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           }
 
-          var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["from"])(currentOrderData);
-          source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["groupBy"])(function (person) {
+          var source = Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["from"])(currentOrderData);
+          source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["groupBy"])(function (person) {
             return person.orderId;
-          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["mergeMap"])(function (group) {
-            return group.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["reduce"])(function (acc, cur) {
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["mergeMap"])(function (group) {
+            return group.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["reduce"])(function (acc, cur) {
               acc.values.push(cur);
               return acc;
             }, {
               orderId: group.key,
               values: []
             }));
-          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["toArray"])()).subscribe(function (val) {
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["toArray"])()).subscribe(function (val) {
             _this10.orderList = val;
             console.log(_this10.orderList);
           });
@@ -1432,7 +1439,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.fetch.InvoiceSend(requestData).subscribe(function () {
             _this11.orderList[j].values[index].status = type;
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
               title: "Updated successfully.",
               text: "",
               icon: 'success',
@@ -1474,7 +1481,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _this12.orderList[j].values[index]['discount'] = _this12.discount;
             });
           } else {
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
               title: "Discount shoud not be greater than total amount",
               text: "",
               icon: 'warning',
@@ -1573,21 +1580,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AddproductComponent.ctorParameters = function () {
       return [{
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
       }, {
-        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]
+        type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__["BsModalService"]
       }, {
-        type: _shoping_service__WEBPACK_IMPORTED_MODULE_7__["ShopingService"]
+        type: _shoping_service__WEBPACK_IMPORTED_MODULE_8__["ShopingService"]
       }, {
-        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"]
+        type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"]
       }, {
-        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__["ApiLinkService"]
+        type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__["ApiLinkService"]
       }, {
-        type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"]
+        type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__["DeliveryService"]
+      }, {
+        type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]
       }];
     };
 
-    AddproductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+    AddproductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
       selector: 'app-addproduct',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./addproduct.component.html */

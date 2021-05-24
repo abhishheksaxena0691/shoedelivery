@@ -293,18 +293,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddproductComponent", function() { return AddproductComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
-/* harmony import */ var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../shared/api-link.service */ "./src/app/shared/api-link.service.ts");
-/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var _shoping_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shoping.service */ "./src/app/shoping/shoping.service.ts");
-/* harmony import */ var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweetalert2/src/sweetalert2.scss */ "./node_modules/sweetalert2/src/sweetalert2.scss");
-/* harmony import */ var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.all.min.js */ "./node_modules/sweetalert2/dist/sweetalert2.all.min.js");
-/* harmony import */ var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../guard/auth.service */ "./src/app/guard/auth.service.ts");
+/* harmony import */ var _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../delivery/delivery.service */ "./src/app/delivery/delivery.service.ts");
+/* harmony import */ var _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../shared/api-link.service */ "./src/app/shared/api-link.service.ts");
+/* harmony import */ var _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../dashboard/dashboard.service */ "./src/app/dashboard/dashboard.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var _shoping_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shoping.service */ "./src/app/shoping/shoping.service.ts");
+/* harmony import */ var sweetalert2_src_sweetalert2_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweetalert2/src/sweetalert2.scss */ "./node_modules/sweetalert2/src/sweetalert2.scss");
+/* harmony import */ var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! sweetalert2/dist/sweetalert2.all.min.js */ "./node_modules/sweetalert2/dist/sweetalert2.all.min.js");
+/* harmony import */ var sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -318,13 +320,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddproductComponent = class AddproductComponent {
-    constructor(formBuilder, modalService, fetch, dasboard, api, deliveryService) {
+    constructor(formBuilder, modalService, fetch, dasboard, api, deliveryService, auth) {
         this.formBuilder = formBuilder;
         this.modalService = modalService;
         this.fetch = fetch;
         this.dasboard = dasboard;
         this.api = api;
         this.deliveryService = deliveryService;
+        this.auth = auth;
         this.addClassifiedTemplate = false;
         this.uFrm = new FormData();
         this.selectedFile = "";
@@ -561,16 +564,16 @@ let AddproductComponent = class AddproductComponent {
         }
         this.getProfileInfo();
         this.classifiedForm = this.formBuilder.group({
-            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+            name: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            subcategory: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            price: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            quantity: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             keyFeatureOne: [''],
             keyFeatureTwo: [''],
             keyFeatureThree: [''],
-            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+            brand: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]
         });
         this.myproduct(false);
     }
@@ -591,7 +594,7 @@ let AddproductComponent = class AddproductComponent {
                 this.modalRef.hide();
                 this.uFrmvideo = new FormData();
                 this.uploadedVideo = this.selectedFile;
-                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                     title: "Uploaded successfully.",
                     text: "",
                     icon: 'success',
@@ -653,7 +656,7 @@ let AddproductComponent = class AddproductComponent {
             if (data1.status != 410) {
                 this.classifiedForm.reset();
                 this.fileNames = [];
-                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+                sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                     title: msg,
                     text: "",
                     icon: "success"
@@ -672,7 +675,7 @@ let AddproductComponent = class AddproductComponent {
             else {
             }
         }, (error) => {
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: "Product Already exit.",
                 text: "",
                 icon: 'warning',
@@ -709,7 +712,7 @@ let AddproductComponent = class AddproductComponent {
     }
     getMyProduct() {
         this.loadingTrue = true;
-        this.fetch.getAllProduct({ "number": this.profInfo.mobileNo }).subscribe((data) => {
+        this.fetch.getAllProduct({ "number": this.profInfo.mobileNo }, this.auth.getLogged()).subscribe((data) => {
             this.loadingTrue = false;
             this.allProductWithoutCategory = data;
             this.filterProductByCategory();
@@ -773,7 +776,7 @@ let AddproductComponent = class AddproductComponent {
         this.setCurrentIndexImage = index;
     }
     deleteProduct(id, index) {
-        sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+        sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
             title: "Delete Product",
             text: "Are you sure you want to delete.",
             icon: "warning",
@@ -784,7 +787,7 @@ let AddproductComponent = class AddproductComponent {
             if (isConfirm.isConfirmed) {
                 this.fetch.delProduct({ id: id }).subscribe((data) => {
                     this.allProduct.splice(index, 1);
-                    sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+                    sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                         title: "Deleted Successfullt",
                         text: "",
                         icon: "success"
@@ -797,7 +800,7 @@ let AddproductComponent = class AddproductComponent {
         this.myOrderStatus = true;
         this.currentTab = 1;
         this.orderLoading = true;
-        this.fetch.myorder().subscribe((data) => {
+        this.fetch.myorder(this.auth.getLogged()).subscribe((data) => {
             this.allOrderList = JSON.parse(JSON.stringify(data));
             this.orderLoading = false;
             // console.log(this.allOrderList);
@@ -813,7 +816,7 @@ let AddproductComponent = class AddproductComponent {
         }
         this.fetch.acceptedInvoice(data).subscribe((data) => {
             this.orderList[j].values[index].status = type;
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: "Updated successfully.",
                 text: "",
                 icon: 'success',
@@ -832,12 +835,12 @@ let AddproductComponent = class AddproductComponent {
         else {
             currentOrderData = this.allOrderList.filter((d) => d.status == val);
         }
-        const source = Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["from"])(currentOrderData);
-        source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["groupBy"])((person) => person.orderId), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["mergeMap"])(group => group
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["reduce"])((acc, cur) => {
+        const source = Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["from"])(currentOrderData);
+        source.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["groupBy"])((person) => person.orderId), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["mergeMap"])(group => group
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["reduce"])((acc, cur) => {
             acc.values.push(cur);
             return acc;
-        }, { orderId: group.key, values: [] }))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["toArray"])()).subscribe(val => {
+        }, { orderId: group.key, values: [] }))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["toArray"])()).subscribe(val => {
             this.orderList = val;
             console.log(this.orderList);
         });
@@ -853,7 +856,7 @@ let AddproductComponent = class AddproductComponent {
         const requestData = { "id": data._id, "value": { status: type }, "data": data };
         this.fetch.InvoiceSend(requestData).subscribe(() => {
             this.orderList[j].values[index].status = type;
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: "Updated successfully.",
                 text: "",
                 icon: 'success',
@@ -881,7 +884,7 @@ let AddproductComponent = class AddproductComponent {
             });
         }
         else {
-            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
+            sweetalert2_dist_sweetalert2_all_min_js__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
                 title: "Discount shoud not be greater than total amount",
                 text: "",
                 icon: 'warning',
@@ -937,15 +940,16 @@ let AddproductComponent = class AddproductComponent {
     }
 };
 AddproductComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"] },
-    { type: _shoping_service__WEBPACK_IMPORTED_MODULE_7__["ShopingService"] },
-    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_3__["DashboardService"] },
-    { type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_2__["ApiLinkService"] },
-    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_1__["DeliveryService"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_7__["BsModalService"] },
+    { type: _shoping_service__WEBPACK_IMPORTED_MODULE_8__["ShopingService"] },
+    { type: _dashboard_dashboard_service__WEBPACK_IMPORTED_MODULE_4__["DashboardService"] },
+    { type: _shared_api_link_service__WEBPACK_IMPORTED_MODULE_3__["ApiLinkService"] },
+    { type: _delivery_delivery_service__WEBPACK_IMPORTED_MODULE_2__["DeliveryService"] },
+    { type: _guard_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] }
 ];
 AddproductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-addproduct',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./addproduct.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shoping/addproduct/addproduct.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./addproduct.component.scss */ "./src/app/shoping/addproduct/addproduct.component.scss")).default]

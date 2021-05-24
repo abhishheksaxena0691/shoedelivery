@@ -1899,14 +1899,22 @@ let ShopingService = class ShopingService {
     addProduct(data, url) {
         return this.http.post(this.api.server + url, data, { headers: this.headers });
     }
-    getAllProduct(data) {
-        return this.http.post(this.api.delear + "api/product/allProduct", data, { headers: this.headers });
+    getAllProduct(data, token) {
+        const duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+        });
+        return this.http.post(this.api.delear + "api/product/allProduct", data, { headers: duplicateHeader });
     }
     delProduct(data) {
         return this.http.post(this.api.server + 'product/deleteProduct', data, { headers: this.headers });
     }
-    myorder() {
-        return this.http.get(this.api.server + 'product/myOrder', { headers: this.headers });
+    myorder(token) {
+        const duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+        });
+        return this.http.get(this.api.server + 'product/myOrder', { headers: duplicateHeader });
     }
     acceptedInvoice(data) {
         return this.http.post(this.api.server + 'product/updateStatus', data, { headers: this.headers });
