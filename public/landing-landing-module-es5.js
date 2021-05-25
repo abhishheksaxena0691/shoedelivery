@@ -496,7 +496,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var formObj = this.logFrm.getRawValue();
             this.fetch.logUsr(formObj).subscribe(function (res) {
               console.log(res);
-              var data = res;
+              var data = JSON.parse(JSON.stringify(res));
 
               _this.auth.sendToken(data.token, data.usrName, data.companyName, data.domainNme, _this.logFrm.value.userType);
 

@@ -286,7 +286,7 @@ let LoginPgComponent = class LoginPgComponent {
             let formObj = this.logFrm.getRawValue();
             this.fetch.logUsr(formObj).subscribe(res => {
                 console.log(res);
-                const data = res;
+                const data = JSON.parse(JSON.stringify(res));
                 this.auth.sendToken(data.token, data.usrName, data.companyName, data.domainNme, this.logFrm.value.userType);
                 this.logMsg = { msg: "Login successfully!", alert: 'alert-success' };
                 this.logBtm = false;

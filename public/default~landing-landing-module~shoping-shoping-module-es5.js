@@ -4080,117 +4080,193 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DashboardService, [{
         key: "getProfInfo",
         value: function getProfInfo(token) {
+          console.log(token);
           var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
             'Content-Type': "application/json",
             'Authorization': token
           });
           return this.http.get(this.api.server + "profile", {
-            headers: this.headers
+            headers: duplicateHeader
           });
         }
       }, {
         key: "getAllBill",
         value: function getAllBill(month, year) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "bill/" + month + "/" + year, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getSponsor",
         value: function getSponsor() {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "sponsor", {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "addSponsor",
         value: function addSponsor(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "sponsor/bill", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getPayee",
         value: function getPayee() {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "payee", {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "addDelivery",
         value: function addDelivery(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getPayeeBill",
         value: function getPayeeBill() {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "payee/bill", {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getSponsorBill",
         value: function getSponsorBill() {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "sponsor/bill", {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getUploadBill",
         value: function getUploadBill() {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "bill-info", {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "getProductList",
         value: function getProductList(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "product/getProductList", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "createNewInvoice",
         value: function createNewInvoice(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "bill/generateDealerBill", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "generateImageNewInvoice",
         value: function generateImageNewInvoice(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "bill/generateDealerBill", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "updateDeleiveryInoice",
         value: function updateDeleiveryInoice(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery/updatedeliveryCredit", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "updateCreditInvoice",
         value: function updateCreditInvoice(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery/updatedeliveryCredit", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "updateInvoiceStatus",
         value: function updateInvoiceStatus(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery/updateInvoiceStatus", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "verifyRetailerMobileNumber",
         value: function verifyRetailerMobileNumber(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "verifyMobileNumber", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
@@ -4281,11 +4357,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.http = http;
         this.api = api;
         this.auth = auth;
-        this.serverPath = this.api.srvLink;
-        this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-          'Content-Type': "application/json",
-          'Authorization': this.auth.getLogged()
-        });
+        this.serverPath = this.api.srvLink; // headers = new HttpHeaders({
+        //   'Content-Type': "application/json",
+        //   'Authorization': this.auth.getLogged()
+        // });
+
         this.upHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
           'Authorization': this.auth.getLogged()
         });
@@ -4300,7 +4376,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ShopingService, [{
         key: "uploadImg",
         value: function uploadImg(data) {
-          console.log(data);
           return this.http.post(this.api.delear + "api/comunication/image", data, {
             headers: this.upHeaders1,
             reportProgress: true,
@@ -4327,14 +4402,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "addProduct",
-        value: function addProduct(data, url) {
+        value: function addProduct(data, url, token) {
+          var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + url, data, {
-            headers: this.headers
+            headers: duplicateHeader
           });
         }
       }, {
         key: "getAllProduct",
         value: function getAllProduct(data, token) {
+          console.log(token);
           var duplicateHeader = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
             'Content-Type': "application/json",
             'Authorization': token
@@ -4346,8 +4426,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "delProduct",
         value: function delProduct(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + 'product/deleteProduct', data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
@@ -4364,15 +4449,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "acceptedInvoice",
         value: function acceptedInvoice(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + 'product/updateStatus', data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "InvoiceSend",
         value: function InvoiceSend(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + 'product/InvoiceSend', data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
@@ -4385,15 +4480,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateDiscount",
         value: function updateDiscount(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + 'addDiscount', data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }, {
         key: "reviewMerchant",
         value: function reviewMerchant(data) {
+          var token = this.auth.getLogged();
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "product/writeMerchantReview", data, {
-            headers: this.headers
+            headers: headers
           });
         }
       }]);
