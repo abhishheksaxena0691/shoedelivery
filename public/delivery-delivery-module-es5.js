@@ -483,29 +483,49 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DeliveryService, [{
         key: "getAllDelivery",
         value: function getAllDelivery() {
+          var token = this.auth.getLogged();
+          var dupheaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.get(this.api.server + "delivery/all", {
-            headers: this.headers
+            headers: dupheaders
           });
         }
       }, {
         key: "updatepaymentMode",
         value: function updatepaymentMode(data) {
+          var token = this.auth.getLogged();
+          var dupheaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery/updatePaymentMode", data, {
-            headers: this.headers
+            headers: dupheaders
           });
         }
       }, {
         key: "generateImageNewInvoice",
         value: function generateImageNewInvoice(data) {
+          var token = this.auth.getLogged();
+          var dupheaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "bill/uploadGeneratedBills", data, {
-            headers: this.headers
+            headers: dupheaders
           });
         }
       }, {
         key: "moveToDelivery",
         value: function moveToDelivery(data) {
+          var token = this.auth.getLogged();
+          var dupheaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': "application/json",
+            'Authorization': token
+          });
           return this.http.post(this.api.server + "delivery/moveToDelivery", data, {
-            headers: this.headers
+            headers: dupheaders
           });
         }
       }]);
